@@ -530,6 +530,267 @@ pre {
     font-weight: 600;
 }
 
+.content-placeholder-note {
+    margin: 0.6rem 0 0;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.hero-role {
+    margin: 0.35rem 0 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero-scope {
+    margin: 0.4rem 0 0;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.hero-statement {
+    margin: 1rem 0 0;
+    max-width: 38rem;
+    font-size: clamp(1.2rem, 2.4vw, 1.75rem);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+}
+
+.hero-support {
+    margin: 1rem 0 0;
+    max-width: 42rem;
+    color: var(--color-text-muted);
+}
+
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.hero-image-frame {
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-secondary) 72%, var(--color-surface) 28%);
+    padding: 0.65rem;
+}
+
+.hero-image-frame img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+}
+
+.capability-list {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.capability-item {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.capability-number {
+    margin: 0.1rem 0 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+.capability-title {
+    margin: 0;
+    font-size: 1.12rem;
+    letter-spacing: -0.02em;
+}
+
+.capability-copy {
+    margin: 0.45rem 0 0;
+    color: var(--color-text-muted);
+}
+
+.evidence-list {
+    display: grid;
+    border-top: 1px solid var(--color-border);
+}
+
+.evidence-item {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1.4fr) minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.evidence-period,
+.evidence-meta {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.77rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.evidence-title {
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+}
+
+.evidence-context,
+.evidence-copy {
+    margin: 0.45rem 0 0;
+    color: var(--color-text-muted);
+}
+
+.evidence-link {
+    align-self: center;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.study-list {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.study-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 1.15rem;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.study-item:last-child {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.study-title {
+    margin: 0;
+    font-size: 1.12rem;
+}
+
+.study-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+    margin-top: 0.75rem;
+}
+
+.study-columns p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.study-columns strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.study-media {
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-secondary) 72%, var(--color-surface) 28%);
+    padding: 0.65rem;
+}
+
+.study-media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+}
+
+.about-preview {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 1.5rem;
+}
+
+.about-principles {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border);
+}
+
+.about-principles li {
+    margin: 0;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+}
+
+.about-interests {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border);
+}
+
+.about-interests li {
+    margin: 0;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+}
+
+.secondary-areas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+}
+
+.secondary-area {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.secondary-area h3 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+.secondary-area p {
+    margin: 0.45rem 0 0;
+    color: var(--color-text-muted);
+}
+
 .focus-box {
     margin-top: 1rem;
     padding: 1.25rem;
@@ -783,7 +1044,11 @@ pre {
     .experience-item,
     .definition-list,
     .project-header__grid,
-    .project-section__split {
+    .project-section__split,
+    .hero-grid,
+    .study-item,
+    .about-preview,
+    .secondary-areas {
         grid-template-columns: 1fr;
     }
 
@@ -798,6 +1063,15 @@ pre {
 
     .site-header__inner {
         align-items: flex-start;
+    }
+
+    .study-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .evidence-item {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
     }
 }
 
@@ -840,6 +1114,15 @@ pre {
     .project-nav,
     .site-footer__inner {
         flex-direction: column;
+    }
+
+    .capability-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+
+    .hero-image-frame {
+        max-width: 17rem;
     }
 }
 
