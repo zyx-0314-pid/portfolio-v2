@@ -3,29 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <title>Contact | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../shared/css/global.css">
 </head>
 <body>
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../">Name / Identity</a>
-            <nav class="site-nav" data-site-nav>
-                <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
-                    <span class="sr-only">Toggle navigation</span>
-                    <span aria-hidden="true">Menu</span>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../projects/">Projects</a>
+                        <a href="../experience/">Experience</a>
+                        <a href="../about/">About</a>
+                        <a href="../skills/">Skills</a>
+                        <a href="../credentials/">Credentials</a>
+                        <a href="../resume/">Resume</a>
+                        <a href="./">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
                 </button>
-                <div class="site-nav__menu" id="site-menu" data-nav-menu>
-                    <a href="../projects/">Projects</a>
-                    <a href="../experience/">Experience</a>
-                    <a href="../about/">About</a>
-                    <a href="../skills/">Skills</a>
-                    <a href="../credentials/">Credentials</a>
-                    <a href="../resume/">Resume</a>
-                    <a href="./" aria-current="page">Contact</a>
-                </div>
-            </nav>
+            </div>
         </div>
     </header>
 

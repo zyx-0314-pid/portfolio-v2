@@ -24,11 +24,11 @@
     min-height: 9rem;
     border: 1px solid var(--border);
     background:
-        linear-gradient(135deg, rgba(17, 17, 17, 0.04), rgba(17, 17, 17, 0.01)),
+        linear-gradient(135deg, color-mix(in srgb, var(--color-accent-deep) 18%, transparent), color-mix(in srgb, var(--color-bg-secondary) 82%, transparent)),
         repeating-linear-gradient(
             135deg,
-            rgba(17, 17, 17, 0.05) 0,
-            rgba(17, 17, 17, 0.05) 1px,
+            color-mix(in srgb, var(--color-text) 8%, transparent) 0,
+            color-mix(in srgb, var(--color-text) 8%, transparent) 1px,
             transparent 1px,
             transparent 10px
         );
@@ -70,12 +70,12 @@
     font-size: 0.74rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--color-accent);
 }
 
 .project-meta dd {
     margin: 0;
-    color: var(--text);
+    color: var(--color-text);
     line-height: 1.5;
 }
 

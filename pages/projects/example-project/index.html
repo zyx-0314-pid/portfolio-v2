@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <title>Example Project | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
     <link rel="stylesheet" href="assets/css/project.css">
 </head>
@@ -12,21 +25,26 @@
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../../">Name / Identity</a>
-            <nav class="site-nav" data-site-nav>
-                <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
-                    <span class="sr-only">Toggle navigation</span>
-                    <span aria-hidden="true">Menu</span>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
                 </button>
-                <div class="site-nav__menu" id="site-menu" data-nav-menu>
-                    <a href="../">Projects</a>
-                    <a href="../../experience/">Experience</a>
-                    <a href="../../about/">About</a>
-                    <a href="../../skills/">Skills</a>
-                    <a href="../../credentials/">Credentials</a>
-                    <a href="../../resume/">Resume</a>
-                    <a href="../../contact/">Contact</a>
-                </div>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -42,6 +60,17 @@
                         <p class="section__eyebrow">Case Study</p>
                         <h1 class="project-header__title" id="page-title">Example Project</h1>
                         <p class="project-header__summary">Clearly marked placeholder example content for the canonical project-page structure. This page demonstrates how a future case study can present overview, constraints, engineering decisions, screenshots, and navigation without changing the layout.</p>
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview-title">Overview</a>
+                            <a href="#problem-title">Problem</a>
+                            <a href="#context-title">Context</a>
+                            <a href="#role-title">Role</a>
+                            <a href="#solution-title">Solution</a>
+                            <a href="#architecture-title">Architecture</a>
+                            <a href="#decisions-title">Decisions</a>
+                            <a href="#results-title">Results</a>
+                            <a href="#related-title">Related Work</a>
+                        </nav>
                     </div>
                     <figure class="project-header__hero" aria-label="Primary project image placeholder"></figure>
                 </div>
@@ -56,12 +85,12 @@
                         <dd>Full-Stack Developer</dd>
                     </div>
                     <div class="project-fact">
-                        <dt>Contribution</dt>
-                        <dd>Frontend / Backend / Architecture</dd>
+                        <dt>Context</dt>
+                        <dd>Placeholder project context</dd>
                     </div>
                     <div class="project-fact">
-                        <dt>Team</dt>
-                        <dd>Placeholder</dd>
+                        <dt>Primary Disciplines</dt>
+                        <dd>Architecture / Backend / DevOps</dd>
                     </div>
                     <div class="project-fact">
                         <dt>Year</dt>
@@ -72,6 +101,26 @@
                         <dd>Example / Placeholder</dd>
                     </div>
                 </dl>
+
+                <div class="project-header__reference">
+                    <div class="project-reference-list">
+                        <div class="project-reference-item">
+                            <strong>Related Experience</strong>
+                            <span>Full-Stack Developer, 20XX</span>
+                            <a class="related-link" href="../../experience/">View Experience →</a>
+                        </div>
+                        <div class="project-reference-item">
+                            <strong>Skills Demonstrated</strong>
+                            <span>System Architecture · Database Design · Docker · CI/CD</span>
+                            <a class="related-link" href="../../skills/">Explore Skills →</a>
+                        </div>
+                        <div class="project-reference-item">
+                            <strong>Relevant Credentials</strong>
+                            <span>Placeholder training or certification link</span>
+                            <a class="related-link" href="../../credentials/">View Credentials →</a>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <section class="project-section" aria-labelledby="overview-title">
@@ -84,9 +133,27 @@
                 <p>Placeholder description of the problem the example project would address in a real case study.</p>
             </section>
 
+            <section class="project-section project-section--compact" aria-labelledby="context-title">
+                <h2 id="context-title">Goals</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Goal</strong>
+                        <span>Placeholder goal statement.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>System / Product Scope</strong>
+                        <span>Placeholder scope statement.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Context</strong>
+                        <span>Placeholder context statement.</span>
+                    </div>
+                </div>
+            </section>
+
             <section class="project-section" aria-labelledby="constraints-title">
                 <h2 id="constraints-title">Context &amp; Constraints</h2>
-                <div class="project-section__split">
+                <div class="project-section__split project-section__split--wide">
                     <p>Existing legacy codebase. Limited infrastructure. Budget constraints. Backward compatibility. Existing database. Small development team. Deployment restrictions. Security requirements.</p>
                     <p>These are structural examples only and do not claim to apply to the example project. They show how a future case study can frame engineering decisions around real constraints.</p>
                 </div>
@@ -97,6 +164,24 @@
                 <div class="project-section__split">
                     <p>Designed. Implemented. Maintained. Migrated. Deployed. Reviewed. Documented. Placeholder wording keeps the section focused on contribution rather than vague participation.</p>
                     <p>This section is ready for concise statements about personal responsibility and boundaries on future project pages.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="responsibilities-title">
+                <h2 id="responsibilities-title">Responsibilities</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Implementation</strong>
+                        <span>Placeholder responsibility.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Architecture</strong>
+                        <span>Placeholder responsibility.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Deployment</strong>
+                        <span>Placeholder responsibility.</span>
+                    </div>
                 </div>
             </section>
 
@@ -123,21 +208,75 @@ Database</pre>
                 </div>
             </section>
 
+            <section class="project-section" aria-labelledby="app-structure-title">
+                <h2 id="app-structure-title">Application Structure</h2>
+                <div class="project-section__split">
+                    <p>Placeholder description of how the application is organized internally. This supports a future split between presentation, application logic, services, and persistence.</p>
+                    <p>Subsections such as data architecture, deployment, security boundaries, and observability can be added or removed per project without breaking the layout.</p>
+                </div>
+            </section>
+
             <section class="project-section" aria-labelledby="decisions-title">
                 <h2 id="decisions-title">Key Technical Decisions</h2>
                 <div class="decision-list">
                     <article class="decision-item">
                         <h3>Use PostgreSQL</h3>
                         <p>Context: Placeholder explanation.</p>
+                        <p>Options Considered: Placeholder explanation.</p>
+                        <p>Chosen Approach: Placeholder explanation.</p>
                         <p>Reason: Placeholder explanation.</p>
                         <p>Tradeoff: Placeholder explanation.</p>
                     </article>
                     <article class="decision-item">
                         <h3>Keep a Thin Service Layer</h3>
                         <p>Context: Placeholder explanation.</p>
+                        <p>Options Considered: Placeholder explanation.</p>
+                        <p>Chosen Approach: Placeholder explanation.</p>
                         <p>Reason: Placeholder explanation.</p>
                         <p>Tradeoff: Placeholder explanation.</p>
                     </article>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="data-title">
+                <h2 id="data-title">Data / Database Design</h2>
+                <div class="project-section__split">
+                    <p>Placeholder text for the data model, persistence strategy, or schema shape when that material is relevant to a future project.</p>
+                    <p>The section is optional and can be omitted entirely for projects that do not benefit from detailed database discussion.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="infra-title">
+                <h2 id="infra-title">Infrastructure / Deployment</h2>
+                <div class="project-section__split">
+                    <p>Placeholder text for deployment model, hosting, containers, environment boundaries, or operational constraints.</p>
+                    <p>This preserves a spot for infrastructure evidence without forcing it into the main architecture section.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="security-title">
+                <h2 id="security-title">Security Considerations</h2>
+                <p>Placeholder text for access control, data handling, or other security-related concerns.</p>
+            </section>
+
+            <section class="project-section" aria-labelledby="reliability-title">
+                <h2 id="reliability-title">Reliability / Observability</h2>
+                <p>Placeholder text for monitoring, alerting, logs, or reliability tradeoffs.</p>
+            </section>
+
+            <section class="project-section" aria-labelledby="workflow-title">
+                <h2 id="workflow-title">Development Workflow</h2>
+                <div class="project-section__split">
+                    <p>Placeholder text for the local workflow, branch flow, release process, or review process used on the project.</p>
+                    <p>The section can explain collaboration patterns without duplicating the Experience page.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="testing-title">
+                <h2 id="testing-title">Testing / Quality</h2>
+                <div class="project-section__split">
+                    <p>Placeholder text for testing approach, quality gates, linting, manual checks, or review practices.</p>
+                    <p>It is intentionally lightweight and can be omitted when unnecessary.</p>
                 </div>
             </section>
 
@@ -231,6 +370,27 @@ Database</pre>
                 <div class="retrospective-item">
                     <h3>What would change?</h3>
                     <p>Placeholder reflection.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="related-title">
+                <h2 id="related-title">Related Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Related Experience</strong>
+                        <p>Full-Stack Developer, 20XX. Placeholder context linking the project back to the source role.</p>
+                        <a class="related-link" href="../../experience/">View Experience →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>System Architecture, Database Design, Docker, CI/CD. Placeholder evidence linking to the skills domain.</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials</strong>
+                        <p>Placeholder training or certification reference used only when the relationship is meaningful.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
                 </div>
             </section>
 
