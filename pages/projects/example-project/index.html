@@ -6,6 +6,7 @@
     <title>Example Project | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
 </head>
 <body>
     <header class="site-header">
@@ -30,11 +31,239 @@
     </header>
 
     <main class="site-main page-shell">
-        <section class="section" aria-labelledby="page-title">
-            <p class="section__eyebrow">Project</p>
-            <h1 class="section__title" id="page-title">Example Project | Portfolio</h1>
-            <p class="page-placeholder">Placeholder page shell for the nested project route.</p>
-        </section>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">Example Project</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study</p>
+                        <h1 class="project-header__title" id="page-title">Example Project</h1>
+                        <p class="project-header__summary">Clearly marked placeholder example content for the canonical project-page structure. This page demonstrates how a future case study can present overview, constraints, engineering decisions, screenshots, and navigation without changing the layout.</p>
+                    </div>
+                    <figure class="project-header__hero" aria-label="Primary project image placeholder"></figure>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Project Type</dt>
+                        <dd>Web Application</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Role</dt>
+                        <dd>Full-Stack Developer</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Contribution</dt>
+                        <dd>Frontend / Backend / Architecture</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Team</dt>
+                        <dd>Placeholder</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Year</dt>
+                        <dd>20XX</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Status</dt>
+                        <dd>Example / Placeholder</dd>
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview</h2>
+                <p>Placeholder overview text answering what the project is, who it is intended for, what it does, and why it exists.</p>
+            </section>
+
+            <section class="project-section" aria-labelledby="problem-title">
+                <h2 id="problem-title">Problem</h2>
+                <p>Placeholder description of the problem the example project would address in a real case study.</p>
+            </section>
+
+            <section class="project-section" aria-labelledby="constraints-title">
+                <h2 id="constraints-title">Context &amp; Constraints</h2>
+                <div class="project-section__split">
+                    <p>Existing legacy codebase. Limited infrastructure. Budget constraints. Backward compatibility. Existing database. Small development team. Deployment restrictions. Security requirements.</p>
+                    <p>These are structural examples only and do not claim to apply to the example project. They show how a future case study can frame engineering decisions around real constraints.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="role-title">
+                <h2 id="role-title">My Role</h2>
+                <div class="project-section__split">
+                    <p>Designed. Implemented. Maintained. Migrated. Deployed. Reviewed. Documented. Placeholder wording keeps the section focused on contribution rather than vague participation.</p>
+                    <p>This section is ready for concise statements about personal responsibility and boundaries on future project pages.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="solution-title">
+                <h2 id="solution-title">Solution</h2>
+                <p>Placeholder solution description using prose instead of a card grid. A future case study can expand here with the chosen approach and implementation narrative.</p>
+            </section>
+
+            <section class="project-section" aria-labelledby="architecture-title">
+                <h2 id="architecture-title">Architecture</h2>
+                <div class="project-section__split">
+                    <figure class="project-diagram" aria-label="Architecture diagram placeholder">
+                        <pre>Client
+  ↓
+Web Application
+  ↓
+Service Layer
+  ↓
+Repository
+  ↓
+Database</pre>
+                    </figure>
+                    <p>Placeholder architecture explanation describing how information flows through the system. The structure supports a diagram, a short textual flow, and supporting commentary without needing a library.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="decisions-title">
+                <h2 id="decisions-title">Key Technical Decisions</h2>
+                <div class="decision-list">
+                    <article class="decision-item">
+                        <h3>Use PostgreSQL</h3>
+                        <p>Context: Placeholder explanation.</p>
+                        <p>Reason: Placeholder explanation.</p>
+                        <p>Tradeoff: Placeholder explanation.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>Keep a Thin Service Layer</h3>
+                        <p>Context: Placeholder explanation.</p>
+                        <p>Reason: Placeholder explanation.</p>
+                        <p>Tradeoff: Placeholder explanation.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="features-title">
+                <h2 id="features-title">Key Features</h2>
+                <div class="feature-list">
+                    <article class="feature-item">
+                        <h3>Feature 01</h3>
+                        <p>Short placeholder explanation of the feature.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Feature 02</h3>
+                        <p>Short placeholder explanation of the feature.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Feature 03</h3>
+                        <p>Short placeholder explanation of the feature.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="challenges-title">
+                <h2 id="challenges-title">Engineering Challenges</h2>
+                <div class="challenge-list">
+                    <article class="challenge-item">
+                        <h3>Challenge</h3>
+                        <p>Why it mattered: Placeholder text.</p>
+                        <p>Approach: Placeholder text.</p>
+                        <p>Outcome: Placeholder text.</p>
+                    </article>
+                    <article class="challenge-item">
+                        <h3>Challenge</h3>
+                        <p>Why it mattered: Placeholder text.</p>
+                        <p>Approach: Placeholder text.</p>
+                        <p>Outcome: Placeholder text.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="technology-title">
+                <h2 id="technology-title">Technology</h2>
+                <div class="project-section__split">
+                    <dl class="project-header__meta">
+                        <div class="project-fact">
+                            <dt>Frontend</dt>
+                            <dd>HTML / CSS / JavaScript</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Backend</dt>
+                            <dd>Placeholder</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Database</dt>
+                            <dd>Placeholder</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Infrastructure</dt>
+                            <dd>Placeholder</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Testing</dt>
+                            <dd>Placeholder</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Observability</dt>
+                            <dd>Placeholder</dd>
+                        </div>
+                    </dl>
+                    <p>Grouped by discipline so future projects can fill in the relevant stack without turning this section into a logo wall.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="results-title">
+                <h2 id="results-title">Results</h2>
+                <div class="result-item">
+                    <h3>Measured result placeholder</h3>
+                    <p>Placeholder text for a verifiable outcome.</p>
+                </div>
+                <div class="result-item">
+                    <h3>Delivered functionality placeholder</h3>
+                    <p>Placeholder text for a delivered outcome.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Lessons / Retrospective</h2>
+                <div class="retrospective-item">
+                    <h3>What worked?</h3>
+                    <p>Placeholder reflection.</p>
+                </div>
+                <div class="retrospective-item">
+                    <h3>What would change?</h3>
+                    <p>Placeholder reflection.</p>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="screenshots-title">
+                <h2 id="screenshots-title">Screenshots</h2>
+                <div class="screenshot-list">
+                    <figure>
+                        <div class="screenshot-frame" aria-hidden="true"></div>
+                        <figcaption class="screenshot-caption">Primary screenshot placeholder.</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="screenshot-frame" aria-hidden="true"></div>
+                        <figcaption class="screenshot-caption">Supporting screenshot placeholder.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="project-section" aria-labelledby="links-title">
+                <h2 id="links-title">Links</h2>
+                <div class="link-list">
+                    <p>Live Site: Placeholder</p>
+                    <p>Source Code: Placeholder</p>
+                    <p>Documentation: Placeholder</p>
+                    <p>Repository: Placeholder</p>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <span aria-disabled="true">← Previous Project</span>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Project →</span>
+            </nav>
+        </article>
     </main>
 
     <footer class="site-footer">
