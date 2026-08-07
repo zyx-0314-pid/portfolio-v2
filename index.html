@@ -4,8 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="shared/css/global.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="./">Name / Identity</a>
+            <nav class="site-nav" data-site-nav>
+                <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span aria-hidden="true">Menu</span>
+                </button>
+                <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                    <a href="pages/projects/">Projects</a>
+                    <a href="pages/experience/">Experience</a>
+                    <a href="pages/about/">About</a>
+                    <a href="pages/skills/">Skills</a>
+                    <a href="pages/credentials/">Credentials</a>
+                    <a href="pages/resume/">Resume</a>
+                    <a href="pages/contact/">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
+    <main class="site-main page-shell">
+        <section class="section" aria-labelledby="intro-title">
+            <div class="intro-grid">
+                <div>
+                    <p class="intro-meta">Developer portfolio</p>
+                    <h1 class="intro-name" id="intro-title">Name / Identity</h1>
+                    <p class="intro-copy">Short professional introduction placeholder. This space will later describe the portfolio owner without inventing employment history or metrics.</p>
+                    <div class="intro-actions" aria-label="Primary links">
+                        <a class="primary-link" href="pages/projects/">View Projects</a>
+                        <a href="#">GitHub</a>
+                        <a href="pages/resume/">Resume</a>
+                    </div>
+                </div>
+                <p class="page-placeholder">Compact opening area reserved for a restrained, typography-led introduction and a simple visual anchor.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="selected-work-title">
+            <p class="section__eyebrow">Selected Work</p>
+            <h2 class="section__title" id="selected-work-title">Selected Work</h2>
+            <div class="project-list">
+                <article class="project-row">
+                    <div class="project-row__label">Project 01</div>
+                    <div>
+                        <h3 class="project-row__title">Project title</h3>
+                        <p class="project-row__desc">Short project description placeholder.</p>
+                    </div>
+                    <p class="project-row__meta">Role / discipline<br>Technology</p>
+                    <a class="project-row__link" href="pages/projects/example-project/">View project</a>
+                </article>
+                <article class="project-row">
+                    <div class="project-row__label">Project 02</div>
+                    <div>
+                        <h3 class="project-row__title">Project title</h3>
+                        <p class="project-row__desc">Short project description placeholder.</p>
+                    </div>
+                    <p class="project-row__meta">Role / discipline<br>Technology</p>
+                    <a class="project-row__link" href="pages/projects/example-project/">View project</a>
+                </article>
+                <article class="project-row">
+                    <div class="project-row__label">Project 03</div>
+                    <div>
+                        <h3 class="project-row__title">Project title</h3>
+                        <p class="project-row__desc">Short project description placeholder.</p>
+                    </div>
+                    <p class="project-row__meta">Role / discipline<br>Technology</p>
+                    <a class="project-row__link" href="pages/projects/example-project/">View project</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="areas-title">
+            <p class="section__eyebrow">Areas of Work</p>
+            <h2 class="section__title" id="areas-title">Areas of Work</h2>
+            <div class="definition-list">
+                <div class="definition-item">
+                    <p class="definition-term">Full-Stack Development</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+                <div class="definition-item">
+                    <p class="definition-term">Software Architecture</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+                <div class="definition-item">
+                    <p class="definition-term">Legacy System Modernization</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+                <div class="definition-item">
+                    <p class="definition-term">Cloud &amp; DevOps</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+                <div class="definition-item">
+                    <p class="definition-term">Database Design</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+                <div class="definition-item">
+                    <p class="definition-term">Reliability &amp; Observability</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+                <div class="definition-item">
+                    <p class="definition-term">Application Security</p>
+                    <p class="definition-desc">Placeholder description.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="experience-title">
+            <p class="section__eyebrow">Experience Snapshot</p>
+            <h2 class="section__title" id="experience-title">Experience Snapshot</h2>
+            <div class="experience-list">
+                <article class="experience-item">
+                    <div class="experience-item__period">Year / Period</div>
+                    <div>
+                        <p class="experience-item__role">Role</p>
+                        <p class="experience-item__org">Organization</p>
+                        <p class="experience-item__scope">Short scope placeholder.</p>
+                    </div>
+                </article>
+                <article class="experience-item">
+                    <div class="experience-item__period">Year / Period</div>
+                    <div>
+                        <p class="experience-item__role">Role</p>
+                        <p class="experience-item__org">Organization</p>
+                        <p class="experience-item__scope">Short scope placeholder.</p>
+                    </div>
+                </article>
+                <article class="experience-item">
+                    <div class="experience-item__period">Year / Period</div>
+                    <div>
+                        <p class="experience-item__role">Role</p>
+                        <p class="experience-item__org">Organization</p>
+                        <p class="experience-item__scope">Short scope placeholder.</p>
+                    </div>
+                </article>
+            </div>
+            <a class="section-link" href="pages/experience/">View experience</a>
+        </section>
+
+        <section class="section" aria-labelledby="focus-title">
+            <p class="section__eyebrow">Current Focus</p>
+            <h2 class="section__title" id="focus-title">Current Focus</h2>
+            <div class="focus-box">
+                <p>Placeholder text for what is currently being studied, improved, or explored.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Name / Identity</p>
+                <p class="site-footer__meta">Short professional descriptor placeholder.</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="mailto:you@example.com">Email</a>
+                </div>
+                <p class="site-footer__meta">Copyright placeholder.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="shared/js/main.js"></script>
 </body>
 </html>
