@@ -29,6 +29,7 @@
 
 <body>
 
+    <!-- Site Header -->
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
@@ -56,14 +57,15 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <!-- Main Content Shell -->
+    <main class="site-main about-page-shell">
 
         <!-- TODO: Replace all About identity placeholder artwork and update alt text to describe the actual images. -->
 
-        <!-- ── About Hero & Identity Carousel ──────────────────────────────────── -->
-        <section class="about-hero" id="about-intro" aria-labelledby="about-title">
+        <!-- ── 00. About Hero & Rebuilt Identity Carousel ──────────────────────── -->
+        <section class="about-hero scroll-reveal" id="about-intro" aria-labelledby="about-title">
             <div class="about-hero__header">
-                <p class="about-hero__eyebrow">Identity</p>
+                <p class="about-hero__eyebrow">IDENTITY</p>
                 <h1 class="about-hero__title" id="about-title">ABOUT</h1>
                 <p class="about-hero__lead">Work is one part of identity, not the frame that holds everything else.</p>
             </div>
@@ -94,7 +96,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">WORK</h2>
-                            <p class="identity-card__desc">Systems, software development, and technical problem solving.</p>
+                            <p class="identity-card__desc">Systems, software development, and technical decisions.</p>
                         </div>
                     </a>
 
@@ -108,7 +110,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">FITNESS</h2>
-                            <p class="identity-card__desc">Running, swimming, walking, and bodyweight training routines.</p>
+                            <p class="identity-card__desc">Running, swimming, walking, and bodyweight routines.</p>
                         </div>
                     </a>
 
@@ -122,7 +124,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">TRAVEL</h2>
-                            <p class="identity-card__desc">Unplanned exploration, local food, culture, and outdoor activities.</p>
+                            <p class="identity-card__desc">Unplanned exploration, local food, culture, and nature.</p>
                         </div>
                     </a>
 
@@ -136,7 +138,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">IDEAS &amp; HISTORY</h2>
-                            <p class="identity-card__desc">Civilizations, technical history, records, and practical philosophy.</p>
+                            <p class="identity-card__desc">Civilizations, technical history, records, and philosophy.</p>
                         </div>
                     </a>
 
@@ -164,7 +166,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">GAMES</h2>
-                            <p class="identity-card__desc">Strategy, RPG, simulation, survival, and story-driven games.</p>
+                            <p class="identity-card__desc">Strategy, RPG, simulation, survival, and story games.</p>
                         </div>
                     </a>
 
@@ -192,7 +194,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">MOVIES &amp; ANIME</h2>
-                            <p class="identity-card__desc">Isekai, reincarnation, regression, murim, action, and fantasy stories.</p>
+                            <p class="identity-card__desc">Isekai, reincarnation, regression, murim, action, and fantasy.</p>
                         </div>
                     </a>
 
@@ -206,7 +208,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">PHOTOGRAPHY</h2>
-                            <p class="identity-card__desc">Street scenes, architectural details, travel moments, and everyday life.</p>
+                            <p class="identity-card__desc">Street scenes, architectural details, travel, and everyday life.</p>
                         </div>
                     </a>
 
@@ -220,7 +222,7 @@
                         </div>
                         <div class="identity-card__body">
                             <h2 class="identity-card__title">READING</h2>
-                            <p class="identity-card__desc">Technical reference, history, philosophy, manga, and research material.</p>
+                            <p class="identity-card__desc">Technical reference, history, philosophy, manga, and research.</p>
                         </div>
                     </a>
 
@@ -247,11 +249,11 @@
         </div>
 
         <!-- ══════════════════════════════════════════════════════════════════════
-             IDENTITY SECTIONS (Continuous Reading Experience)
+             IDENTITY SECTIONS (Distinct Chapter Compositions)
         ══════════════════════════════════════════════════════════════════════ -->
 
-        <!-- ── 01. WORK ────────────────────────────────────────────────────────── -->
-        <section class="identity-section" id="work" aria-labelledby="work-title">
+        <!-- ── 01. WORK — Split Editorial Layout ──────────────────────────────── -->
+        <section class="identity-section scroll-reveal" id="work" aria-labelledby="work-title">
             <div class="identity-section__header">
                 <span class="identity-section__num">01</span>
                 <h2 class="identity-section__title" id="work-title">WORK</h2>
@@ -260,16 +262,13 @@
                 Full-stack development with a focus on system organization, application structure, and operational clarity.
             </p>
 
-            <div class="work-grid">
-                <!-- Current Positioning Block -->
-                <div class="work-block">
-                    <h3 class="work-block__title">
-                        <i class="fa-solid fa-code-branch" aria-hidden="true"></i> Current Identity &amp; Scope
-                    </h3>
-                    <p class="work-positioning">
+            <div class="work-split-layout">
+                <!-- Left Column: Identity & Scope -->
+                <div class="work-left-col">
+                    <p class="work-prose">
                         Most of my professional work is in full-stack development, but I tend to think beyond the page or feature itself—how the application is structured, how data moves, how it is deployed, how failures are observed, and how future changes will affect the system.
                     </p>
-                    <div class="work-scope-tags">
+                    <div class="work-scope-tags" aria-label="Professional scope">
                         <span class="work-scope-tag work-scope-tag--primary">Full-Stack Developer</span>
                         <span class="work-scope-tag">Development</span>
                         <span class="work-scope-tag">Infrastructure</span>
@@ -277,10 +276,10 @@
                     </div>
                 </div>
 
-                <!-- Engineering Principles Block -->
-                <div class="work-block">
-                    <h3 class="work-block__title">
-                        <i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> How I Think
+                <!-- Right Column: Engineering Principles Editorial Panel -->
+                <div class="work-right-col">
+                    <h3 class="panel-title">
+                        <i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> HOW I THINK
                     </h3>
                     <ul class="principles-list">
                         <li class="principle-item">
@@ -310,17 +309,15 @@
                     </ul>
                 </div>
 
-                <!-- Career Direction Card -->
-                <div class="career-direction-card">
-                    <div class="career-direction-body">
-                        <h3 class="work-block__title" style="margin-bottom: 0.4rem;">
-                            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Career Direction
-                        </h3>
-                        <p class="work-positioning" style="margin-bottom: 0;">
-                            Long term, I am growing toward Full-Stack Systems Architecture: staying hands-on with application development while becoming better at connecting software structure, infrastructure, reliability, data, and technical decisions.
+                <!-- Horizontal Architectural Career Statement -->
+                <div class="career-architect-statement">
+                    <div class="career-architect-body">
+                        <p class="career-architect-title">CAREER DIRECTION</p>
+                        <p class="career-architect-text">
+                            Long term, I am growing toward <strong>Full-Stack Systems Architecture</strong>: staying hands-on with application development while becoming better at connecting software structure, infrastructure, reliability, data, and technical decisions.
                         </p>
                     </div>
-                    <div class="career-direction-links">
+                    <div class="career-architect-actions">
                         <a href="../experience/" class="about-btn-link">Experience →</a>
                         <a href="../projects/" class="about-btn-link">Projects →</a>
                     </div>
@@ -328,8 +325,8 @@
             </div>
         </section>
 
-        <!-- ── 02. FITNESS ─────────────────────────────────────────────────────── -->
-        <section class="identity-section" id="fitness" aria-labelledby="fitness-title">
+        <!-- ── 02. FITNESS — Kinetic Typography Composition ───────────────────── -->
+        <section class="identity-section scroll-reveal" id="fitness" aria-labelledby="fitness-title">
             <div class="identity-section__header">
                 <span class="identity-section__num">02</span>
                 <h2 class="identity-section__title" id="fitness-title">FITNESS</h2>
@@ -338,41 +335,59 @@
                 Fitness is less about one sport and more about staying physically capable and giving myself something measurable to work against.
             </p>
 
-            <div class="fitness-layout">
-                <div class="fitness-kinetic-strip">
-                    <div class="fitness-card">
-                        <div class="fitness-card__accent-line"></div>
-                        <h3 class="fitness-card__verb">RUN</h3>
-                        <p class="fitness-card__desc">Endurance running, outdoor pavement miles, and pacing consistency.</p>
+            <div class="fitness-kinetic-layout">
+                <!-- Staggered Kinetic Typography Strip -->
+                <div class="fitness-typography-strip" aria-label="Fitness activities">
+                    <div class="fitness-type-row">
+                        <h3 class="fitness-word">RUN</h3>
+                        <div class="fitness-motion-line"></div>
                     </div>
-                    <div class="fitness-card">
-                        <div class="fitness-card__accent-line"></div>
-                        <h3 class="fitness-card__verb">SWIM</h3>
-                        <p class="fitness-card__desc">Pool lap conditioning, technique rhythm, and breathing control.</p>
+                    <div class="fitness-type-row fitness-type-row--indent-1">
+                        <div class="fitness-motion-line"></div>
+                        <h3 class="fitness-word">SWIM</h3>
+                        <div class="fitness-motion-line"></div>
                     </div>
-                    <div class="fitness-card">
-                        <div class="fitness-card__accent-line"></div>
-                        <h3 class="fitness-card__verb">MOVE</h3>
-                        <p class="fitness-card__desc">Long walking, outdoor hiking, and continuous physical activity.</p>
+                    <div class="fitness-type-row fitness-type-row--indent-2">
+                        <h3 class="fitness-word">MOVE</h3>
+                        <div class="fitness-motion-line"></div>
                     </div>
-                    <div class="fitness-card">
-                        <div class="fitness-card__accent-line"></div>
-                        <h3 class="fitness-card__verb">TRAIN</h3>
-                        <p class="fitness-card__desc">Bodyweight calisthenics, core stability, and functional strength.</p>
+                    <div class="fitness-type-row fitness-type-row--indent-3">
+                        <div class="fitness-motion-line"></div>
+                        <h3 class="fitness-word">TRAIN</h3>
                     </div>
                 </div>
 
-                <div class="fitness-themes">
-                    <span class="fitness-theme-badge">Maintaining Health</span>
-                    <span class="fitness-theme-badge">Routine &amp; Discipline</span>
-                    <span class="fitness-theme-badge">Personal Challenge</span>
-                    <span class="fitness-theme-badge">Self-Competition</span>
+                <!-- Fitness Visual Panel & Themes -->
+                <div class="fitness-content-grid">
+                    <div class="fitness-visual-panel">
+                        <img src="https://placehold.net/600x380.png"
+                            alt="Placeholder image representing running, swimming, movement, and physical training."
+                            loading="lazy">
+                    </div>
+                    <div class="fitness-themes-column">
+                        <div class="fitness-theme-item">
+                            <p class="fitness-theme-label">HEALTH &amp; LONGEVITY</p>
+                            <p class="fitness-theme-desc">Maintaining baseline physical energy, cardiovascular resilience, and mobility for life and work.</p>
+                        </div>
+                        <div class="fitness-theme-item">
+                            <p class="fitness-theme-label">ROUTINE &amp; DISCIPLINE</p>
+                            <p class="fitness-theme-desc">Consistent weekly habits—early morning pavement miles, pool laps, and structured calisthenics.</p>
+                        </div>
+                        <div class="fitness-theme-item">
+                            <p class="fitness-theme-label">PERSONAL CHALLENGE</p>
+                            <p class="fitness-theme-desc">Setting objective metrics and pushing endurance boundaries without competing against others.</p>
+                        </div>
+                        <div class="fitness-theme-item">
+                            <p class="fitness-theme-label">SELF-COMPETITION</p>
+                            <p class="fitness-theme-desc">Measuring personal progress against past benchmarks to build mental resilience.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── 03. TRAVEL & EXPLORATION ────────────────────────────────────────── -->
-        <section class="identity-section" id="travel" aria-labelledby="travel-title">
+        <!-- ── 03. TRAVEL & EXPLORATION — Asymmetrical Editorial Photo Composition ─ -->
+        <section class="identity-section scroll-reveal" id="travel" aria-labelledby="travel-title">
             <!-- TODO: Add selected travel locations/moments. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">03</span>
@@ -382,47 +397,45 @@
                 I like travel most when it feels exploratory rather than scheduled around landmarks—trying food, walking somewhere unfamiliar, finding places unexpectedly, and doing activities that make a trip feel distinct from everyday life.
             </p>
 
-            <div class="travel-strip">
-                <div class="travel-card">
-                    <div class="travel-card__image">
-                        <img src="https://placehold.net/400x250.png"
-                            alt="Placeholder image representing local food discovery, street food stalls, and culinary exploration."
-                            loading="lazy">
-                    </div>
-                    <div class="travel-card__body">
-                        <span class="travel-card__tag">CULTURE &amp; FOOD</span>
-                        <p class="travel-card__desc">Trying local dishes, regional specialties, and spontaneous street food spots.</p>
-                    </div>
+            <!-- Asymmetrical Photo Composition -->
+            <div class="travel-photo-grid">
+                <div class="travel-photo-large">
+                    <img src="https://placehold.net/720x450.png"
+                        alt="Placeholder photo representing spontaneous travel, local culture, and city exploration."
+                        loading="lazy">
                 </div>
-
-                <div class="travel-card">
-                    <div class="travel-card__image">
-                        <img src="https://placehold.net/400x250.png"
-                            alt="Placeholder image representing walking unfamiliar streets, back alleys, and city discovery."
-                            loading="lazy">
-                    </div>
-                    <div class="travel-card__body">
-                        <span class="travel-card__tag">UNPLANNED WALKS</span>
-                        <p class="travel-card__desc">Walking through neighborhoods off the main itinerary to see daily life.</p>
-                    </div>
+                <div class="travel-photo-side">
+                    <img src="https://placehold.net/450x560.png"
+                        alt="Placeholder photo representing alleyway walks, street food spots, and local architecture."
+                        loading="lazy">
                 </div>
+            </div>
 
-                <div class="travel-card">
-                    <div class="travel-card__image">
-                        <img src="https://placehold.net/400x250.png"
-                            alt="Placeholder image representing outdoor nature hikes, coastal views, and environmental contrast."
-                            loading="lazy">
-                    </div>
-                    <div class="travel-card__body">
-                        <span class="travel-card__tag">NATURE &amp; OUTDOORS</span>
-                        <p class="travel-card__desc">Experiencing distinct landscapes, coastal trails, and natural environments.</p>
-                    </div>
+            <div class="travel-photo-banner">
+                <img src="https://placehold.net/1200x460.png"
+                    alt="Placeholder photo representing wide nature landscapes, coastal trails, and environmental exploration."
+                    loading="lazy">
+            </div>
+
+            <!-- Prose Pillars -->
+            <div class="travel-editorial-text">
+                <div>
+                    <h3 class="travel-pillar-title">CULTURE &amp; LOCAL FOOD</h3>
+                    <p class="travel-pillar-desc">Trying regional dishes, street food markets, and spontaneous small places recommended by locals rather than tourist guides.</p>
+                </div>
+                <div>
+                    <h3 class="travel-pillar-title">UNPLANNED WALKS</h3>
+                    <p class="travel-pillar-desc">Walking through neighborhoods off the main itinerary to observe daily life, architectural details, and quiet side streets.</p>
+                </div>
+                <div>
+                    <h3 class="travel-pillar-title">NATURE &amp; OUTDOORS</h3>
+                    <p class="travel-pillar-desc">Seeking outdoor trails, coastal walks, and natural environments that offer open horizon and physical contrast to indoor coding.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ── 04. IDEAS & HISTORY ─────────────────────────────────────────────── -->
-        <section class="identity-section" id="ideas" aria-labelledby="ideas-title">
+        <!-- ── 04. IDEAS & HISTORY — Editorial Technical Journal ──────────────── -->
+        <section class="identity-section scroll-reveal" id="ideas" aria-labelledby="ideas-title">
             <div class="identity-section__header">
                 <span class="identity-section__num">04</span>
                 <h2 class="identity-section__title" id="ideas-title">IDEAS &amp; HISTORY</h2>
@@ -431,51 +444,66 @@
                 I'm interested in how ideas, technologies, systems, and civilizations evolve—and in the records, decisions, infrastructure, and competing interpretations they leave behind.
             </p>
 
-            <div class="ideas-editorial-grid">
-                <div class="ideas-card">
-                    <div class="ideas-card__header">
-                        <h3 class="ideas-card__topic">Civilizations &amp; Institutions</h3>
-                        <span class="ideas-card__tag">STRUCTURE</span>
-                    </div>
-                    <p class="ideas-card__body">
-                        How societies construct governance, trade routes, administrative records, and lasting institutions to manage scale and preserve continuity across generations.
-                    </p>
+            <div class="ideas-journal-layout">
+                <!-- Large Typographic Keyword Watermark -->
+                <div class="ideas-bg-keywords" aria-hidden="true">
+                    <span class="ideas-keyword">SYSTEMS</span>
+                    <span class="ideas-keyword">CIVILIZATION</span>
+                    <span class="ideas-keyword">TECHNOLOGY</span>
+                    <span class="ideas-keyword">DECISIONS</span>
                 </div>
 
-                <div class="ideas-card">
-                    <div class="ideas-card__header">
-                        <h3 class="ideas-card__topic">Infrastructure &amp; Engineering History</h3>
-                        <span class="ideas-card__tag">SYSTEMS</span>
-                    </div>
-                    <p class="ideas-card__body">
-                        The evolution of physical and technical networks—aqueducts, railways, telegraphs, and early computing hardware—and how constraints shaped technical decisions.
-                    </p>
-                </div>
+                <!-- Editorial Journal Entries -->
+                <div class="ideas-entry-list">
+                    <article class="ideas-entry-item">
+                        <div class="ideas-entry-meta">
+                            <span>04.1</span>
+                            <span>STRUCTURE &amp; CONTINUITY</span>
+                        </div>
+                        <h3 class="ideas-entry-title">Civilizations &amp; Institutions</h3>
+                        <p class="ideas-entry-body">
+                            How societies construct governance, trade routes, administrative records, and lasting institutions to manage scale, handle resource constraints, and preserve continuity across generations.
+                        </p>
+                    </article>
 
-                <div class="ideas-card">
-                    <div class="ideas-card__header">
-                        <h3 class="ideas-card__topic">Records &amp; Evidence</h3>
-                        <span class="ideas-card__tag">HISTORIOGRAPHY</span>
-                    </div>
-                    <p class="ideas-card__body">
-                        How historical records are preserved, how different parties interpret the same historical event, and the difference between primary evidence and later narrative.
-                    </p>
-                </div>
+                    <article class="ideas-entry-item">
+                        <div class="ideas-entry-meta">
+                            <span>04.2</span>
+                            <span>EVOLUTION OF NETWORKS</span>
+                        </div>
+                        <h3 class="ideas-entry-title">Infrastructure &amp; Engineering History</h3>
+                        <p class="ideas-entry-body">
+                            The evolution of physical and technical networks—aqueducts, maritime shipping, railways, telegraphs, and early computing hardware—and how real constraints shaped trade-offs.
+                        </p>
+                    </article>
 
-                <div class="ideas-card">
-                    <div class="ideas-card__header">
-                        <h3 class="ideas-card__topic">Practical Philosophy &amp; Decisions</h3>
-                        <span class="ideas-card__tag">REASONING</span>
-                    </div>
-                    <p class="ideas-card__body">
-                        Human behavior under real constraints, moral frameworks, decision-making under uncertainty, and evaluating choices by their long-term consequences.
-                    </p>
+                    <article class="ideas-entry-item">
+                        <div class="ideas-entry-meta">
+                            <span>04.3</span>
+                            <span>HISTORIOGRAPHY &amp; PROVENANCE</span>
+                        </div>
+                        <h3 class="ideas-entry-title">Records &amp; Evidence</h3>
+                        <p class="ideas-entry-body">
+                            How historical records are preserved, how different parties interpret the same historical event, and the crucial distinction between primary evidence and later secondary narratives.
+                        </p>
+                    </article>
+
+                    <article class="ideas-entry-item">
+                        <div class="ideas-entry-meta">
+                            <span>04.4</span>
+                            <span>PRACTICAL REASONING</span>
+                        </div>
+                        <h3 class="ideas-entry-title">Practical Philosophy &amp; Consequences</h3>
+                        <p class="ideas-entry-body">
+                            Human behavior under real constraints, moral frameworks, decision-making under uncertainty, and evaluating technical or societal choices by their long-term consequences.
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- ── 05. MAKING & TINKERING ───────────────────────────────────────────── -->
-        <section class="identity-section" id="making" aria-labelledby="making-title">
+        <!-- ── 05. MAKING & TINKERING — Experiment Log ────────────────────────── -->
+        <section class="identity-section scroll-reveal" id="making" aria-labelledby="making-title">
             <!-- TODO: Add selected Making & Tinkering experiment examples. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">05</span>
@@ -485,50 +513,77 @@
                 Outside formal employment, I often learn technology by building something small enough to break, rebuild, compare, or deliberately stress.
             </p>
 
-            <div class="making-experiments">
+            <div class="experiment-log-container">
                 <!-- Experiment 01 -->
-                <div class="experiment-card">
-                    <span class="experiment-card__tag">EXPERIMENT 01 · CONTAINERS</span>
-                    <div class="experiment-card__field">
-                        <span class="experiment-card__label">WHAT I WAS TRYING TO UNDERSTAND</span>
-                        <div class="experiment-card__value">Multi-container orchestration, local network isolation, and database seed automation.</div>
+                <article class="experiment-log-item">
+                    <div class="experiment-log-header">
+                        <span class="experiment-log-tag">LOG :: EXPERIMENT 01</span>
+                        <span class="experiment-log-domain">CONTAINERS &amp; NETWORKING</span>
                     </div>
-                    <div class="experiment-card__field">
-                        <span class="experiment-card__label">WHAT CHANGED / WHAT I LEARNED</span>
-                        <div class="experiment-card__value">Container networking overhead is negligible compared to reproducible configuration benefits.</div>
+                    <div class="experiment-log-grid">
+                        <div>
+                            <p class="experiment-field-label">QUESTION / HYPOTHESIS</p>
+                            <p class="experiment-field-val">What happens during multi-container orchestration, local network isolation, and automated database seed routines?</p>
+                        </div>
+                        <div>
+                            <p class="experiment-field-label">TEST ENVIRONMENT</p>
+                            <p class="experiment-field-val">Configured custom Docker Compose stack with isolated bridge networks, healthchecks, and migration containers.</p>
+                        </div>
+                        <div>
+                            <p class="experiment-field-label">LEARNED / OUTCOME</p>
+                            <p class="experiment-field-val">Container networking overhead is negligible compared to the reproducible configuration and isolation benefits.</p>
+                        </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Experiment 02 -->
-                <div class="experiment-card">
-                    <span class="experiment-card__tag">EXPERIMENT 02 · ARCHITECTURE</span>
-                    <div class="experiment-card__field">
-                        <span class="experiment-card__label">WHAT I WAS TRYING TO UNDERSTAND</span>
-                        <div class="experiment-card__value">Modular service boundaries and mock cloud integration labs for local testing.</div>
+                <article class="experiment-log-item">
+                    <div class="experiment-log-header">
+                        <span class="experiment-log-tag">LOG :: EXPERIMENT 02</span>
+                        <span class="experiment-log-domain">SYSTEM BOUNDARIES</span>
                     </div>
-                    <div class="experiment-card__field">
-                        <span class="experiment-card__label">WHAT CHANGED / WHAT I LEARNED</span>
-                        <div class="experiment-card__value">Strict data contracts at service boundaries prevent subtle integration bugs early.</div>
+                    <div class="experiment-log-grid">
+                        <div>
+                            <p class="experiment-field-label">QUESTION / HYPOTHESIS</p>
+                            <p class="experiment-field-val">How do modular service boundaries behave under local cloud service mocks?</p>
+                        </div>
+                        <div>
+                            <p class="experiment-field-label">TEST ENVIRONMENT</p>
+                            <p class="experiment-field-val">Built local API mock layers simulating message queue consumers and cloud object storage responses.</p>
+                        </div>
+                        <div>
+                            <p class="experiment-field-label">LEARNED / OUTCOME</p>
+                            <p class="experiment-field-val">Strict data contracts at service boundaries prevent subtle integration bugs before deployment.</p>
+                        </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Experiment 03 -->
-                <div class="experiment-card">
-                    <span class="experiment-card__tag">EXPERIMENT 03 · SECURITY LABS</span>
-                    <div class="experiment-card__field">
-                        <span class="experiment-card__label">WHAT I WAS TRYING TO UNDERSTAND</span>
-                        <div class="experiment-card__value">HTTP traffic inspection, header validation, and credential security mechanics.</div>
+                <article class="experiment-log-item">
+                    <div class="experiment-log-header">
+                        <span class="experiment-log-tag">LOG :: EXPERIMENT 03</span>
+                        <span class="experiment-log-domain">SECURITY LABS</span>
                     </div>
-                    <div class="experiment-card__field">
-                        <span class="experiment-card__label">WHAT CHANGED / WHAT I LEARNED</span>
-                        <div class="experiment-card__value">Defensive input filtering and header policy enforcement must occur at application entry points.</div>
+                    <div class="experiment-log-grid">
+                        <div>
+                            <p class="experiment-field-label">QUESTION / HYPOTHESIS</p>
+                            <p class="experiment-field-val">Where should security filtering and HTTP header enforcement take place in web streams?</p>
+                        </div>
+                        <div>
+                            <p class="experiment-field-label">TEST ENVIRONMENT</p>
+                            <p class="experiment-field-val">Inspected raw HTTP traffic, header validation, and credential token handling at proxy vs application layer.</p>
+                        </div>
+                        <div>
+                            <p class="experiment-field-label">LEARNED / OUTCOME</p>
+                            <p class="experiment-field-val">Defensive input filtering and security header enforcement must occur at application entry points.</p>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- ── 06. GAMES ───────────────────────────────────────────────────────── -->
-        <section class="identity-section" id="games" aria-labelledby="games-title">
+        <!-- ── 06. GAMES — Visual Shelf ────────────────────────────────────────── -->
+        <section class="identity-section scroll-reveal" id="games" aria-labelledby="games-title">
             <!-- TODO: Add favorite/current game titles. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">06</span>
@@ -538,41 +593,60 @@
                 Appreciation for systems, worldbuilding, and mechanics across strategy, RPGs, simulation, and survival games.
             </p>
 
-            <div class="games-block">
-                <div class="games-genres-bar" aria-label="Game Genres">
+            <div class="games-shelf-layout">
+                <div class="games-genre-bar" aria-label="Game Genres">
                     <span class="game-genre-pill">Strategy</span>
                     <span class="game-genre-pill">RPG</span>
                     <span class="game-genre-pill">Simulation &amp; Management</span>
                     <span class="game-genre-pill">FPS</span>
                     <span class="game-genre-pill">Survival / Crafting</span>
                     <span class="game-genre-pill">Story-Driven</span>
-                    <span class="game-genre-pill">Casual / Mobile</span>
                 </div>
 
-                <div class="games-subsections">
-                    <div class="game-subsection">
-                        <h3 class="game-subsection__title">FAVORITES</h3>
-                        <div class="game-placeholder-gallery">
-                            <div class="game-cover-placeholder"><span>Strategy / Sim Title</span></div>
-                            <div class="game-cover-placeholder"><span>Role-Playing Title</span></div>
-                            <div class="game-cover-placeholder"><span>Story-Driven Title</span></div>
+                <div>
+                    <h3 class="games-shelf-section-title">FAVORITES</h3>
+                    <div class="games-shelf-track" tabindex="0" role="region" aria-label="Favorite games shelf">
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Strategy &amp; Simulation</h4>
+                            <span class="game-artwork-meta">Systems &amp; Management</span>
+                        </div>
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Role-Playing Games</h4>
+                            <span class="game-artwork-meta">Worldbuilding &amp; Lore</span>
+                        </div>
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Survival &amp; Crafting</h4>
+                            <span class="game-artwork-meta">Resource Management</span>
+                        </div>
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Story-Driven</h4>
+                            <span class="game-artwork-meta">Narrative &amp; Atmosphere</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="game-subsection">
-                        <h3 class="game-subsection__title">CURRENTLY INTO</h3>
-                        <div class="game-placeholder-gallery">
-                            <div class="game-cover-placeholder"><span>Current Title 01</span></div>
-                            <div class="game-cover-placeholder"><span>Current Title 02</span></div>
-                            <div class="game-cover-placeholder"><span>Current Title 03</span></div>
+                <div>
+                    <h3 class="games-shelf-section-title">CURRENTLY INTO</h3>
+                    <div class="games-shelf-track" tabindex="0" role="region" aria-label="Currently playing games shelf">
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Active Title 01</h4>
+                            <span class="game-artwork-meta">Strategy / Tactical</span>
+                        </div>
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Active Title 02</h4>
+                            <span class="game-artwork-meta">RPG / Exploration</span>
+                        </div>
+                        <div class="game-artwork-card">
+                            <h4 class="game-artwork-title">Active Title 03</h4>
+                            <span class="game-artwork-meta">Simulation / Base</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── 07. MUSIC ───────────────────────────────────────────────────────── -->
-        <section class="identity-section" id="music" aria-labelledby="music-title">
+        <!-- ── 07. MUSIC — Typographic Artist Composition ─────────────────────── -->
+        <section class="identity-section scroll-reveal" id="music" aria-labelledby="music-title">
             <!-- TODO: Add favorite music artists. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">07</span>
@@ -582,47 +656,41 @@
                 Music listening as an essential background rhythm for focused work, travel, and quiet attention.
             </p>
 
-            <div class="music-layout">
-                <div class="music-block">
-                    <h3 class="music-block__title">FAVORITE ARTISTS</h3>
-                    <ul class="music-artist-list">
-                        <li class="music-artist-item">
-                            <span class="music-artist-item__num">01</span>
-                            <span>Favorite Artist / Band</span>
-                        </li>
-                        <li class="music-artist-item">
-                            <span class="music-artist-item__num">02</span>
-                            <span>Favorite Artist / Band</span>
-                        </li>
-                        <li class="music-artist-item">
-                            <span class="music-artist-item__num">03</span>
-                            <span>Favorite Artist / Band</span>
-                        </li>
-                    </ul>
+            <div class="music-split-grid">
+                <!-- Left: Typographic Artist Composition -->
+                <div>
+                    <p class="panel-title" style="margin-bottom: 2rem;">FAVORITE ARTISTS</p>
+                    <div class="music-artist-composition">
+                        <a href="javascript:void(0)" class="music-artist-entry">Favorite Artist / Band</a>
+                        <a href="javascript:void(0)" class="music-artist-entry music-artist-entry--indent-1">Ambient &amp; Instrumental</a>
+                        <a href="javascript:void(0)" class="music-artist-entry">Post-Rock &amp; Electronic</a>
+                        <a href="javascript:void(0)" class="music-artist-entry music-artist-entry--indent-2">Acoustic &amp; Classical</a>
+                    </div>
                 </div>
 
-                <div class="music-block">
-                    <h3 class="music-block__title">CURRENT ROTATION</h3>
-                    <ul class="music-artist-list">
-                        <li class="music-artist-item">
-                            <span class="music-artist-item__num">01</span>
-                            <span>Current Rotation Track / Album</span>
+                <!-- Right: Current Rotation Track List -->
+                <div>
+                    <p class="panel-title" style="margin-bottom: 1.5rem;">CURRENT ROTATION</p>
+                    <ul class="music-rotation-list">
+                        <li class="music-rotation-item">
+                            <span class="music-rotation-num">01</span>
+                            <span class="music-rotation-title">Focus Instrumental Rotation</span>
                         </li>
-                        <li class="music-artist-item">
-                            <span class="music-artist-item__num">02</span>
-                            <span>Current Rotation Track / Album</span>
+                        <li class="music-rotation-item">
+                            <span class="music-rotation-num">02</span>
+                            <span class="music-rotation-title">Ambient Work Atmosphere</span>
                         </li>
-                        <li class="music-artist-item">
-                            <span class="music-artist-item__num">03</span>
-                            <span>Current Rotation Track / Album</span>
+                        <li class="music-rotation-item">
+                            <span class="music-rotation-num">03</span>
+                            <span class="music-rotation-title">Travel &amp; Outdoor Listening</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- ── 08. MOVIES & ANIME ──────────────────────────────────────────────── -->
-        <section class="identity-section" id="movies-anime" aria-labelledby="movies-title">
+        <!-- ── 08. MOVIES & ANIME — Genre Header & Poster Strip ────────────────── -->
+        <section class="identity-section scroll-reveal" id="movies-anime" aria-labelledby="movies-title">
             <!-- TODO: Add favorite/current Movies & Anime titles. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">08</span>
@@ -632,38 +700,64 @@
                 Stories involving reincarnation, regression, fantasy worlds, martial arts, and high-stakes action.
             </p>
 
-            <div class="media-genres-bar" aria-label="Media Genres">
-                <span class="media-genre-tag">ISEKAI</span>
-                <span class="media-genre-tag">REINCARNATION</span>
-                <span class="media-genre-tag">REGRESSION</span>
-                <span class="media-genre-tag">ACTION</span>
-                <span class="media-genre-tag">MURIM</span>
-                <span class="media-genre-tag">MAGIC / FANTASY</span>
+            <!-- Large Genre Header -->
+            <div class="genre-hero-strip" aria-label="Media Genres">
+                <span class="genre-word genre-word--lg">ISEKAI</span>
+                <span class="genre-word genre-word--md">REINCARNATION</span>
+                <span class="genre-word genre-word--sm">REGRESSION</span>
+                <span class="genre-word genre-word--lg">ACTION</span>
+                <span class="genre-word genre-word--md">MURIM</span>
+                <span class="genre-word genre-word--sm">MAGIC / FANTASY</span>
             </div>
 
-            <div class="media-subsections">
-                <div class="media-subsection">
-                    <h3 class="media-subsection__title">FAVORITES</h3>
-                    <div class="media-poster-strip">
-                        <div class="media-poster-placeholder"><span>Isekai / Fantasy Title</span></div>
-                        <div class="media-poster-placeholder"><span>Regression / Murim Title</span></div>
-                        <div class="media-poster-placeholder"><span>Action Series Title</span></div>
+            <!-- Poster Strips -->
+            <div style="margin-bottom: 2.5rem;">
+                <p class="panel-title" style="margin-bottom: 1.25rem;">FAVORITES</p>
+                <div class="poster-strip-grid">
+                    <div class="poster-card">
+                        <h4 class="poster-title">Isekai / Fantasy Series</h4>
+                        <span class="poster-tag">Worldbuilding / Magic</span>
+                    </div>
+                    <div class="poster-card">
+                        <h4 class="poster-title">Regression / Murim Series</h4>
+                        <span class="poster-tag">Martial Arts / Strategy</span>
+                    </div>
+                    <div class="poster-card">
+                        <h4 class="poster-title">High-Stakes Action</h4>
+                        <span class="poster-tag">Animation / Combat</span>
+                    </div>
+                    <div class="poster-card">
+                        <h4 class="poster-title">Reincarnation Adventure</h4>
+                        <span class="poster-tag">Fantasy / Growth</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="media-subsection">
-                    <h3 class="media-subsection__title">CURRENTLY INTO</h3>
-                    <div class="media-poster-strip">
-                        <div class="media-poster-placeholder"><span>Current Series 01</span></div>
-                        <div class="media-poster-placeholder"><span>Current Series 02</span></div>
-                        <div class="media-poster-placeholder"><span>Current Series 03</span></div>
+            <div>
+                <p class="panel-title" style="margin-bottom: 1.25rem;">CURRENTLY INTO</p>
+                <div class="poster-strip-grid">
+                    <div class="poster-card">
+                        <h4 class="poster-title">Ongoing Season Title 01</h4>
+                        <span class="poster-tag">Isekai / Action</span>
+                    </div>
+                    <div class="poster-card">
+                        <h4 class="poster-title">Ongoing Season Title 02</h4>
+                        <span class="poster-tag">Murim / Progression</span>
+                    </div>
+                    <div class="poster-card">
+                        <h4 class="poster-title">Ongoing Season Title 03</h4>
+                        <span class="poster-tag">Fantasy / Strategy</span>
+                    </div>
+                    <div class="poster-card">
+                        <h4 class="poster-title">Ongoing Season Title 04</h4>
+                        <span class="poster-tag">Regression / Action</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── 09. PHOTOGRAPHY ─────────────────────────────────────────────────── -->
-        <section class="identity-section" id="photography" aria-labelledby="photo-title">
+        <!-- ── 09. PHOTOGRAPHY — Flowing Editorial Photo Gallery ─────────────── -->
+        <section class="identity-section scroll-reveal" id="photography" aria-labelledby="photo-title">
             <!-- TODO: Add real photography assets. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">09</span>
@@ -673,59 +767,44 @@
                 Capturing moments as they happen—street scenes, architectural geometry, landscape light, local food, and technical details without staged production.
             </p>
 
-            <div class="photography-gallery">
-                <div class="photo-item">
-                    <div class="photo-item__media">
-                        <img src="https://placehold.net/600x450.png"
-                            alt="Placeholder for street photography capturing daily life, architectural lines, or city light."
-                            loading="lazy">
-                    </div>
-                    <div class="photo-item__caption">
-                        <span class="photo-item__category">STREET</span>
-                        <span class="photo-item__location">City Geometry</span>
-                    </div>
-                </div>
-
-                <div class="photo-item">
-                    <div class="photo-item__media">
-                        <img src="https://placehold.net/600x400.png"
-                            alt="Placeholder for architectural photography highlighting structural lines, materials, and light."
-                            loading="lazy">
-                    </div>
-                    <div class="photo-item__caption">
-                        <span class="photo-item__category">ARCHITECTURE</span>
-                        <span class="photo-item__location">Structure &amp; Form</span>
+            <div class="photo-editorial-flow">
+                <!-- Hero Landscape Photo -->
+                <div class="photo-hero-landscape">
+                    <img src="https://placehold.net/1200x520.png"
+                        alt="Placeholder for street or landscape photo showing urban geometry and natural horizon."
+                        loading="lazy">
+                    <div class="photo-caption-bar">
+                        <span>URBAN HORIZON &amp; ATMOSPHERE</span>
+                        <span class="photo-caption-tag">LANDSCAPE · CITY LIGHT</span>
                     </div>
                 </div>
 
-                <div class="photo-item">
-                    <div class="photo-item__media">
-                        <img src="https://placehold.net/600x450.png"
-                            alt="Placeholder for landscape photography showing natural environments, coastlines, or mountain views."
+                <!-- Asymmetric 2-Column Split -->
+                <div class="photo-split-row">
+                    <div class="photo-split-item">
+                        <img src="https://placehold.net/700x525.png"
+                            alt="Placeholder for architectural photo showing structural lines and light."
                             loading="lazy">
+                        <div class="photo-caption-bar">
+                            <span>STRUCTURAL GEOMETRY</span>
+                            <span class="photo-caption-tag">ARCHITECTURE</span>
+                        </div>
                     </div>
-                    <div class="photo-item__caption">
-                        <span class="photo-item__category">PLACE</span>
-                        <span class="photo-item__location">Outdoor Horizon</span>
-                    </div>
-                </div>
-
-                <div class="photo-item">
-                    <div class="photo-item__media">
-                        <img src="https://placehold.net/600x400.png"
-                            alt="Placeholder for close-up detail photography of objects, food, or technical hardware."
+                    <div class="photo-split-item photo-split-item--portrait">
+                        <img src="https://placehold.net/500x665.png"
+                            alt="Placeholder for street photography capturing daily life or quiet observation."
                             loading="lazy">
-                    </div>
-                    <div class="photo-item__caption">
-                        <span class="photo-item__category">DETAIL</span>
-                        <span class="photo-item__location">Close Observation</span>
+                        <div class="photo-caption-bar">
+                            <span>DAILY MOMENT</span>
+                            <span class="photo-caption-tag">STREET</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ── 10. READING ─────────────────────────────────────────────────────── -->
-        <section class="identity-section" id="reading" aria-labelledby="reading-title">
+        <!-- ── 10. READING — Editorial Reading List ───────────────────────────── -->
+        <section class="identity-section scroll-reveal" id="reading" aria-labelledby="reading-title">
             <!-- TODO: Add favorite/current reading titles. -->
             <div class="identity-section__header">
                 <span class="identity-section__num">10</span>
@@ -735,57 +814,65 @@
                 A mix of technical reference, engineering history, philosophy, manga, and long-form research.
             </p>
 
-            <div class="reading-layout">
+            <div class="reading-editorial-layout">
                 <div class="reading-categories-bar" aria-label="Reading categories">
-                    <span class="reading-cat-tag">TECHNICAL &amp; ARCHITECTURE</span>
-                    <span class="reading-cat-tag">IDEAS &amp; HISTORY</span>
-                    <span class="reading-cat-tag">RESEARCH &amp; PAPERS</span>
-                    <span class="reading-cat-tag">MANGA &amp; COMICS</span>
-                    <span class="reading-cat-tag">FICTION</span>
+                    <span class="reading-cat-pill">TECHNICAL &amp; ARCHITECTURE</span>
+                    <span class="reading-cat-pill">IDEAS &amp; HISTORY</span>
+                    <span class="reading-cat-pill">RESEARCH &amp; PAPERS</span>
+                    <span class="reading-cat-pill">MANGA &amp; COMICS</span>
+                    <span class="reading-cat-pill">FICTION</span>
                 </div>
 
-                <div class="reading-subsections">
-                    <div class="reading-subsection">
-                        <h3 class="reading-subsection__title">FAVORITES</h3>
-                        <ul class="reading-list">
-                            <li class="reading-item">
-                                <p class="reading-item__title">System Architecture &amp; Engineering Fundamentals</p>
-                                <p class="reading-item__meta">Technical / Reference</p>
+                <div class="reading-list-columns">
+                    <!-- Column 1: Favorites -->
+                    <div>
+                        <h3 class="reading-column-title">FAVORITES</h3>
+                        <ol class="reading-editorial-list">
+                            <li class="reading-list-entry">
+                                <p class="reading-entry-num">01</p>
+                                <h4 class="reading-entry-title">System Architecture &amp; Software Fundamentals</h4>
+                                <p class="reading-entry-meta">Technical Reference · Distributed Systems</p>
                             </li>
-                            <li class="reading-item">
-                                <p class="reading-item__title">Civilization &amp; Infrastructure History</p>
-                                <p class="reading-item__meta">Ideas &amp; History</p>
+                            <li class="reading-list-entry">
+                                <p class="reading-entry-num">02</p>
+                                <h4 class="reading-entry-title">Civilization &amp; Infrastructure History</h4>
+                                <p class="reading-entry-meta">Ideas &amp; History · Records</p>
                             </li>
-                            <li class="reading-item">
-                                <p class="reading-item__title">Favorite Manga / Comics Series</p>
-                                <p class="reading-item__meta">Manga &amp; Comics</p>
+                            <li class="reading-list-entry">
+                                <p class="reading-entry-num">03</p>
+                                <h4 class="reading-entry-title">Favorite Manga / Comic Series</h4>
+                                <p class="reading-entry-meta">Manga &amp; Visual Narrative</p>
                             </li>
-                        </ul>
+                        </ol>
                     </div>
 
-                    <div class="reading-subsection">
-                        <h3 class="reading-subsection__title">CURRENTLY INTO</h3>
-                        <ul class="reading-list">
-                            <li class="reading-item">
-                                <p class="reading-item__title">Distributed Systems &amp; Reliability Reference</p>
-                                <p class="reading-item__meta">Technical</p>
+                    <!-- Column 2: Currently Into -->
+                    <div>
+                        <h3 class="reading-column-title">CURRENTLY INTO</h3>
+                        <ol class="reading-editorial-list">
+                            <li class="reading-list-entry">
+                                <p class="reading-entry-num">01</p>
+                                <h4 class="reading-entry-title">Distributed Systems &amp; Observability Reference</h4>
+                                <p class="reading-entry-meta">Technical · Infrastructure</p>
                             </li>
-                            <li class="reading-item">
-                                <p class="reading-item__title">Practical Philosophy &amp; Decision Making</p>
-                                <p class="reading-item__meta">Philosophy / Research</p>
+                            <li class="reading-list-entry">
+                                <p class="reading-entry-num">02</p>
+                                <h4 class="reading-entry-title">Practical Philosophy &amp; Decision Making</h4>
+                                <p class="reading-entry-meta">Philosophy · Research</p>
                             </li>
-                            <li class="reading-item">
-                                <p class="reading-item__title">Current Ongoing Manga Release</p>
-                                <p class="reading-item__meta">Manga</p>
+                            <li class="reading-list-entry">
+                                <p class="reading-entry-num">03</p>
+                                <h4 class="reading-entry-title">Current Ongoing Manga Release</h4>
+                                <p class="reading-entry-meta">Manga · Serialized</p>
                             </li>
-                        </ul>
+                        </ol>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ── About Closing Section ───────────────────────────────────────────── -->
-        <section class="about-closing" aria-label="Closing thoughts and portfolio navigation">
+        <section class="about-closing scroll-reveal" aria-label="Closing thoughts and portfolio navigation">
             <div class="about-closing__content">
                 <p class="about-closing__text">
                     Some of these interests become projects, some stay hobbies, and some simply give me something new to understand.
@@ -813,6 +900,7 @@
 
     </main>
 
+    <!-- Site Footer -->
     <footer class="site-footer">
         <div class="page-shell site-footer__inner">
             <div>
@@ -831,6 +919,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="../../shared/js/main.js"></script>
     <script src="assets/js/about.js"></script>
 </body>

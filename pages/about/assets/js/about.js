@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ABOUT PAGE BEHAVIOR — Identity Beyond Work
-   Carousel Interactivity & Sticky Navigation Observer
+   ABOUT PAGE BEHAVIOR — Phase 13.1 About Visual Redesign
+   Carousel Interactivity, Sticky Rail Observer & Scroll-Entry Motion
    ========================================================================== */
 
 (() => {
@@ -23,7 +23,7 @@
 
         const getScrollStep = () => {
             const cardWidth = cards[0].offsetWidth;
-            const gap = 20; // 1.25rem gap
+            const gap = 24; // 1.5rem gap
             return cardWidth + gap;
         };
 
@@ -60,7 +60,7 @@
         let scrollTimeout;
         track.addEventListener('scroll', () => {
             if (scrollTimeout) clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(updateScrollControls, 50);
+            scrollTimeout = setTimeout(updateScrollControls, 40);
         }, { passive: true });
 
         // Pointer dragging (Grab to scroll)
@@ -86,7 +86,7 @@
             if (!isDragging) return;
             e.preventDefault();
             const x = e.pageX - track.offsetLeft;
-            const walk = (x - startX) * 1.5; // Drag speed multiplier
+            const walk = (x - startX) * 1.5;
             track.scrollLeft = startScrollLeft - walk;
         });
 
@@ -104,7 +104,7 @@
         updateScrollControls();
     };
 
-    // ── Sticky Navigation & Hash Updating ─────────────────────────────────────
+    // ── Sticky Navigation & Hash Observer ───────────────────────────────────
     const initializeStickyNav = () => {
         const stickyNav = document.querySelector('[data-sticky-nav]');
         if (!stickyNav) return;
@@ -125,7 +125,6 @@
                 if (linkTarget === targetId) {
                     link.setAttribute('aria-current', 'true');
                     link.classList.add('is-active');
-                    // Scroll link into view in sticky horizontal nav
                     link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
                     link.removeAttribute('aria-current');
@@ -142,7 +141,7 @@
                     const targetEl = document.getElementById(href.slice(1));
                     if (targetEl) {
                         e.preventDefault();
-                        const headerOffset = 130; // Header + sticky nav height offset
+                        const headerOffset = 130;
                         const elementPosition = targetEl.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -160,10 +159,10 @@
             });
         });
 
-        // IntersectionObserver to highlight section as user scrolls
+        // IntersectionObserver to highlight active section on scroll
         const observerOptions = {
             root: null,
-            rootMargin: '-20% 0px -60% 0px',
+            rootMargin: '-20% 0px -55% 0px',
             threshold: 0
         };
 
@@ -190,8 +189,36 @@
         }
     };
 
+    // ── Restrained Scroll-Entry Motion ───────────────────────────────────────
+    const initializeScrollMotion = () => {
+        // Check reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+            revealElements.forEach(el => el.classList.add('is-visible'));
+            return;
+        }
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0.1
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
         initializeCarousel();
         initializeStickyNav();
+        initializeScrollMotion();
     });
 })();
