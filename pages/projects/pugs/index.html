@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>PUGS — Camera-Based Assistive Navigation Prototype | Ian Cedric Ramirez</title>
+    <meta name="description" content="PUGS case study — camera-based assistive navigation research prototype for blind and visually impaired users, utilizing on-device smartphone vision, obstacle proximity detection, free path analysis, and multimodal feedback.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">PUGS</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · Accessibility &amp; Computer Vision Research</p>
+                        <h1 class="project-header__title" id="page-title">PUGS</h1>
+                        <p class="project-header__summary">PUGS (Path Utility Guide System) is a camera-based assistive navigation research prototype built for blind and visually impaired users. The system evaluated whether a commonly available Android smartphone could provide environmental guidance without requiring specialized external sensors or navigation infrastructure.</p>
+                        <p class="project-header__summary">As Researcher and Developer in a 2-student research team advised by faculty, I worked on the visual processing flow, obstacle proximity estimation, free path determination, and multimodal haptic/audio guidance.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#story">Research Flow</a>
+                            <a href="#problem">Core Research Problem</a>
+                            <a href="#device-sensing">On-Device Architecture</a>
+                            <a href="#spatial-guidance">Spatial &amp; Frame Guidance</a>
+                            <a href="#detection-capabilities">Detection Capabilities</a>
+                            <a href="#feedback-modes">Multimodal Feedback</a>
+                            <a href="#testing">User Validation</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#retrospective">Retrospective</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with final PUGS artwork and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom PUGS illustration showing camera-based obstacle sensing, frame positioning, free path selection, and multimodal haptic/audio feedback.">
+                            <div class="project-header__hero-text">
+                                <strong>PUGS Assistive Navigation Research</strong><br>
+                                Smartphone Camera Sensing → Frame Spatial Analysis → Haptic &amp; Audio Guidance
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>Consumer (Accessibility &amp; Assistive Tech)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>Researcher + Developer</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Team Context</dt>
+                        <dd>2 Student Researchers + Faculty Adviser</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Year &amp; Origin</dt>
+                        <dd>2022 · Thesis Research Project</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Hardware Target</dt>
+                        <dd>Android Smartphone (4 GB RAM Target)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Status</dt>
+                        <dd>Completed Thesis Prototype</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Research Context</strong>
+                        Engineered as a 2022 Undergraduate Thesis Research Project exploring smartphone-based accessibility solutions for visually impaired users.
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview &amp; Research Focus</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>PUGS investigated the feasibility of utilizing standard Android smartphone camera hardware for real-time obstacle detection and spatial path guidance. Rather than relying on external GPS, wearable headsets, or specialized depth sensors, PUGS operated entirely on-device.</p>
+                        <p>The research demonstrated that software-driven visual processing on accessible mobile hardware could assist visually impaired users in identifying walkable paths and avoiding near-field physical hazards.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Accessibility Goal</strong>
+                            <span>Providing immediate environmental guidance without specialized external hardware (LiDAR, ultrasonic sensors, or beacons).</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Engineering Focus</strong>
+                            <span>Full-Stack · Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="story" aria-labelledby="story-title">
+                <h2 id="story-title">Central Research Flow</h2>
+                <p>The system narrative highlights how live camera input was processed into actionable tactile and acoustic navigation guidance:</p>
+                <div class="project-diagram" aria-label="PUGS central processing flow diagram">
+                    <pre>Physical Environment
+        ↓
+Android Smartphone Camera Sensing
+        ↓
+On-Device Computer Vision Processing
+        ↓
+Detect General Objects / Physical Obstacles
+        ↓
+Estimate Object Location &amp; Proximity Thresholds
+        ↓
+Identify Free / Walkable Path Regions
+        ↓
+Determine Suggested Direction (Left / Center / Right)
+        ↓
+Multimodal Haptic (Vibration) + Audio (Speech) Feedback
+        ↓
+User Adjusts Walking Path</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="problem" aria-labelledby="problem-title">
+                <h2 id="problem-title">Core Research Problem &amp; Constraints</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Visually impaired individuals face significant navigational challenges in unfamiliar indoor and outdoor environments. Dedicated assistive devices are often expensive, specialized, or require complex setup.</p>
+                        <p>PUGS evaluated whether a mainstream Android smartphone (targeting devices with approximately 4 GB RAM or higher) could process environmental visual cues in real time to guide users safely.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Infrastructure Independence</strong>
+                            <span>Operated without reliance on Google Maps, active GPS signals, Bluetooth beacons, or internet connectivity.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="device-sensing" aria-labelledby="device-sensing-title">
+                <h2 id="device-sensing-title">On-Device Architecture &amp; Hardware Independence</h2>
+                <p>PUGS used the smartphone itself as both the primary sensor and output terminal, avoiding external sensor attachments:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Input Sensing:</strong>
+                        <span>Rear smartphone camera capture feeding continuous frame data to the processing loop.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>On-Device Computation:</strong>
+                        <span>Mobile visual frame processing for obstacle localization and free path detection.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Output Interaction:</strong>
+                        <span>Haptic motor vibration patterns combined with Text-to-Speech (TTS) audio directions.</span>
+                    </div>
+                </div>
+                <!-- TODO: Confirm exact computer vision framework/library used if original source code is available. -->
+                <!-- TODO: Confirm exact target Android OS version if thesis documentation is available. -->
+            </section>
+
+            <section class="project-section" id="spatial-guidance" aria-labelledby="spatial-guidance-title">
+                <h2 id="spatial-guidance-title">Spatial Frame Division &amp; Path Selection</h2>
+                <p>The application divided the camera frame into spatial zones to evaluate obstacle placement relative to the user's path:</p>
+                <div class="project-diagram" aria-label="Camera frame spatial division diagram">
+                    <pre>Camera Frame Spatial Analysis:
+┌─────────────────┬─────────────────┬─────────────────┐
+│   LEFT ZONE     │   CENTER ZONE   │   RIGHT ZONE    │
+│  Obstacle Check │  Obstacle Check │  Obstacle Check │
+└─────────────────┴─────────────────┴─────────────────┘
+        ↓                 ↓                 ↓
+Proximity Check   Proximity Check   Proximity Check
+        └─────────────────┼─────────────────┘
+                          ↓
+            Identify Free / Open Corridor
+                          ↓
+      Issue Directional Cue ("Steer Right / Path Clear")</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="detection-capabilities" aria-labelledby="detection-capabilities-title">
+                <h2 id="detection-capabilities-title">Prototype Detection Capabilities</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The PUGS research prototype was designed to detect and evaluate key environmental features:</p>
+                        <ul>
+                            <li><strong>General Obstacle Sensing:</strong> Identifying physical barriers in the immediate walking path.</li>
+                            <li><strong>Proximity Estimation:</strong> Evaluating obstacle distance thresholds (near vs. far warnings).</li>
+                            <li><strong>Free Path Identification:</strong> Locating unobstructed spatial corridors.</li>
+                            <li><strong>Directional Guidance:</strong> Suggesting safe direction adjustments (Left, Center, Right).</li>
+                            <li><strong>Class Recognition &amp; Hazards:</strong> Recognizing specific object classes, stairways/steps, and edge drop hazards where supported by the vision prototype.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Restrained Research Claims</strong>
+                            <span>The system functioned as an exploratory research prototype to demonstrate technical feasibility rather than guaranteed autonomous navigation.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="feedback-modes" aria-labelledby="feedback-modes-title">
+                <h2 id="feedback-modes-title">Multimodal Haptic &amp; Audio Feedback</h2>
+                <div class="comparison-box" aria-label="Multimodal feedback channel comparison">
+                    <div class="comparison-column">
+                        <h3>HAPTIC VIBRATION SIGNALS</h3>
+                        <ul>
+                            <li>Pulsed vibration patterns for immediate obstacle proximity warnings</li>
+                            <li>Directional haptic cues signaling left or right path adjustments</li>
+                            <li>Silent tactile feedback useful in noisy public environments</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>AUDIO SPEECH GUIDANCE</h3>
+                        <ul>
+                            <li>Text-to-Speech verbal cues for object classification and warnings</li>
+                            <li>Spoken directional cues ("Path clear ahead", "Obstacle left")</li>
+                            <li>Clear acoustic feedback for blind user navigation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="testing" aria-labelledby="testing-title">
+                <h2 id="testing-title">Research Validation &amp; Prototype Testing</h2>
+                <p>The research project evaluated prototype performance through controlled obstacle navigation trials and qualitative user testing feedback, gathering insights on detection latency, haptic response clarity, and walking path accuracy.</p>
+                <!-- TODO: Add screenshots or demo videos only if thesis research assets are available and appropriate for public display. -->
+                <!-- TODO: Add repository or research paper link only if verified and public. -->
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Feasibility Demonstration</strong>
+                        <span>Validated that standard smartphone cameras and on-device processing can perform real-time assistive obstacle detection.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Hardware Independence</strong>
+                        <span>Eliminated dependence on specialized wearable sensors, external depth cameras, or dedicated beacons.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Effective Multimodal Guidance</strong>
+                        <span>Demonstrated that combining haptic vibration pulses with audio speech improves user directional awareness.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Academic Thesis Completion</strong>
+                        <span>Successfully defended as an undergraduate Computer Science research thesis at Isabela State University.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Retrospective &amp; Accessibility Engineering</h2>
+                <div class="retrospective-item">
+                    <h3>Designing for Multimodal User Interfaces</h3>
+                    <p>PUGS provided early experience in designing accessibility-first user interfaces where non-visual channels (haptics and audio) serve as primary interaction mechanisms.</p>
+                </div>
+                <div class="retrospective-item">
+                    <h3>Mobile Performance Optimization</h3>
+                    <p>Processing live video frames on mobile devices highlighted the importance of algorithm efficiency, frame rate management, and memory optimization under resource constraints.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>Android Development · Computer Vision · Mobile On-Device Processing · Multimodal Interface Design · Accessibility Engineering</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials &amp; Certifications</strong>
+                        <p>Academic research credentials, thesis defense verification, and computer science project history.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../wots/">← Previous Case Study (WOTS)</a>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Case Study →</span>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
