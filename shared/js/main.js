@@ -118,7 +118,7 @@
 
     const initializeActiveNavigation = () => {
         const currentPath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-        const sectionMatch = currentPath.match(/\/pages\/(projects|experience|about|skills|credentials|resume|contact)\//);
+        const sectionMatch = currentPath.match(/\/pages\/(projects|experience|about|skills|credentials|contact)\//);
         const activeSection = sectionMatch ? sectionMatch[1] : null;
 
         document.querySelectorAll('.site-nav__menu a').forEach((link) => {
