@@ -141,10 +141,14 @@
         });
 
         // Show / hide cards
+        let visibleCount = 0;
         experienceCards.forEach((card) => {
             const visible = cardMatchesFilter(card);
             card.dataset.hidden = visible ? 'false' : 'true';
-            if (visible) anyVisible = true;
+            if (visible) {
+                anyVisible = true;
+                visibleCount++;
+            }
         });
 
         // Show / hide year groups if all their cards are hidden
@@ -153,6 +157,22 @@
             const allHidden = cards.every((c) => c.dataset.hidden === 'true');
             group.dataset.hidden = allHidden ? 'true' : 'false';
         });
+
+        // Status bar count & clear button update
+        const resultCountEl = document.getElementById('exp-result-count');
+        const totalCount = experienceCards.length;
+        if (resultCountEl) {
+            if (visibleCount === totalCount) {
+                resultCountEl.textContent = totalCount + ' ROLES';
+            } else {
+                resultCountEl.textContent = visibleCount + ' OF ' + totalCount + ' ROLES';
+            }
+        }
+
+        const clearFiltersBtn = document.getElementById('exp-clear-filters');
+        if (clearFiltersBtn) {
+            clearFiltersBtn.hidden = (activeFilters.size === 0 && matchMode === 'all' && sortMode === 'newest');
+        }
 
         // Empty state
         if (emptyStateEl) {
@@ -437,6 +457,19 @@
                 pushURL();
             });
         });
+
+        // Clear filters button
+        const clearFiltersBtn = document.getElementById('exp-clear-filters');
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', () => {
+                activeFilters.clear();
+                matchMode = 'all';
+                sortMode = 'newest';
+                syncAllUI();
+                applyFilters();
+                pushURL();
+            });
+        }
 
         // Sort buttons
         sortBtns.forEach((btn) => {

@@ -67,22 +67,42 @@
 
         <section class="section" aria-label="Filter &amp; Sort">
 
-            <div class="exp-controls" role="group" aria-label="Experience controls">
+            <div class="exp-controls projects-controls" role="group" aria-label="Experience controls">
 
-                <!-- Desktop filter group -->
-                <div class="exp-controls-group exp-controls-group--desktop-filters" role="group"
-                    aria-label="Filter by area">
-                    <span class="exp-controls-label" aria-hidden="true">Filter</span>
-                    <button id="filter-all" class="exp-filter-btn" type="button" data-filter="all"
-                        aria-pressed="true">All</button>
-                    <button id="filter-full-stack" class="exp-filter-btn" type="button" data-filter="full-stack"
-                        aria-pressed="false">Full-Stack</button>
-                    <button id="filter-devops" class="exp-filter-btn" type="button" data-filter="devops"
-                        aria-pressed="false">DevOps</button>
-                    <button id="filter-teaching" class="exp-filter-btn" type="button" data-filter="teaching"
-                        aria-pressed="false">Teaching</button>
-                    <button id="filter-leadership" class="exp-filter-btn" type="button" data-filter="leadership"
-                        aria-pressed="false">Leadership</button>
+                <div class="projects-filter-groups">
+                    <!-- Desktop filter group -->
+                    <div class="filter-group exp-controls-group exp-controls-group--desktop-filters" role="group"
+                        aria-label="Filter by area">
+                        <span class="filter-group__title exp-controls-label" aria-hidden="true">AREA</span>
+                        <button id="filter-all" class="filter-btn exp-filter-btn" type="button" data-filter="all"
+                            aria-pressed="true">All</button>
+                        <button id="filter-full-stack" class="filter-btn exp-filter-btn" type="button" data-filter="full-stack"
+                            aria-pressed="false">Full-Stack</button>
+                        <button id="filter-devops" class="filter-btn exp-filter-btn" type="button" data-filter="devops"
+                            aria-pressed="false">DevOps</button>
+                        <button id="filter-teaching" class="filter-btn exp-filter-btn" type="button" data-filter="teaching"
+                            aria-pressed="false">Teaching</button>
+                        <button id="filter-leadership" class="filter-btn exp-filter-btn" type="button" data-filter="leadership"
+                            aria-pressed="false">Leadership</button>
+                    </div>
+
+                    <!-- Match toggle -->
+                    <div class="filter-group exp-controls-group" role="group" aria-label="Filter match mode">
+                        <span class="filter-group__title exp-controls-label" aria-hidden="true">MATCH</span>
+                        <button id="match-all" class="filter-btn exp-match-btn" type="button" data-match="all"
+                            aria-pressed="true">All</button>
+                        <button id="match-any" class="filter-btn exp-match-btn" type="button" data-match="any"
+                            aria-pressed="false">Any</button>
+                    </div>
+
+                    <!-- Sort toggle -->
+                    <div class="filter-group exp-controls-group" role="group" aria-label="Sort order">
+                        <span class="filter-group__title exp-controls-label" aria-hidden="true">SORT</span>
+                        <button id="sort-newest" class="filter-btn exp-sort-btn" type="button" data-sort="newest"
+                            aria-pressed="true">Newest</button>
+                        <button id="sort-oldest" class="filter-btn exp-sort-btn" type="button" data-sort="oldest"
+                            aria-pressed="false">Oldest</button>
+                    </div>
                 </div>
 
                 <!-- Mobile filter disclosure -->
@@ -115,22 +135,9 @@
                     </div>
                 </div>
 
-                <!-- Match toggle -->
-                <div class="exp-controls-group" role="group" aria-label="Filter match mode">
-                    <span class="exp-controls-label" aria-hidden="true">Match</span>
-                    <button id="match-all" class="exp-match-btn" type="button" data-match="all"
-                        aria-pressed="true">All</button>
-                    <button id="match-any" class="exp-match-btn" type="button" data-match="any"
-                        aria-pressed="false">Any</button>
-                </div>
-
-                <!-- Sort toggle -->
-                <div class="exp-controls-group" role="group" aria-label="Sort order">
-                    <span class="exp-controls-label" aria-hidden="true">Sort</span>
-                    <button id="sort-newest" class="exp-sort-btn" type="button" data-sort="newest"
-                        aria-pressed="true">Newest</button>
-                    <button id="sort-oldest" class="exp-sort-btn" type="button" data-sort="oldest"
-                        aria-pressed="false">Oldest</button>
+                <div class="projects-status-bar">
+                    <span class="result-count" id="exp-result-count">4 ROLES</span>
+                    <button type="button" class="clear-filters-btn" id="exp-clear-filters" hidden>Clear filters</button>
                 </div>
             </div>
 

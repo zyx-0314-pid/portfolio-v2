@@ -14,7 +14,8 @@
             }
         })();
     </script>
-    <title>Projects | Portfolio</title>
+    <title>Projects | Ian Cedric Ramirez</title>
+    <meta name="description" content="Searchable engineering project gallery — systems built, extended, modernized, or used to apply technical architecture decisions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,7 +33,7 @@
                         <span aria-hidden="true">Menu</span>
                     </button>
                     <div class="site-nav__menu" id="site-menu" data-nav-menu>
-                        <a href="./">Projects</a>
+                        <a href="./" aria-current="page">Projects</a>
                         <a href="../experience/">Experience</a>
                         <a href="../about/">About</a>
                         <a href="../skills/">Skills</a>
@@ -49,101 +50,506 @@
 
     <main class="site-main page-shell">
         <section class="section projects-intro" aria-labelledby="page-title">
-            <p class="section__eyebrow">Projects</p>
+            <p class="section__eyebrow">PROJECTS</p>
             <h1 class="section__title" id="page-title">Projects</h1>
-            <p class="section__lead">Selected applications, systems, infrastructure work, experiments, and engineering case studies.</p>
-            <p class="page-placeholder">A concise archive of placeholder projects, structured so future entries can be expanded without changing the page layout.</p>
+            <p class="section__lead">Systems I built, extended, modernized, or used to apply engineering decisions.</p>
         </section>
 
-        <section class="section" aria-labelledby="archive-title">
-            <h2 class="section__title" id="archive-title">Archive</h2>
-            <div class="project-archive" role="list">
-                <article class="project-entry" role="listitem" data-search-keywords="GoPick HR Assessment Full-Stack Architecture Modernization Legacy Yii2 MySQL Redis AWS">
-                    <div>
-                        <p class="project-entry__number">01 / Active Development</p>
-                        <h3 class="project-entry__title">GoPick</h3>
-                        <p class="project-entry__provenance">Professional Project · People Dynamics Inc. · <a href="../experience/full-stack-developer/">Related Experience →</a></p>
-                        <p class="project-entry__summary">Modernizing and extending an existing HR assessment platform supporting candidates, assessments, evaluations, reporting, and consumable report-generation credits while maintaining legacy compatibility.</p>
-                        <p class="project-entry__evidence"><strong>Strongest Evidence:</strong> Legacy modernization → modular 5-layer architecture</p>
-                        <a class="project-entry__link" href="gopick/">Read Case Study →</a>
+        <!-- Search, Filter & Controls Bar -->
+        <section class="projects-controls" aria-label="Project catalog filters">
+            <div class="projects-search-row">
+                <div class="projects-search-field">
+                    <input type="search" id="project-search" placeholder="Search by project, domain, or engineering focus..." aria-label="Search projects">
+                </div>
+
+                <div class="projects-sort-group">
+                    <label class="projects-sort-label" for="sort-select">SORT</label>
+                    <select id="sort-select" class="projects-sort-select" aria-label="Sort projects">
+                        <option value="relevant">Relevant</option>
+                        <option value="newest">Newest</option>
+                        <option value="oldest">Oldest</option>
+                        <option value="a-z">A–Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="projects-filter-groups">
+                <div class="filter-group" id="domain-filters" role="group" aria-label="Filter by Domain">
+                    <span class="filter-group__title">DOMAIN</span>
+                    <button type="button" class="filter-btn" data-filter-group="domain" data-value="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn" data-filter-group="domain" data-value="hr-assessment" aria-pressed="false">HR &amp; Assessment</button>
+                    <button type="button" class="filter-btn" data-filter-group="domain" data-value="education" aria-pressed="false">Education</button>
+                    <button type="button" class="filter-btn" data-filter-group="domain" data-value="social" aria-pressed="false">Social</button>
+                    <button type="button" class="filter-btn" data-filter-group="domain" data-value="operations" aria-pressed="false">Operations</button>
+                    <button type="button" class="filter-btn" data-filter-group="domain" data-value="consumer" aria-pressed="false">Consumer</button>
+                </div>
+
+                <div class="filter-group" id="focus-filters" role="group" aria-label="Filter by Engineering Focus">
+                    <span class="filter-group__title">FOCUS</span>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="all" aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="full-stack" aria-pressed="false">Full-Stack</button>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="architecture" aria-pressed="false">Architecture</button>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="devops" aria-pressed="false">DevOps</button>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="infrastructure" aria-pressed="false">Infrastructure</button>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="modernization" aria-pressed="false">Modernization</button>
+                    <button type="button" class="filter-btn" data-filter-group="focus" data-value="data" aria-pressed="false">Data</button>
+                </div>
+            </div>
+
+            <div class="projects-status-bar">
+                <span class="result-count" id="result-count">12 PROJECTS</span>
+                <button type="button" class="clear-filters-btn" id="clear-filters" hidden>Clear filters</button>
+            </div>
+        </section>
+
+        <!-- Continuous Marketplace Gallery Grid -->
+        <!--
+        "Relevant" is the public-facing label for a manually curated project order.
+        Do not calculate relevance from tags, dates, complexity, or technology count.
+        -->
+        <section class="section" aria-labelledby="gallery-title">
+            <h2 class="sr-only" id="gallery-title">Project Catalog</h2>
+            
+            <div class="project-gallery" id="project-gallery" role="list">
+                
+                <!-- 01: GoPick (Complete V1 Case Study) -->
+                <article class="project-card" role="listitem"
+                         data-domain="hr-assessment"
+                         data-focus="full-stack, architecture, modernization"
+                         data-relevance="1"
+                         data-date="2025"
+                         data-search-keywords="GoPick HR Assessment Full-Stack Architecture Modernization Legacy Yii2 MySQL Redis AWS">
+                    <div class="project-card__media">
+                        <!-- TODO: Replace with the final GoPick project illustration and update alt text to describe the actual image. -->
+                        <div class="project-card__media-placeholder">
+                            GoPick Illustration<br>
+                            <small>HR Assessment · 5-Layer Modernization</small>
+                        </div>
                     </div>
-                    <dl class="project-entry__meta">
-                        <div class="project-meta">
-                            <dt>Domain</dt>
-                            <dd>HR &amp; Assessment</dd>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">HR &amp; Assessment</p>
+                        <h3 class="project-card__title">GoPick</h3>
+                        <p class="project-card__provenance">People Dynamics Inc. · <a href="../experience/full-stack-developer/">Related Experience →</a></p>
+                        <p class="project-card__summary">Modernizing and extending an existing HR assessment platform supporting candidates, evaluations, reporting, and consumable report-generation credits while preserving legacy behavior.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Legacy modernization → modular 5-layer architecture</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Major Contributor</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Production · Active Dev</span>
+                            </div>
                         </div>
-                        <div class="project-meta">
-                            <dt>Status</dt>
-                            <dd>Production · Active Development</dd>
+                        <div class="project-card__footer">
+                            <a class="project-card__action-link" href="gopick/">Read Case Study →</a>
                         </div>
-                        <div class="project-meta">
-                            <dt>Role</dt>
-                            <dd>Major Contributor</dd>
-                        </div>
-                        <div class="project-meta">
-                            <dt>Focus</dt>
-                            <dd>Full-Stack / Architecture / Modernization</dd>
-                        </div>
-                    </dl>
-                    <!-- TODO: Replace with the final GoPick project illustration and update alt text to describe the actual image. -->
-                    <div class="project-entry__media" role="img" aria-label="Placeholder for a custom project illustration representing an HR assessment platform undergoing incremental legacy modernization into a modular five-layer architecture."></div>
+                    </div>
                 </article>
 
-                <article class="project-entry" role="listitem">
-                    <div>
-                        <p class="project-entry__number">02 / Future Case Study</p>
-                        <h3 class="project-entry__title">Project Title</h3>
-                        <p class="project-entry__summary">Short description placeholder for a future Phase 12 engineering case study.</p>
-                        <a class="project-entry__link" href="example-project/">View Case Study →</a>
+                <!-- 02: JFP – GoPick (Pending Case Study) -->
+                <!-- TODO: Complete JFP – GoPick case study after data integration boundaries are verified. -->
+                <article class="project-card" role="listitem"
+                         data-domain="hr-assessment"
+                         data-focus="full-stack, architecture"
+                         data-relevance="2"
+                         data-date="2025"
+                         data-search-keywords="JFP GoPick Specialized Assessment Systems HR Ecosystem Connected">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            JFP – GoPick<br>
+                            <small>Connected Assessment System</small>
+                        </div>
                     </div>
-                    <dl class="project-entry__meta">
-                        <div class="project-meta">
-                            <dt>Domain</dt>
-                            <dd>System Architecture</dd>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">HR &amp; Assessment</p>
+                        <h3 class="project-card__title">JFP – GoPick</h3>
+                        <p class="project-card__provenance">People Dynamics Inc. · <a href="../experience/full-stack-developer/">Related Experience →</a></p>
+                        <p class="project-card__summary">Internal specialized assessment system connected to GoPick supporting dedicated in-depth evaluation workflows and shared platform data.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Connected ecosystem architecture &amp; data integration</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Major Contributor</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Production · Active Dev</span>
+                            </div>
                         </div>
-                        <div class="project-meta">
-                            <dt>Status</dt>
-                            <dd>Planned</dd>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
                         </div>
-                        <div class="project-meta">
-                            <dt>Role</dt>
-                            <dd>Maintenance / Review</dd>
-                        </div>
-                        <div class="project-meta">
-                            <dt>Focus</dt>
-                            <dd>Infrastructure / Reliability</dd>
-                        </div>
-                    </dl>
-                    <div class="project-entry__media" aria-hidden="true"></div>
+                    </div>
                 </article>
 
-                <article class="project-entry" role="listitem">
-                    <div>
-                        <p class="project-entry__number">03 / Future Case Study</p>
-                        <h3 class="project-entry__title">Project Title</h3>
-                        <p class="project-entry__summary">Short description placeholder for a future Phase 12 engineering case study.</p>
-                        <a class="project-entry__link" href="example-project/">View Case Study →</a>
+                <!-- 03: SeLeBox (Pending Case Study) -->
+                <!-- TODO: Complete SeLeBox case study from verified Experience evidence. -->
+                <article class="project-card" role="listitem"
+                         data-domain="social"
+                         data-focus="full-stack, architecture"
+                         data-relevance="3"
+                         data-date="2024"
+                         data-search-keywords="SeLeBox YenkoDev Social Messaging Video Feed Infinite Scroll Offline Caching Media">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            SeLeBox Platform<br>
+                            <small>Social Media &amp; Media Feed</small>
+                        </div>
                     </div>
-                    <dl class="project-entry__meta">
-                        <div class="project-meta">
-                            <dt>Domain</dt>
-                            <dd>Legacy Modernization</dd>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Social</p>
+                        <h3 class="project-card__title">SeLeBox</h3>
+                        <p class="project-card__provenance">YenkoDev · <a href="../experience/yenkodev-selebox/">Related Experience →</a></p>
+                        <p class="project-card__summary">Social media application featuring direct/group messaging, feed services, media uploads, infinite scrolling video feed, and offline video caching.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Infinite scroll video feed &amp; offline caching logic</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Full-Stack Developer</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Completed</span>
+                            </div>
                         </div>
-                        <div class="project-meta">
-                            <dt>Status</dt>
-                            <dd>Planned</dd>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
                         </div>
-                        <div class="project-meta">
-                            <dt>Role</dt>
-                            <dd>Implementation / Migration</dd>
-                        </div>
-                        <div class="project-meta">
-                            <dt>Focus</dt>
-                            <dd>Database / Deployment</dd>
-                        </div>
-                    </dl>
-                    <div class="project-entry__media" aria-hidden="true"></div>
+                    </div>
                 </article>
+
+                <!-- 04: Veyra (Pending Case Study) -->
+                <!-- TODO: Confirm Veyra domain, focus, lifecycle, role, and case-study content. -->
+                <article class="project-card" role="listitem"
+                         data-domain="consumer"
+                         data-focus="full-stack, architecture"
+                         data-relevance="4"
+                         data-date="2024"
+                         data-search-keywords="Veyra Independent Consumer System Development">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            Veyra<br>
+                            <small>Consumer Application</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Consumer</p>
+                        <h3 class="project-card__title">Veyra</h3>
+                        <p class="project-card__provenance">Independent Project</p>
+                        <p class="project-card__summary">Independent application project exploring modern frontend and backend integration patterns.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Component isolation &amp; API state handling</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Lead Developer</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Development</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 05: Talara (Pending Case Study) -->
+                <!-- TODO: Complete Talara project interview before adding detailed engineering evidence. -->
+                <article class="project-card" role="listitem"
+                         data-domain="consumer"
+                         data-focus="full-stack, architecture"
+                         data-relevance="5"
+                         data-date="2024"
+                         data-search-keywords="Talara Independent Consumer Platform Architecture Development">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            Talara<br>
+                            <small>Consumer Platform</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Consumer</p>
+                        <h3 class="project-card__title">Talara</h3>
+                        <p class="project-card__provenance">Independent Project</p>
+                        <p class="project-card__summary">Consumer-facing web application focusing on modular full-stack architecture and structured data management.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> System architecture &amp; application structure</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Lead Developer</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Development</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 06: AC Local (Pending Case Study) -->
+                <!-- TODO: Complete AC Local project case study. -->
+                <article class="project-card" role="listitem"
+                         data-domain="hr-assessment"
+                         data-focus="full-stack, modernization"
+                         data-relevance="6"
+                         data-date="2025"
+                         data-search-keywords="AC Local People Dynamics Philippine HR Assessment SaaS Supporting Contributor">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            AC Local<br>
+                            <small>Philippine Local HR SaaS</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">HR &amp; Assessment</p>
+                        <h3 class="project-card__title">AC Local</h3>
+                        <p class="project-card__provenance">People Dynamics Inc. · <a href="../experience/full-stack-developer/">Related Experience →</a></p>
+                        <p class="project-card__summary">Philippine local HR assessment platform supporting candidate evaluation workflows, report compilation, and standardized assessment processes.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Application incident investigation &amp; bug resolution</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Supporting Contributor</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Production · Active Dev</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 07: JFP – AC Local (Pending Case Study) -->
+                <!-- TODO: Complete JFP – AC Local project case study. -->
+                <article class="project-card" role="listitem"
+                         data-domain="hr-assessment"
+                         data-focus="full-stack"
+                         data-relevance="7"
+                         data-date="2025"
+                         data-search-keywords="JFP AC Local People Dynamics PDI Internal Specialized Assessment Connected System">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            JFP – AC Local<br>
+                            <small>Specialized Assessment System</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">HR &amp; Assessment</p>
+                        <h3 class="project-card__title">JFP – AC Local</h3>
+                        <p class="project-card__provenance">People Dynamics Inc. · <a href="../experience/full-stack-developer/">Related Experience →</a></p>
+                        <p class="project-card__summary">Internal specialized assessment system connected to AC Local supporting dedicated local assessment workflows.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Maintenance &amp; feature support across assessment tools</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Supporting Contributor</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Production · Active Dev</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 08: Internal Records & Storage Tracking System (Pending Case Study) -->
+                <!-- TODO: Complete Internal Records & Storage Tracking System case study. -->
+                <article class="project-card" role="listitem"
+                         data-domain="operations"
+                         data-focus="full-stack, architecture"
+                         data-relevance="8"
+                         data-date="2023"
+                         data-search-keywords="Internal Records Storage Tracking System Spring Valley Java PostgreSQL Audit Trail Desktop">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            Storage Tracking System<br>
+                            <small>Internal Operations &amp; Audit Trail</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Operations</p>
+                        <h3 class="project-card__title">Internal Records &amp; Storage Tracking System</h3>
+                        <p class="project-card__provenance">Spring Valley Tech Corp · <a href="../experience/java-industry-immersion/">Related Experience →</a></p>
+                        <p class="project-card__summary">Java application with PostgreSQL database managing physical document storage locations, record check-in/check-out, and audit trails.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Relational schema design &amp; location tracking audit</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Java Developer Intern</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Completed</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 09: GoPick Manual (Pending Case Study) -->
+                <!-- TODO: Complete GoPick Manual engineering documentation case study. -->
+                <article class="project-card" role="listitem"
+                         data-domain="hr-assessment"
+                         data-focus="architecture, modernization"
+                         data-relevance="9"
+                         data-date="2025"
+                         data-search-keywords="GoPick Manual Engineering Documentation Standards Operations QA Guardrails People Dynamics PDI">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            GoPick Manual<br>
+                            <small>Engineering Documentation &amp; Standards</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">HR &amp; Assessment</p>
+                        <h3 class="project-card__title">GoPick Manual</h3>
+                        <p class="project-card__provenance">People Dynamics Inc. · <a href="../experience/full-stack-developer/">Related Experience →</a></p>
+                        <p class="project-card__summary">Operational and engineering documentation centralizing system standards, user procedures, developer expectations, QA testing boundaries, and guardrails.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> System traceability &amp; knowledge centralization</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Author &amp; Owner</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Production · Maintained</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10: SIMS — Student Information Management System (Pending Case Study) -->
+                <!-- TODO: Complete SIMS case study. -->
+                <article class="project-card" role="listitem"
+                         data-domain="education"
+                         data-focus="full-stack, data"
+                         data-relevance="10"
+                         data-date="2024"
+                         data-search-keywords="SIMS Student Information Management System Isabela State University Computer Science Education">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            SIMS<br>
+                            <small>ISU Computer Science Department</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Education</p>
+                        <h3 class="project-card__title">SIMS — Student Information Management System</h3>
+                        <p class="project-card__provenance">Isabela State University – Echague Campus</p>
+                        <p class="project-card__summary">Student information and academic management system for the Department of Computer Science, handling student records, enrollments, and academic data.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Academic data modeling &amp; department workflow management</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Lead Developer</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Completed</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 11: WOTS — Water Order Tracking System (Pending Case Study) -->
+                <!-- TODO: Complete WOTS project content. -->
+                <article class="project-card" role="listitem"
+                         data-domain="operations"
+                         data-focus="full-stack, devops"
+                         data-relevance="11"
+                         data-date="2023"
+                         data-search-keywords="WOTS Water Order Tracking System Operations Delivery Logistics Tracking">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            WOTS<br>
+                            <small>Water Order Tracking System</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Operations</p>
+                        <h3 class="project-card__title">WOTS — Water Order Tracking System</h3>
+                        <p class="project-card__provenance">Client Project</p>
+                        <p class="project-card__summary">Order tracking and delivery management web system for water refilling operations, tracking customer orders and delivery statuses.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Order status tracking &amp; operational workflow</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Full-Stack Developer</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Completed</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 12: SIMS PUGS — Path Utility Guide System (Pending Case Study) -->
+                <!-- TODO: Complete PUGS accessibility/social-impact case study. -->
+                <article class="project-card" role="listitem"
+                         data-domain="social"
+                         data-focus="full-stack, architecture"
+                         data-relevance="12"
+                         data-date="2024"
+                         data-search-keywords="SIMS PUGS Path Utility Guide System Social Impact Accessibility Visually Impaired Blind Users Experimental Systems">
+                    <div class="project-card__media">
+                        <div class="project-card__media-placeholder">
+                            SIMS PUGS<br>
+                            <small>Path Utility Guide System</small>
+                        </div>
+                    </div>
+                    <div class="project-card__body">
+                        <p class="project-card__domain">Social</p>
+                        <h3 class="project-card__title">SIMS PUGS — Path Utility Guide System</h3>
+                        <p class="project-card__provenance">Social Impact Project</p>
+                        <p class="project-card__summary">Experimental accessibility and social-impact system engineered to support visually impaired and blind users with accessible navigation and interaction.</p>
+                        <p class="project-card__evidence"><strong>Strongest Evidence:</strong> Accessible interface design &amp; assistive interaction logic</p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Lead Developer</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Status</span>
+                                <span class="project-card__fact-value">Experimental</span>
+                            </div>
+                        </div>
+                        <div class="project-card__footer">
+                            <span class="project-card__action-pending">Case Study coming soon</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Empty Results Message -->
+            <div id="empty-results" class="projects-empty-state" hidden>
+                <h3>No projects match these filters</h3>
+                <p>Try removing a filter or changing your search term.</p>
             </div>
         </section>
     </main>
@@ -167,5 +573,6 @@
     </footer>
 
     <script src="../../shared/js/main.js"></script>
+    <script src="assets/js/projects.js"></script>
 </body>
 </html>
