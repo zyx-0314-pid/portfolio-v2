@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,32 +15,41 @@
             }
         })();
     </script>
-    <title>About | Portfolio</title>
+    <title>About — Identity Beyond Work | Ian Cedric Ramirez</title>
+    <meta name="description"
+        content="The identity of Ian Cedric Ramirez beyond software engineering — work, fitness, travel, ideas, history, tinkering, games, music, movies, photography, and reading.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/about.css">
 </head>
+
 <body>
+
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
             <div class="site-header__controls">
                 <nav class="site-nav" data-site-nav>
-                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                        data-nav-toggle>
                         <span class="sr-only">Toggle navigation</span>
                         <span aria-hidden="true">Menu</span>
                     </button>
                     <div class="site-nav__menu" id="site-menu" data-nav-menu>
                         <a href="../projects/">Projects</a>
                         <a href="../experience/">Experience</a>
-                        <a href="./">About</a>
+                        <a href="./" aria-current="page">About</a>
                         <a href="../skills/">Skills</a>
                         <a href="../credentials/">Credentials</a>
                         <a href="../contact/">Contact</a>
                     </div>
                 </nav>
-                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"
+                    title="Switch to light theme">
                     <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
                 </button>
             </div>
@@ -47,11 +57,760 @@
     </header>
 
     <main class="site-main page-shell">
-        <section class="section" aria-labelledby="page-title">
-            <p class="section__eyebrow">About</p>
-            <h1 class="section__title" id="page-title">About | Portfolio</h1>
-            <p class="page-placeholder">Placeholder page shell for future About content.</p>
+
+        <!-- TODO: Replace all About identity placeholder artwork and update alt text to describe the actual images. -->
+
+        <!-- ── About Hero & Identity Carousel ──────────────────────────────────── -->
+        <section class="about-hero" id="about-intro" aria-labelledby="about-title">
+            <div class="about-hero__header">
+                <p class="about-hero__eyebrow">Identity</p>
+                <h1 class="about-hero__title" id="about-title">ABOUT</h1>
+                <p class="about-hero__lead">Work is one part of identity, not the frame that holds everything else.</p>
+            </div>
+
+            <!-- Identity Gallery Carousel -->
+            <div class="identity-carousel" data-identity-carousel>
+                <div class="carousel-controls">
+                    <span class="carousel-controls__meta" data-carousel-counter>01 / 10</span>
+                    <div class="carousel-controls__btns">
+                        <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous identity category">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button class="carousel-btn" type="button" data-carousel-next aria-label="Next identity category">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="carousel-track" data-carousel-track tabindex="0" role="region" aria-label="Identity categories gallery">
+                    
+                    <!-- Card 01: Work -->
+                    <a href="#work" class="identity-card" data-carousel-card="work">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing software development, systems thinking, architecture, and technical problem solving."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">01</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">WORK</h2>
+                            <p class="identity-card__desc">Systems, software development, and technical problem solving.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 02: Fitness -->
+                    <a href="#fitness" class="identity-card" data-carousel-card="fitness">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing running, swimming, walking, bodyweight training, health, routine, and physical challenge."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">02</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">FITNESS</h2>
+                            <p class="identity-card__desc">Running, swimming, walking, and bodyweight training routines.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 03: Travel & Exploration -->
+                    <a href="#travel" class="identity-card" data-carousel-card="travel">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing travel, food, culture, nature, spontaneous exploration, and outdoor activities."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">03</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">TRAVEL</h2>
+                            <p class="identity-card__desc">Unplanned exploration, local food, culture, and outdoor activities.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 04: Ideas & History -->
+                    <a href="#ideas" class="identity-card" data-carousel-card="ideas">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing history, engineering, civilization, philosophy, systems, and long-form curiosity."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">04</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">IDEAS &amp; HISTORY</h2>
+                            <p class="identity-card__desc">Civilizations, technical history, records, and practical philosophy.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 05: Making & Tinkering -->
+                    <a href="#making" class="identity-card" data-carousel-card="making">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing personal software experiments, infrastructure labs, cybersecurity exploration, and learning technology by building."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">05</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">MAKING &amp; TINKERING</h2>
+                            <p class="identity-card__desc">Personal software labs, Docker environments, and security experiments.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 06: Games -->
+                    <a href="#games" class="identity-card" data-carousel-card="games">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing strategy, role-playing, simulation, survival, story-driven, and casual games."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">06</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">GAMES</h2>
+                            <p class="identity-card__desc">Strategy, RPG, simulation, survival, and story-driven games.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 07: Music -->
+                    <a href="#music" class="identity-card" data-carousel-card="music">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing personal music listening and favorite artists."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">07</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">MUSIC</h2>
+                            <p class="identity-card__desc">Personal listening preferences and favorite musical artists.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 08: Movies & Anime -->
+                    <a href="#movies-anime" class="identity-card" data-carousel-card="movies-anime">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing isekai, reincarnation, regression, action, murim, magic, and fantasy stories."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">08</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">MOVIES &amp; ANIME</h2>
+                            <p class="identity-card__desc">Isekai, reincarnation, regression, murim, action, and fantasy stories.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 09: Photography -->
+                    <a href="#photography" class="identity-card" data-carousel-card="photography">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing travel, street, architecture, nature, food, technology, events, and everyday photography."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">09</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">PHOTOGRAPHY</h2>
+                            <p class="identity-card__desc">Street scenes, architectural details, travel moments, and everyday life.</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 10: Reading -->
+                    <a href="#reading" class="identity-card" data-carousel-card="reading">
+                        <div class="identity-card__media">
+                            <img src="https://placehold.net/480x300.png"
+                                alt="Placeholder for an image representing technical books, research, philosophy, history, psychology, manga, and reference material."
+                                loading="eager">
+                            <span class="identity-card__num" aria-hidden="true">10</span>
+                        </div>
+                        <div class="identity-card__body">
+                            <h2 class="identity-card__title">READING</h2>
+                            <p class="identity-card__desc">Technical reference, history, philosophy, manga, and research material.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
         </section>
+
+        <!-- ── Sticky Identity Section Navigator ────────────────────────────────── -->
+        <div class="sticky-nav-wrapper">
+            <nav class="sticky-nav" id="sticky-nav" aria-label="About section navigator" data-sticky-nav>
+                <ul class="sticky-nav__list">
+                    <li><a href="#work" class="sticky-nav__link"><span class="nav-num">01</span> WORK</a></li>
+                    <li><a href="#fitness" class="sticky-nav__link"><span class="nav-num">02</span> FITNESS</a></li>
+                    <li><a href="#travel" class="sticky-nav__link"><span class="nav-num">03</span> TRAVEL</a></li>
+                    <li><a href="#ideas" class="sticky-nav__link"><span class="nav-num">04</span> IDEAS</a></li>
+                    <li><a href="#making" class="sticky-nav__link"><span class="nav-num">05</span> MAKING</a></li>
+                    <li><a href="#games" class="sticky-nav__link"><span class="nav-num">06</span> GAMES</a></li>
+                    <li><a href="#music" class="sticky-nav__link"><span class="nav-num">07</span> MUSIC</a></li>
+                    <li><a href="#movies-anime" class="sticky-nav__link"><span class="nav-num">08</span> MOVIES</a></li>
+                    <li><a href="#photography" class="sticky-nav__link"><span class="nav-num">09</span> PHOTOGRAPHY</a></li>
+                    <li><a href="#reading" class="sticky-nav__link"><span class="nav-num">10</span> READING</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════════════════════
+             IDENTITY SECTIONS (Continuous Reading Experience)
+        ══════════════════════════════════════════════════════════════════════ -->
+
+        <!-- ── 01. WORK ────────────────────────────────────────────────────────── -->
+        <section class="identity-section" id="work" aria-labelledby="work-title">
+            <div class="identity-section__header">
+                <span class="identity-section__num">01</span>
+                <h2 class="identity-section__title" id="work-title">WORK</h2>
+            </div>
+            <p class="identity-section__lead">
+                Full-stack development with a focus on system organization, application structure, and operational clarity.
+            </p>
+
+            <div class="work-grid">
+                <!-- Current Positioning Block -->
+                <div class="work-block">
+                    <h3 class="work-block__title">
+                        <i class="fa-solid fa-code-branch" aria-hidden="true"></i> Current Identity &amp; Scope
+                    </h3>
+                    <p class="work-positioning">
+                        Most of my professional work is in full-stack development, but I tend to think beyond the page or feature itself—how the application is structured, how data moves, how it is deployed, how failures are observed, and how future changes will affect the system.
+                    </p>
+                    <div class="work-scope-tags">
+                        <span class="work-scope-tag work-scope-tag--primary">Full-Stack Developer</span>
+                        <span class="work-scope-tag">Development</span>
+                        <span class="work-scope-tag">Infrastructure</span>
+                        <span class="work-scope-tag">DevOps (Secondary)</span>
+                    </div>
+                </div>
+
+                <!-- Engineering Principles Block -->
+                <div class="work-block">
+                    <h3 class="work-block__title">
+                        <i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> How I Think
+                    </h3>
+                    <ul class="principles-list">
+                        <li class="principle-item">
+                            <span class="principle-item__num">01</span>
+                            <span class="principle-item__text">Reliability and clarity over novelty.</span>
+                        </li>
+                        <li class="principle-item">
+                            <span class="principle-item__num">02</span>
+                            <span class="principle-item__text">Understand the system before changing it.</span>
+                        </li>
+                        <li class="principle-item">
+                            <span class="principle-item__num">03</span>
+                            <span class="principle-item__text">Decisions should be justified by evidence and constraints.</span>
+                        </li>
+                        <li class="principle-item">
+                            <span class="principle-item__num">04</span>
+                            <span class="principle-item__text">Maintainability matters more than unnecessary cleverness.</span>
+                        </li>
+                        <li class="principle-item">
+                            <span class="principle-item__num">05</span>
+                            <span class="principle-item__text">Prefer the simplest solution that actually solves the problem.</span>
+                        </li>
+                        <li class="principle-item">
+                            <span class="principle-item__num">06</span>
+                            <span class="principle-item__text">Technical debt should be intentional and understood.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Career Direction Card -->
+                <div class="career-direction-card">
+                    <div class="career-direction-body">
+                        <h3 class="work-block__title" style="margin-bottom: 0.4rem;">
+                            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Career Direction
+                        </h3>
+                        <p class="work-positioning" style="margin-bottom: 0;">
+                            Long term, I am growing toward Full-Stack Systems Architecture: staying hands-on with application development while becoming better at connecting software structure, infrastructure, reliability, data, and technical decisions.
+                        </p>
+                    </div>
+                    <div class="career-direction-links">
+                        <a href="../experience/" class="about-btn-link">Experience →</a>
+                        <a href="../projects/" class="about-btn-link">Projects →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 02. FITNESS ─────────────────────────────────────────────────────── -->
+        <section class="identity-section" id="fitness" aria-labelledby="fitness-title">
+            <div class="identity-section__header">
+                <span class="identity-section__num">02</span>
+                <h2 class="identity-section__title" id="fitness-title">FITNESS</h2>
+            </div>
+            <p class="identity-section__lead">
+                Fitness is less about one sport and more about staying physically capable and giving myself something measurable to work against.
+            </p>
+
+            <div class="fitness-layout">
+                <div class="fitness-kinetic-strip">
+                    <div class="fitness-card">
+                        <div class="fitness-card__accent-line"></div>
+                        <h3 class="fitness-card__verb">RUN</h3>
+                        <p class="fitness-card__desc">Endurance running, outdoor pavement miles, and pacing consistency.</p>
+                    </div>
+                    <div class="fitness-card">
+                        <div class="fitness-card__accent-line"></div>
+                        <h3 class="fitness-card__verb">SWIM</h3>
+                        <p class="fitness-card__desc">Pool lap conditioning, technique rhythm, and breathing control.</p>
+                    </div>
+                    <div class="fitness-card">
+                        <div class="fitness-card__accent-line"></div>
+                        <h3 class="fitness-card__verb">MOVE</h3>
+                        <p class="fitness-card__desc">Long walking, outdoor hiking, and continuous physical activity.</p>
+                    </div>
+                    <div class="fitness-card">
+                        <div class="fitness-card__accent-line"></div>
+                        <h3 class="fitness-card__verb">TRAIN</h3>
+                        <p class="fitness-card__desc">Bodyweight calisthenics, core stability, and functional strength.</p>
+                    </div>
+                </div>
+
+                <div class="fitness-themes">
+                    <span class="fitness-theme-badge">Maintaining Health</span>
+                    <span class="fitness-theme-badge">Routine &amp; Discipline</span>
+                    <span class="fitness-theme-badge">Personal Challenge</span>
+                    <span class="fitness-theme-badge">Self-Competition</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 03. TRAVEL & EXPLORATION ────────────────────────────────────────── -->
+        <section class="identity-section" id="travel" aria-labelledby="travel-title">
+            <!-- TODO: Add selected travel locations/moments. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">03</span>
+                <h2 class="identity-section__title" id="travel-title">TRAVEL &amp; EXPLORATION</h2>
+            </div>
+            <p class="identity-section__lead">
+                I like travel most when it feels exploratory rather than scheduled around landmarks—trying food, walking somewhere unfamiliar, finding places unexpectedly, and doing activities that make a trip feel distinct from everyday life.
+            </p>
+
+            <div class="travel-strip">
+                <div class="travel-card">
+                    <div class="travel-card__image">
+                        <img src="https://placehold.net/400x250.png"
+                            alt="Placeholder image representing local food discovery, street food stalls, and culinary exploration."
+                            loading="lazy">
+                    </div>
+                    <div class="travel-card__body">
+                        <span class="travel-card__tag">CULTURE &amp; FOOD</span>
+                        <p class="travel-card__desc">Trying local dishes, regional specialties, and spontaneous street food spots.</p>
+                    </div>
+                </div>
+
+                <div class="travel-card">
+                    <div class="travel-card__image">
+                        <img src="https://placehold.net/400x250.png"
+                            alt="Placeholder image representing walking unfamiliar streets, back alleys, and city discovery."
+                            loading="lazy">
+                    </div>
+                    <div class="travel-card__body">
+                        <span class="travel-card__tag">UNPLANNED WALKS</span>
+                        <p class="travel-card__desc">Walking through neighborhoods off the main itinerary to see daily life.</p>
+                    </div>
+                </div>
+
+                <div class="travel-card">
+                    <div class="travel-card__image">
+                        <img src="https://placehold.net/400x250.png"
+                            alt="Placeholder image representing outdoor nature hikes, coastal views, and environmental contrast."
+                            loading="lazy">
+                    </div>
+                    <div class="travel-card__body">
+                        <span class="travel-card__tag">NATURE &amp; OUTDOORS</span>
+                        <p class="travel-card__desc">Experiencing distinct landscapes, coastal trails, and natural environments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 04. IDEAS & HISTORY ─────────────────────────────────────────────── -->
+        <section class="identity-section" id="ideas" aria-labelledby="ideas-title">
+            <div class="identity-section__header">
+                <span class="identity-section__num">04</span>
+                <h2 class="identity-section__title" id="ideas-title">IDEAS &amp; HISTORY</h2>
+            </div>
+            <p class="identity-section__lead">
+                I'm interested in how ideas, technologies, systems, and civilizations evolve—and in the records, decisions, infrastructure, and competing interpretations they leave behind.
+            </p>
+
+            <div class="ideas-editorial-grid">
+                <div class="ideas-card">
+                    <div class="ideas-card__header">
+                        <h3 class="ideas-card__topic">Civilizations &amp; Institutions</h3>
+                        <span class="ideas-card__tag">STRUCTURE</span>
+                    </div>
+                    <p class="ideas-card__body">
+                        How societies construct governance, trade routes, administrative records, and lasting institutions to manage scale and preserve continuity across generations.
+                    </p>
+                </div>
+
+                <div class="ideas-card">
+                    <div class="ideas-card__header">
+                        <h3 class="ideas-card__topic">Infrastructure &amp; Engineering History</h3>
+                        <span class="ideas-card__tag">SYSTEMS</span>
+                    </div>
+                    <p class="ideas-card__body">
+                        The evolution of physical and technical networks—aqueducts, railways, telegraphs, and early computing hardware—and how constraints shaped technical decisions.
+                    </p>
+                </div>
+
+                <div class="ideas-card">
+                    <div class="ideas-card__header">
+                        <h3 class="ideas-card__topic">Records &amp; Evidence</h3>
+                        <span class="ideas-card__tag">HISTORIOGRAPHY</span>
+                    </div>
+                    <p class="ideas-card__body">
+                        How historical records are preserved, how different parties interpret the same historical event, and the difference between primary evidence and later narrative.
+                    </p>
+                </div>
+
+                <div class="ideas-card">
+                    <div class="ideas-card__header">
+                        <h3 class="ideas-card__topic">Practical Philosophy &amp; Decisions</h3>
+                        <span class="ideas-card__tag">REASONING</span>
+                    </div>
+                    <p class="ideas-card__body">
+                        Human behavior under real constraints, moral frameworks, decision-making under uncertainty, and evaluating choices by their long-term consequences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 05. MAKING & TINKERING ───────────────────────────────────────────── -->
+        <section class="identity-section" id="making" aria-labelledby="making-title">
+            <!-- TODO: Add selected Making & Tinkering experiment examples. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">05</span>
+                <h2 class="identity-section__title" id="making-title">MAKING &amp; TINKERING</h2>
+            </div>
+            <p class="identity-section__lead">
+                Outside formal employment, I often learn technology by building something small enough to break, rebuild, compare, or deliberately stress.
+            </p>
+
+            <div class="making-experiments">
+                <!-- Experiment 01 -->
+                <div class="experiment-card">
+                    <span class="experiment-card__tag">EXPERIMENT 01 · CONTAINERS</span>
+                    <div class="experiment-card__field">
+                        <span class="experiment-card__label">WHAT I WAS TRYING TO UNDERSTAND</span>
+                        <div class="experiment-card__value">Multi-container orchestration, local network isolation, and database seed automation.</div>
+                    </div>
+                    <div class="experiment-card__field">
+                        <span class="experiment-card__label">WHAT CHANGED / WHAT I LEARNED</span>
+                        <div class="experiment-card__value">Container networking overhead is negligible compared to reproducible configuration benefits.</div>
+                    </div>
+                </div>
+
+                <!-- Experiment 02 -->
+                <div class="experiment-card">
+                    <span class="experiment-card__tag">EXPERIMENT 02 · ARCHITECTURE</span>
+                    <div class="experiment-card__field">
+                        <span class="experiment-card__label">WHAT I WAS TRYING TO UNDERSTAND</span>
+                        <div class="experiment-card__value">Modular service boundaries and mock cloud integration labs for local testing.</div>
+                    </div>
+                    <div class="experiment-card__field">
+                        <span class="experiment-card__label">WHAT CHANGED / WHAT I LEARNED</span>
+                        <div class="experiment-card__value">Strict data contracts at service boundaries prevent subtle integration bugs early.</div>
+                    </div>
+                </div>
+
+                <!-- Experiment 03 -->
+                <div class="experiment-card">
+                    <span class="experiment-card__tag">EXPERIMENT 03 · SECURITY LABS</span>
+                    <div class="experiment-card__field">
+                        <span class="experiment-card__label">WHAT I WAS TRYING TO UNDERSTAND</span>
+                        <div class="experiment-card__value">HTTP traffic inspection, header validation, and credential security mechanics.</div>
+                    </div>
+                    <div class="experiment-card__field">
+                        <span class="experiment-card__label">WHAT CHANGED / WHAT I LEARNED</span>
+                        <div class="experiment-card__value">Defensive input filtering and header policy enforcement must occur at application entry points.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 06. GAMES ───────────────────────────────────────────────────────── -->
+        <section class="identity-section" id="games" aria-labelledby="games-title">
+            <!-- TODO: Add favorite/current game titles. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">06</span>
+                <h2 class="identity-section__title" id="games-title">GAMES</h2>
+            </div>
+            <p class="identity-section__lead">
+                Appreciation for systems, worldbuilding, and mechanics across strategy, RPGs, simulation, and survival games.
+            </p>
+
+            <div class="games-block">
+                <div class="games-genres-bar" aria-label="Game Genres">
+                    <span class="game-genre-pill">Strategy</span>
+                    <span class="game-genre-pill">RPG</span>
+                    <span class="game-genre-pill">Simulation &amp; Management</span>
+                    <span class="game-genre-pill">FPS</span>
+                    <span class="game-genre-pill">Survival / Crafting</span>
+                    <span class="game-genre-pill">Story-Driven</span>
+                    <span class="game-genre-pill">Casual / Mobile</span>
+                </div>
+
+                <div class="games-subsections">
+                    <div class="game-subsection">
+                        <h3 class="game-subsection__title">FAVORITES</h3>
+                        <div class="game-placeholder-gallery">
+                            <div class="game-cover-placeholder"><span>Strategy / Sim Title</span></div>
+                            <div class="game-cover-placeholder"><span>Role-Playing Title</span></div>
+                            <div class="game-cover-placeholder"><span>Story-Driven Title</span></div>
+                        </div>
+                    </div>
+
+                    <div class="game-subsection">
+                        <h3 class="game-subsection__title">CURRENTLY INTO</h3>
+                        <div class="game-placeholder-gallery">
+                            <div class="game-cover-placeholder"><span>Current Title 01</span></div>
+                            <div class="game-cover-placeholder"><span>Current Title 02</span></div>
+                            <div class="game-cover-placeholder"><span>Current Title 03</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 07. MUSIC ───────────────────────────────────────────────────────── -->
+        <section class="identity-section" id="music" aria-labelledby="music-title">
+            <!-- TODO: Add favorite music artists. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">07</span>
+                <h2 class="identity-section__title" id="music-title">MUSIC</h2>
+            </div>
+            <p class="identity-section__lead">
+                Music listening as an essential background rhythm for focused work, travel, and quiet attention.
+            </p>
+
+            <div class="music-layout">
+                <div class="music-block">
+                    <h3 class="music-block__title">FAVORITE ARTISTS</h3>
+                    <ul class="music-artist-list">
+                        <li class="music-artist-item">
+                            <span class="music-artist-item__num">01</span>
+                            <span>Favorite Artist / Band</span>
+                        </li>
+                        <li class="music-artist-item">
+                            <span class="music-artist-item__num">02</span>
+                            <span>Favorite Artist / Band</span>
+                        </li>
+                        <li class="music-artist-item">
+                            <span class="music-artist-item__num">03</span>
+                            <span>Favorite Artist / Band</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="music-block">
+                    <h3 class="music-block__title">CURRENT ROTATION</h3>
+                    <ul class="music-artist-list">
+                        <li class="music-artist-item">
+                            <span class="music-artist-item__num">01</span>
+                            <span>Current Rotation Track / Album</span>
+                        </li>
+                        <li class="music-artist-item">
+                            <span class="music-artist-item__num">02</span>
+                            <span>Current Rotation Track / Album</span>
+                        </li>
+                        <li class="music-artist-item">
+                            <span class="music-artist-item__num">03</span>
+                            <span>Current Rotation Track / Album</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 08. MOVIES & ANIME ──────────────────────────────────────────────── -->
+        <section class="identity-section" id="movies-anime" aria-labelledby="movies-title">
+            <!-- TODO: Add favorite/current Movies & Anime titles. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">08</span>
+                <h2 class="identity-section__title" id="movies-title">MOVIES &amp; ANIME</h2>
+            </div>
+            <p class="identity-section__lead">
+                Stories involving reincarnation, regression, fantasy worlds, martial arts, and high-stakes action.
+            </p>
+
+            <div class="media-genres-bar" aria-label="Media Genres">
+                <span class="media-genre-tag">ISEKAI</span>
+                <span class="media-genre-tag">REINCARNATION</span>
+                <span class="media-genre-tag">REGRESSION</span>
+                <span class="media-genre-tag">ACTION</span>
+                <span class="media-genre-tag">MURIM</span>
+                <span class="media-genre-tag">MAGIC / FANTASY</span>
+            </div>
+
+            <div class="media-subsections">
+                <div class="media-subsection">
+                    <h3 class="media-subsection__title">FAVORITES</h3>
+                    <div class="media-poster-strip">
+                        <div class="media-poster-placeholder"><span>Isekai / Fantasy Title</span></div>
+                        <div class="media-poster-placeholder"><span>Regression / Murim Title</span></div>
+                        <div class="media-poster-placeholder"><span>Action Series Title</span></div>
+                    </div>
+                </div>
+
+                <div class="media-subsection">
+                    <h3 class="media-subsection__title">CURRENTLY INTO</h3>
+                    <div class="media-poster-strip">
+                        <div class="media-poster-placeholder"><span>Current Series 01</span></div>
+                        <div class="media-poster-placeholder"><span>Current Series 02</span></div>
+                        <div class="media-poster-placeholder"><span>Current Series 03</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 09. PHOTOGRAPHY ─────────────────────────────────────────────────── -->
+        <section class="identity-section" id="photography" aria-labelledby="photo-title">
+            <!-- TODO: Add real photography assets. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">09</span>
+                <h2 class="identity-section__title" id="photo-title">PHOTOGRAPHY</h2>
+            </div>
+            <p class="identity-section__lead">
+                Capturing moments as they happen—street scenes, architectural geometry, landscape light, local food, and technical details without staged production.
+            </p>
+
+            <div class="photography-gallery">
+                <div class="photo-item">
+                    <div class="photo-item__media">
+                        <img src="https://placehold.net/600x450.png"
+                            alt="Placeholder for street photography capturing daily life, architectural lines, or city light."
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item__caption">
+                        <span class="photo-item__category">STREET</span>
+                        <span class="photo-item__location">City Geometry</span>
+                    </div>
+                </div>
+
+                <div class="photo-item">
+                    <div class="photo-item__media">
+                        <img src="https://placehold.net/600x400.png"
+                            alt="Placeholder for architectural photography highlighting structural lines, materials, and light."
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item__caption">
+                        <span class="photo-item__category">ARCHITECTURE</span>
+                        <span class="photo-item__location">Structure &amp; Form</span>
+                    </div>
+                </div>
+
+                <div class="photo-item">
+                    <div class="photo-item__media">
+                        <img src="https://placehold.net/600x450.png"
+                            alt="Placeholder for landscape photography showing natural environments, coastlines, or mountain views."
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item__caption">
+                        <span class="photo-item__category">PLACE</span>
+                        <span class="photo-item__location">Outdoor Horizon</span>
+                    </div>
+                </div>
+
+                <div class="photo-item">
+                    <div class="photo-item__media">
+                        <img src="https://placehold.net/600x400.png"
+                            alt="Placeholder for close-up detail photography of objects, food, or technical hardware."
+                            loading="lazy">
+                    </div>
+                    <div class="photo-item__caption">
+                        <span class="photo-item__category">DETAIL</span>
+                        <span class="photo-item__location">Close Observation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 10. READING ─────────────────────────────────────────────────────── -->
+        <section class="identity-section" id="reading" aria-labelledby="reading-title">
+            <!-- TODO: Add favorite/current reading titles. -->
+            <div class="identity-section__header">
+                <span class="identity-section__num">10</span>
+                <h2 class="identity-section__title" id="reading-title">READING</h2>
+            </div>
+            <p class="identity-section__lead">
+                A mix of technical reference, engineering history, philosophy, manga, and long-form research.
+            </p>
+
+            <div class="reading-layout">
+                <div class="reading-categories-bar" aria-label="Reading categories">
+                    <span class="reading-cat-tag">TECHNICAL &amp; ARCHITECTURE</span>
+                    <span class="reading-cat-tag">IDEAS &amp; HISTORY</span>
+                    <span class="reading-cat-tag">RESEARCH &amp; PAPERS</span>
+                    <span class="reading-cat-tag">MANGA &amp; COMICS</span>
+                    <span class="reading-cat-tag">FICTION</span>
+                </div>
+
+                <div class="reading-subsections">
+                    <div class="reading-subsection">
+                        <h3 class="reading-subsection__title">FAVORITES</h3>
+                        <ul class="reading-list">
+                            <li class="reading-item">
+                                <p class="reading-item__title">System Architecture &amp; Engineering Fundamentals</p>
+                                <p class="reading-item__meta">Technical / Reference</p>
+                            </li>
+                            <li class="reading-item">
+                                <p class="reading-item__title">Civilization &amp; Infrastructure History</p>
+                                <p class="reading-item__meta">Ideas &amp; History</p>
+                            </li>
+                            <li class="reading-item">
+                                <p class="reading-item__title">Favorite Manga / Comics Series</p>
+                                <p class="reading-item__meta">Manga &amp; Comics</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="reading-subsection">
+                        <h3 class="reading-subsection__title">CURRENTLY INTO</h3>
+                        <ul class="reading-list">
+                            <li class="reading-item">
+                                <p class="reading-item__title">Distributed Systems &amp; Reliability Reference</p>
+                                <p class="reading-item__meta">Technical</p>
+                            </li>
+                            <li class="reading-item">
+                                <p class="reading-item__title">Practical Philosophy &amp; Decision Making</p>
+                                <p class="reading-item__meta">Philosophy / Research</p>
+                            </li>
+                            <li class="reading-item">
+                                <p class="reading-item__title">Current Ongoing Manga Release</p>
+                                <p class="reading-item__meta">Manga</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── About Closing Section ───────────────────────────────────────────── -->
+        <section class="about-closing" aria-label="Closing thoughts and portfolio navigation">
+            <div class="about-closing__content">
+                <p class="about-closing__text">
+                    Some of these interests become projects, some stay hobbies, and some simply give me something new to understand.
+                </p>
+                <p class="about-closing__location">
+                    Manila, Philippines · Open to Remote
+                </p>
+            </div>
+
+            <div class="about-nav-cluster" aria-label="Explore remaining portfolio">
+                <a href="../projects/" class="about-nav-card">
+                    <span class="about-nav-card__label"><span class="about-nav-card__num">01</span> Projects</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a href="../experience/" class="about-nav-card">
+                    <span class="about-nav-card__label"><span class="about-nav-card__num">02</span> Experience</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a href="../contact/" class="about-nav-card">
+                    <span class="about-nav-card__label"><span class="about-nav-card__num">03</span> Contact</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
@@ -73,5 +832,7 @@
     </footer>
 
     <script src="../../shared/js/main.js"></script>
+    <script src="assets/js/about.js"></script>
 </body>
+
 </html>
