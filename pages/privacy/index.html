@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Privacy Policy | Ian Cedric Ramirez</title>
+    <meta name="description" content="Privacy policy for Ian Cedric Ramirez's portfolio, including image disclosure, optional analytics cookies, local preferences, and contact information.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy | Ian Cedric Ramirez">
+    <meta property="og:description" content="How this portfolio handles optional analytics, local preferences, and AI-generated or AI-assisted imagery.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privacy Policy | Ian Cedric Ramirez">
+    <meta name="twitter:description" content="How this portfolio handles optional analytics, local preferences, and AI-generated or AI-assisted imagery.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/global.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu hidden>
+                        <a href="../projects/">Projects</a>
+                        <a href="../experience/">Experience</a>
+                        <a href="../about/">About</a>
+                        <a href="../skills/">Skills</a>
+                        <a href="../credentials/">Credentials</a>
+                        <a href="../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <section class="section" aria-labelledby="privacy-title">
+            <div class="page-shell">
+                <p class="section__eyebrow">Policy</p>
+                <h1 class="section__title" id="privacy-title">Privacy Policy</h1>
+                <p class="section__lead">This portfolio is a static website. It is designed to collect as little information as practical while preparing for optional Google Analytics measurement.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="privacy-data-title">
+            <div class="page-shell">
+                <h2 class="section__title" id="privacy-data-title">Information handled by this site</h2>
+                <dl class="definition-list">
+                    <div class="definition-item">
+                        <dt class="definition-term">Local preferences</dt>
+                        <dd class="definition-desc">The site may store theme and analytics consent choices in your browser using local storage.</dd>
+                    </div>
+                    <div class="definition-item">
+                        <dt class="definition-term">Analytics</dt>
+                        <dd class="definition-desc">Google Analytics is only loaded after you choose to allow analytics cookies or similar measurement storage.</dd>
+                    </div>
+                    <div class="definition-item">
+                        <dt class="definition-term">Contact links</dt>
+                        <dd class="definition-desc">If you contact me by email, LinkedIn, GitHub, or another external service, that service handles information under its own policy.</dd>
+                    </div>
+                    <div class="definition-item">
+                        <dt class="definition-term">Server logs</dt>
+                        <dd class="definition-desc">The hosting provider may process basic technical logs such as IP address, browser, requested file, and time of request for security and delivery.</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="privacy-cookies-title">
+            <div class="page-shell">
+                <h2 class="section__title" id="privacy-cookies-title">Cookies and analytics choice</h2>
+                <p class="section__lead">Analytics are optional. Declining analytics keeps the site usable and prevents the shared portfolio script from loading Google Analytics on your browser.</p>
+                <p class="section__lead">If analytics are allowed, Google Analytics may process usage information such as page views, approximate location, device type, browser, and referral source. IP anonymization is requested in the analytics configuration.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="privacy-images-title">
+            <div class="page-shell">
+                <h2 class="section__title" id="privacy-images-title">AI-generated image disclosure</h2>
+                <p class="section__lead">Some images on this portfolio are AI-generated or AI-assisted, especially where real screenshots or project media are unavailable. They are used as supporting visuals, not as proof of project scope, credentials, metrics, or business outcomes.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="privacy-contact-title">
+            <div class="page-shell">
+                <h2 class="section__title" id="privacy-contact-title">Contact</h2>
+                <p class="section__lead">For privacy questions or correction requests, email <a href="mailto:ramirezian037@gmail.com">ramirezian037@gmail.com</a>.</p>
+                <p class="site-footer__meta">Last updated: August 9, 2026</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Engineer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../shared/js/main.js"></script>
+</body>
+</html>

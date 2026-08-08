@@ -1,5 +1,21 @@
 (() => {
     const themeKey = 'portfolio-theme';
+    const analyticsConsentKey = 'portfolio-analytics-consent';
+
+    const getRootPath = () => {
+        const path = window.location.pathname.replace(/\\/g, '/');
+        const pagesIndex = path.indexOf('/pages/');
+
+        if (pagesIndex === -1) {
+            return './';
+        }
+
+        const afterPages = path.slice(pagesIndex + '/pages/'.length);
+        const segments = afterPages.split('/').filter(Boolean);
+        const pageDepth = Math.max(segments.length + 1, 2);
+
+        return '../'.repeat(pageDepth);
+    };
 
     const getStoredTheme = () => {
         try {
@@ -149,6 +165,63 @@
             const normalizedLabel = label.toLowerCase();
             const iconRules = [
                 [/home|full-stack engineering|introduction/, 'fa-house'],
+                [/\b(fitness|run|swim|hike|train)\b/, 'fa-person-running'],
+                [/travel|exploration/, 'fa-map-location-dot'],
+                [/ideas|history|civilization/, 'fa-landmark'],
+                [/making|tinkering/, 'fa-hammer'],
+                [/games?/, 'fa-gamepad'],
+                [/music/, 'fa-music'],
+                [/manga|manhwa|manhua|manfra|anime|movies?/, 'fa-book-open-reader'],
+                [/photography|photo/, 'fa-camera'],
+                [/reading|books?/, 'fa-book-open'],
+                [/closing|portfolio navigation/, 'fa-arrow-up-right-from-square'],
+                [/^skills$/, 'fa-code'],
+                [/skills directory|directory|gallery/, 'fa-table-list'],
+                [/^projects$/, 'fa-folder-open'],
+                [/project catalog filters?/, 'fa-sliders'],
+                [/project catalog/, 'fa-grip'],
+                [/^credentials|credentials & certifications/, 'fa-award'],
+                [/credential filters?/, 'fa-filter'],
+                [/certifications?/, 'fa-certificate'],
+                [/training|programs?/, 'fa-graduation-cap'],
+                [/let'?s talk/, 'fa-comment-dots'],
+                [/contact channels?/, 'fa-address-book'],
+                [/contact protocol|protocol summary/, 'fa-clipboard-check'],
+                [/secondary technical areas?/, 'fa-diagram-project'],
+                [/^2025$/, 'fa-calendar-check'],
+                [/^2024$/, 'fa-calendar-days'],
+                [/^2023$/, 'fa-calendar'],
+                [/overview|context|setting|environment|positioning|purpose|audience/, 'fa-circle-info'],
+                [/problem|challenge|needed/, 'fa-triangle-exclamation'],
+                [/goals?/, 'fa-bullseye'],
+                [/constraints?|boundary/, 'fa-border-all'],
+                [/responsibilities|contributions?|ownership|leadership|role/, 'fa-user-tie'],
+                [/solution|strategy|migration|modernization|refactoring/, 'fa-route'],
+                [/architecture|structure|ecosystem|hierarchy|model|n-layer|layer|boundaries/, 'fa-diagram-project'],
+                [/data|database|schema|relational|isolation/, 'fa-database'],
+                [/infrastructure|deployment|devops|ci\/cd|github actions|dockerized|local network|lan|station setup/, 'fa-server'],
+                [/security|access control|rbac|authentication|permission/, 'fa-shield-halved'],
+                [/reliability|observability|monitoring|analytics|health|audit logging/, 'fa-chart-line'],
+                [/workflow|lifecycle|pipeline|flow|tracking|scan|reservation|payment|delivery|route/, 'fa-arrows-spin'],
+                [/testing|verification|validation|quality|functional|api|end-to-end|performance|seo/, 'fa-vial-circle-check'],
+                [/features?|modules?|platforms?|subsystem|services|endpoint|application|website|wordpress/, 'fa-puzzle-piece'],
+                [/technology|components?|tooling|stack/, 'fa-screwdriver-wrench'],
+                [/documentation|manual|knowledge|records|evidence|links|credentials|related/, 'fa-file-lines'],
+                [/results?|outcomes?/, 'fa-square-check'],
+                [/lessons?|retrospective|takeaway|tradeoffs?/, 'fa-scale-balanced'],
+                [/screenshots?|media|uploads|video|photo/, 'fa-image'],
+                [/accounts?|profile|student|organization|relationship|follow|messaging|chat|feed|social/, 'fa-network-wired'],
+                [/qr|barcode|identification/, 'fa-qrcode'],
+                [/storage|container|resource|capacity|maintenance|repair/, 'fa-box-archive'],
+                [/automation|integrations?/, 'fa-plug-circle-bolt'],
+                [/support|incident|root-cause|error|exception/, 'fa-life-ring'],
+                [/teaching|instruction|academic|course|training|tesda|immersion/, 'fa-chalkboard-user'],
+                [/research|prototype|accessibility|haptic|audio|spatial|device|hardware/, 'fa-magnifying-glass-chart'],
+                [/before-state|standards?|discipline/, 'fa-list-check'],
+                [/dashboard|visibility|reporting|sales/, 'fa-chart-simple'],
+                [/evolution|breakdown/, 'fa-code-branch'],
+                [/hall of fame|recognition|achievement/, 'fa-trophy'],
+                [/templates?|web design|implementation|preparation/, 'fa-pen-ruler'],
                 [/tool|workflow|technology|stack/, 'fa-screwdriver-wrench'],
                 [/capabilit|skill|technical scope/, 'fa-layer-group'],
                 [/experience|professional|role|responsibilit/, 'fa-briefcase'],
@@ -267,8 +340,98 @@
         updateCurrentSection();
     };
 
+    const initializePrivacyFooterLink = () => {
+        const footerLinks = document.querySelector('.site-footer__links');
+        if (!footerLinks || footerLinks.querySelector('[data-privacy-link]')) {
+            return;
+        }
+
+        const rootPath = getRootPath();
+        const privacyLink = document.createElement('a');
+        privacyLink.href = `${rootPath}pages/privacy/`;
+        privacyLink.dataset.privacyLink = 'true';
+        privacyLink.textContent = 'Privacy';
+
+        footerLinks.append(privacyLink);
+    };
+
+    const loadGoogleAnalytics = (measurementId) => {
+        if (!measurementId || window.portfolioAnalyticsLoaded) {
+            return;
+        }
+
+        window.portfolioAnalyticsLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+            window.dataLayer.push(arguments);
+        };
+
+        window.gtag('js', new Date());
+        window.gtag('config', measurementId, { anonymize_ip: true });
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+        document.head.append(script);
+    };
+
+    const initializeCookieConsent = () => {
+        const measurementId = document.querySelector('meta[name="google-analytics-id"]')?.content.trim();
+        let storedConsent = null;
+
+        try {
+            storedConsent = window.localStorage.getItem(analyticsConsentKey);
+        } catch {
+            storedConsent = null;
+        }
+
+        if (storedConsent === 'accepted') {
+            loadGoogleAnalytics(measurementId);
+            return;
+        }
+
+        if (storedConsent === 'declined') {
+            return;
+        }
+
+        const rootPath = getRootPath();
+        const banner = document.createElement('section');
+        banner.className = 'cookie-consent';
+        banner.setAttribute('aria-label', 'Cookie and analytics preference');
+        banner.innerHTML = `
+            <div class="cookie-consent__copy">
+                <p class="cookie-consent__title">Optional analytics cookies</p>
+                <p>This portfolio is prepared for Google Analytics, but analytics only load if you allow them. Essential theme preferences can still be stored locally. <a href="${rootPath}pages/privacy/">Read privacy policy</a></p>
+            </div>
+            <div class="cookie-consent__actions">
+                <button class="cookie-consent__button cookie-consent__button--primary" type="button" data-cookie-accept>Allow analytics</button>
+                <button class="cookie-consent__button" type="button" data-cookie-decline>Decline</button>
+            </div>
+        `;
+
+        const setConsent = (value) => {
+            try {
+                window.localStorage.setItem(analyticsConsentKey, value);
+            } catch {
+                // Consent still applies for this page view if storage is unavailable.
+            }
+
+            if (value === 'accepted') {
+                loadGoogleAnalytics(measurementId);
+            }
+
+            banner.remove();
+        };
+
+        banner.querySelector('[data-cookie-accept]').addEventListener('click', () => setConsent('accepted'));
+        banner.querySelector('[data-cookie-decline]').addEventListener('click', () => setConsent('declined'));
+        document.body.append(banner);
+    };
+
     initializeTheme();
     initializeNavigation();
     initializeActiveNavigation();
     initializeSectionNavigator();
+    initializePrivacyFooterLink();
+    initializeCookieConsent();
 })();

@@ -333,7 +333,7 @@ window.SKILLS_DATA = [
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Verified stack includes Docker." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes Docker local runtime." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Verified stack includes Docker container runtime." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized local PHP, database, and Redis development environments through Docker." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized local PHP, database, and Redis development environments through Docker." },
       { kind: "credential", label: "Docker Foundations Professional Certificate", url: "../credentials/certifications/docker-docker-foundations-professional-certificate/", note: "Validated containerization, image builds, volumes, and Compose." }
     ]
   },
@@ -362,7 +362,7 @@ window.SKILLS_DATA = [
     summary: "Core cloud services including EC2, S3, VPC, and IAM from structured training.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Verified stack includes AWS-hosted application/server environment, object storage, and CloudFront." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Maintained and researched AWS services including EC2, RDS, S3, and CloudFront within assigned scope." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Maintained and researched AWS services including EC2, RDS, S3, and CloudFront within assigned scope." },
       { kind: "training", label: "AWS re/Start Training Graduate", url: "../credentials/training/aws-restart-training-graduate/", note: "Completed hands-on cohort covering EC2, S3, VPC, IAM, Linux, Python, and networking." }
     ]
   },
@@ -393,7 +393,7 @@ window.SKILLS_DATA = [
       { kind: "credential", label: "GitHub Foundations", url: "../credentials/", note: "Validated branching, collaboration, Actions, and security." },
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "GitHub Flow, branch protection, and pull request reviews." },
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Multi-contributor branch management and issue tracking." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized team repository collaboration and CI/CD pipelines." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized team repository collaboration and CI/CD pipelines." }
     ]
   },
 
@@ -408,7 +408,7 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Automated delivery pipeline built on GitHub Actions, Docker containers, Appwrite schema migrations, and Vercel hosting." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes GitHub Actions CI pipeline." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Implemented GitHub Actions deployment workflows for GoPick/PDI work, connecting by SSH to update the AWS EC2 application environment." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Implemented GitHub Actions deployment workflows for GoPick/PDI work, connecting by SSH to update the AWS EC2 application environment." },
       { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Implemented GitHub Actions deployment workflows to GitHub Pages for student static-web projects." }
     ]
   },
@@ -424,7 +424,7 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "GitHub Actions CI pipeline in the verified project stack." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Automated CI/CD deployment operations." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "GitHub Actions deployment workflows triggered by main-branch merges for the AWS EC2 application environment." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "GitHub Actions deployment workflows triggered by main-branch merges for the AWS EC2 application environment." },
       { kind: "credential", label: "GitHub Foundations", url: "../credentials/", note: "Validated Actions workflow syntax, secrets, and CI/CD basics." }
     ]
   },
@@ -511,7 +511,7 @@ window.SKILLS_DATA = [
     summary: "Designing and implementing RESTful service interfaces across multiple full-stack systems.",
     evidence: [
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Storage record CRUD REST interface." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Designed and maintained production REST APIs." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Designed and maintained production REST APIs." }
     ]
   },
 
@@ -558,7 +558,7 @@ window.SKILLS_DATA = [
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Social platform system modeling." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "System architect and lead developer for multi-tenant feedback, RBAC, audit, and deployment architecture." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "System architect and lead developer for resource operations, reservations, maintenance, observability, and capacity limits." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "System-level decisions across legacy modernization and new feature delivery." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "System-level decisions across legacy modernization and new feature delivery." }
     ]
   },
 
@@ -586,7 +586,7 @@ window.SKILLS_DATA = [
     summary: "Incrementally improving older systems — identifying risk, establishing safe boundaries, and introducing modern patterns where they provide clear value.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Legacy HR assessment platform modernization through safer architectural boundaries and incremental changes." },
-      { kind: "experience", label: "Full-Stack Developer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Modernized legacy HR and assessment system infrastructure and codebase." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Modernized legacy HR and assessment system infrastructure and codebase." }
     ]
   },
 
