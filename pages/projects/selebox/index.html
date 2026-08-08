@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>SeLeBox — Social & Entertainment Feature Expansion | Ian Cedric Ramirez</title>
+    <meta name="description" content="SeLeBox case study — extending an existing entertainment platform with profile social graphs, direct messaging, group chat, media feed uploads, continuous vertical video feed, and offline caching.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">SeLeBox</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · Social &amp; Entertainment</p>
+                        <h1 class="project-header__title" id="page-title">SeLeBox</h1>
+                        <p class="project-header__summary">SeLeBox began as an entertainment platform centered around audiobook and story content. As a Full-Stack Developer at YenkoDev, my work focused on extending the existing production application with interconnected social features — including profile social graphs, direct messaging, group chat, user-generated media feeds, continuous vertical video discovery, and offline media availability.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#context">Existing Platform Context</a>
+                            <a href="#role">My Role</a>
+                            <a href="#evolution">Product Evolution</a>
+                            <a href="#feature-tree">Interconnected Features</a>
+                            <a href="#social">Social Graph</a>
+                            <a href="#messaging">Messaging</a>
+                            <a href="#feed">Feed &amp; Media</a>
+                            <a href="#video">Continuous Video</a>
+                            <a href="#offline">Offline Caching</a>
+                            <a href="#backend">Backend Services</a>
+                            <a href="#constraints">Constraints</a>
+                            <a href="#decisions">Technical Decisions</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#retrospective">Retrospective</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with final SeLeBox project artwork and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom SeLeBox project illustration showing an entertainment platform evolving from audiobook content into interconnected social, messaging, feed, and video experiences.">
+                            <div class="project-header__hero-text">
+                                <strong>SeLeBox Platform Evolution</strong><br>
+                                Audiobooks &amp; Digital Content → Interconnected Social &amp; Video Ecosystem
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>Social (Entertainment / Media)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>Full-Stack Developer (Part-time)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Timeline</dt>
+                        <dd>May 2025 – August 2025</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Lifecycle</dt>
+                        <dd>Production · Continuously Improved</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Core Stack</dt>
+                        <dd>React.js · Tailwind CSS · Appwrite · Firebase</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Delivery</dt>
+                        <dd>GitHub · Vercel Deployment</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Team Context</strong>
+                        Developed with the team at <strong>YenkoDev</strong> on the live SeLeBox platform.
+                        <a href="../../experience/yenkodev-selebox/">View Related Experience →</a>
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview &amp; Product Narrative</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>SeLeBox is a web application originally built to deliver digital audiobook and story content to users. To increase platform engagement and transform passive content consumption into an active community experience, the platform required a comprehensive social and media feature expansion.</p>
+                        <p>Rather than replacing the established product, the engineering objective was to extend the live application with interconnected communication tools, user-generated media publishing, and modern video discovery patterns without interrupting active user accounts or existing monetization features.</p>
+                    </div>
+                    <div class="project-diagram" aria-label="Platform evolution flow">
+                        <pre>Existing Entertainment Platform
+        ↓
+Audiobooks &amp; Story Content
+        ↓
+Need for Richer User Interaction
+        ↓
+Social &amp; Media Feature Expansion
+        ├── Follow / Follow Back Graph
+        ├── Direct &amp; Group Messaging
+        ├── User Media Feeds &amp; Uploads
+        ├── Continuous Vertical Video
+        └── Offline Content Caching
+        ↓
+Interactive Social Entertainment Hub</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="context" aria-labelledby="context-title">
+                <h2 id="context-title">Existing Platform Context</h2>
+                <p>Before the social expansion, SeLeBox operated as a digital content platform. Established platform capabilities included:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Audiobook &amp; Story Consumption</strong>
+                        <span>Streaming and reading experience focused on popular romantic genres, including Pure Romance, Romantic-Comedy, and Hot Romance Love Stories.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Virtual Coin Economy</strong>
+                        <span>Tokenized economy allowing users to acquire virtual coins and spend them to unlock premium story chapters or audio titles.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Content Unlocking &amp; Coin Purchasing</strong>
+                        <span>Gated content access mechanisms tied to account coin balances and transaction records.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Core Account Infrastructure</strong>
+                        <span>Established user authentication, profile records, and responsive web interface layouts.</span>
+                    </div>
+                </div>
+                <p class="placeholder-note">Note: These core capabilities establish product context and pre-existed my major social feature contributions.</p>
+            </section>
+
+            <section class="project-section" id="role" aria-labelledby="role-title">
+                <h2 id="role-title">My Role &amp; Contribution Boundary</h2>
+                <p>As a Part-Time Full-Stack Developer at YenkoDev, my responsibilities centered on implementing frontend UI/UX components, integrating backend application services, developing social and media features, and maintaining existing codebase areas.</p>
+                
+                <div class="comparison-box" aria-label="Existing Platform versus My Contributions">
+                    <div class="comparison-column">
+                        <h3>EXISTING PLATFORM</h3>
+                        <ul>
+                            <li>Audiobook streaming engine</li>
+                            <li>Romantic story catalog</li>
+                            <li>Virtual coin economy</li>
+                            <li>Coin purchasing workflows</li>
+                            <li>Base user account schemas</li>
+                            <li>Initial responsive UI templates</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>MY CONTRIBUTIONS</h3>
+                        <ul>
+                            <li>Follow / Follow Back social relationship graph</li>
+                            <li>Direct Chat person-to-person messaging</li>
+                            <li>Group Chat multi-user conversations</li>
+                            <li>Feed services &amp; post retrieval</li>
+                            <li>Image and video upload pipeline</li>
+                            <li>Continuous vertical video feed</li>
+                            <li>Like, Comment, and Share interactions</li>
+                            <li>Offline video caching implementation</li>
+                            <li>Appwrite service integration &amp; maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="evolution" aria-labelledby="evolution-title">
+                <h2 id="evolution-title">Product Evolution Breakdown</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The addition of social capabilities transformed SeLeBox from a one-way content consumption app into a two-way social entertainment ecosystem. Users who previously visited solely to listen to audiobooks could now follow creators, join discussion group chats, post user-generated media, and consume vertical video clips.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Phase 1: Content Foundation</strong>
+                            <span>Audiobook listening, story browsing, coin unlocking, and chapter purchases.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Phase 2: Social &amp; Community Layers</strong>
+                            <span>Profiles, social relationships, direct/group chat, media feeds, and infinite video discovery.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="feature-tree" aria-labelledby="feature-tree-title">
+                <h2 id="feature-tree-title">Interconnected Feature Architecture</h2>
+                <p>Rather than existing as isolated modules, new features were engineered as an interconnected workflow where profile relationships directly empowered communication and media sharing:</p>
+                <div class="project-diagram" aria-label="Interconnected feature relationships">
+                    <pre>User Profiles
+      ↓
+Follow / Follow Back Graph
+      ↓
+┌──────────────────────┬──────────────────────┐
+│                      │                      │
+Messaging Subsystem     Feed Subsystem        Social Discovery
+│                      │                      │
+├── Direct Chat        ├── Media Post Uploads ├── Continuous Vertical Video
+└── Group Chat         └── Feed Retrieval     └── Like / Comment / Share
+                              ↓
+                        Media Consumption
+                              ↓
+                        Offline Video Caching</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="social" aria-labelledby="social-title">
+                <h2 id="social-title">Social Relationships — Follow / Follow Back</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Implemented profile-level social relationship capabilities. The social graph enabled users to connect with story creators and fellow community members.</p>
+                        <p>Key functionality:</p>
+                        <ul>
+                            <li><strong>Follow / Unfollow:</strong> Establish or remove social connections from user profiles.</li>
+                            <li><strong>Follow Back Recognition:</strong> Automatically identify mutual social relationships.</li>
+                            <li><strong>Relationship Verification:</strong> Provide relationship status checks required by direct messaging permission boundaries.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Permission Foundation</strong>
+                            <span>Social relationships serve as a prerequisite check for direct messaging eligibility, preventing unsolicited messaging.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="messaging" aria-labelledby="messaging-title">
+                <h2 id="messaging-title">Messaging Subsystem — Direct &amp; Group Chat</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Designed and integrated communication tools to foster user interaction directly within the application.</p>
+                        <div class="project-note-list">
+                            <div class="project-note-item">
+                                <strong>Direct Messaging (Person-to-Person)</strong>
+                                <span>Enables private chat conversations between users with verified social relationships. Message flows follow `User → Relationship Check → Conversation → Message Item`.</span>
+                            </div>
+                            <div class="project-note-item">
+                                <strong>Group Chat (Multi-User Conversations)</strong>
+                                <span>Extends messaging capabilities to support multi-user group chat rooms where community members discuss shared stories, genres, and platform content.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-diagram" aria-label="Messaging data flow">
+                        <pre>User A Initiates Chat
+        ↓
+Check Relationship with User B
+        ↓
+Valid Social Connection?
+  ┌─────┴────────────────┐
+  NO                     YES
+  ↓                      ↓
+Prompt Follow      Load / Create Conversation
+                         ↓
+                   Send / Receive Messages</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="feed" aria-labelledby="feed-title">
+                <h2 id="feed-title">Feed Services &amp; Media Uploads</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Developed user-generated feed services allowing community members to publish visual updates, story reviews, and media clips.</p>
+                        <p>The media upload pipeline handles post composition, file validation, storage upload, metadata persistence, and feed list updates.</p>
+                    </div>
+                    <div class="project-diagram" aria-label="Media post upload pipeline">
+                        <pre>User Creates Post
+        ↓
+Attach Image / Video File
+        ↓
+Upload File to Appwrite Storage
+        ↓
+Persist Post Metadata (Caption, Author, File Ref)
+        ↓
+Update Feed List Output</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="video" aria-labelledby="video-title">
+                <h2 id="video-title">Continuous Vertical Video Experience</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Implemented a continuous vertical video browsing feed providing an infinite content stream optimized for mobile and desktop screens.</p>
+                        <p>Features and interactions:</p>
+                        <ul>
+                            <li><strong>Continuous Video Playback:</strong> Smooth auto-play transition as the user scrolls vertically through video clips.</li>
+                            <li><strong>Like Interactions:</strong> Instant feedback toggle allowing users to appreciate video content.</li>
+                            <li><strong>Comment Threads:</strong> Contextual comment overlays for community discussion.</li>
+                            <li><strong>Social Sharing:</strong> Action triggers enabling content link propagation.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Engagement Engine</strong>
+                            <span>Combines video streaming with real-time social feedback indicators, increasing daily active session duration.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="offline" aria-labelledby="offline-title">
+                <h2 id="offline-title">Offline Video Caching</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Implemented client-side caching mechanisms for selected video content to support playback under limited or interrupted network connectivity.</p>
+                        <p>When users mark videos or access content under stable connections, media resources are cached locally so playback remains seamless during network drops.</p>
+                        <!-- TODO: Document the exact offline caching implementation if still available and public-safe. -->
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Connectivity Resilience</strong>
+                            <span>Ensures selected video playback continues without buffering errors when transitioning across weak mobile networks.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="backend" aria-labelledby="backend-title">
+                <h2 id="backend-title">Backend Services — Appwrite &amp; Firebase Transition</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Development was executed in a dual backend-service environment. The engineering direction focused on gradually shifting application services toward <strong>Appwrite</strong> while maintaining legacy integrations with <strong>Firebase</strong>.</p>
+                        <p>Worked within a backend-service environment using Appwrite alongside remaining Firebase functionality, with the application gradually moving away from Firebase.</p>
+                        <!-- TODO: Confirm exact Appwrite responsibilities and remaining Firebase responsibilities if deeper backend documentation becomes available. -->
+                    </div>
+                    <div class="project-diagram" aria-label="Backend service integration">
+                        <pre>React Frontend Application
+        ↓
+Application Integration Layer
+        ↓
+Appwrite Services (Primary Growth)
+├── Authentication &amp; Sessions
+├── Database Documents &amp; Feeds
+└── File Storage for Media Uploads
+        ↓
+Firebase Services (Diminishing Legacy Role)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="constraints" aria-labelledby="constraints-title">
+                <h2 id="constraints-title">System &amp; Production Constraints</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Existing Live Production Product</strong>
+                        <span>All feature additions were required to integrate seamlessly into an active application with existing users, content records, and coin balances.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Feature Interdependence</strong>
+                        <span>Social graph, messaging, feeds, media uploads, and video interactions were deeply connected, requiring careful data flow design.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Multi-Backend Coexistence</strong>
+                        <span>New Appwrite feature services had to operate harmoniously with legacy Firebase dependencies during the multi-month transition.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Responsive Media UX</strong>
+                        <span>Media-heavy feeds and video playback required optimization across diverse mobile and desktop screen sizes.</span>
+                    </div>
+                </div>
+                <!-- TODO: Confirm payment provider and developer responsibility before documenting the coin-purchasing architecture. -->
+            </section>
+
+            <section class="project-section" id="decisions" aria-labelledby="decisions-title">
+                <h2 id="decisions-title">Key Technical Decisions</h2>
+                <div class="decision-list">
+                    <article class="decision-item">
+                        <h3>1. Extend Existing Platform Architecture</h3>
+                        <p><strong>Context:</strong> Production platform had live users and established coin monetization workflows.</p>
+                        <p><strong>Decision:</strong> Extend existing React frontend components and integrate new Appwrite services without disrupting core audiobook behavior.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>2. Couple Direct Messaging to Social Relationship Verification</h3>
+                        <p><strong>Context:</strong> Unrestricted user messaging risked spam and poor user experiences.</p>
+                        <p><strong>Decision:</strong> Require verified Follow/Follow Back status before initiating direct chat conversations.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>3. Streamlined Media Upload Pipeline</h3>
+                        <p><strong>Context:</strong> User-generated feeds required reliable image and video file handling.</p>
+                        <p><strong>Decision:</strong> Direct file uploads to Appwrite Storage with atomic document creation for post metadata.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>4. Continuous Vertical Video Stream Integration</h3>
+                        <p><strong>Context:</strong> Platform needed high-engagement video discovery functionality.</p>
+                        <p><strong>Decision:</strong> Build a continuous vertical video feed combining auto-play behavior with contextual Like, Comment, and Share interactions.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>5. Client-Side Video Caching</h3>
+                        <p><strong>Context:</strong> Mobile users experienced buffering interruptions on unstable networks.</p>
+                        <p><strong>Decision:</strong> Implement video resource caching for selected content to preserve playback continuity offline.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Enhanced Platform Engagement</strong>
+                        <span>Expanded SeLeBox beyond passive audiobook consumption into an interactive social ecosystem.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Connected Community Interactions</strong>
+                        <span>Linked user profiles with Follow relationships, direct messaging, and group discussion rooms.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Rich User-Generated Media Feeds</strong>
+                        <span>Enabled community publishing through structured image and video post uploads.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Modern Video Discovery</strong>
+                        <span>Introduced continuous vertical video browsing with contextual social feedback tools.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Resilient Video Availability</strong>
+                        <span>Supported offline media access for selected video content under limited connectivity.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Backend Modernization Progress</strong>
+                        <span>Contributed to the platform's gradual transition from Firebase toward Appwrite services.</span>
+                    </div>
+                </div>
+                <!-- TODO: Add measurable outcomes only if real analytics/evidence becomes available. -->
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Lessons &amp; Retrospective</h2>
+                <div class="retrospective-item">
+                    <h3>Interconnected Product Engineering</h3>
+                    <p>SeLeBox reinforced that extending an existing product requires understanding how seemingly separate features affect one another. Profiles, follow graphs, direct chat, group rooms, media uploads, and video feeds became interconnected product behaviors rather than independent pages.</p>
+                </div>
+                <div class="retrospective-item">
+                    <h3>Evolving Service Boundaries</h3>
+                    <p>Working within an environment shifting from Firebase to Appwrite emphasized the importance of writing adaptable frontend integration code that abstracts backend service specifics behind clean data handlers.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Related Experience</strong>
+                        <p>Full-Stack Developer (Part-time) at YenkoDev (May 2025 – August 2025). Work on the SeLeBox platform social features, messaging, feeds, and media caching.</p>
+                        <a class="related-link" href="../../experience/yenkodev-selebox/">View YenkoDev / SeLeBox Experience →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>React.js · Tailwind CSS · Appwrite · Firebase · Social Graph Design · Realtime Messaging · Media Pipeline</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials &amp; Certifications</strong>
+                        <p>Technical credentials and full-stack development references.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
+                </div>
+                <!-- TODO: Add approved project screenshots or public links if available later. -->
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../gopick/">← Previous Case Study (GoPick)</a>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Case Study →</span>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
