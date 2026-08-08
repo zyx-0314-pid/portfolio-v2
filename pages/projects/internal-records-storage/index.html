@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Internal Records &amp; Storage Tracking System | Ian Cedric Ramirez</title>
+    <meta name="description" content="Internal Records &amp; Storage Tracking System case study — full-stack Java/React physical records traceability system built during the Spring Valley Tech immersion, featuring multi-tier storage hierarchy, QR/barcode scanning, and append-oriented movement history.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">Internal Records &amp; Storage Tracking System</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · Operations &amp; Physical Traceability Systems</p>
+                        <h1 class="project-header__title" id="page-title">Internal Records &amp; Storage Tracking System</h1>
+                        <p class="project-header__summary">The Internal Records &amp; Storage Tracking System is a full-stack Java industry-immersion project designed to digitize the tracking of physical files, books, records, and other stored materials.</p>
+                        <p class="project-header__summary">Items could be associated with structured physical locations, identified through QR codes or barcodes, and tracked as they were taken out, returned, transferred, disposed of, or reported missing. Each movement contributed to a historical log showing who handled the item, when it moved, and where it went.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#story">Traceability Story</a>
+                            <a href="#hierarchy">Physical Storage Hierarchy</a>
+                            <a href="#qr-barcode">QR &amp; Barcode Identification</a>
+                            <a href="#scan-flows">Scan Workflows</a>
+                            <a href="#lifecycle">Lifecycle States</a>
+                            <a href="#movement-history">Movement History</a>
+                            <a href="#dashboard">Dashboard Visibility</a>
+                            <a href="#stack">Architecture &amp; Stack</a>
+                            <a href="#relational-data">Relational Schema</a>
+                            <a href="#tradeoffs">Engineering Tradeoffs</a>
+                            <a href="#testing">Validation</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with final Internal Records & Storage Tracking System artwork and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom Internal Records & Storage Tracking System illustration showing physical storage hierarchy, QR/barcode scanning, item lifecycle states, and append-oriented movement history.">
+                            <div class="project-header__hero-text">
+                                <strong>Internal Records &amp; Storage Tracking System</strong><br>
+                                Hierarchical Storage → QR/Barcode Identification → Append Movement Logs
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>Operations (Physical Record Traceability)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>Immersion Trainee (Primary Implementer)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Provenance</dt>
+                        <dd><a href="../../experience/java-industry-immersion/">Spring Valley Tech Corp →</a></dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Year &amp; Origin</dt>
+                        <dd>2025 · Java Industry Immersion</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Core Stack</dt>
+                        <dd>React · Tailwind · Spring Boot · PostgreSQL</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Runtime &amp; Docs</dt>
+                        <dd>Docker · Swagger / OpenAPI</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Status</dt>
+                        <dd>Completed Immersion Deliverable</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Industry Immersion Context</strong>
+                        Engineered as the primary implementer deliverable during the 2025 <strong>Spring Valley Tech Corp</strong> Java Industry Immersion, demonstrating full-stack digital replacement for manual record tracking.
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview &amp; System Positioning</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Rather than acting as a standard inventory counter, the Internal Records &amp; Storage Tracking System focuses on physical record traceability: knowing exactly where items are stored, who accessed them, where they moved, and their full custody timeline.</p>
+                        <p>By pairing multi-tier physical storage locations with QR code and barcode scanning, the system transforms unstructured paper records into traceable digital entities.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>System Purpose</strong>
+                            <span>Physical storage hierarchy, unique item identification, scan-driven custody workflows, and append-oriented movement auditing.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Engineering Focus</strong>
+                            <span>Full-Stack · Architecture · Data</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="story" aria-labelledby="story-title">
+                <h2 id="story-title">Central Case-Study Traceability Flow</h2>
+                <p>The system narrative highlights how physical records move through structured digital tracking:</p>
+                <div class="project-diagram" aria-label="Physical record traceability flow diagram">
+                    <pre>Physical Record / Item (File, Book, Material)
+        ↓
+Unique QR / Barcode Tagging
+        ↓
+Assigned Storage Location (Room → Cabinet → Drawer → Container)
+        ↓
+Scan Interaction (Camera / Handheld Scanner)
+        ↓
+Record Interaction &amp; Custody Check
+        ↓
+Who Handled It? · Where Did It Go? · When Was It Taken?
+        ↓
+Update Operational Lifecycle Status (Taken Out / Transferred / Disposed)
+        ↓
+Append Movement Log Entry
+        ↓
+Traceable Historical Audit Log</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="hierarchy" aria-labelledby="hierarchy-title">
+                <h2 id="hierarchy-title">Physical Storage Hierarchy</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>To enable precise physical retrieval, storage locations are modeled as a multi-tier hierarchy rather than flat text fields:</p>
+                        <div class="project-diagram" aria-label="Storage hierarchy representation">
+                            <pre>Room A
+ └── Cabinet 3
+      └── Drawer 2
+           └── Storage Box 8
+                └── Stored Record / File</pre>
+                        </div>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Precise Physical Retrieval</strong>
+                            <span>Knowing an item is in "Cabinet 3, Drawer 2" saves staff significant search time compared to generic "Room A" tags.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="qr-barcode" aria-labelledby="qr-barcode-title">
+                <h2 id="qr-barcode-title">QR Code &amp; Barcode Dual Identification</h2>
+                <div class="comparison-box" aria-label="QR Code and Barcode identification engine">
+                    <div class="comparison-column">
+                        <h3>SYSTEM-GENERATED QR CODES</h3>
+                        <ul>
+                            <li>System generates unique QR codes for new physical records</li>
+                            <li>Printable QR labels attached directly to files or containers</li>
+                            <li>Scanning opens record detail and action menu instantly</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>BARCODE REGISTRATION</h3>
+                        <ul>
+                            <li>Registers existing manufacturer or institutional barcodes</li>
+                            <li>Eliminates requirement to re-label pre-coded physical assets</li>
+                            <li>Supported via standard barcode readers and camera scanners</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="scan-flows" aria-labelledby="scan-flows-title">
+                <h2 id="scan-flows-title">Scan-Initiated Workflows</h2>
+                <p>Scanning an item's code initiates contextual operational actions without requiring manual database searching:</p>
+                <div class="project-diagram" aria-label="Scan-initiated workflow diagram">
+                    <pre>Physical Item Scan
+        ↓
+Identify Corresponding Record
+        ↓
+Display Current Storage Location &amp; Lifecycle State
+        ↓
+Select Operation Menu:
+├── [Take Out] ───► Record Handler + Destination + Timestamp
+├── [Return] ─────► Assign Return Storage Location
+├── [Transfer] ───► Origin → Destination Location Update
+├── [Dispose] ────► Log Disposal Reason &amp; Archive
+└── [Missing] ────► Flag as Lost/Missing for Investigation
+        ↓
+Append Movement Log Entry</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="lifecycle" aria-labelledby="lifecycle-title">
+                <h2 id="lifecycle-title">Item Lifecycle State Machine</h2>
+                <p>Items transition through distinct operational states across their physical tenure:</p>
+                <div class="project-diagram" aria-label="Lifecycle state transition diagram">
+                    <pre>Stored
+  │
+  ├── Take Out ─────────► Taken Out ─────────► Return ─────────► Returned (Stored)
+  │
+  ├── Transfer ─────────► Transferred (New Location)
+  │
+  ├── Dispose ──────────► Disposed (Archived Record)
+  │
+  └── Mark Missing ─────► Lost / Missing (Flagged)</pre>
+                </div>
+                <!-- TODO: Confirm whether the original system used multiple permission levels or largely shared staff access. -->
+            </section>
+
+            <section class="project-section" id="movement-history" aria-labelledby="movement-history-title">
+                <h2 id="movement-history-title">Append-Oriented Movement History Log</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>A critical architectural decision was designing the movement log to be <strong>append-oriented</strong>. Every physical interaction appends a new historical entry containing:</p>
+                        <ul>
+                            <li><strong>Handler Identity:</strong> Who took, moved, or returned the item?</li>
+                            <li><strong>Timestamp:</strong> Exact date and time of the interaction.</li>
+                            <li><strong>Location Transition:</strong> Origin location and new destination location.</li>
+                            <li><strong>State Change:</strong> Status transition (e.g., Stored → Taken Out).</li>
+                            <li><strong>Operational Notes:</strong> Purpose, return expectations, or disposal reasons.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Historical Traceability</strong>
+                            <span>Preserves the full historical timeline so staff can investigate who previously handled missing or misplaced items.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="dashboard" aria-labelledby="dashboard-title">
+                <h2 id="dashboard-title">Dashboard &amp; Operational Visibility</h2>
+                <p>The system dashboard provides storage staff with high-level operational metrics:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Total Tracked Records:</strong>
+                        <span>Overall count of registered physical files, books, and materials.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Storage Distribution:</strong>
+                        <span>Breakdown of items across rooms, cabinets, and container boxes.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Currently Taken Out:</strong>
+                        <span>Active list of items checked out by staff with handler details.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Disposed / Missing Counts:</strong>
+                        <span>Audit summary of archived or flagged physical records.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="stack" aria-labelledby="stack-title">
+                <h2 id="stack-title">Full-Stack System Architecture</h2>
+                <div class="project-diagram" aria-label="System architecture diagram">
+                    <pre>PHYSICAL STORAGE
+      │
+      ▼
+Hierarchical Location (Room → Cabinet → Drawer → Container → Item)
+      │
+      │ QR Code / Barcode Scan
+      ▼
+FRONTEND APPLICATION
+React · Tailwind CSS (Responsive Web UI &amp; Scanner View)
+      │
+      │ REST API Requests (JSON)
+      ▼
+BACKEND API SERVICE
+Spring Boot (Java REST Controllers, Service Layer &amp; Persistence Coordination)
+      │
+      │ PostgreSQL JDBC Connections
+      ▼
+RELATIONAL DATABASE
+PostgreSQL (Current State + Append-Oriented Movement Log Tables)
+
+SUPPORTING TOOLING:
+├── Swagger / OpenAPI (API Interface Documentation)
+└── Docker Container Runtime (Standardized Local Execution)</pre>
+                </div>
+                <!-- TODO: Confirm the exact demonstration/deployment environment used during the immersion. -->
+            </section>
+
+            <section class="project-section" id="relational-data" aria-labelledby="relational-data-title">
+                <h2 id="relational-data-title">Relational Schema Design</h2>
+                <p>PostgreSQL schema relationships connecting core operational entities:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Storage Hierarchy Tables:</strong>
+                        <span>Self-referencing and parent-child location tables (Room → Cabinet → Drawer → Container).</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Item &amp; Tag Identifiers:</strong>
+                        <span>Items linked to unique generated QR codes or registered barcodes.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Append Movement Logs:</strong>
+                        <span>One-to-many relationship connecting an item to its ordered history of movement records and handlers.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="tradeoffs" aria-labelledby="tradeoffs-title">
+                <h2 id="tradeoffs-title">Key Engineering Tradeoffs</h2>
+                <div class="decision-list">
+                    <article class="decision-item">
+                        <h3>1. Detailed Hierarchy vs. Data Entry Maintenance</h3>
+                        <p><strong>Tradeoff:</strong> Multi-tier physical storage modeling enables precise item retrieval but requires staff to keep container locations updated.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>2. Dual QR + Barcode Support vs. Implementation Complexity</h3>
+                        <p><strong>Tradeoff:</strong> Supporting both generated QR labels and existing barcodes increased backend lookup complexity but allowed re-use of legacy asset tags.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>3. Append-Oriented Logging vs. Log Volume Growth</h3>
+                        <p><strong>Tradeoff:</strong> Appending historical log entries preserves audit traceability but requires efficient database indexing for fast history timeline queries.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" id="testing" aria-labelledby="testing-title">
+                <h2 id="testing-title">System Validation</h2>
+                <p>The application deliverable was validated through functional testing covering React UI components, Spring Boot REST endpoint responses via Swagger, PostgreSQL relational integrity, and containerized Docker runtime execution.</p>
+                <!-- TODO: Confirm exact testing used during the Spring Valley immersion: manual, Postman, automated tests, or combination. -->
+                <!-- TODO: Add screenshots only if original immersion assets are available and appropriate for public display. -->
+                <!-- TODO: Add repository/source link only if verified and public. -->
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Digital Record Replacement</strong>
+                        <span>Demonstrated how manual paper ledgers can be replaced with a structured digital tracking system.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Enhanced Physical Traceability</strong>
+                        <span>Improved location precision down to specific cabinets, drawers, and container boxes.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Handler Accountability</strong>
+                        <span>Created an explicit audit trail for who accessed, moved, or transferred physical materials.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Successful Full-Stack Java Immersion</strong>
+                        <span>Delivered a complete React, Spring Boot, PostgreSQL, and Docker application for the Spring Valley Tech immersion program.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Retrospective &amp; Industry Immersion Experience</h2>
+                <div class="retrospective-item">
+                    <h3>Enterprise Java &amp; Spring Boot Development</h3>
+                    <p>Building this system during the Spring Valley Tech immersion provided hands-on experience structuring Java REST APIs, persistence layers, and relational schema designs for operational enterprise software.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Related Experience</strong>
+                        <p>Java Industry Immersion Trainee at Spring Valley Tech Corp. Full-stack Java/React development and database engineering.</p>
+                        <a class="related-link" href="../../experience/java-industry-immersion/">View Java Industry Immersion Experience →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>Java · Spring Boot · React · PostgreSQL · Tailwind CSS · Swagger / OpenAPI · Docker · Physical Asset Traceability</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials &amp; Certifications</strong>
+                        <p>TESDA Java NC III certification and Spring Valley Tech immersion references.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../talara/">← Previous Case Study (Talara)</a>
+                <a href="../">All Projects</a>
+                <a href="../gopick-manual/">Next Case Study (GoPick Manual) →</a>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
