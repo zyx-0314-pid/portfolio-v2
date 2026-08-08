@@ -1,0 +1,561 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Phase 11.1 — Contact Theming & Interaction Pass
+   Communication / Routing Interface System Styles
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* ── Section Background Rhythm ─────────────────────────────────────────── */
+.contact-section--hero {
+    background: var(--color-bg);
+    padding-bottom: 3rem;
+}
+
+.contact-section--routes {
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding-block: 3rem;
+}
+
+.contact-section--footer-protocol {
+    background: var(--color-bg);
+    padding-top: 3rem;
+}
+
+/* ── Hero Structural Accent & Grid ──────────────────────────────────────── */
+.contact-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.contact-hero__main {
+    position: relative;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--color-accent-deep);
+}
+
+.contact-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    background: color-mix(in srgb, var(--color-bg-secondary) 80%, var(--color-surface) 20%);
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.contact-status__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--color-accent-bright);
+    animation: contact-pulse 2.2s infinite ease-in-out;
+}
+
+@keyframes contact-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+.contact-lead {
+    margin: 1rem 0 0;
+    max-width: 38rem;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.contact-context {
+    margin: 1.25rem 0 0;
+    max-width: 40rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+/* ── Hero Routing Motif Diagram ────────────────────────────────────────── */
+.routing-diagram {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 40%, var(--color-bg) 60%);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    user-select: none;
+}
+
+.routing-diagram__title {
+    margin: 0 0 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.routing-diagram__tree {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.routing-node {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+}
+
+.routing-node--root {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.routing-node__root-box {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent-bright);
+    letter-spacing: 0.08em;
+}
+
+.routing-branch {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-left: 0.75rem;
+}
+
+.routing-branch__line {
+    color: var(--color-border);
+    font-weight: 400;
+}
+
+.routing-branch__dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.routing-branch__label {
+    letter-spacing: 0.06em;
+    color: var(--color-text);
+    transition: color 160ms ease;
+}
+
+.routing-branch:hover .routing-branch__label {
+    color: var(--color-accent-bright);
+}
+
+/* ── Contact Routes Section Header ──────────────────────────────────────── */
+.routes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1.25rem 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.routes-header__title {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.routes-header__tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+}
+
+/* ── Contact Route Rows ─────────────────────────────────────────────────── */
+.contact-routes-list {
+    display: grid;
+    gap: 0;
+}
+
+.contact-route {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1.75rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 200ms ease;
+}
+
+.contact-route:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-route:hover {
+    background-color: color-mix(in srgb, var(--color-surface) 35%, transparent);
+}
+
+.contact-route__index {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    padding-top: 0.2rem;
+}
+
+.contact-route__body {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.contact-route__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.contact-route__label-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.contact-route__label {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+.contact-route__connector {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-border);
+    transition: color 160ms ease;
+}
+
+.contact-route:hover .contact-route__connector {
+    color: var(--color-accent);
+}
+
+.contact-route__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent-bright);
+}
+
+.contact-route__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-accent-bright);
+    animation: contact-pulse 2.2s infinite ease-in-out;
+}
+
+.contact-route__category {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+/* Primary Email Route Styling */
+.contact-route__email-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.contact-route__email-val {
+    font-size: clamp(1.3rem, 2.8vw, 1.85rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
+    transition: color 180ms ease, text-decoration-color 180ms ease;
+    word-break: break-word;
+}
+
+.contact-route:hover .contact-route__email-val,
+.contact-route__email-val:hover {
+    color: var(--color-accent-bright);
+    text-decoration-color: currentColor;
+}
+
+.contact-route__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 0.2rem;
+}
+
+.contact-action-link,
+.contact-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-accent-bright);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 160ms ease, transform 160ms ease;
+}
+
+.contact-action-link:hover {
+    color: var(--color-text);
+}
+
+.contact-action-link__arrow {
+    display: inline-block;
+    transition: transform 160ms ease;
+}
+
+.contact-action-link:hover .contact-action-link__arrow,
+.contact-route:hover .contact-action-link__arrow {
+    transform: translateX(3px);
+}
+
+.contact-copy-btn {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 0.35rem 0.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.contact-copy-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.contact-copy-btn[data-copied="true"] {
+    border-color: var(--color-accent-bright);
+    color: var(--color-accent-bright);
+    background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+/* External Profile Rows (LinkedIn, GitHub) */
+.contact-route__title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.contact-route__url-display {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.contact-route__desc {
+    margin: 0;
+    max-width: 36rem;
+    font-size: 0.94rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* Location Route Visual */
+.contact-route__location-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-text);
+    flex-wrap: wrap;
+}
+
+.contact-route__location-city {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.contact-route__location-connector {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.contact-route__location-remote {
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg) 70%, var(--color-surface) 30%);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+/* ── Contact Protocol Footer & Career Direction ────────────────────────── */
+.contact-closing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-protocol {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.contact-protocol__title {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.contact-protocol__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.contact-protocol__table td {
+    padding-block: 0.4rem;
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-border) 70%, transparent);
+}
+
+.contact-protocol__table td:first-child {
+    color: var(--color-text-muted);
+    width: 9rem;
+}
+
+.contact-protocol__table td:last-child {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.contact-career-signal {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 40%, var(--color-bg) 60%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.contact-career-signal__item {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.contact-career-signal__label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.contact-career-signal__val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* ── Responsive & Accessibility Styles ─────────────────────────────────── */
+@media (max-width: 900px) {
+    .contact-hero__grid,
+    .contact-closing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero__main {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .routes-header {
+        padding: 0 0.85rem 0.75rem 0.85rem;
+    }
+
+    .contact-route {
+        grid-template-columns: 2.2rem minmax(0, 1fr);
+        gap: 0.85rem;
+        padding: 1.35rem 0.85rem;
+    }
+
+    .contact-route__meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+
+    .contact-protocol__table td:first-child {
+        width: 7rem;
+    }
+
+    .routing-diagram {
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contact-status__dot,
+    .contact-route__badge-dot {
+        animation: none;
+        opacity: 1;
+    }
+
+    .contact-action-link__arrow {
+        transform: none !important;
+    }
+
+    .contact-route,
+    .routing-branch__label,
+    .contact-action-link,
+    .contact-copy-btn {
+        transition-duration: 0.01ms !important;
+    }
+}
