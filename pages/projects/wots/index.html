@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>WOTS — Water Order, Container &amp; Delivery Operations | Ian Cedric Ramirez</title>
+    <meta name="description" content="WOTS case study — commissioned water order tracking and operations system managing customer water orders, container inventory, container borrowing/sales, payment status, delivery routes, and reporting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">WOTS</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · Operations &amp; Logistics Systems</p>
+                        <h1 class="project-header__title" id="page-title">WOTS</h1>
+                        <p class="project-header__summary">WOTS (Water Order Tracking System) is a commissioned Water Order Tracking System built for a real water-refilling business to digitize customer orders, product and container inventory, payments, deliveries, and operational reporting.</p>
+                        <p class="project-header__summary">A key part of the system was distinguishing containers sold to customers from containers temporarily borrowed and expected to return, allowing order, inventory, customer, and container history to remain connected.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#story">Case Study Narrative</a>
+                            <a href="#users">Operational Roles</a>
+                            <a href="#container-rule">Sold vs. Borrowed Containers</a>
+                            <a href="#order-lifecycle">Order Lifecycle</a>
+                            <a href="#payment-tracking">Payment Tracking</a>
+                            <a href="#delivery-routes">Delivery &amp; Routes</a>
+                            <a href="#reporting">Operational Reporting</a>
+                            <a href="#stack">Technology Stack</a>
+                            <a href="#testing">Manual Testing</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#retrospective">Retrospective</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with final WOTS artwork and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom WOTS illustration showing customer water orders, sold versus borrowed container tracking, payment statuses, delivery route assignments, and sales reporting.">
+                            <div class="project-header__hero-text">
+                                <strong>WOTS Refilling Station Operations</strong><br>
+                                Customer Orders → Sold vs Borrowed Containers → Delivery Routes &amp; Reporting
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>Operations (Water Refilling Logistics)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>System Architect + Developer</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Provenance</dt>
+                        <dd>Commissioned Client Project</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Year &amp; Lifecycle</dt>
+                        <dd>2021 · Production (Used in Operations)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Core Stack</dt>
+                        <dd>Full-Stack Web Application</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Deployment</dt>
+                        <dd>Local Refilling Station Server Setup</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Commercial Context</strong>
+                        Commissioned for an operating water-refilling business to streamline daily customer orders, container borrowing balances, and delivery fulfillment.
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview &amp; Operational Positioning</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>WOTS was engineered for station staff to operate daily water refilling logistics efficiently. Rather than acting as a simple order ledger, the system manages the operational balance between customer orders, container inventory, and delivery routes.</p>
+                        <p>By connecting container ownership rules with order fulfillment, WOTS provided the station owner with clear visibility into borrowed container holds and pending payments.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>System Scope</strong>
+                            <span>Customer Orders · Sold vs Borrowed Containers · Payment Tracking · Driver Assignments · Delivery Routes · Daily Sales Reporting</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Engineering Focus</strong>
+                            <span>Full-Stack · DevOps</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="story" aria-labelledby="story-title">
+                <h2 id="story-title">Case Study Narrative Flow</h2>
+                <p>The system narrative highlights how manual station operations were converted into a connected digital workflow:</p>
+                <div class="project-diagram" aria-label="WOTS central narrative flow diagram">
+                    <pre>Manual Water-Station Operations
+        ↓
+Customer Records &amp; Address Verification
+        ↓
+Order Entry (Refill Type &amp; Quantity)
+        ↓
+Container Ownership Logic (Sold vs. Borrowed Containers)
+        ↓
+Payment Tracking (Paid vs. Unpaid Balance)
+        ↓
+Order Preparation &amp; Driver Assignment
+        ↓
+Delivery Fulfillment / Route Dispatch
+        ↓
+Order Status Updates &amp; Container History Log
+        ↓
+Daily Operational &amp; Sales Reporting</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="users" aria-labelledby="users-title">
+                <h2 id="users-title">Operational User Roles</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>WOTS operated as an internal station business system with role-specific operational permissions:</p>
+                        <ul>
+                            <li><strong>Owner / Administrator:</strong> Full business oversight, sales reports, container inventory audits, and system configuration.</li>
+                            <li><strong>Staff / Order Processor:</strong> Customer lookup, order creation, container selection, and order status updates.</li>
+                            <li><strong>Cashier:</strong> Payment recording, unpaid balance verification, and receipt issuance.</li>
+                            <li><strong>Manager:</strong> Operational queue monitoring, delivery driver assignments, and daily route oversight.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Internal Operations Focus</strong>
+                            <span>Designed specifically for station staff use rather than customer self-service, ensuring fast order entry during peak hours.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="container-rule" aria-labelledby="container-rule-title">
+                <h2 id="container-rule-title">Container Ownership Engine — Sold vs. Borrowed</h2>
+                <div class="comparison-box" aria-label="Sold versus Borrowed Container Business Rules">
+                    <div class="comparison-column">
+                        <h3>SOLD CONTAINERS</h3>
+                        <ul>
+                            <li>Customer purchases permanent container ownership</li>
+                            <li>No return or container exchange expectation</li>
+                            <li>Container cost added to order total</li>
+                            <li>Deducted permanently from station inventory</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>BORROWED CONTAINERS</h3>
+                        <ul>
+                            <li>Customer temporarily borrows station-owned containers</li>
+                            <li>Return or container swap expected on next refill delivery</li>
+                            <li>Tracks active borrowed container balances per customer</li>
+                            <li>Maintains container movement audit trail</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- TODO: Confirm exact container return & deposit policy details if original business rules are available. -->
+            </section>
+
+            <section class="project-section" id="order-lifecycle" aria-labelledby="order-lifecycle-title">
+                <h2 id="order-lifecycle-title">Order Lifecycle Management</h2>
+                <p>Orders move through defined status states to ensure clear coordination between station preparers and delivery drivers:</p>
+                <div class="project-diagram" aria-label="Order lifecycle state diagram">
+                    <pre>Customer Order Placed
+        ↓
+Pending (Validation)
+        ↓
+Confirmed (Accepted by Staff)
+        ↓
+Preparing (Refilling &amp; Sealing Containers)
+        ↓
+Delivery Assignment (Assigned to Driver / Route)
+        ↓
+Out for Delivery
+        ↓
+┌───────────────┬─────────────────┬──────────────┐
+│               │                 │              │
+Delivered     Failed / Returned   Cancelled     Refund / Exchange
+│
+↓
+Order History &amp; Container Audit Log</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="payment-tracking" aria-labelledby="payment-tracking-title">
+                <h2 id="payment-tracking-title">Independent Payment Tracking</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>To support credit transactions common in local water refilling services, payment status was tracked independently from order delivery fulfillment.</p>
+                        <p>Key payment states:</p>
+                        <ul>
+                            <li><strong>Paid:</strong> Full payment received upon order placement or delivery collection.</li>
+                            <li><strong>Unpaid / Credit:</strong> Order delivered with outstanding payment balance logged under customer account.</li>
+                            <li><strong>Partial Payment:</strong> Deposit or partial amount recorded against total order price.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Financial Integrity</strong>
+                            <span>Allows station staff to fulfill urgent deliveries while maintaining accurate accounts receivable records.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="delivery-routes" aria-labelledby="delivery-routes-title">
+                <h2 id="delivery-routes-title">Delivery Route &amp; Driver Assignment</h2>
+                <p>WOTS streamlined delivery dispatch by grouping orders into geographical delivery areas and assigning drivers to specific routes:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Driver Assignment</strong>
+                        <span>Orders in "Preparing" status are assigned to designated delivery personnel.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Route Grouping</strong>
+                        <span>Grouped orders by neighborhood or street zone to optimize delivery trip efficiency.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Delivery Confirmation</strong>
+                        <span>Drivers report fulfillment status upon return, updating container exchanges and collected cash.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="reporting" aria-labelledby="reporting-title">
+                <h2 id="reporting-title">Operational &amp; Sales Reporting</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>WOTS provided business management reports for station owners to evaluate daily volume, sales revenue, and container assets.</p>
+                        <p>Reporting views:</p>
+                        <ul>
+                            <li><strong>Daily Sales Summary:</strong> Total order volume, cash collected, and outstanding receivables.</li>
+                            <li><strong>Container Inventory Audit:</strong> Station container counts, containers currently borrowed, and unreturned holds.</li>
+                            <li><strong>Product Volume Analysis:</strong> Purified vs. Mineral water sales volume breakdown.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Business Visibility</strong>
+                            <span>Replaced manual notebook tallying with automated daily financial and inventory reconciliation.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="stack" aria-labelledby="stack-title">
+                <h2 id="stack-title">Technology &amp; Local Station Setup</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Application Architecture</strong>
+                        <span>Full-stack web application designed for fast order entry and low-latency local database updates.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Local Station Deployment</strong>
+                        <span>Deployed on a local station server setup accessible by counter computers and manager workstations.</span>
+                    </div>
+                </div>
+                <!-- TODO: Confirm exact stack & local server configuration if original project source is available. -->
+            </section>
+
+            <section class="project-section" id="testing" aria-labelledby="testing-title">
+                <h2 id="testing-title">Manual Functional Testing</h2>
+                <p>System reliability was verified through manual operational testing covering order entry, container borrowing calculations, payment updates, driver dispatch, and sales report generation under simulated peak station hours.</p>
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Digitized Refilling Operations</strong>
+                        <span>Replaced paper order books with a centralized digital order and delivery management system.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Container Loss Reduction</strong>
+                        <span>Established explicit tracking for borrowed containers, reducing unreturned container losses.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Accurate Accounts Receivable</strong>
+                        <span>Eliminated unrecorded credit deliveries by tracking payment status independently from fulfillment.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Streamlined Delivery Dispatch</strong>
+                        <span>Improved delivery route coordination and driver accountability during daily operational cycles.</span>
+                    </div>
+                </div>
+                <!-- TODO: Add screenshots only if original project assets are available and appropriate for public display. -->
+                <!-- TODO: Add repository/source link only if verified and public. -->
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Retrospective &amp; Real-World System Design</h2>
+                <div class="retrospective-item">
+                    <h3>Modeling Real-World Business Rules</h3>
+                    <p>WOTS demonstrated that effective software engineering requires translating nuanced domain rules—such as sold versus borrowed container inventory—into clear database schemas and application logic.</p>
+                </div>
+                <div class="retrospective-item">
+                    <h3>Operational Usability Under Production Constraints</h3>
+                    <p>Designing for a live commercial business reinforced the importance of fast, low-friction user interfaces that support high-speed data entry during busy customer hours.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>Full-Stack Web Development · Relational Data Design · Order Lifecycle State Machine · Inventory Management · Local Server Deployment</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials &amp; Certifications</strong>
+                        <p>Commercial development references, operations engineering, and full-stack software credentials.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../sims/">← Previous Case Study (SIMS)</a>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Case Study →</span>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
