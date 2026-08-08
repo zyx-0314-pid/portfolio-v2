@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>GoPick — Legacy Modernization & Architecture | Ian Cedric Ramirez</title>
+    <meta name="description" content="GoPick case study — incremental legacy modernization, modular 5-layer architecture, Accounts reference migration, consumable Meters domain logic, feature controls, and engineering documentation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">GoPick</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · HR &amp; Assessment</p>
+                        <h1 class="project-header__title" id="page-title">GoPick</h1>
+                        <p class="project-header__summary">GoPick is an international HR assessment platform supporting candidates, assessments, evaluations, reporting, account management, and consumable report-generation credits. My work focuses on extending the existing platform while incrementally restructuring legacy areas into a more explicit modular architecture that is easier to trace, test, maintain, and change safely.</p>
+                        
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#role">My Role</a>
+                            <a href="#constraints">Constraints</a>
+                            <a href="#before-state">Before-State</a>
+                            <a href="#strategy">Strategy</a>
+                            <a href="#architecture">Architecture</a>
+                            <a href="#accounts">Accounts Reference</a>
+                            <a href="#standards">Standards</a>
+                            <a href="#meters">Meters Logic</a>
+                            <a href="#feature-controls">Feature Controls</a>
+                            <a href="#error-handling">Error Handling</a>
+                            <a href="#testing">Testing Strategy</a>
+                            <a href="#jfp-relationship">JFP Ecosystem</a>
+                            <a href="#documentation">Manual &amp; Docs</a>
+                            <a href="#infrastructure">Infrastructure</a>
+                            <a href="#decisions">Decisions</a>
+                            <a href="#tradeoffs">Tradeoffs</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#retrospective">Retrospective</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with the final GoPick project illustration and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom project illustration representing an HR assessment platform undergoing incremental legacy modernization into a modular five-layer architecture.">
+                            <div class="project-header__hero-text">
+                                <strong>GoPick System Architecture</strong><br>
+                                HR Assessment Platform · Incremental 5-Layer Modernization
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>HR &amp; Assessment</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>Major Contributor</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Lifecycle</dt>
+                        <dd>Production · Active Development</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Engineering Focus</dt>
+                        <dd>Full-Stack / Architecture / Modernization</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Core Stack</dt>
+                        <dd>Yii2 (PHP) · MySQL · Redis · AWS</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Public Links</dt>
+                        <dd>Sanitized Case Study (Private Repository)</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Professional Relationship</strong>
+                        GoPick is a professional project associated with my experience at <strong>People Dynamics Inc.</strong>
+                        <a href="../../experience/full-stack-developer/">View Related Experience →</a>
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Platform Context &amp; Public Modules</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>GoPick is an enterprise HR assessment platform engineered to support complex HR workflows. The system manages candidate evaluation cycles, assessment delivery, advisory evaluation workflows, report compilation, account management, consumable report-generation credits, and platform asset organization.</p>
+                        <p>Where relevant to candidate evaluation integrity, anti-cheating and assessment safeguards are built into the platform workflow. This case study focuses exclusively on application architecture, structural engineering, and delivery practices. Confidential assessment algorithms, scoring logic, proprietary evaluation standards, and client data are strictly excluded.</p>
+                    </div>
+                    <div class="project-diagram" aria-label="GoPick major module tree">
+                        <pre>GoPick Ecosystem
+├── Accounts      (Account &amp; company configuration)
+├── Advisory      (Evaluation &amp; advisory workflows)
+├── Candidates    (Candidate profiles &amp; lifecycle)
+├── Assessments   (Assessment packages &amp; delivery)
+├── Reports       (Report generation &amp; exports)
+├── Meters        (Consumable report credit ledger)
+└── Assets        (Platform &amp; document assets)</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="role" aria-labelledby="role-title">
+                <h2 id="role-title">My Role &amp; Ownership Boundary</h2>
+                <div class="project-section__split">
+                    <p>As a <strong>Major Contributor</strong> on GoPick, my contributions encompass significant work across legacy modernization, application architecture, feature development, system reliability, engineering documentation, feature delivery controls, developer testing, and ongoing maintenance.</p>
+                    <p>This case study does not claim ownership of the entire GoPick platform. Instead, it documents specific structural improvements, architecture standards, and critical subsystem features personally designed and implemented during active platform development.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="constraints" aria-labelledby="constraints-title">
+                <h2 id="constraints-title">System &amp; Delivery Constraints</h2>
+                <p>Architectural decisions on GoPick were directly shaped by realistic production constraints rather than unconstrained textbook ideals:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>No Complete Rewrite</strong>
+                        <span>A full top-to-bottom application rewrite was not an option. Active production use and ongoing feature requirements required continuous delivery without interrupting active workflows.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Database Schema Compatibility</strong>
+                        <span>All architectural improvements had to remain 100% backward-compatible with the existing production MySQL database schema and existing data models.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Coexistence of Legacy and Modernized Code</strong>
+                        <span>New explicit 5-layer components were required to run side-by-side with untouched legacy areas during the multi-phase transition.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Limited Existing Automated Test Coverage</strong>
+                        <span>The baseline codebase had minimal automated unit/integration tests, making large-scale reckless refactoring a high-risk activity without localized guardrails.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Existing Development Processes</strong>
+                        <span>Modernization efforts had to fit into ongoing team processes and release cycles without creating friction or disrupting feature commitments.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Infrastructure &amp; Access Authority Boundaries</strong>
+                        <span>Application-level architecture improvements were implemented within existing server and hosting parameters without reliance on infrastructure rewrites.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="before-state" aria-labelledby="before-state-title">
+                <h2 id="before-state-title">Legacy Before-State</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The initial state of legacy areas contained typical characteristics of long-lived enterprise web applications where rapid feature growth preceded formal architectural boundaries. Responsibilities were loosely defined and frequently coupled across physical files.</p>
+                        <p>Common technical challenges in legacy areas included:</p>
+                        <ul>
+                            <li>Business logic and execution branching embedded directly within controller actions.</li>
+                            <li>SQL queries and database calls scattered through presentation views and controller scripts.</li>
+                            <li>Monolithic classes and functions handling validation, data manipulation, rendering, and response logic simultaneously.</li>
+                            <li>Duplicated query blocks and business rules across multiple endpoints.</li>
+                            <li>High coupling and low execution traceability, where minor updates on one page could cause unexpected side effects elsewhere.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Mixed Responsibilities</strong>
+                            <span>Single files contained combinations of raw SQL, PHP business operations, HTML presentation, JavaScript snippets, and inline CSS.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Low Traceability</strong>
+                            <span>Tracing the exact data transformation flow required stepping through multiple implicit class calls and view includes.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>High Side-Effect Risk</strong>
+                            <span>Lack of explicit boundary isolation meant changing a shared database query for one module risked breaking unassociated pages.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="strategy" aria-labelledby="strategy-title">
+                <h2 id="strategy-title">Incremental Migration Strategy</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>To modernize the application safely without disrupting ongoing operations, an <strong>opportunistic incremental refactoring strategy</strong> was adopted over an upfront rewrite.</p>
+                        <p>The core policy follows three rules:</p>
+                        <ol>
+                            <li><strong>Refactor Touch Points:</strong> When a bug fix, change request, or new requirement touches a legacy area, refactor the affected boundaries into the 5-layer architecture.</li>
+                            <li><strong>Strict Greenfield Standard:</strong> All newly added modules and features must strictly adhere to the modular 5-layer structure from day one.</li>
+                            <li><strong>Leave Untouched Legacy Stable:</strong> Untouched legacy regions remain operational until future work touches them, minimizing unnecessary regression risk.</li>
+                        </ol>
+                    </div>
+                    <div class="project-diagram" aria-label="Incremental migration workflow">
+                        <pre>LEGACY MODULE AREA
+        ↓
+Requirement / Bug / Feature touches area
+        ↓
+Identify affected responsibilities
+        ↓
+Refactor necessary boundary
+        ↓
+New code follows 5-layer standard
+        ↓
+Untouched code remains legacy
+        ↓
+System gradually improves over time</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="architecture" aria-labelledby="architecture-title">
+                <h2 id="architecture-title">Architecture — Modular 5-Layer Structure</h2>
+                <p>The modernization introduces explicit responsibility ownership within each module boundary while establishing clean supporting shared layers:</p>
+                <div class="project-section__split">
+                    <div class="project-diagram" aria-label="5-Layer module layout">
+                        <pre>Module Boundary
+├── View          (Presentation &amp; UI rendering)
+├── Controller    (Request orchestration &amp; flow control)
+├── Service       (Business rules &amp; domain logic)
+├── Model         (Validation &amp; model rules)
+└── Repository   (Data-access &amp; SQL persistence)
+
+Shared System Infrastructure
+├── Components    (Reusable UI &amp; system utilities)
+├── Services      (Cross-module business operations)
+└── Repositories  (Shared query &amp; persistence units)</pre>
+                    </div>
+                    <div>
+                        <div class="project-note-list">
+                            <div class="project-note-item">
+                                <strong>View (Presentation)</strong>
+                                <span>Renders page markup, subviews, and UI templates. Completely isolated from SQL, database persistence, and business rule evaluation.</span>
+                            </div>
+                            <div class="project-note-item">
+                                <strong>Controller (Orchestration)</strong>
+                                <span>Acts as a thin request orchestrator. Receives user input, triggers Service operations, coordinates validation via Models, and selects View responses. Does not contain raw business logic.</span>
+                            </div>
+                            <div class="project-note-item">
+                                <strong>Service (Business Logic)</strong>
+                                <span>Encapsulates core business processes adhering to Single Responsibility Principles (SRP). Coordinates with other Services and Repositories to execute business flows.</span>
+                            </div>
+                            <div class="project-note-item">
+                                <strong>Repository (Data Access)</strong>
+                                <span>Centralizes SQL queries and data persistence. Isolates database interaction details so data access is traceable, reusable, and decoupled from application logic.</span>
+                            </div>
+                            <div class="project-note-item">
+                                <strong>Model (Validation &amp; Schema)</strong>
+                                <span>Owns validation rules, field definitions, and entity-level integrity checks specific to application records.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="accounts" aria-labelledby="accounts-title">
+                <h2 id="accounts-title">Accounts — Reference Modernization</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The <strong>Accounts</strong> module was selected as the reference implementation to prove out the 5-layer architecture. Previously, account management, company hierarchy lookups, and subscription status validations were dispersed across controllers and embedded view scripts.</p>
+                        <p>Through refactoring, Accounts was restructured into explicit View, Controller, Service, Model, and Repository boundaries. Business checks (such as account eligibility and status propagation) were centralized inside dedicated Account Services, while database queries moved to an Account Repository.</p>
+                        <p>This refactoring created a repeatable architectural pattern used as a benchmark for subsequent module updates across the platform.</p>
+                        <!-- TODO: Add a sanitized before/after Accounts code-flow example if publicly shareable later. -->
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Explicit Boundaries</strong>
+                            <span>Account Controller delegates all validation to Account Models and business rules to Account Services.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Traceable Persistence</strong>
+                            <span>Database queries for account lookups and status updates are isolated in Account Repositories.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Standardized Error Handling</strong>
+                            <span>Account operations use uniform exception handling and structured validation failure returns.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="standards" aria-labelledby="standards-title">
+                <h2 id="standards-title">Engineering Standards &amp; Discipline</h2>
+                <p>The modernization went beyond folder reorganization by instituting rigorous software engineering practices across refactored areas:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>SOLID &amp; OOP Principles</strong>
+                        <span>Applied Single Responsibility (SRP) and Separation of Concerns to keep functions and classes focused, small, and predictable.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Elimination of Magic Values</strong>
+                        <span>Replaced hardcoded string literals and magic numbers with explicit class constants and enum-like configurations.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Explicit Failure Behavior</strong>
+                        <span>Eliminated silent failures and unexpected fallback states. Operations fail predictably with clear exception types or structured error outputs.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Consistent Implementation Patterns</strong>
+                        <span>Standardized naming conventions across classes, methods, variables, and files to make code step-through intuitive for any engineer.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="meters" aria-labelledby="meters-title">
+                <h2 id="meters-title">Meters — Domain Logic Case Study</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p><strong>Meters</strong> represent consumable credit units associated with client accounts and candidate report generation. Different assessment report types consume varying meter amounts based on report complexity and candidate evaluation scope.</p>
+                        <p>Meter handling is a prime example of why business rules must not live in views or controllers. Generating a report requires multi-step state verification: checking current account meter balances, determining exact report credit costs, validating balance sufficiency, executing report generation, deducting meters atomically upon success, and preventing meter deduction if generation fails.</p>
+                        <p>By housing meter logic inside a dedicated Service and Repository boundary, meter transactions are reliable, atomic, and audit-traceable.</p>
+                    </div>
+                    <div class="project-diagram" aria-label="Meters deduction & report generation workflow">
+                        <pre>Account / Organization
+       ↓
+Meter Balance Inspection
+       ↓
+Select Report Type
+       ↓
+Determine Required Meter Cost
+       ↓
+Check Available Balance
+       ↓
+Sufficient Credits Available?
+  ┌────┴──────────────────────────┐
+  NO                              YES
+  ↓                                ↓
+Reject Request Safely     Generate Report File
+                              ↓
+                        Generation Successful?
+                          ┌───────┴────────┐
+                          NO              YES
+                          ↓                ↓
+                    Avoid Meter      Deduct Meter Credits
+                    Deduction              ↓
+                                     Record Ledger History</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="feature-controls" aria-labelledby="feature-controls-title">
+                <h2 id="feature-controls-title">Environment &amp; Delivery Feature Controls</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>To support safe incremental deployment in a live production environment, environment- and feature-level delivery controls were implemented.</p>
+                        <p>Granularity levels include:</p>
+                        <ul>
+                            <li><strong>Global / Environment Level:</strong> Toggles system-wide capability modes or environment configurations.</li>
+                            <li><strong>Module Level:</strong> Controls entire module entry points or refactored subsystem paths.</li>
+                            <li><strong>Individual Feature Level:</strong> Enables or disables specific new features or experimental code paths.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Introduced environment- and feature-level controls to encapsulate incomplete functionality, module behavior, and selected implementation paths.</p>
+                        <p>This mechanism allows refactored 5-layer components to be deployed to production servers without prematurely exposing unfinished user interfaces or breaking legacy fallback paths.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="error-handling" aria-labelledby="error-handling-title">
+                <h2 id="error-handling-title">Structured Exception &amp; Error Handling</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Legacy areas occasionally allowed raw framework exceptions or database driver errors to bubble up to the rendering layer, creating poor user experiences and revealing internal system implementation details.</p>
+                        <p>The modernization introduced structured exception handling across controllers and services. System errors are intercepted, categorized, logged with contextual diagnostics, and translated into clean user-facing error notifications.</p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Key Error Handling Outcome</h3>
+                        <p>Reduced direct exposure of raw runtime errors to users, improving security posture and presenting consistent, predictable failure messaging.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="testing" aria-labelledby="testing-title">
+                <h2 id="testing-title">Testing Strategy &amp; Verification Distinction</h2>
+                <p>Quality assurance on GoPick uses a clear functional division between official team validation process and additional personal developer verification:</p>
+                <div class="project-section__split">
+                    <div class="project-note-item">
+                        <strong>Team / Company Validation</strong>
+                        <ul>
+                            <li>Manual functional testing across staging environments.</li>
+                            <li>QA team verification against functional spec boundaries.</li>
+                            <li>End-to-end user workflow sanity checks prior to release.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Additional Developer Validation</strong>
+                        <ul>
+                            <li>PHPUnit unit and component tests written for isolated service/repository logic.</li>
+                            <li>Playwright scripts for local end-to-end verification of complex UI flows.</li>
+                            <li>PHPStan static analysis checks for type safety and dead-code detection in refactored areas.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="placeholder-note">Moving behavior into more explicit layers made individual application responsibilities easier to validate independently.</p>
+                <!-- TODO: Add exact automated-test coverage only if measured. -->
+            </section>
+
+            <section class="project-section" id="jfp-relationship" aria-labelledby="jfp-relationship-title">
+                <h2 id="jfp-relationship-title">JFP – GoPick Connected Ecosystem</h2>
+                <div class="project-section__split">
+                    <p>JFP – GoPick operates as a separate specialized assessment application connected to the broader GoPick ecosystem and sharing selected platform data.</p>
+                    <p>It provides dedicated assessment processing capabilities while maintaining data sync boundaries with main GoPick services.</p>
+                </div>
+                <!-- TODO: Confirm the exact public-safe data boundaries shared between GoPick and JFP – GoPick before documenting integration details. -->
+            </section>
+
+            <section class="project-section" id="documentation" aria-labelledby="documentation-title">
+                <h2 id="documentation-title">Engineering Documentation &amp; GoPick Manual</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>A major contribution to project reliability and team continuity was authoring and maintaining the <strong>GoPick Manual</strong>. Rather than leaving architectural knowledge in developer notes, the manual serves as comprehensive engineering and operational documentation.</p>
+                        <p>Documented areas include:</p>
+                        <ul>
+                            <li>User workflow instructions and operational procedures.</li>
+                            <li>System prerequisites, warnings, and implementation guardrails.</li>
+                            <li>Developer coding standards and 5-layer architectural rules.</li>
+                            <li>Documented current system behavior and QA testing boundaries.</li>
+                            <li>Expected error behaviors and maintenance procedures.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Handoff &amp; Onboarding</strong>
+                            <span>Provides clear structural guidance for onboarding new developers into the codebase.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>QA &amp; Dev Alignment</strong>
+                            <span>Establishes unambiguous system boundary descriptions, reducing discrepancies during QA testing.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="infrastructure" aria-labelledby="infrastructure-title">
+                <h2 id="infrastructure-title">Infrastructure &amp; Technology Stack</h2>
+                <div class="project-section__split">
+                    <dl class="project-header__meta">
+                        <div class="project-fact">
+                            <dt>Framework / App</dt>
+                            <dd>Yii2 (PHP 8+)</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Database</dt>
+                            <dd>MySQL</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>In-Memory / Cache</dt>
+                            <dd>Redis</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Hosting / Servers</dt>
+                            <dd>AWS-hosted application/server environment</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>Object Storage</dt>
+                            <dd>AWS object storage / bucket</dd>
+                        </div>
+                        <div class="project-fact">
+                            <dt>CDN / Delivery</dt>
+                            <dd>Amazon CloudFront</dd>
+                        </div>
+                    </dl>
+                    <p>The application runs on a high-availability AWS server environment leveraging CloudFront for static asset distribution and secure AWS bucket storage for assessment reports and generated artifacts.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="decisions" aria-labelledby="decisions-title">
+                <h2 id="decisions-title">Key Technical Decisions</h2>
+                <div class="decision-list">
+                    <article class="decision-item">
+                        <h3>1. Incremental Modernization Over Full Rewrite</h3>
+                        <p><strong>Context:</strong> Production platform required active feature delivery while suffering from coupled legacy regions.</p>
+                        <p><strong>Decision:</strong> Refactor touch points opportunistically during active development and enforce 5-layer rules on new code.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>2. Modular 5-Layer Structure (View, Controller, Service, Model, Repository)</h3>
+                        <p><strong>Context:</strong> Business logic, SQL queries, and UI presentation were frequently mixed inside single files.</p>
+                        <p><strong>Decision:</strong> Institute strict separation where Controllers orchestrate, Services execute business logic, Repositories manage database persistence, and Views render UI.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>3. Explicit Repository Boundary for Database Access</h3>
+                        <p><strong>Context:</strong> SQL queries were scattered throughout controllers and view scripts, making schema changes risky.</p>
+                        <p><strong>Decision:</strong> Encapsulate database access inside explicit Repository classes, making data persistence traceable and queries reusable.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>4. Dedicated Service Layer for Domain Logic</h3>
+                        <p><strong>Context:</strong> Complex rules like Meter credit calculation were duplicated across multiple entry points.</p>
+                        <p><strong>Decision:</strong> Centralize multi-step domain logic inside SRP-oriented Service classes.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>5. Environment &amp; Feature Delivery Controls</h3>
+                        <p><strong>Context:</strong> Deploying incomplete features or refactored paths risked exposing incomplete UI or breaking legacy fallbacks.</p>
+                        <p><strong>Decision:</strong> Implement environment-, feature-, and module-level configuration toggles to encapsulate new execution paths safely.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" id="tradeoffs" aria-labelledby="tradeoffs-title">
+                <h2 id="tradeoffs-title">Engineering Tradeoffs</h2>
+                <div class="tradeoff-list">
+                    <article class="tradeoff-item">
+                        <h3>Incremental Refactoring vs. Clean-Slate Rewrite</h3>
+                        <p><strong>Benefit:</strong> Significantly lowers operational migration risk and allows revenue-generating feature development to continue uninterrupted.</p>
+                        <p><strong>Tradeoff:</strong> Legacy and modernized architectural patterns coexist temporarily during the transition phase.</p>
+                    </article>
+                    <article class="tradeoff-item">
+                        <h3>5-Layer Structure vs. Single-File Controller Logic</h3>
+                        <p><strong>Benefit:</strong> Superior traceability, isolated testing, clear responsibility ownership, and reduced side-effect risks.</p>
+                        <p><strong>Tradeoff:</strong> Requires creating and maintaining more individual class files and boundary contracts per module.</p>
+                    </article>
+                    <article class="tradeoff-item">
+                        <h3>Selective Shared Abstractions vs. Universal Sharing</h3>
+                        <p><strong>Benefit:</strong> Reduces code duplication without creating brittle global coupling.</p>
+                        <p><strong>Tradeoff:</strong> Requires disciplined developer evaluation to distinguish genuine duplication from superficial similarity.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Repeatable Architectural Pattern</strong>
+                        <span>Established a clear, repeatable 5-layer structure for new feature development and refactoring efforts.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Clear Responsibility Ownership</strong>
+                        <span>Made responsibility location intuitive, reducing time spent searching for business logic or persistence rules.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Enhanced Query &amp; Logic Traceability</strong>
+                        <span>Database queries and business operations are centralized and easily traceable across execution paths.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Reduced Unintended Cross-Page Side Effects</strong>
+                        <span>Encapsulating logic into isolated layers prevented changes in one module from breaking unrelated pages.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Safer Feature Delivery</strong>
+                        <span>Allowed incomplete or modernized features to live safely in production behind environment and feature controls.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Improved Team &amp; QA Alignment</strong>
+                        <span>Centralized system behavior, developer expectations, and QA boundaries through the GoPick Manual.</span>
+                    </div>
+                </div>
+                <!-- TODO: Add measurable modernization outcomes if real measurements become available. -->
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Lessons &amp; Engineering Retrospective</h2>
+                <div class="retrospective-item">
+                    <h3>What Worked Well?</h3>
+                    <p>The incremental migration strategy proved extremely effective. By refactoring Touch Points during active feature development rather than demanding a full rewrite, we delivered continuous value while steadily reducing architectural technical debt.</p>
+                </div>
+                <div class="retrospective-item">
+                    <h3>Key Engineering Takeaway</h3>
+                    <p>Explicit boundaries matter more than framework choice. Even within a mature framework like Yii2, establishing clear Service and Repository layers provides tremendous stability, testability, and peace of mind when modifying critical enterprise systems.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Related Experience</strong>
+                        <p>Full-Stack Developer &amp; DevOps Engineer at People Dynamics Inc. (Nov 2025 — Present). Application modernization, N-Layer architecture, feature controls, and DevOps scope.</p>
+                        <a class="related-link" href="../../experience/full-stack-developer/">View Full-Stack Developer Experience →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>System Architecture · PHP / Yii2 · MySQL · Redis · Modular 5-Layer Design · Refactoring · Developer Testing</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials &amp; Certifications</strong>
+                        <p>Technical credentials and professional development references.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
+                </div>
+                <!-- TODO: Add sanitized system screenshots if permission/public suitability is established. -->
+                <!-- TODO: Link finalized related Skills and Credentials. -->
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <span aria-disabled="true">← Previous Project</span>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Project →</span>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
