@@ -60,7 +60,6 @@
         const closeMenu = () => {
             nav.dataset.open = 'false';
             toggle.setAttribute('aria-expanded', 'false');
-            menu.hidden = true;
         };
 
         const openMenu = () => {
@@ -108,6 +107,7 @@
                 toggle.setAttribute('aria-expanded', 'false');
                 menu.hidden = false;
             } else {
+                menu.hidden = false;
                 closeMenu();
             }
         };
@@ -132,7 +132,127 @@
         });
     };
 
+    const initializeSectionNavigator = () => {
+        const sections = Array.from(document.querySelectorAll('main section'));
+        if (!sections.length) {
+            return;
+        }
+
+        const navigator = document.createElement('nav');
+        navigator.className = 'section-navigator';
+        navigator.setAttribute('aria-label', 'Page sections');
+
+        const list = document.createElement('ol');
+        list.className = 'section-navigator__list';
+
+        const getSectionIcon = (label) => {
+            const normalizedLabel = label.toLowerCase();
+            const iconRules = [
+                [/home|full-stack engineering|introduction/, 'fa-house'],
+                [/tool|workflow|technology|stack/, 'fa-screwdriver-wrench'],
+                [/capabilit|skill|technical scope/, 'fa-layer-group'],
+                [/experience|professional|role|responsibilit/, 'fa-briefcase'],
+                [/principle|approach|decision/, 'fa-compass-drafting'],
+                [/case stud|project|work|archive/, 'fa-folder-open'],
+                [/about|perspective|interest/, 'fa-user'],
+                [/contact|email/, 'fa-envelope'],
+                [/credential|education|certif/, 'fa-award'],
+                [/resume/, 'fa-file-lines']
+            ];
+
+            return iconRules.find(([pattern]) => pattern.test(normalizedLabel))?.[1] || 'fa-code';
+        };
+
+        const entries = sections.map((section, index) => {
+            if (!section.id) {
+                section.id = `page-section-${index + 1}`;
+            }
+
+            const labelledBy = section.getAttribute('aria-labelledby');
+            const labelledHeading = labelledBy ? document.getElementById(labelledBy) : null;
+            const visibleLabel = section.querySelector('.section__eyebrow, h1, h2');
+            const label = (labelledHeading || visibleLabel)?.textContent.trim() || `Section ${index + 1}`;
+
+            const item = document.createElement('li');
+            const button = document.createElement('button');
+            button.className = 'section-navigator__button';
+            button.type = 'button';
+            button.setAttribute('aria-label', `Go to ${label}`);
+            const icon = document.createElement('i');
+            icon.className = `section-navigator__icon fa-solid ${getSectionIcon(label)}`;
+            icon.setAttribute('aria-hidden', 'true');
+            button.append(icon);
+
+            const labelElement = document.createElement('span');
+            labelElement.className = 'section-navigator__label';
+            labelElement.textContent = label;
+            button.append(labelElement);
+
+            button.addEventListener('click', () => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            button.addEventListener('keydown', (event) => {
+                if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+                    return;
+                }
+
+                event.preventDefault();
+                const direction = event.key === 'ArrowDown' ? 1 : -1;
+                const targetIndex = Math.min(Math.max(index + direction, 0), sections.length - 1);
+                entries[targetIndex].button.focus();
+                sections[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            item.append(button);
+            list.append(item);
+            return { button, section };
+        });
+
+        const updateCurrentSection = () => {
+            const viewportReference = window.innerHeight * 0.42;
+            let currentIndex = 0;
+            let closestDistance = Number.POSITIVE_INFINITY;
+
+            entries.forEach((entry, index) => {
+                const distance = Math.abs(entry.section.getBoundingClientRect().top - viewportReference);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    currentIndex = index;
+                }
+            });
+
+            entries.forEach((entry, index) => {
+                if (index === currentIndex) {
+                    entry.button.setAttribute('aria-current', 'true');
+                } else {
+                    entry.button.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        let updateQueued = false;
+        const requestCurrentSectionUpdate = () => {
+            if (updateQueued) {
+                return;
+            }
+
+            updateQueued = true;
+            window.requestAnimationFrame(() => {
+                updateCurrentSection();
+                updateQueued = false;
+            });
+        };
+
+        navigator.append(list);
+        document.body.append(navigator);
+        window.addEventListener('scroll', requestCurrentSectionUpdate, { passive: true });
+        window.addEventListener('resize', requestCurrentSectionUpdate);
+        updateCurrentSection();
+    };
+
     initializeTheme();
     initializeNavigation();
     initializeActiveNavigation();
+    initializeSectionNavigator();
 })();

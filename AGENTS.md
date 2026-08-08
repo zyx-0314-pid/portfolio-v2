@@ -189,7 +189,7 @@ Do not duplicate the same implementation in several directories when it can reas
 
 ## HTML Standards
 
-Use semantic HTML5.
+Use semantic "The Living Standard". 
 
 Every page must contain a valid document structure including:
 
@@ -226,7 +226,7 @@ Keep markup readable and properly indented.
 
 ## CSS Rules
 
-Prefer the simplest appropriate styling approach.
+Prefer the simplest appropriate styling approach. Use the latest CSS features this 2026.
 
 Shared styling belongs in:
 
@@ -253,7 +253,7 @@ unless explicitly requested.
 
 ## JavaScript Rules
 
-Use vanilla JavaScript unless another technology is explicitly requested.
+Use vanilla JavaScript unless another technology is explicitly requested. Use the latest ES2025 features this 2026.
 
 Shared behavior belongs in:
 
@@ -480,3 +480,908 @@ After editing:
 * report any unresolved issue instead of hiding it
 
 When requirements conflict with this document, follow the explicit task instruction and preserve the rest of these rules where possible.
+
+## Design Direction and Anti-AI-Default Rules
+
+This portfolio must feel intentionally designed, handcrafted, and content-driven.
+
+The target visual character is:
+
+- intentional
+- trustworthy
+- intelligent
+- warm
+- technical
+- restrained
+- editorial where appropriate
+- influenced by professional developer websites from approximately 2020–2023
+
+The website must NOT default to common AI-generated, vibe-coded, SaaS-template, or generic portfolio patterns.
+
+The purpose of these rules is not to ban modern design techniques. It is to prevent using visual patterns without a clear information, usability, identity, or hierarchy purpose.
+
+---
+
+### Core Design Principle
+
+Every visible design element must serve at least one clear purpose:
+
+- information hierarchy
+- navigation
+- identity
+- evidence
+- usability
+- readability
+- grouping
+- technical explanation
+
+If an element exists only because it "looks modern", remove it.
+
+Do not add decoration to compensate for weak composition.
+
+Prefer:
+
+```text
+typography
+spacing
+alignment
+contrast
+borders
+meaningful imagery
+structural geometry
+```
+
+before introducing additional effects.
+
+---
+
+### Avoid Generic AI / SaaS Layout Patterns
+
+Do not automatically introduce:
+
+- bento grids
+- card-heavy layouts
+- three identical feature cards
+- excessive rounded containers
+- glassmorphism
+- frosted panels
+- glowing borders
+- gradient borders
+- aurora backgrounds
+- blurred gradient blobs
+- neon effects
+- excessive shadows
+- floating pills
+- floating badges
+- giant centered SaaS heroes
+- fake dashboards
+- fake browser windows
+- decorative analytics charts
+- testimonial sections
+- customer-logo strips
+- pricing-style layouts
+- FAQ sections without a real need
+- repeated CTA sections
+- oversized marketing banners
+
+Do not treat every content group as a card.
+
+Use cards only when the information genuinely represents a bounded entity.
+
+---
+
+### Avoid Mechanical Layout Repetition
+
+Do not make every section follow:
+
+```text
+small label
+heading
+paragraph
+three cards
+CTA
+```
+
+Do not make every section:
+
+- exactly the same width
+- exactly the same height
+- exactly the same spacing
+- exactly the same alignment
+- exactly the same visual treatment
+
+Controlled variation is encouraged.
+
+Major page sections may use:
+
+- different background surfaces
+- different content widths
+- different amounts of vertical spacing
+- different media placement
+- different text hierarchy
+
+while still respecting the shared design system.
+
+The page should have rhythm rather than mechanical repetition.
+
+---
+
+### Single-Column Instructions Must Be Respected Literally
+
+When a task explicitly requires a single-column composition, do not reinterpret it as:
+
+```text
+text | image
+```
+
+or:
+
+```text
+content | metadata
+```
+
+at larger breakpoints.
+
+A single-column composition means one primary vertical reading flow.
+
+Example:
+
+```text
+heading
+↓
+supporting information
+↓
+action
+↓
+media
+↓
+next section
+```
+
+Do not create a desktop two-column layout merely to fill horizontal space.
+
+Intentional offset decorations or metadata are acceptable only when they do not establish a second competing reading column.
+
+---
+
+### Avoid Excessive Centering
+
+Do not automatically center:
+
+- every heading
+- every paragraph
+- every section
+- every project
+- every metadata group
+
+Centering is acceptable when appropriate to a specific composition.
+
+Use left alignment, centered alignment, offset elements, and editorial composition deliberately.
+
+Avoid perfect symmetry as the default solution.
+
+---
+
+### Structural Geometry
+
+The portfolio may use restrained geometric elements such as:
+
+- thin horizontal rules
+- vertical rules
+- partial grids
+- corner brackets
+- offset rectangles
+- short line segments
+- small squares
+- subtle coordinate-like marks
+- restrained dot matrices
+
+These should reinforce the layout.
+
+Whenever possible, align geometry with actual structure such as:
+
+- container edges
+- headings
+- columns
+- media edges
+- section boundaries
+- baselines
+
+Do not place decorative geometry randomly.
+
+Do not introduce:
+
+- floating bubbles
+- random circles
+- arbitrary triangles
+- particle fields
+- decorative floating icons
+
+Keep geometric decoration subordinate to content.
+
+---
+
+### Background Rhythm
+
+Do not place the entire website on one visually identical background if section separation would improve readability.
+
+Major narrative areas may use related background surfaces.
+
+Use restrained variations of the established palette.
+
+Do not alternate background color after every small section.
+
+Background changes should represent meaningful transitions between page chapters.
+
+Full-width background zones may contain constrained-width content.
+
+---
+
+### Spacing
+
+Do not use identical vertical spacing everywhere.
+
+Major narrative transitions should generally receive more breathing room than compact supporting sections.
+
+Prefer generous spacing over unnecessary containers.
+
+Do not create large empty areas without compositional purpose.
+
+Whitespace must feel intentional rather than unfinished.
+
+---
+
+### Color System
+
+Use the established semantic color system.
+
+Primary identity:
+
+- charcoal / near-black
+- off-white
+- neutral grays
+- petrol teal
+- brighter interaction teal
+
+Teal is a strong identity color but must not be applied everywhere.
+
+Do not make:
+
+- every heading teal
+- every border teal
+- every icon teal
+- every interactive surface bright teal
+
+Use the strongest teal primarily for:
+
+- interaction
+- focus
+- selected emphasis
+- active state
+- occasional important terminology
+
+Do not introduce unrelated accent colors without a specific requirement.
+
+Avoid purple/blue AI-style gradient palettes.
+
+---
+
+### Gradients
+
+Do not use gradients as a default visual shortcut.
+
+Avoid:
+
+- gradient text
+- gradient hero backgrounds
+- aurora gradients
+- glowing radial gradients
+- decorative multicolor gradients
+
+A subtle tonal gradient may be used only when:
+
+1. it clearly supports the composition,
+2. flat color cannot achieve the same effect as effectively,
+3. it remains consistent with the existing palette.
+
+---
+
+### Typography
+
+Use:
+
+```text
+IBM Plex Sans
+IBM Plex Mono
+```
+
+IBM Plex Sans remains the primary reading font.
+
+Use it for:
+
+- headings
+- body copy
+- descriptions
+- project titles
+- navigation where appropriate
+
+IBM Plex Mono provides technical identity.
+
+Use it for:
+
+- metadata
+- dates
+- labels
+- breadcrumbs
+- technical annotations
+- technology names
+- code
+- small section identifiers
+
+Do not use IBM Plex Mono for long-form paragraphs.
+
+Do not make the website look like a terminal.
+
+Avoid fake terminal conventions such as:
+
+```text
+$ whoami
+root@
+user@portfolio
+> About
+```
+
+unless explicitly requested for a specific meaningful feature.
+
+---
+
+### Hero Design
+
+Do not automatically make the user's name the largest message on the homepage.
+
+Professional identity, problem-solving capability, or value may take stronger visual priority.
+
+The user's name may appear more quietly in navigation or supporting identity areas when appropriate.
+
+Do not assume a portfolio hero must follow:
+
+```text
+huge name
+job title
+paragraph
+two buttons
+portrait
+```
+
+Hero composition should be derived from the intended professional message.
+
+Do not introduce a giant portrait simply because this is a personal portfolio.
+
+---
+
+### Content Hierarchy
+
+The portfolio should communicate capability before technology collecting.
+
+Prioritize:
+
+```text
+technical reasoning
+system decisions
+professional context
+evidence
+outcomes
+case studies
+```
+
+before:
+
+```text
+framework logos
+technology badges
+tool lists
+```
+
+Technology should support the evidence, not replace it.
+
+---
+
+### Avoid Tool-Collector Presentation
+
+Do not create:
+
+- giant technology logo walls
+- skill percentage bars
+- `95% PHP`
+- `90% JavaScript`
+- skill meters
+- hundreds of badges
+- endless pill tags
+- technology icons floating around portraits
+
+Tools may appear contextually in:
+
+- project case studies
+- experience
+- skills
+- technical workflow sections
+
+A scrolling tools rail is allowed when explicitly requested, but it remains contextual rather than evidence of expertise.
+
+---
+
+### Tools Rail
+
+When implementing a continuous tools/workflow rail:
+
+- use CSS animation
+- use enough duplicated content for a seamless loop
+- never expose a large empty region
+- do not use `<marquee>`
+- do not add an artificial end arrow
+- tool names must remain readable
+- do not put each tool inside a pill or card
+- do not invent tools merely to fill the rail
+
+Respect:
+
+```css
+@media (prefers-reduced-motion: reduce)
+```
+
+When reduced motion is enabled, show the tools as static content or manually scrollable content.
+
+---
+
+### Images and Media
+
+Use meaningful media.
+
+Preferred project media includes:
+
+- real application screenshots
+- architecture diagrams
+- deployment diagrams
+- database diagrams
+- workflow diagrams
+- before/after comparisons
+- relevant technical illustrations
+
+Do not create fake product screenshots merely to make a section look complete.
+
+Do not use generic stock images as substitutes for project evidence.
+
+When real media is unavailable, use the established Placehold.net placeholder convention.
+
+Add a small temporary italic helper note explaining:
+
+- what real image should replace it
+- preferred composition
+- what it should communicate
+- that the note must be removed when the real image is added
+
+Use the shared placeholder-note class when available.
+
+---
+
+### Code Visuals
+
+Code may be used visually when it communicates engineering identity or actual technical reasoning.
+
+Prefer:
+
+- real or representative meaningful code
+- restrained editor-style presentation
+- IBM Plex Mono
+- square or very small corner radius
+- thin borders
+- limited syntax colors
+
+Avoid:
+
+- fake terminal windows
+- decorative code with no meaning
+- typing animations
+- glowing code panels
+- large rounded code cards
+
+Do not introduce a syntax-highlighting dependency for a small decorative code example.
+
+---
+
+### Project Case Studies
+
+Projects must not be reduced to:
+
+```text
+screenshot
+title
+tech stack
+View Project
+```
+
+Deep project pages should demonstrate reasoning.
+
+Where relevant, support:
+
+- context
+- problem
+- constraints
+- role
+- responsibilities
+- technical decisions
+- architecture
+- implementation
+- infrastructure
+- data design
+- reliability
+- security
+- testing
+- challenges
+- tradeoffs
+- outcomes
+- retrospective
+
+Do not force every project to use every section.
+
+Different projects may emphasize different technical dimensions.
+
+---
+
+### Evidence Rules
+
+Do not invent:
+
+- metrics
+- percentages
+- user counts
+- revenue
+- performance improvements
+- team sizes
+- customer counts
+- uptime
+- speed improvements
+- testimonials
+- client logos
+- business outcomes
+
+If a measurable result exists, present it accurately.
+
+If no numeric measurement exists, describe the concrete change instead.
+
+Example:
+
+Prefer:
+
+```text
+Automated the previously manual deployment process.
+```
+
+over:
+
+```text
+Improved deployment efficiency by 80%.
+```
+
+when no measurement exists.
+
+---
+
+### Copywriting Rules
+
+Avoid generic AI-generated marketing language.
+
+Do not write phrases such as:
+
+- passionate developer
+- crafting digital experiences
+- transforming ideas into reality
+- unlocking potential
+- elevating workflows
+- innovative solutions
+- cutting-edge technologies
+- next-generation solutions
+- where creativity meets technology
+- scalable solutions for tomorrow
+
+Avoid unnecessary use of:
+
+- seamless
+- powerful
+- innovative
+- revolutionary
+- world-class
+- cutting-edge
+
+Write concrete statements about:
+
+- what was done
+- why it was done
+- what constraint existed
+- what decision was made
+- what changed
+- what was learned
+
+The site's voice should remain:
+
+- calm
+- professional
+- direct
+- concise
+- analytical
+- reflective
+
+---
+
+### Animation and Motion
+
+Motion must have a reason.
+
+Allowed examples:
+
+- subtle link transitions
+- theme transitions
+- mobile navigation
+- continuous tools rail
+- restrained hover feedback
+
+Do not introduce:
+
+- animation on every section
+- scroll reveal everywhere
+- automatic fade-ins everywhere
+- hover lift on every card
+- glowing hover effects
+- animated counters
+- typing hero text
+- cursor-following lights
+- cursor-following blobs
+- particles
+- parallax
+- scroll-jacking
+- artificial page loaders
+- cinematic page transitions
+
+Do not add an animation library for small interactions.
+
+Prefer CSS.
+
+---
+
+### Hover Behavior
+
+Hover states must communicate interactivity, not act as decoration.
+
+Do not:
+
+- move every component upward on hover
+- hide or reveal essential information only on hover
+- drastically change layout on hover
+- create interactions unavailable to touch devices
+
+Important information must remain visible without hover.
+
+---
+
+### Rounded Corners
+
+Do not use large border radii as the universal design language.
+
+Avoid making everything:
+
+```text
+rounded-2xl
+rounded-3xl
+```
+
+Prefer:
+
+- square edges
+- very small radii
+- moderate radius only where semantically appropriate
+
+Use the same small set of radius values consistently.
+
+---
+
+### Shadows
+
+Prefer:
+
+```text
+spacing
+contrast
+borders
+background differences
+```
+
+over shadows.
+
+Do not place shadows beneath every component.
+
+Do not use neon or colored glow shadows.
+
+---
+
+### Icons
+
+Do not place an icon beside every line simply because an icon library is available.
+
+Use icons when they improve:
+
+- recognition
+- navigation
+- interaction
+- scanning
+
+Do not use emojis as generic feature icons.
+
+Use one consistent icon system.
+
+Do not introduce multiple overlapping icon libraries.
+
+---
+
+### Navigation
+
+Use normal document navigation.
+
+Prefer:
+
+```html
+<a href="...">
+```
+
+Do not introduce:
+
+- SPA routing
+- AJAX navigation
+- page-transition frameworks
+- JavaScript route interception
+
+Navigation should remain understandable even when JavaScript fails.
+
+---
+
+### Responsive Design
+
+Do not treat mobile as a compressed desktop design.
+
+Validate layout independently for:
+
+```text
+mobile
+tablet
+desktop
+large desktop
+```
+
+Avoid:
+
+- horizontal page overflow
+- desktop multi-column layouts squeezed onto mobile
+- tiny metadata
+- unreadable code
+- overflowing navigation
+- hover-only functionality
+
+When a desktop composition cannot reasonably scale down, restructure it rather than shrinking everything.
+
+---
+
+### Accessibility
+
+Accessibility is part of the design, not a later patch.
+
+Maintain:
+
+- semantic HTML
+- logical headings
+- keyboard navigation
+- visible focus
+- sufficient contrast
+- meaningful alt text
+- reduced-motion support
+- accessible interactive labels
+
+Do not remove focus indicators unless replacing them with an equally visible alternative.
+
+Decorative shapes must:
+
+- not intercept pointer events
+- be hidden from assistive technology where appropriate
+
+---
+
+### No Patch-on-Patch Styling
+
+Before changing a layout:
+
+1. inspect the existing HTML
+2. inspect the relevant CSS
+3. identify rules causing the current behavior
+4. remove obsolete or conflicting rules
+5. implement the intended solution cleanly
+
+Do not continuously append increasingly specific overrides.
+
+If an old layout has been rejected, remove the rule implementing it.
+
+Do not preserve dead styles merely because they were generated in a previous phase.
+
+---
+
+### Do Not Redesign Unrelated Areas
+
+When asked to correct a specific area:
+
+- modify that area
+- modify shared behavior only when necessary
+- do not redesign unrelated pages
+- do not opportunistically replace existing patterns
+
+Avoid scope expansion.
+
+---
+
+### Design-System Consistency
+
+Reuse established:
+
+- semantic colors
+- typography
+- spacing conventions
+- border treatments
+- interaction patterns
+- icon language
+- layout widths
+- geometric language
+
+Do not invent slightly different versions on each page.
+
+Avoid:
+
+- random new teal values
+- random border radii
+- arbitrary spacing
+- duplicate button styles
+- inconsistent metadata treatment
+
+If a new reusable pattern is necessary, define it intentionally.
+
+---
+
+### Final Design Audit
+
+Before completing any significant UI task, check:
+
+1. Does every major element have a purpose?
+2. Is any section becoming a generic SaaS component?
+3. Are there unnecessary cards?
+4. Is the layout mechanically repetitive?
+5. Is important content being replaced by decoration?
+6. Are technologies being used as proof instead of evidence?
+7. Is any content invented?
+8. Is motion necessary?
+9. Does the mobile layout work independently?
+10. Does light mode remain coherent?
+11. Are accessibility requirements preserved?
+12. Did the implementation introduce unnecessary dependencies?
+13. Did the task explicitly request single-column behavior, and if so, was it preserved at all breakpoints?
+14. Does the result feel like the same portfolio rather than a newly generated template?
+
+If several elements could be removed without changing the meaning or usability of the page, simplify the design before considering the task complete.
+
+---
+
+### Shared Page Navigation
+
+All website pages use the shared wide-screen section-dot navigator provided by `shared/js/main.js` and `shared/css/global.css`.
+
+When adding or changing pages:
+
+- keep major content regions as semantic `section` elements
+- give each section an `aria-labelledby` relationship to a descriptive heading where practical
+- preserve the desktop-only section dots, hover labels, active-section state, click navigation, and keyboard Up/Down navigation
+- do not display the section-dot navigator at tablet or mobile widths
+- preserve smooth scrolling and the reduced-motion fallback

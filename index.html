@@ -18,7 +18,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.17.0/devicon.min.css">
     <link rel="stylesheet" href="shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
     <header class="site-header">
@@ -47,35 +49,81 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
-        <section class="section" aria-labelledby="hero-title">
-            <div class="hero-grid">
-                <div>
-                    <p class="intro-meta">Developer Portfolio</p>
-                    <h1 class="intro-name" id="hero-title">Ian Cedric Ramirez</h1>
+    <main class="home-main">
+        <section class="home-zone home-hero" aria-labelledby="hero-title">
+            <div class="page-shell hero-composition">
+                <div class="hero-copy">
+                    <h1 class="hero-title" id="hero-title">Full-stack engineering for systems built to last.</h1>
                     <p class="hero-role">Full-Stack Developer</p>
                     <p class="hero-scope">Development · Infrastructure · DevOps</p>
-                    <p class="hero-statement">I design and build with decisions that are deliberate, traceable, and maintainable.</p>
-                    <p class="hero-support">I approach software as a connected system, where application behavior, reliability, and operations influence each other. The goal is to make technical choices understandable, justified, and practical to maintain over time.</p>
-                    <div class="intro-actions" aria-label="Primary links">
-                        <a class="primary-link" href="pages/experience/">Explore Experience</a>
-                        <a href="pages/projects/">Read Case Studies</a>
+                    <p class="hero-statement">
+                        I design and build with decisions that are
+                        <span class="principle-term" tabindex="0">deliberate<span class="principle-card"><strong>Deliberate</strong><span>Choose from evidence and constraints, not habit.</span><span class="principle-card__project">Latest project</span><a href="pages/projects/example-project/">Example Project →</a></span></span>,
+                        <span class="principle-term" tabindex="0">traceable<span class="principle-card"><strong>Traceable</strong><span>Keep the reasoning behind important changes visible.</span><span class="principle-card__project">Latest project</span><a href="pages/projects/example-project/">Example Project →</a></span></span>, and
+                        <span class="principle-term" tabindex="0">maintainable<span class="principle-card"><strong>Maintainable</strong><span>Prefer systems that remain understandable as they change.</span><span class="principle-card__project">Latest project</span><a href="pages/projects/example-project/">Example Project →</a></span></span>.
+                    </p>
+                    <div class="hero-approach" tabindex="0">
+                        <p class="hero-approach__label">How I see connected systems</p>
+                        <div class="hero-approach__content">
+                            <p class="hero-support">I approach software as a connected system, where application behavior, reliability, and operations influence each other. The goal is to make technical choices understandable, justified, and practical to maintain over time.</p>
+                        </div>
                     </div>
-                    <div class="hero-links" aria-label="Public profile links">
-                        <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <div class="intro-actions" aria-label="Primary links">
+                        <a class="primary-link" href="pages/experience/"><span>Explore Experience</span><span aria-hidden="true">→</span></a>
+                        <a class="secondary-link" href="pages/projects/"><span>Read Case Studies</span><span aria-hidden="true">→</span></a>
                     </div>
                 </div>
-                <div>
-                    <figure class="hero-image-frame">
-                        <img src="https://placehold.net/480x600.png" alt="Placeholder for portrait of Ian Cedric Ramirez">
-                    </figure>
-                    <p class="content-placeholder-note">Replace with a clean chest-up or waist-up portrait with a simple background and natural lighting. Remove this note after adding the final image.</p>
+                <div class="hero-visual" aria-label="Engineering principles code editor">
+                    <div class="hero-visual__offset" aria-hidden="true"></div>
+                    <div class="code-window">
+                        <div class="code-window__bar">
+                            <span class="code-window__marks" aria-hidden="true">■ ■ ■</span>
+                            <span>engineering-principles.ts</span>
+                        </div>
+                        <pre class="code-window__code" tabindex="0"><code><span class="token-keyword">const</span> <span class="token-name">approach</span> = {
+  reliability: <span class="token-string">'over novelty'</span>,
+  change: <span class="token-string">'understand before modifying'</span>,
+  decisions: <span class="token-string">'evidence + constraints'</span>,
+  debt: <span class="token-string">'intentional + documented'</span>
+};</code></pre>
+                        <div class="code-window__status"><span aria-hidden="true"></span>System design in progress</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" aria-labelledby="capabilities-title">
+        <section class="tools-rail" aria-labelledby="tools-title">
+            <div class="page-shell tools-rail__label">
+                <h2 id="tools-title">Tools / Workflow</h2>
+            </div>
+            <div class="tools-marquee">
+                <div class="tools-track">
+                    <ul class="tools-group">
+                        <li><i class="devicon-php-plain" aria-hidden="true"></i><span>PHP</span></li>
+                        <li><i class="devicon-typescript-plain" aria-hidden="true"></i><span>TypeScript</span></li>
+                        <li><i class="devicon-docker-plain" aria-hidden="true"></i><span>Docker</span></li>
+                        <li><i class="devicon-postgresql-plain" aria-hidden="true"></i><span>PostgreSQL</span></li>
+                        <li><i class="devicon-github-original" aria-hidden="true"></i><span>GitHub</span></li>
+                        <li><i class="devicon-redis-plain" aria-hidden="true"></i><span>Redis</span></li>
+                        <li><i class="devicon-amazonwebservices-plain-wordmark" aria-hidden="true"></i><span>AWS</span></li>
+                        <li><i class="devicon-googlecloud-plain" aria-hidden="true"></i><span>GCP</span></li>
+                    </ul>
+                    <ul class="tools-group" aria-hidden="true">
+                        <li><i class="devicon-php-plain"></i><span>PHP</span></li>
+                        <li><i class="devicon-typescript-plain"></i><span>TypeScript</span></li>
+                        <li><i class="devicon-docker-plain"></i><span>Docker</span></li>
+                        <li><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></li>
+                        <li><i class="devicon-github-original"></i><span>GitHub</span></li>
+                        <li><i class="devicon-redis-plain"></i><span>Redis</span></li>
+                        <li><i class="devicon-amazonwebservices-plain-wordmark"></i><span>AWS</span></li>
+                        <li><i class="devicon-googlecloud-plain"></i><span>GCP</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-zone home-zone--capabilities" aria-labelledby="capabilities-title">
+            <div class="page-shell">
             <p class="section__eyebrow">Core Capabilities</p>
             <h2 class="section__title" id="capabilities-title">How I Approach Engineering Work</h2>
             <div class="capability-list">
@@ -101,9 +149,11 @@
                     </div>
                 </article>
             </div>
+            </div>
         </section>
 
-        <section class="section" aria-labelledby="experience-title">
+        <section class="home-zone home-zone--experience" aria-labelledby="experience-title">
+            <div class="page-shell">
             <p class="section__eyebrow">Experience</p>
             <h2 class="section__title" id="experience-title">Professional Context</h2>
             <div class="evidence-list">
@@ -133,9 +183,27 @@
                 </article>
             </div>
             <a class="section-link" href="pages/experience/">Explore Experience →</a>
+            </div>
         </section>
 
-        <section class="section" aria-labelledby="case-studies-title">
+        <section class="home-zone home-zone--principles" aria-labelledby="principles-title">
+            <div class="page-shell principles-layout">
+                <div>
+                    <p class="section__eyebrow">Engineering Principles</p>
+                    <h2 class="section__title" id="principles-title">How I approach systems.</h2>
+                </div>
+                <ol class="principles-list">
+                    <li><span>01</span>Reliability over novelty</li>
+                    <li><span>02</span>Understand the system before changing it</li>
+                    <li><span>03</span>Decisions based on evidence and constraints</li>
+                    <li><span>04</span>Maintainability before unnecessary complexity</li>
+                    <li><span>05</span>Technical debt should be intentional and documented</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="home-zone home-zone--studies" aria-labelledby="case-studies-title">
+            <div class="page-shell">
             <p class="section__eyebrow">Selected Case Studies</p>
             <h2 class="section__title" id="case-studies-title">Evidence Through Technical Work</h2>
             <div class="study-list">
@@ -177,9 +245,11 @@
                 </article>
             </div>
             <a class="section-link" href="pages/projects/">Read Case Studies →</a>
+            </div>
         </section>
 
-        <section class="section" aria-labelledby="about-preview-title">
+        <section class="home-zone home-zone--about" aria-labelledby="about-preview-title">
+            <div class="page-shell">
             <p class="section__eyebrow">About</p>
             <h2 class="section__title" id="about-preview-title">Working Perspective</h2>
             <div class="about-preview">
@@ -201,9 +271,11 @@
                 </div>
             </div>
             <a class="section-link" href="pages/about/">More About Me →</a>
+            </div>
         </section>
 
-        <section class="section" aria-labelledby="secondary-areas-title">
+        <section class="home-zone home-zone--secondary" aria-labelledby="secondary-areas-title">
+            <div class="page-shell">
             <p class="section__eyebrow">Secondary Technical Areas</p>
             <h2 class="section__title" id="secondary-areas-title">Additional Technical Scope</h2>
             <div class="secondary-areas">
@@ -215,6 +287,7 @@
                     <h3>Infrastructure &amp; DevOps</h3>
                     <p>I work across development and operational boundaries when needed, so application decisions remain practical to deploy, observe, and support.</p>
                 </article>
+            </div>
             </div>
         </section>
     </main>
