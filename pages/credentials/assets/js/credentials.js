@@ -1,212 +1,261 @@
 /**
- * Credentials Gallery & Modal Interactive Logic
- * Ian Cedric Ramirez Portfolio - Phase 14.1 Credentials Correction
+ * Credentials Gallery — Interactive Logic
+ * Ian Cedric Ramirez Portfolio — Phase 15 (Modal → Detail Pages)
+ *
+ * Modal dependency fully removed.
+ * Cards are now <a> links navigating to dedicated detail pages.
+ * Type and Domain filters support multi-select (OR within group, AND across groups).
  */
 
 (() => {
   const data = window.CREDENTIALS_DATA || [];
 
-  // Active filter state
+  // Active filter state — arrays for multi-select
   const state = {
     search: '',
-    type: 'all',
-    domain: 'all',
-    status: 'all',
-    activeModalId: null
+    types: [],    // empty = "All"
+    ranks: [],    // empty = "All"
+    domains: [],  // empty = "All"
+    sort: 'rank-desc',
   };
 
   // DOM Elements
   const searchInput = document.getElementById('cred-search');
-  const typeFiltersContainer = document.getElementById('type-filters');
-  const domainFiltersContainer = document.getElementById('domain-filters');
-  const statusFiltersContainer = document.getElementById('status-filters');
   const resultCount = document.getElementById('result-count');
   const clearFiltersBtn = document.getElementById('clear-filters');
+  const sortSelect = document.getElementById('cred-sort');
 
   // Group Containers
   const certsSection = document.getElementById('group-certifications');
   const certsGrid = document.getElementById('grid-certifications');
-  
   const trainingSection = document.getElementById('group-training');
   const trainingGrid = document.getElementById('grid-training');
-
   const emptyState = document.getElementById('cred-empty-state');
 
-  // Modal Elements
-  const modal = document.getElementById('cred-modal');
-  const modalBackdrop = document.getElementById('cred-modal-backdrop');
-  const modalCloseBtn = document.getElementById('cred-modal-close');
-  const modalBody = document.getElementById('cred-modal-body');
-
-  let previousActiveElement = null;
+  // Type tooltip
+  const typeInfoBtn = document.getElementById('type-info-btn');
+  const typeTooltip = document.getElementById('type-tooltip');
+  const domainFilters = document.getElementById('domain-filters');
 
   // Initialize
   const init = () => {
+    renderDomainFilters();
     readUrlState();
     setupEventListeners();
     renderGallery();
-    checkUrlForModal();
   };
 
-  // Read State from URL Query Parameters
+  // ── URL State ──────────────────────────────────────────────────────────────
+
   const readUrlState = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.has('q')) state.search = params.get('q') || '';
-    if (params.has('type')) state.type = params.get('type') || 'all';
-    if (params.has('domain')) state.domain = params.get('domain') || 'all';
-    if (params.has('status')) state.status = params.get('status') || 'all';
-    if (params.has('cred')) state.activeModalId = params.get('cred');
-
+    if (params.has('type')) {
+      state.types = params.get('type').split(',').filter(Boolean);
+    }
+    if (params.has('rank')) {
+      state.ranks = params.get('rank').split(',').filter(Boolean);
+    }
+    if (params.has('domain')) {
+      state.domains = params.get('domain').split(',').filter(Boolean);
+    }
+    if (params.has('sort')) {
+      state.sort = params.get('sort') || 'rank-desc';
+    }
     if (searchInput) searchInput.value = state.search;
+    if (sortSelect) sortSelect.value = state.sort;
     syncFilterButtonsUI();
   };
 
-  // Update URL Query Parameters
   const updateUrlState = () => {
     const params = new URLSearchParams();
     if (state.search) params.set('q', state.search);
-    if (state.type !== 'all') params.set('type', state.type);
-    if (state.domain !== 'all') params.set('domain', state.domain);
-    if (state.status !== 'all') params.set('status', state.status);
-    if (state.activeModalId) params.set('cred', state.activeModalId);
-
-    const newRelativePathQuery = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
-    window.history.replaceState(null, '', newRelativePathQuery);
+    if (state.types.length) params.set('type', state.types.join(','));
+    if (state.ranks.length) params.set('rank', state.ranks.join(','));
+    if (state.domains.length) params.set('domain', state.domains.join(','));
+    if (state.sort !== 'rank-desc') params.set('sort', state.sort);
+    const qs = params.toString();
+    window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : ''));
   };
 
-  // Sync active states on filter buttons
+  // ── Filter Button UI ───────────────────────────────────────────────────────
+
   const syncFilterButtonsUI = () => {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      const group = btn.dataset.filterGroup;
+    document.querySelectorAll('[data-filter-group="type"]').forEach(btn => {
       const val = btn.dataset.value;
-      if (group && val) {
-        const isSelected = state[group] === val;
-        btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      if (val === 'all') {
+        btn.setAttribute('aria-pressed', state.types.length === 0 ? 'true' : 'false');
+      } else {
+        btn.setAttribute('aria-pressed', state.types.includes(val) ? 'true' : 'false');
+      }
+    });
+
+    document.querySelectorAll('[data-filter-group="domain"]').forEach(btn => {
+      const val = btn.dataset.value;
+      if (val === 'all') {
+        btn.setAttribute('aria-pressed', state.domains.length === 0 ? 'true' : 'false');
+      } else {
+        btn.setAttribute('aria-pressed', state.domains.includes(val) ? 'true' : 'false');
+      }
+    });
+
+    document.querySelectorAll('[data-filter-group="rank"]').forEach(btn => {
+      const val = btn.dataset.value;
+      if (val === 'all') {
+        btn.setAttribute('aria-pressed', state.ranks.length === 0 ? 'true' : 'false');
+      } else {
+        btn.setAttribute('aria-pressed', state.ranks.includes(val) ? 'true' : 'false');
       }
     });
   };
 
-  // Helper: Filter matches credential item
+  const normalizeFilterValue = (value) =>
+    String(value || '').toLowerCase().replace(/&/g, 'and').replace(/\s+/g, '-');
+
+  const renderDomainFilters = () => {
+    if (!domainFilters) return;
+    const domains = [...new Set(data.flatMap(item => item.domains || []))]
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+
+    domainFilters.innerHTML = `
+      <span class="filter-group__title">DOMAIN</span>
+      <button type="button" class="filter-btn" data-filter-group="domain" data-value="all" aria-pressed="true">Any</button>
+      ${domains.map(domain => `
+        <button type="button" class="filter-btn" data-filter-group="domain" data-value="${escapeHtml(normalizeFilterValue(domain))}" aria-pressed="false">${escapeHtml(domain)}</button>
+      `).join('')}
+    `;
+  };
+
+  // ── Filter Logic ───────────────────────────────────────────────────────────
+
   const matchesFilter = (item) => {
-    // Search query match
+    // Search
     if (state.search.trim()) {
       const q = state.search.toLowerCase().trim();
-      const matchName = item.name.toLowerCase().includes(q);
-      const matchIssuer = item.issuer.toLowerCase().includes(q);
-      const matchDomains = item.domains.some(d => d.toLowerCase().includes(q));
-      const matchAbout = item.about.toLowerCase().includes(q);
-      const matchCoverage = item.officialCoverage.some(c => 
-        c.domain.toLowerCase().includes(q) || c.topics.some(t => t.toLowerCase().includes(q))
+      const relatedNames = [
+        ...(item.relatedCredentials || []),
+        ...(item.relatedTraining || []),
+        item.parentProgram || '',
+        ...(item.relatedExperience || [])
+      ].map(resolveName);
+      const searchable = [
+        item.name,
+        item.title,
+        item.issuer,
+        item.provider,
+        item.type,
+        item.group,
+        item.starRank,
+        item.starLabel,
+        item.rankingNote,
+        item.about || '',
+        item.description || '',
+        ...(item.domains || []),
+        ...(item.skills || []),
+        ...relatedNames,
+        ...(item.officialCoverage || []).flatMap(c => [c.domain, ...c.topics])
+      ].join(' ').toLowerCase();
+      if (!searchable.includes(q)) return false;
+    }
+
+    // Type (OR logic within group)
+    if (state.types.length > 0) {
+      const itemType = item.type.toLowerCase().trim();
+      const match = state.types.some(t => itemType === t.toLowerCase().trim());
+      if (!match) return false;
+    }
+
+    // Domain (OR logic within group)
+    if (state.domains.length > 0) {
+      const itemDomains = (item.domains || []).map(d =>
+        normalizeFilterValue(d)
       );
-      if (!matchName && !matchIssuer && !matchDomains && !matchAbout && !matchCoverage) {
-        return false;
-      }
-    }
-
-    // Type filter
-    if (state.type !== 'all') {
-      const normalizedType = item.type.toLowerCase().trim();
-      const targetType = state.type.toLowerCase().trim();
-      if (normalizedType !== targetType) return false;
-    }
-
-    // Domain filter
-    if (state.domain !== 'all') {
-      const targetDomain = state.domain.toLowerCase().replace(/&/g, 'and').replace(/\s+/g, '-');
-      const hasDomain = item.domains.some(d => {
-        const norm = d.toLowerCase().replace(/&/g, 'and').replace(/\s+/g, '-');
-        return norm === targetDomain;
+      const match = state.domains.some(d => {
+        const norm = normalizeFilterValue(d);
+        return itemDomains.includes(norm);
       });
-      if (!hasDomain) return false;
+      if (!match) return false;
     }
 
-    // Status filter
-    if (state.status !== 'all') {
-      if (item.status.toLowerCase() !== state.status.toLowerCase()) return false;
+    // Star rank (OR logic within group)
+    if (state.ranks.length > 0) {
+      if (!state.ranks.includes(String(item.starRank ?? 0))) return false;
     }
 
     return true;
   };
 
-  // Default Sort Order: Current first, then alphabetical/date
-  const sortCredentials = (items) => {
-    return [...items].sort((a, b) => {
-      if (a.status === 'Current' && b.status !== 'Current') return -1;
-      if (a.status !== 'Current' && b.status === 'Current') return 1;
+  // ── Sort ───────────────────────────────────────────────────────────────────
+
+  const sortCredentials = (items) =>
+    [...items].sort((a, b) => {
+      if (state.sort === 'rank-desc' || state.sort === 'rank-asc') {
+        const rankDelta = (a.starRank ?? 0) - (b.starRank ?? 0);
+        if (rankDelta !== 0) return state.sort === 'rank-desc' ? -rankDelta : rankDelta;
+      }
+      if (state.sort === 'title-asc') return a.name.localeCompare(b.name);
+      if (state.sort === 'title-desc') return b.name.localeCompare(a.name);
+      if (state.sort === 'provider-asc') return (a.provider || a.issuer || '').localeCompare(b.provider || b.issuer || '') || a.name.localeCompare(b.name);
+      if (state.sort === 'provider-desc') return (b.provider || b.issuer || '').localeCompare(a.provider || a.issuer || '') || a.name.localeCompare(b.name);
+      if (state.sort === 'type-asc') return a.type.localeCompare(b.type) || a.name.localeCompare(b.name);
+      if ((a.parentProgram || '') !== (b.parentProgram || '')) return (a.parentProgram || '').localeCompare(b.parentProgram || '');
       return a.name.localeCompare(b.name);
     });
-  };
 
-  // Render Card HTML (Minimal Glance Summary)
+  // ── Card Rendering ─────────────────────────────────────────────────────────
+
   const createCardElement = (item) => {
-    const card = document.createElement('article');
-    card.className = `cred-card ${item.status.toLowerCase() === 'expired' ? 'cred-card--expired' : ''}`;
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-haspopup', 'dialog');
-    card.setAttribute('data-cred-id', item.id);
+    // Outer link — the card IS the link
+    const link = document.createElement('a');
+    link.className = `cred-card-link ${item.status?.toLowerCase() === 'expired' ? 'cred-card-link--expired' : ''}`;
+    link.href = item.detailUrl || '#';
+    link.setAttribute('data-cred-id', item.id);
 
-    // Limit visible tags to 2-3
-    const visibleTags = item.domains.slice(0, 3);
-
-    // Issuer Icon SVG / Visual Badge
+    const visibleTags = (item.domains || []).slice(0, 3);
     const issuerBadgeSvg = getIssuerBadgeSvg(item.issuer);
-
-    // Type & Level line
     const typeLevelText = item.level ? `${item.type} · ${item.level}` : item.type;
+    const rankBadge = (item.starRank || 0) > 0
+      ? `<span class="cred-badge cred-badge--rank cred-badge--rank-${item.starRank}" title="${escapeHtml(item.starLabel || '')}">${escapeHtml('★'.repeat(item.starRank))}</span>`
+      : '';
 
-    card.innerHTML = `
-      <!-- TODO: Confirm credential earned/completed date. -->
-      <!-- TODO: Confirm credential ID. -->
-      <!-- TODO: Confirm expiration policy/date. -->
-      <!-- TODO: Add official verification URL. -->
-      <!-- TODO: Add Credly/LinkedIn verification if applicable. -->
-      <!-- TODO: Confirm earned exam/version. -->
-      <!-- TODO: Add certificate asset if available. -->
-      
-      <div class="cred-card__header">
-        <div class="cred-card__issuer-badge">
-          ${issuerBadgeSvg}
+    link.innerHTML = `
+      <article class="cred-card" role="listitem">
+        <div class="cred-card__header">
+          <div class="cred-card__issuer-badge" aria-hidden="true">
+            ${issuerBadgeSvg}
+          </div>
+          <div class="cred-card__badges">
+            ${rankBadge}
+            <span class="cred-badge cred-badge--${item.status?.toLowerCase() || 'current'}">${item.status || 'Current'}</span>
+          </div>
         </div>
-        <div class="cred-card__badges">
-          ${item.highValue ? `<span class="cred-badge cred-badge--high-value">HIGH VALUE</span>` : ''}
-          <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
-        </div>
-      </div>
-      
-      <div class="cred-card__body">
-        <p class="cred-card__issuer">${escapeHtml(item.issuer)}</p>
-        <h3 class="cred-card__title">${escapeHtml(item.name)}</h3>
-        <p class="cred-card__meta-line">${escapeHtml(typeLevelText)}</p>
-      </div>
 
-      <div class="cred-card__footer">
-        <div class="cred-card__tags">
-          ${visibleTags.map(tag => `<span class="cred-card__tag">${escapeHtml(tag)}</span>`).join('')}
+        <div class="cred-card__body">
+          <p class="cred-card__issuer">${escapeHtml(item.issuer)}</p>
+          <h3 class="cred-card__title">${escapeHtml(item.name)}</h3>
+          <p class="cred-card__meta-line">${escapeHtml(typeLevelText)}</p>
         </div>
-        <div class="cred-card__action-row">
-          <span class="cred-card__year">${escapeHtml(item.earnedYear)}</span>
-          <span class="cred-card__action">View Credential →</span>
+
+        <div class="cred-card__footer">
+          <div class="cred-card__tags">
+            ${visibleTags.map(tag => `<span class="cred-card__tag">${escapeHtml(tag)}</span>`).join('')}
+          </div>
+          <div class="cred-card__action-row">
+            <span class="cred-card__year">${escapeHtml(item.earnedYear || '')}</span>
+            <span class="cred-card__action">View →</span>
+          </div>
         </div>
-      </div>
+      </article>
     `;
 
-    // Click & Keypress handlers
-    const openHandler = () => openModal(item.id, card);
-    card.addEventListener('click', openHandler);
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openHandler();
-      }
-    });
-
-    return card;
+    return link;
   };
 
-  // Issuer SVG Icons
+  // ── Issuer SVG Icons ───────────────────────────────────────────────────────
+
   const getIssuerBadgeSvg = (issuer) => {
-    const norm = issuer.toLowerCase();
+    const norm = (issuer || '').toLowerCase();
     if (norm.includes('google')) {
       return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
         <path fill="#4285F4" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
@@ -214,7 +263,7 @@
     }
     if (norm.includes('snowflake')) {
       return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
-        <path fill="#29B5E8" d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" stroke="#29B5E8" stroke-width="2.5" stroke-linecap="round"/>
+        <path fill="none" stroke="#29B5E8" stroke-width="2.5" stroke-linecap="round" d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
       </svg>`;
     }
     if (norm.includes('github')) {
@@ -233,33 +282,68 @@
         <path fill="#FF9900" d="M19.75 12.95c-.3-.38-1.95-.18-2.65-.1-.23.03-.28-.18-.08-.33 1.3-.98 3.43-.7 3.73-.33.3.38-.1 2.55-1.33 3.65-.18.15-.35.08-.28-.13.23-.73.9-2.38.6-2.76z"/>
       </svg>`;
     }
-    return `<i class="fa-solid fa-award cred-issuer-icon" aria-hidden="true"></i>`;
+    if (norm.includes('cisco')) {
+      return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+        <rect x="2" y="10" width="3" height="4" rx="1" fill="#1BA0D7"/>
+        <rect x="7" y="7" width="3" height="10" rx="1" fill="#1BA0D7"/>
+        <rect x="12" y="4" width="3" height="16" rx="1" fill="#1BA0D7"/>
+        <rect x="17" y="7" width="3" height="10" rx="1" fill="#1BA0D7"/>
+        <rect x="22" y="10" width="3" height="4" rx="1" fill="#1BA0D7"/>
+      </svg>`;
+    }
+    if (norm.includes('snowflake') || norm.includes('snowpro')) {
+      return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+        <path fill="none" stroke="#29B5E8" stroke-width="2" stroke-linecap="round" d="M12 2v20M2 12h20M5.64 5.64l12.72 12.72M18.36 5.64L5.64 18.36"/>
+      </svg>`;
+    }
+    if (norm.includes('tesda')) {
+      return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+        <path fill="var(--color-accent)" d="M8 9h8v1.5H8zm2 3h4v1.5h-4zm-1 3h6v1.5H9z"/>
+      </svg>`;
+    }
+    if (norm.includes('hackerrank')) {
+      return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+        <path fill="#2EC866" d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12c6.627 0 12-5.373 12-12S18.627 0 12 0zm-.84 17.4l-1.392-1.392 2.772-2.772-2.772-2.772 1.392-1.392L14.34 12l-3.18 5.4zm5.64 0l-1.392-1.392L18.18 12l-2.772-2.772L16.8 7.836l3.18 4.164-3.18 5.4z"/>
+      </svg>`;
+    }
+    if (norm.includes('certiport')) {
+      return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+        <path fill="var(--color-accent)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>`;
+    }
+    if (norm.includes('datacamp')) {
+      return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+        <path fill="#03EF62" d="M12.946 15.3l2.054 1.185L9.538 19.7V17.16L12.946 15.3zM9.538 4.3v13.954l2.054-1.185V6.535L18.923 10.7 21 9.515 9.538 4.3zM3 13.885l2.077 1.185V9.515L3 8.33v5.555z"/>
+      </svg>`;
+    }
+    // Generic fallback
+    return `<svg class="cred-issuer-icon" viewBox="0 0 24 24" aria-hidden="true" width="28" height="28">
+      <path fill="var(--color-accent)" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>`;
   };
 
-  // Render Gallery Groups
+  // ── Gallery Rendering ──────────────────────────────────────────────────────
+
   const renderGallery = () => {
     const filtered = data.filter(matchesFilter);
 
-    // Update Result Count
     if (resultCount) {
-      resultCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'CREDENTIAL' : 'CREDENTIALS'}`;
+      const total = data.length;
+      resultCount.textContent = filtered.length === total
+        ? `${total} ACHIEVEMENTS`
+        : `${filtered.length} OF ${total} ACHIEVEMENTS`;
     }
 
-    // Toggle Clear Filters Button
-    const isFiltered = state.search !== '' || state.type !== 'all' || state.domain !== 'all' || state.status !== 'all';
-    if (clearFiltersBtn) {
-      clearFiltersBtn.hidden = !isFiltered;
-    }
+    const isFiltered = state.search !== '' || state.types.length > 0 || state.domains.length > 0;
+    if (clearFiltersBtn) clearFiltersBtn.hidden = !isFiltered;
 
-    // Categorize filtered credentials strictly by category
-    const certItems = sortCredentials(filtered.filter(item => item.category === 'CERTIFICATIONS'));
-    const trainingItems = sortCredentials(filtered.filter(item => item.category === 'TRAINING & PROGRAMS'));
+    const certItems = sortCredentials(filtered.filter(i => i.group === 'CERTIFICATIONS'));
+    const trainingItems = sortCredentials(filtered.filter(i => i.group === 'TRAINING & PROGRAMS'));
 
-    // Clear grids
     certsGrid.innerHTML = '';
     trainingGrid.innerHTML = '';
 
-    // Render Certifications Group
     if (certItems.length > 0) {
       certsSection.hidden = false;
       certItems.forEach(item => certsGrid.appendChild(createCardElement(item)));
@@ -267,7 +351,6 @@
       certsSection.hidden = true;
     }
 
-    // Render Training & Programs Group
     if (trainingItems.length > 0) {
       trainingSection.hidden = false;
       trainingItems.forEach(item => trainingGrid.appendChild(createCardElement(item)));
@@ -275,13 +358,11 @@
       trainingSection.hidden = true;
     }
 
-    // Show empty state if nothing matches
-    if (emptyState) {
-      emptyState.hidden = filtered.length > 0;
-    }
+    if (emptyState) emptyState.hidden = filtered.length > 0;
   };
 
-  // Event Listeners for Filters & Controls
+  // ── Event Listeners ────────────────────────────────────────────────────────
+
   const setupEventListeners = () => {
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
@@ -291,27 +372,79 @@
       });
     }
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const group = btn.dataset.filterGroup;
-        const val = btn.dataset.value;
+    if (sortSelect) {
+      sortSelect.addEventListener('change', (e) => {
+        state.sort = e.target.value || 'rank-desc';
+        updateUrlState();
+        renderGallery();
+      });
+    }
 
-        if (group && val) {
-          state[group] = val;
-          syncFilterButtonsUI();
-          updateUrlState();
-          renderGallery();
+    // Type filter buttons (multi-select)
+    document.querySelectorAll('[data-filter-group="type"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.value;
+        if (val === 'all') {
+          state.types = [];
+        } else {
+          const idx = state.types.indexOf(val);
+          if (idx >= 0) {
+            state.types.splice(idx, 1);
+          } else {
+            state.types.push(val);
+          }
         }
+        syncFilterButtonsUI();
+        updateUrlState();
+        renderGallery();
+      });
+    });
+
+    // Domain filter buttons (multi-select)
+    document.querySelectorAll('[data-filter-group="domain"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.value;
+        if (val === 'all') {
+          state.domains = [];
+        } else {
+          const idx = state.domains.indexOf(val);
+          if (idx >= 0) {
+            state.domains.splice(idx, 1);
+          } else {
+            state.domains.push(val);
+          }
+        }
+        syncFilterButtonsUI();
+        updateUrlState();
+        renderGallery();
+      });
+    });
+
+    document.querySelectorAll('[data-filter-group="rank"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.dataset.value;
+        if (val === 'all') {
+          state.ranks = [];
+        } else {
+          const idx = state.ranks.indexOf(val);
+          if (idx >= 0) {
+            state.ranks.splice(idx, 1);
+          } else {
+            state.ranks.push(val);
+          }
+        }
+        syncFilterButtonsUI();
+        updateUrlState();
+        renderGallery();
       });
     });
 
     if (clearFiltersBtn) {
       clearFiltersBtn.addEventListener('click', () => {
         state.search = '';
-        state.type = 'all';
-        state.domain = 'all';
-        state.status = 'all';
-
+        state.types = [];
+        state.ranks = [];
+        state.domains = [];
         if (searchInput) searchInput.value = '';
         syncFilterButtonsUI();
         updateUrlState();
@@ -319,290 +452,40 @@
       });
     }
 
-    // Close Modal Events
-    if (modalCloseBtn) {
-      modalCloseBtn.addEventListener('click', closeModal);
+    // Type tooltip toggle
+    if (typeInfoBtn && typeTooltip) {
+      typeInfoBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = typeInfoBtn.getAttribute('aria-expanded') === 'true';
+        typeInfoBtn.setAttribute('aria-expanded', !isExpanded);
+        typeTooltip.hidden = isExpanded;
+      });
+
+      document.addEventListener('click', () => {
+        if (typeTooltip && !typeTooltip.hidden) {
+          typeTooltip.hidden = true;
+          typeInfoBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !typeTooltip.hidden) {
+          typeTooltip.hidden = true;
+          typeInfoBtn.setAttribute('aria-expanded', 'false');
+          typeInfoBtn.focus();
+        }
+      });
     }
 
-    if (modalBackdrop) {
-      modalBackdrop.addEventListener('click', closeModal);
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal && !modal.hidden) {
-        closeModal();
-      }
-    });
-
-    // Handle Browser Popstate (Back/Forward)
+    // Handle Back/Forward
     window.addEventListener('popstate', () => {
       readUrlState();
       renderGallery();
-      if (state.activeModalId) {
-        openModal(state.activeModalId, null, false);
-      } else {
-        closeModal(false);
-      }
     });
   };
 
-  // Open Credential Modal
-  const openModal = (credId, triggerEl = null, updateUrl = true) => {
-    const item = data.find(d => d.id === credId);
-    if (!item) return;
+  // ── Utility ────────────────────────────────────────────────────────────────
 
-    previousActiveElement = triggerEl || document.activeElement;
-    state.activeModalId = credId;
-
-    if (updateUrl) updateUrlState();
-
-    // Populate Modal Content
-    modalBody.innerHTML = generateModalMarkup(item);
-
-    // Show modal & disable body scroll
-    modal.hidden = false;
-    modal.removeAttribute('hidden');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-
-    // Focus close button or first focusable element inside modal
-    if (modalCloseBtn) modalCloseBtn.focus();
-
-    // Setup focus trap inside modal
-    setupFocusTrap();
-  };
-
-  // Close Credential Modal
-  const closeModal = (updateUrl = true) => {
-    if (!modal) return;
-
-    modal.hidden = true;
-    modal.setAttribute('hidden', '');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-    state.activeModalId = null;
-
-    if (updateUrl) updateUrlState();
-
-    // Return focus to triggering card
-    if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
-      previousActiveElement.focus();
-    }
-  };
-
-  // Focus Trap inside Modal
-  const setupFocusTrap = () => {
-    const focusables = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    if (!focusables.length) return;
-
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-
-    const handleTrap = (e) => {
-      if (e.key !== 'Tab') return;
-
-      if (e.shiftKey) {
-        if (document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        }
-      } else {
-        if (document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
-      }
-    };
-
-    modal.addEventListener('keydown', handleTrap, { once: true });
-  };
-
-  // Check URL on Load for open modal
-  const checkUrlForModal = () => {
-    if (state.activeModalId) {
-      openModal(state.activeModalId, null, false);
-    }
-  };
-
-  // Generate Rich Modal HTML Markup
-  const generateModalMarkup = (item) => {
-    const issuerBadgeSvg = getIssuerBadgeSvg(item.issuer);
-
-    return `
-      <!-- TODO: Confirm credential earned/completed date. -->
-      <!-- TODO: Confirm credential ID. -->
-      <!-- TODO: Confirm expiration policy/date. -->
-      <!-- TODO: Add official verification URL. -->
-      <!-- TODO: Add Credly/LinkedIn verification if applicable. -->
-      <!-- TODO: Confirm earned exam/version. -->
-      <!-- TODO: Add certificate asset if available. -->
-
-      <header class="cred-modal__header">
-        <div class="cred-modal__brand">
-          <div class="cred-modal__issuer-badge">${issuerBadgeSvg}</div>
-          <div>
-            <p class="cred-modal__issuer-name">${escapeHtml(item.issuer)}</p>
-            <h2 class="cred-modal__title" id="cred-modal-title">${escapeHtml(item.name)}</h2>
-          </div>
-        </div>
-
-        <div class="cred-modal__badges">
-          ${item.highValue ? `<span class="cred-badge cred-badge--high-value">HIGH VALUE</span>` : ''}
-          <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
-        </div>
-      </header>
-
-      <!-- Factual Summary / About -->
-      <section class="cred-modal__section">
-        <h3 class="cred-modal__section-heading">About Credential</h3>
-        <p class="cred-modal__about">${escapeHtml(item.about)}</p>
-      </section>
-
-      <!-- Key Metadata Grid -->
-      <section class="cred-modal__section">
-        <h3 class="cred-modal__section-heading">Credential Metadata</h3>
-        <dl class="cred-modal__meta-grid">
-          <div class="cred-modal__meta-item">
-            <dt>Issuer</dt>
-            <dd>${escapeHtml(item.issuer)}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Credential Type</dt>
-            <dd>${escapeHtml(item.type)}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Level</dt>
-            <dd>${escapeHtml(item.level || 'Standard')}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Status</dt>
-            <dd><span class="cred-status-indicator cred-status-indicator--${item.status.toLowerCase()}"></span> ${item.status}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Earned Date</dt>
-            <dd>${item.earnedDate ? escapeHtml(item.earnedDate) : 'Unverified (Pending evidence confirmation)'}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Expiration</dt>
-            <dd>${item.expiresDate ? escapeHtml(item.expiresDate) : 'Unverified / Policy pending'}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Credential ID</dt>
-            <dd>${item.credentialId ? `<code>${escapeHtml(item.credentialId)}</code>` : 'Unverified / Private'}</dd>
-          </div>
-          <div class="cred-modal__meta-item">
-            <dt>Domains</dt>
-            <dd>${item.domains.map(d => `<span class="cred-card__tag">${escapeHtml(d)}</span>`).join(' ')}</dd>
-          </div>
-        </dl>
-      </section>
-
-      <!-- Verification Section -->
-      <section class="cred-modal__section">
-        <h3 class="cred-modal__section-heading">Verification & Evidence Assets</h3>
-        ${generateVerificationMarkup(item)}
-      </section>
-
-      <!-- Official Coverage & Provenance -->
-      <section class="cred-modal__section">
-        <h3 class="cred-modal__section-heading">Official Coverage & Provenance</h3>
-        <div class="cred-modal__provenance-box">
-          <p class="cred-modal__prov-line"><strong>Source:</strong> ${escapeHtml(item.coverageSource)}</p>
-          <p class="cred-modal__prov-line"><strong>Earned Version:</strong> ${escapeHtml(item.earnedVersion)}</p>
-          ${item.currentVersionNote ? `<p class="cred-modal__prov-line"><strong>Current Version Note:</strong> ${escapeHtml(item.currentVersionNote)}</p>` : ''}
-          <p class="cred-modal__prov-line cred-modal__prov-date"><strong>Fetched Date:</strong> ${escapeHtml(item.fetchedDate)}</p>
-        </div>
-
-        <div class="cred-modal__coverage-list">
-          ${item.officialCoverage.map(cov => `
-            <div class="cred-modal__coverage-group">
-              <h4 class="cred-modal__coverage-domain">${escapeHtml(cov.domain)}</h4>
-              <ul class="cred-modal__coverage-topics">
-                ${cov.topics.map(t => `<li>${escapeHtml(t)}</li>`).join('')}
-              </ul>
-            </div>
-          `).join('')}
-        </div>
-      </section>
-
-      <!-- Applied Evidence Section -->
-      <section class="cred-modal__section">
-        <h3 class="cred-modal__section-heading">Applied Evidence in Portfolio</h3>
-        <div class="cred-modal__evidence-grid">
-          ${generateEvidenceMarkup(item)}
-        </div>
-      </section>
-    `;
-  };
-
-  // Generate Verification Markup
-  const generateVerificationMarkup = (item) => {
-    const links = item.verificationLinks || [];
-    const hasCertAsset = Boolean(item.certificateAsset);
-
-    if (!links.length && !hasCertAsset) {
-      return `
-        <!-- TODO: Add official verification URL. -->
-        <!-- TODO: Add Credly/LinkedIn verification if applicable. -->
-        <!-- TODO: Add certificate asset if available. -->
-        <div class="cred-modal__notice">
-          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-          <span>Official verification links and certificate asset are currently unverified. No unverified links or fake IDs are published.</span>
-        </div>
-      `;
-    }
-
-    let html = '<div class="cred-modal__verification-links">';
-    if (hasCertAsset) {
-      html += `<a href="${item.certificateAsset}" target="_blank" rel="noopener noreferrer" class="cred-btn cred-btn--primary"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> View Certificate</a>`;
-    }
-    links.forEach(l => {
-      html += `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="cred-btn cred-btn--secondary"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> ${escapeHtml(l.label)}</a>`;
-    });
-    html += '</div>';
-    return html;
-  };
-
-  // Generate Applied Evidence Markup
-  const generateEvidenceMarkup = (item) => {
-    let html = '';
-
-    if (item.relatedProjects && item.relatedProjects.length > 0) {
-      html += `<div class="cred-modal__evidence-column">
-        <h4 class="cred-modal__evidence-title"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> Related Projects</h4>
-        <ul class="cred-modal__evidence-list">
-          ${item.relatedProjects.map(p => `
-            <li>
-              <a href="${p.url}" class="cred-modal__evidence-link">${escapeHtml(p.name)} →</a>
-              <p class="cred-modal__evidence-desc">${escapeHtml(p.description)}</p>
-            </li>
-          `).join('')}
-        </ul>
-      </div>`;
-    }
-
-    if (item.relatedExperience && item.relatedExperience.length > 0) {
-      html += `<div class="cred-modal__evidence-column">
-        <h4 class="cred-modal__evidence-title"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Related Experience</h4>
-        <ul class="cred-modal__evidence-list">
-          ${item.relatedExperience.map(e => `
-            <li>
-              <a href="${e.url}" class="cred-modal__evidence-link">${escapeHtml(e.title)} (${escapeHtml(e.company)}) →</a>
-              <p class="cred-modal__evidence-desc">${escapeHtml(e.description)}</p>
-            </li>
-          `).join('')}
-        </ul>
-      </div>`;
-    }
-
-    if (!html) {
-      html = `<p class="cred-modal__evidence-none">No direct project or experience links assigned.</p>`;
-    }
-
-    return html;
-  };
-
-  // Utility: Escape HTML
   const escapeHtml = (str) => {
     if (!str) return '';
     return String(str)
@@ -613,7 +496,11 @@
       .replace(/'/g, '&#039;');
   };
 
-  // Run on DOM Content Loaded
+  const resolveName = (idOrSlug) => {
+    const match = data.find(item => item.id === idOrSlug || item.slug === idOrSlug);
+    return match ? `${match.name} ${match.provider || match.issuer}` : idOrSlug;
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
