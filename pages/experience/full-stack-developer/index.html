@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Full-Stack Developer and DevOps Engineer — People Dynamics Inc. | Ian Cedric Ramirez</title>
+    <meta name="description" content="Full-Stack Developer and DevOps Engineer at People Dynamics Inc. — application development, legacy-system modernization, N-Layer architecture, feature controls, and supporting DevOps scope. November 2025 — Present.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/experience.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+
+        <!-- ── Back navigation ────────────────────────────────────── -->
+        <nav class="exp-detail-nav" aria-label="Breadcrumb">
+            <a class="exp-detail-back" href="../">Experience</a>
+        </nav>
+
+        <!-- ── Role header ─────────────────────────────────────────── -->
+        <header class="exp-detail-header">
+            <p class="exp-detail-eyebrow">Experience</p>
+            <h1 class="exp-detail-role">Full-Stack Developer and DevOps Engineer</h1>
+            <div class="exp-detail-meta">
+                <p class="exp-detail-period">November 2025 — Present</p>
+                <p class="exp-detail-company">
+                    <a href="https://peopledynamics.co/" target="_blank" rel="noopener noreferrer">People Dynamics Inc.</a>
+                </p>
+            </div>
+            <div class="exp-detail-tags">
+                <span class="exp-detail-tag">Full-Stack</span>
+                <span class="exp-detail-tag">DevOps — Secondary Scope</span>
+            </div>
+        </header>
+
+        <!-- ── Illustration ────────────────────────────────────────── -->
+        <!-- TODO: Replace this placeholder with the custom editorial illustration for People Dynamics Inc. The illustration should represent full-stack development, legacy-system modernization, system design, and DevOps delivery work. Update the alt text when the real image is added and remove this note. -->
+        <div class="exp-detail-illustration">
+            <img
+                src="https://placehold.net/1200x525.png"
+                alt="Placeholder for a custom editorial illustration representing full-stack development, legacy-system modernization, system design, and DevOps delivery work."
+                width="1200"
+                height="525"
+            >
+        </div>
+
+        <!-- ── Content body ────────────────────────────────────────── -->
+        <div class="exp-detail-body">
+
+            <!-- ── Context ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-context">
+                <p class="exp-detail-section-label">Context</p>
+                <h2 id="section-context">Organizational Setting</h2>
+                <p>
+                    Working primarily within People Dynamics Inc. while contributing to software platforms and related initiatives across the broader Profiles Asia Pacific group, including projects associated with GoPick International.
+                </p>
+            </section>
+
+            <!-- ── Scope ───────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-scope">
+                <p class="exp-detail-section-label">Scope</p>
+                <h2 id="section-scope">Role Positioning</h2>
+                <p>
+                    Primary professional responsibility centers on full-stack application development, legacy-system modernization, N-Layer architecture adoption, and technical decision-making. Supporting scope includes DevOps research, environment standardization, and deployment automation alongside primary development work.
+                </p>
+                <p>
+                    Contributing across full-stack development, legacy modernization, technical documentation, application reliability, and delivery improvements for HR assessment platforms within People Dynamics and the wider Profiles Asia Pacific ecosystem.
+                </p>
+            </section>
+
+            <!-- ── Major Systems ────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-systems">
+                <p class="exp-detail-section-label">Major Systems</p>
+                <h2 id="section-systems">Software Platforms &amp; Internal Tooling</h2>
+
+                <!-- TODO: Add screenshots/diagrams for the GoPick architecture once sanitized. -->
+
+                <ul class="exp-detail-contrib-list" aria-label="Major systems contributed to">
+                    <li>
+                        <strong>GoPick</strong> <em>(Major Contributor)</em> — International HR SaaS assessment platform supporting assessment workflows, evaluation, standardized assessment processes, report generation, anti-cheating controls and standards, and HR-related statistical outputs. The platform utilizes consumable meters when generating assessment reports.
+                    </li>
+                    <li>
+                        <strong>JFP — GoPick</strong> <em>(Major Contributor)</em> — An internal specialized assessment system connected to GoPick, supporting more in-depth assessment workflows.
+                    </li>
+                    <li>
+                        <strong>AC Local</strong> <em>(Supporting Contributor)</em> — Philippine local HR SaaS assessment platform supporting assessment workflows, evaluation, reporting, standardized assessment processes, anti-cheating controls and standards, and HR-related statistical outputs.
+                    </li>
+                    <li>
+                        <strong>JFP — AC Local</strong> <em>(Supporting Contributor)</em> — An internal specialized assessment system connected to AC Local for more in-depth assessment workflows.
+                    </li>
+                    <li>
+                        <strong>GoPick Manual</strong> <em>(Owned)</em> — Operational and engineering documentation containing user manuals, step-by-step procedures, developer standards, warnings and heads-up notes, documentation of current system behavior, QA testing boundaries, implemented guardrails, expected behavior, and context notes for future developers.
+                    </li>
+                    <li>
+                        <strong>Confidential Internal System</strong> <em>(Owned)</em> — Internal event-operations tooling supporting event timelines, participation tracking, game and result recording, and employee event activities.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Legacy Modernization & N-Layer Architecture ──────── -->
+            <section class="exp-detail-section" aria-labelledby="section-nlayer">
+                <p class="exp-detail-section-label">Technical Decisions</p>
+                <h2 id="section-nlayer">Legacy Modernization &amp; N-Layer Architecture</h2>
+                <p>
+                    Parts of the legacy application were tightly coupled and difficult to understand, maintain, test, isolate, or safely modify. To establish clear architectural boundaries without attempting a risky full-system rewrite, an incremental modernization strategy was adopted.
+                </p>
+                <p>
+                    Incrementally restructured new and refactored areas of a legacy system around an N-Layer architecture while preserving unaffected legacy modules. This decision established a clearer separation of concerns, improved readability, decoupled components, and laid a maintainable foundation for future features.
+                </p>
+                <!-- TODO: Add a specific GoPick module before/after example for the N-Layer migration. -->
+            </section>
+
+            <!-- ── Feature Flags & Error Handling ───────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-decisions">
+                <p class="exp-detail-section-label">Application Controls</p>
+                <h2 id="section-decisions">Feature Controls &amp; Error Handling</h2>
+                <p>
+                    <strong>Feature Flags:</strong> Introduced environment-based feature controls that allow incomplete features, replacement implementation paths, and development-only functionality to remain encapsulated even when code is merged into the main branch.
+                </p>
+                <!-- TODO: Add a concrete feature-flagged feature example if publicly shareable. -->
+                <p>
+                    <strong>Structured Error Handling:</strong> Reduced direct exposure of raw application errors to end users through structured exception handling, establishing safer failure states and clearer debugging boundaries.
+                </p>
+            </section>
+
+            <!-- ── Root-Cause Analysis ──────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-rca">
+                <p class="exp-detail-section-label">System Maintenance</p>
+                <h2 id="section-rca">Root-Cause Analysis &amp; Incident Resolution</h2>
+                <p>
+                    Investigated application incidents beyond surface symptoms to identify underlying data, runtime, integration, authorization, or dependency causes across AC Local and legacy-system behavior.
+                </p>
+                <p>
+                    Addressed verified issues across database and data inconsistencies, missing or null records, legacy PHP runtime errors, account and authorization mismatches, frontend/backend integration gaps, file import/export workflows, performance bottlenecks, and third-party dependencies.
+                </p>
+                <!-- TODO: Add one representative root-cause-analysis case study that can be publicly disclosed. -->
+            </section>
+
+            <!-- ── Security & Data Handling ─────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-security">
+                <p class="exp-detail-section-label">Data Privacy</p>
+                <h2 id="section-security">Security &amp; Data Handling Controls</h2>
+                <p>
+                    Implemented application and data-handling controls supporting GDPR-related requirements, including reduced personal-data exposure, retention and deletion behavior, privacy and consent handling, auditing, secure error handling, and dependency security updates.
+                </p>
+            </section>
+
+            <!-- ── Engineering Documentation ────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-docs">
+                <p class="exp-detail-section-label">Engineering Documentation</p>
+                <h2 id="section-docs">GoPick Manual &amp; Knowledge Centralization</h2>
+                <p>
+                    Authored and maintained the GoPick Manual as a comprehensive operational and engineering knowledge resource. Documented system standards, user procedures, developer expectations, QA boundaries, warnings and prerequisites, system guardrails, and ongoing maintenance guidance.
+                </p>
+                <p>
+                    This documentation serves as tangible evidence of maintainability, engineering communication, QA alignment, and operational clarity across the team.
+                </p>
+            </section>
+
+            <!-- ── DevOps Secondary Scope ───────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-devops">
+                <p class="exp-detail-section-label">Supporting Scope</p>
+                <h2 id="section-devops">DevOps — Secondary Scope</h2>
+                <p>
+                    Researches infrastructure and delivery improvements, proposes approaches for review, and implements approved DevOps changes alongside primary development responsibilities.
+                </p>
+
+                <ul class="exp-detail-contrib-list" aria-label="DevOps supporting contributions">
+                    <li>
+                        <strong>Docker &amp; Standardized Developer Environment:</strong> Configured Dockerfile and Docker Compose setups containerizing PHP, database, and Redis services. Standardized local development environments to ensure repeatable, single-command local setup and reduce environment inconsistency across developers.
+                        <!-- TODO: Add quantitative developer-onboarding/setup improvement if measured. -->
+                    </li>
+                    <li>
+                        <strong>Local Database Workflow:</strong> Built local database reset and seeding workflows that allow developers to recreate representative historical scenarios using scrubbed production-derived data.
+                    </li>
+                    <li>
+                        <strong>Deployment Automation:</strong> Implemented GitHub Actions deployment workflows triggered by merges to the main branch, connecting via SSH to update the application environment on AWS EC2.
+                        <!-- TODO: Add measurable deployment-time or failure-rate evidence if it becomes available. -->
+                    </li>
+                    <li>
+                        <strong>Static Analysis &amp; Testing:</strong> Applied PHPStan for static analysis as part of delivery quality checks. Utilized Playwright for local testing workflows.
+                    </li>
+                    <li>
+                        <strong>AWS Infrastructure Scope:</strong> Maintained and researched AWS services including EC2, RDS, S3, and CloudFront within assigned scope, operating within established IAM permission boundaries.
+                    </li>
+                    <li>
+                        <strong>Server Health Monitoring:</strong> Supported operational monitoring of server CPU, memory, and runtime health.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Key Contributions Summary ────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-contributions">
+                <p class="exp-detail-section-label">Key Contributions</p>
+                <h2 id="section-contributions">Summary of Contributions</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Key contributions summary">
+                    <li>
+                        Contributed as a major developer on GoPick and JFP-GoPick, and as a supporting developer on AC Local and JFP-AC Local HR SaaS assessment platforms.
+                    </li>
+                    <li>
+                        Incrementally modernized legacy application areas using N-Layer architecture, establishing decoupling, testability, and clearer separation of concerns.
+                    </li>
+                    <li>
+                        Introduced environment-based feature controls, structured exception handling, and data privacy controls supporting GDPR-related requirements.
+                    </li>
+                    <li>
+                        Investigated application incidents through root-cause analysis across database, runtime, integration, and authorization boundaries.
+                    </li>
+                    <li>
+                        Authored the GoPick Manual, centralizing developer standards, QA boundaries, user procedures, and operational guardrails.
+                    </li>
+                    <li>
+                        Standardized local PHP/database/Redis environments using Docker, built anonymized local DB seeding workflows, and implemented GitHub Actions deployment pipelines to AWS EC2.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Outcomes ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-outcomes">
+                <p class="exp-detail-section-label">Outcomes</p>
+                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Verified outcomes">
+                    <li>
+                        Improved separation of concerns and component decoupling in newly refactored legacy modules through N-Layer architecture.
+                    </li>
+                    <li>
+                        Made new and refactored application areas easier to read, maintain, and test.
+                    </li>
+                    <li>
+                        Prevented raw runtime errors from being directly exposed to users through structured exception handling.
+                    </li>
+                    <li>
+                        Allowed unfinished features and replacement implementations to coexist safely in the main branch through environment-based feature controls.
+                    </li>
+                    <li>
+                        Standardized local PHP, database, and Redis development environments through Docker, reducing setup inconsistency across developers.
+                    </li>
+                    <li>
+                        Enabled recreation of representative historical scenarios using scrubbed production-derived data.
+                    </li>
+                    <li>
+                        Replaced part of the manual deployment workflow with GitHub Actions-based deployment to AWS EC2.
+                    </li>
+                    <li>
+                        Centralized system, developer, QA, and user knowledge through the GoPick Manual.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Related Evidence ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-evidence">
+                <p class="exp-detail-section-label">Related Evidence</p>
+                <h2 id="section-evidence">Skills &amp; Evidence</h2>
+                <div class="exp-detail-evidence-block">
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Skills</span>
+                        <span class="exp-detail-evidence-detail">Full-Stack Development · N-Layer Architecture · Feature Flags · Exception Handling · Docker · GitHub Actions · AWS EC2 · PHPStan</span>
+                    </div>
+                    <!-- TODO: Link related GoPick/AC Local project case studies once created. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Projects</span>
+                        <span class="exp-detail-evidence-detail">GoPick · AC Local · GoPick Manual · Internal Operations Tooling</span>
+                    </div>
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Credentials</span>
+                        <span class="exp-detail-evidence-detail">Relevant supporting certifications or training</span>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.exp-detail-body -->
+
+    </main>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+
+</body>
+</html>

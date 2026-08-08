@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Software Engineer Intern — Argon Software | Ian Cedric Ramirez</title>
+    <meta name="description" content="Software engineering internship at Argon Software — web application development, SEO and performance analysis, and API testing. March 2023 — June 2023.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/experience.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+
+        <!-- ── Back navigation ────────────────────────────────────── -->
+        <nav class="exp-detail-nav" aria-label="Breadcrumb">
+            <a class="exp-detail-back" href="../">Experience</a>
+        </nav>
+
+        <!-- ── Role header ─────────────────────────────────────────── -->
+        <header class="exp-detail-header">
+            <p class="exp-detail-eyebrow">Experience</p>
+            <h1 class="exp-detail-role">Software Engineer Intern</h1>
+            <div class="exp-detail-meta">
+                <p class="exp-detail-period">March 2023 — June 2023</p>
+                <p class="exp-detail-company">Argon Software</p>
+            </div>
+            <div class="exp-detail-tags">
+                <span class="exp-detail-tag">Full-Stack</span>
+            </div>
+        </header>
+
+        <!-- ── Illustration ────────────────────────────────────────── -->
+        <!-- TODO: Replace this placeholder with the custom editorial illustration for the Argon Software internship. The illustration should represent web application development, performance optimization, analytics, and API testing. Update the alt text when the real image is added, remove this note, and remove the placeholder-note paragraph below. -->
+        <div class="exp-detail-illustration">
+            <img
+                src="https://placehold.net/1200x525.png"
+                alt="Placeholder for a custom editorial illustration representing web application development, performance optimization, analytics integration, and API testing during the Argon Software internship."
+                width="1200"
+                height="525"
+            >
+        </div>
+
+        <!-- ── Content body ────────────────────────────────────────── -->
+        <div class="exp-detail-body">
+
+            <!-- ── Context ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-context">
+                <p class="exp-detail-section-label">Context</p>
+                <h2 id="section-context">Internship Environment</h2>
+                <p>
+                    A software engineering internship at Argon Software focused on web application development within an existing product codebase. Work included building application features, improving the company's public-facing website, conducting technical analysis, and contributing to the team's development workflow.
+                </p>
+            </section>
+
+            <!-- ── Scope ───────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-scope">
+                <p class="exp-detail-section-label">Scope</p>
+                <h2 id="section-scope">Responsibilities</h2>
+                <p>
+                    Web application development using Laravel, React, Next.js, and React Native. Website improvement work covering analytics integration and providing a sample project with a backend. SEO and performance analysis on the existing company website. API endpoint testing. Participation in team collaboration and project tracking workflows.
+                </p>
+            </section>
+
+            <!-- ── Web Application Development ─────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-web-dev">
+                <p class="exp-detail-section-label">Application Development</p>
+                <h2 id="section-web-dev">Web Application Development</h2>
+                <p>
+                    Built web applications using Laravel, React, Next.js, and React Native. Work spanned backend-driven application patterns with Laravel and frontend-first approaches using React and Next.js, contributing practical experience across both layers of web development.
+                </p>
+            </section>
+
+            <!-- ── Website Improvement ──────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-website">
+                <p class="exp-detail-section-label">Website Improvement</p>
+                <h2 id="section-website">Website Improvement and Analytics</h2>
+                <p>
+                    Contributed to improvements on the Argon Software company website. Work included integrating Google Analytics and providing a sample project demonstrating a backend architecture.
+                </p>
+                <!-- TODO: Add the backend technology used in the sample project once confirmed. -->
+            </section>
+
+            <!-- ── SEO and Performance ──────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-seo">
+                <p class="exp-detail-section-label">SEO & Performance Analysis</p>
+                <h2 id="section-seo">SEO Analysis and Performance Improvement</h2>
+                <p>
+                    Conducted an SEO analysis of the company website, identified key issues, and reported the findings. After addressing the reported issues, the measured website performance score improved from approximately 60% to 90%.
+                </p>
+                <!-- TODO: Confirm which performance/audit tool produced the 60% and 90% measurements before naming the metric more specifically. -->
+                <div class="exp-detail-metric" aria-label="Performance improvement">
+                    <span class="exp-detail-metric__value">~60%</span>
+                    <span class="exp-detail-metric__arrow">→</span>
+                    <span class="exp-detail-metric__value">~90%</span>
+                    <span>measured performance score after addressing reported issues</span>
+                </div>
+            </section>
+
+            <!-- ── API Testing ──────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-api">
+                <p class="exp-detail-section-label">API Testing</p>
+                <h2 id="section-api">Endpoint Testing</h2>
+                <p>
+                    Used Postman for API endpoint testing as part of the development and verification workflow.
+                </p>
+            </section>
+
+            <!-- ── Development Environment ─────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-env">
+                <p class="exp-detail-section-label">Development Environment</p>
+                <h2 id="section-env">Tooling and Environment</h2>
+                <p>
+                    Applied Docker for environment containerization. Integrated design references using Figma and participated in presentation workflows.
+                </p>
+                <ul class="exp-detail-tooling" aria-label="Tools used">
+                    <li>Docker</li>
+                    <li>Postman</li>
+                    <li>Figma</li>
+                    <li>GitHub</li>
+                    <li>Trello</li>
+                    <li>Slack</li>
+                </ul>
+            </section>
+
+            <!-- ── Team Workflow ────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-workflow">
+                <p class="exp-detail-section-label">Team Workflow</p>
+                <h2 id="section-workflow">Collaboration and Task Tracking</h2>
+                <p>
+                    Used Trello and GitHub for issue tracking and task management. Communicated through Slack. Version control and code collaboration managed through GitHub.
+                </p>
+            </section>
+
+            <!-- ── Key Contributions ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-contributions">
+                <p class="exp-detail-section-label">Key Contributions</p>
+                <h2 id="section-contributions">Contributions</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Key contributions">
+                    <li>
+                        Built web applications using Laravel, React, Next.js, and React Native — contributing across both backend and frontend layers of the stack.
+                    </li>
+                    <li>
+                        Improved the company website through Google Analytics integration and the development of a sample project demonstrating a backend implementation.
+                    </li>
+                    <li>
+                        Identified and reported SEO and performance issues on the company website; the measured performance score improved from approximately 60% to 90% after addressing the reported findings.
+                    </li>
+                    <li>
+                        Applied Postman for API endpoint testing as part of the development workflow.
+                    </li>
+                    <li>
+                        Used Docker to containerize the development environment.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Outcomes ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-outcomes">
+                <p class="exp-detail-section-label">Outcomes</p>
+                <h2 id="section-outcomes">Results</h2>
+                <p>
+                    The measured website performance score improved from approximately 60% to 90% following identification and resolution of the reported SEO and performance issues.
+                </p>
+                <!-- TODO: Confirm which performance/audit tool produced the 60% and 90% measurements before naming the metric more specifically. -->
+                <!-- TODO: Add any other verifiable outcomes from the sample backend project, analytics integration, or web applications developed during the internship. -->
+            </section>
+
+            <!-- ── Related Evidence ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-evidence">
+                <p class="exp-detail-section-label">Related Evidence</p>
+                <h2 id="section-evidence">Skills &amp; Projects</h2>
+                <div class="exp-detail-evidence-block">
+                    <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Skills</span>
+                        <span class="exp-detail-evidence-detail">Laravel · React · Next.js · React Native · PHP · JavaScript · TypeScript · Docker · Postman · Figma</span>
+                    </div>
+                    <!-- TODO: Link the strongest related Projects for this experience once project case studies are created. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Projects</span>
+                        <span class="exp-detail-evidence-detail">Related technical work from this period</span>
+                    </div>
+                    <!-- TODO: Link only Credentials genuinely relevant to this experience. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Credentials</span>
+                        <span class="exp-detail-evidence-detail">Relevant supporting certifications or training</span>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.exp-detail-body -->
+
+    </main>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+
+</body>
+</html>

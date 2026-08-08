@@ -157,7 +157,8 @@
                 [/about|perspective|interest/, 'fa-user'],
                 [/contact|email/, 'fa-envelope'],
                 [/credential|education|certif/, 'fa-award'],
-                [/resume/, 'fa-file-lines']
+                [/resume/, 'fa-file-lines'],
+                [/year|timeline|history|period/, 'fa-calendar-days']
             ];
 
             return iconRules.find(([pattern]) => pattern.test(normalizedLabel))?.[1] || 'fa-code';
@@ -168,10 +169,11 @@
                 section.id = `page-section-${index + 1}`;
             }
 
+            const sectionLabel = section.getAttribute('aria-label');
             const labelledBy = section.getAttribute('aria-labelledby');
             const labelledHeading = labelledBy ? document.getElementById(labelledBy) : null;
             const visibleLabel = section.querySelector('.section__eyebrow, h1, h2');
-            const label = (labelledHeading || visibleLabel)?.textContent.trim() || `Section ${index + 1}`;
+            const label = sectionLabel || (labelledHeading || visibleLabel)?.textContent.trim() || `Section ${index + 1}`;
 
             const item = document.createElement('li');
             const button = document.createElement('button');

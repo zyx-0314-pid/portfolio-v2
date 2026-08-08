@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Full-Time Instructor — FEU Institute of Technology | Ian Cedric Ramirez</title>
+    <meta name="description" content="Full-Time Instructor at FEU Institute of Technology — teaching web and software development, building technical materials, and introducing modern development tooling. October 2023 — November 2025.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/experience.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+
+        <!-- ── Back navigation ────────────────────────────────────── -->
+        <nav class="exp-detail-nav" aria-label="Breadcrumb">
+            <a class="exp-detail-back" href="../">Experience</a>
+        </nav>
+
+        <!-- ── Role header ─────────────────────────────────────────── -->
+        <header class="exp-detail-header">
+            <p class="exp-detail-eyebrow">Experience</p>
+            <h1 class="exp-detail-role">Full-Time Instructor</h1>
+            <div class="exp-detail-meta">
+                <p class="exp-detail-period">October 2023 — November 2025</p>
+                <p class="exp-detail-company">FEU Institute of Technology</p>
+            </div>
+            <div class="exp-detail-tags">
+                <span class="exp-detail-tag">Teaching</span>
+                <span class="exp-detail-tag">Leadership</span>
+            </div>
+        </header>
+
+
+        <!-- ── Illustration ────────────────────────────────────────── -->
+        <!-- TODO: Replace this placeholder with the custom editorial illustration for the FEU teaching role. The illustration should represent technical teaching, software-development instruction, mentoring, and modern development tooling. Update the alt text when the real image is added and remove this note. -->
+        <div class="exp-detail-illustration">
+            <img
+                src="https://placehold.net/1200x525.png"
+                alt="Placeholder for a custom editorial illustration representing technical teaching, software-development instruction, mentoring, and modern development tooling at FEU Institute of Technology."
+                width="1200"
+                height="525"
+            >
+        </div>
+
+        <!-- ── Content body ────────────────────────────────────────── -->
+        <div class="exp-detail-body">
+
+            <!-- ── Context ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-context">
+                <p class="exp-detail-section-label">Context</p>
+                <h2 id="section-context">Teaching Environment</h2>
+                <p>
+                    Full-time instructional role at FEU Institute of Technology, covering web and software development subjects across multiple sections. Responsibilities included curriculum delivery, building technical teaching materials, mentoring students, and introducing modern development workflows into instructional examples.
+                </p>
+            </section>
+
+            <!-- ── Scope ───────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-scope">
+                <p class="exp-detail-section-label">Scope</p>
+                <h2 id="section-scope">Instructional Responsibilities</h2>
+                <p>
+                    Taught web and software development technologies across multiple class sections. Built reusable teaching materials and templates. Guided and mentored students through practical development work. Contributed instructional examples incorporating Docker-based environments, GitHub Actions deployment workflows, and tooling available through the GitHub Student Developer Pack.
+                </p>
+                <!-- TODO: Add any verifiable teaching outcomes if available, such as number of sections taught, materials produced, template adoption, student projects completed, or another documented result. -->
+            </section>
+
+            <!-- ── Teaching Materials ───────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-materials">
+                <p class="exp-detail-section-label">Teaching Materials</p>
+                <h2 id="section-materials">Technical Teaching Materials and Templates</h2>
+                <p>
+                    Built technical teaching materials and reusable templates designed for use across instructional sessions. Templates provided students with a practical starting point for web development work covered in the curriculum.
+                </p>
+                <!-- TODO: Add any verifiable teaching outcomes if available, such as number of sections taught, materials produced, template adoption, student projects completed, or another documented result. -->
+            </section>
+
+            <!-- ── Development Environment & Tooling ────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-tooling">
+                <p class="exp-detail-section-label">Development Environment &amp; Tooling</p>
+                <h2 id="section-tooling">Introducing Modern Development Workflows</h2>
+                <p>
+                    Introduced students to more reproducible development workflows through Docker-based environments, GitHub Actions deployment examples, and web-development tools available through the GitHub Student Developer Pack.
+                </p>
+                <p>
+                    These instructional examples were provided to give students exposure to development practices common in professional environments. No institutional-wide adoption is claimed.
+                </p>
+            </section>
+
+            <!-- ── Mentoring ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-mentoring">
+                <p class="exp-detail-section-label">Mentoring</p>
+                <h2 id="section-mentoring">Student Guidance and Mentoring</h2>
+                <p>
+                    Provided guidance and mentoring to students across multiple sections throughout the instructional period. Supported students with practical technical questions and the application of technologies taught in the curriculum.
+                </p>
+                <!-- TODO: Add any verifiable teaching outcomes if available, such as number of sections taught, materials produced, template adoption, student projects completed, or another documented result. -->
+            </section>
+
+            <!-- ── Technologies and Subjects ────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-tech">
+                <p class="exp-detail-section-label">Technologies &amp; Subjects</p>
+                <h2 id="section-tech">Teaching Scope</h2>
+                <p>
+                    Technologies covered in instruction or used within teaching materials across the instructional period. Proficiency levels vary; languages marked <em>Basics</em> were taught at an introductory level only.
+                </p>
+
+                <div class="exp-detail-tech-grid" role="list" aria-label="Technologies and subjects covered in instruction">
+
+                    <!-- Languages -->
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Languages</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>TypeScript</li>
+                            <li>PHP</li>
+                            <li>SQL</li>
+                            <li>C++</li>
+                            <li>Java — Basics</li>
+                            <li>Kotlin — Basics</li>
+                            <li>Ruby — Basics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Frameworks / Application Development -->
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Frameworks / Application Development</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>Laravel</li>
+                            <li>CodeIgniter 4</li>
+                            <li>Symfony</li>
+                            <li>React</li>
+                            <li>Next.js</li>
+                            <li>Vue.js</li>
+                            <li>Nuxt</li>
+                            <li>NestJS</li>
+                            <li>RedwoodJS</li>
+                        </ul>
+                    </div>
+
+                    <!-- Databases -->
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Databases</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                            <li>MariaDB</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </div>
+
+                    <!-- Platforms / Infrastructure -->
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Platforms / Infrastructure</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>Firebase</li>
+                            <li>Vercel</li>
+                            <li>AWS</li>
+                            <li>Google Cloud (GCP)</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+
+                    <!-- Collaboration / Development Workflow -->
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Collaboration / Development Workflow</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>GitHub Projects</li>
+                            <li>GitHub Actions</li>
+                            <li>GitHub Student Developer Pack</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── Key Contributions ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-contributions">
+                <p class="exp-detail-section-label">Key Contributions</p>
+                <h2 id="section-contributions">Selected Teaching Contributions</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Key contributions">
+                    <li>
+                        Built technical teaching materials and reusable templates to support practical instruction across multiple sections.
+                    </li>
+                    <li>
+                        Introduced students to more reproducible development workflows through Docker-based environments, GitHub Actions deployment examples, and web-development tools available through the GitHub Student Developer Pack.
+                    </li>
+                    <li>
+                        Taught and mentored students across multiple sections throughout the instructional period, providing guidance on practical web and software development work.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Outcomes ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-outcomes">
+                <p class="exp-detail-section-label">Outcomes</p>
+                <h2 id="section-outcomes">Results</h2>
+                <!-- TODO: Add any verifiable teaching outcomes if available, such as number of sections taught, materials produced, template adoption, student projects completed, or another documented result. Do not manufacture student performance statistics. -->
+                <p>
+                    Teaching materials and templates produced during this role were used across instructional sessions. Specific measurable outcomes are not yet documented here.
+                </p>
+            </section>
+
+            <!-- ── Related Evidence ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-evidence">
+                <p class="exp-detail-section-label">Related Evidence</p>
+                <h2 id="section-evidence">Skills &amp; Credentials</h2>
+                <div class="exp-detail-evidence-block">
+                    <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Skills</span>
+                        <span class="exp-detail-evidence-detail">Technical instruction · Curriculum development · Mentoring · Docker · GitHub Actions</span>
+                    </div>
+                    <!-- TODO: Link only Credentials genuinely relevant to this experience. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Credentials</span>
+                        <span class="exp-detail-evidence-detail">Relevant supporting certifications or training</span>
+                    </div>
+                    <!-- TODO: Link any related technical work from this period if applicable. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Projects</span>
+                        <span class="exp-detail-evidence-detail">Any related technical work from this period</span>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.exp-detail-body -->
+
+    </main>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+
+</body>
+</html>

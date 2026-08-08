@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,19 +15,27 @@
             }
         })();
     </script>
-    <title>Experience | Portfolio</title>
+    <title>Experience | Ian Cedric Ramirez</title>
+    <meta name="description"
+        content="Professional experience of Ian Cedric Ramirez — roles in full-stack development, DevOps, teaching, and software engineering.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/experience.css">
 </head>
+
 <body>
+
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
             <div class="site-header__controls">
                 <nav class="site-nav" data-site-nav>
-                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                        data-nav-toggle>
                         <span class="sr-only">Toggle navigation</span>
                         <span aria-hidden="true">Menu</span>
                     </button>
@@ -40,7 +49,8 @@
                         <a href="../contact/">Contact</a>
                     </div>
                 </nav>
-                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"
+                    title="Switch to light theme">
                     <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
                 </button>
             </div>
@@ -48,13 +58,584 @@
     </header>
 
     <main class="site-main page-shell">
-        <section class="section" aria-labelledby="page-title">
+
+        <!-- ── Page intro ─────────────────────────────────────────── -->
+        <section class="section exp-intro" aria-labelledby="page-title">
             <p class="section__eyebrow">Experience</p>
-            <h1 class="section__title" id="page-title">Experience | Portfolio</h1>
-            <p class="page-placeholder">Placeholder page shell for the experience page.</p>
+            <h1 class="section__title" id="page-title">Experience</h1>
+            <p class="section__lead">Roles where I built, maintained, taught, and improved software systems.</p>
         </section>
+
+        <section class="section" aria-label="Years">
+
+            <div class="exp-controls" role="group" aria-label="Experience controls">
+
+                <!-- Desktop filter group -->
+                <div class="exp-controls-group exp-controls-group--desktop-filters" role="group"
+                    aria-label="Filter by area">
+                    <span class="exp-controls-label" aria-hidden="true">Filter</span>
+                    <button id="filter-all" class="exp-filter-btn" type="button" data-filter="all"
+                        aria-pressed="true">All</button>
+                    <button id="filter-full-stack" class="exp-filter-btn" type="button" data-filter="full-stack"
+                        aria-pressed="false">Full-Stack</button>
+                    <button id="filter-devops" class="exp-filter-btn" type="button" data-filter="devops"
+                        aria-pressed="false">DevOps</button>
+                    <button id="filter-teaching" class="exp-filter-btn" type="button" data-filter="teaching"
+                        aria-pressed="false">Teaching</button>
+                    <button id="filter-leadership" class="exp-filter-btn" type="button" data-filter="leadership"
+                        aria-pressed="false">Leadership</button>
+                </div>
+
+                <!-- Mobile filter disclosure -->
+                <div class="exp-mobile-filter">
+                    <button id="mobile-filter-trigger" class="exp-mobile-trigger" type="button" aria-expanded="false"
+                        aria-controls="mobile-filter-panel" aria-haspopup="true">Filter <span
+                            class="exp-mobile-trigger__arrow" aria-hidden="true">▼</span></button>
+                    <div id="mobile-filter-panel" class="exp-mobile-panel" role="group"
+                        aria-labelledby="mobile-filter-panel-label" aria-hidden="true">
+                        <p id="mobile-filter-panel-label" class="exp-mobile-panel__heading">Filter by area</p>
+                        <ul class="exp-mobile-checkboxes" role="list">
+                            <li>
+                                <label><input type="checkbox" value="full-stack" id="mobile-cb-full-stack">
+                                    Full-Stack</label>
+                            </li>
+                            <li>
+                                <label><input type="checkbox" value="devops" id="mobile-cb-devops"> DevOps</label>
+                            </li>
+                            <li>
+                                <label><input type="checkbox" value="teaching" id="mobile-cb-teaching"> Teaching</label>
+                            </li>
+                            <li>
+                                <label><input type="checkbox" value="leadership" id="mobile-cb-leadership">
+                                    Leadership</label>
+                            </li>
+                        </ul>
+                        <div class="exp-mobile-panel__footer">
+                            <button type="button" class="exp-mobile-clear">Clear / All</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Match toggle -->
+                <div class="exp-controls-group" role="group" aria-label="Filter match mode">
+                    <span class="exp-controls-label" aria-hidden="true">Match</span>
+                    <button id="match-all" class="exp-match-btn" type="button" data-match="all"
+                        aria-pressed="true">All</button>
+                    <button id="match-any" class="exp-match-btn" type="button" data-match="any"
+                        aria-pressed="false">Any</button>
+                </div>
+
+                <!-- Sort toggle -->
+                <div class="exp-controls-group" role="group" aria-label="Sort order">
+                    <span class="exp-controls-label" aria-hidden="true">Sort</span>
+                    <button id="sort-newest" class="exp-sort-btn" type="button" data-sort="newest"
+                        aria-pressed="true">Newest</button>
+                    <button id="sort-oldest" class="exp-sort-btn" type="button" data-sort="oldest"
+                        aria-pressed="false">Oldest</button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ── Experience timeline ─────────────────────────────────── -->
+        <section class="exp-list-section" aria-labelledby="timeline-label">
+            <h2 id="timeline-label" class="sr-only">Professional timeline</h2>
+
+            <div class="exp-timeline">
+
+                <!-- ══════════════════════════════════════════════════
+                     YEAR GROUP: 2025
+                ══════════════════════════════════════════════════ -->
+                <div class="exp-year-group" data-year="2025">
+                    <div class="exp-year-marker" aria-hidden="true">
+                        <span class="exp-year-label">2025</span>
+                        <span class="exp-year-line"></span>
+                    </div>
+
+                    <div class="exp-year-cards">
+
+                        <!-- ═══════════════════════════════════════════
+                             CARD — Full-Stack Developer
+                             People Dynamics Inc.
+                             November 2025 — Present
+                             Tags: full-stack, devops
+                             Status: Complete — detail page available
+                             ═══════════════════════════════════════════ -->
+                        <article class="exp-card" data-tags="full-stack devops" data-start="2025-11"
+                            data-detail-status="complete" aria-labelledby="exp-pd-role">
+                            <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
+                            <div class="exp-card__illustration">
+                                <img src="https://placehold.net/280x200.png"
+                                    alt="Placeholder for a custom editorial illustration representing full-stack development, legacy-system modernization, system design, and DevOps delivery work."
+                                    loading="lazy">
+                            </div>
+
+                            <div class="exp-card__content">
+                                <h3 class="exp-card__role" id="exp-pd-role">Full-Stack Developer and DevOps Engineer
+                                </h3>
+
+                                <div class="exp-card__tags" aria-label="Areas">
+                                    <span class="exp-card__tag">Full-Stack</span>
+                                    <span class="exp-card__tag">DevOps</span>
+                                </div>
+
+                                <div class="exp-card__actions">
+                                    <button type="button" class="exp-quickview-btn" data-dialog-target="qv-pd"
+                                        aria-haspopup="dialog">Quick View</button>
+
+                                    <a class="exp-detail-link" href="full-stack-developer/">View Experience →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ═══════════════════════════════════════════
+                             CARD — Software Developer
+                             Spring Boot Internal File Management
+                             June 2025
+                             Tags: full-stack
+                             Status: Under Construction
+                             ═══════════════════════════════════════════ -->
+                        <article class="exp-card exp-card--construction" data-tags="full-stack" data-start="2025-06"
+                            data-detail-status="construction" aria-labelledby="exp-sb-role">
+                            <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
+                            <div class="exp-card__illustration">
+                                <img src="https://placehold.net/280x200.png"
+                                    alt="Placeholder for a custom editorial illustration representing a Dockerized internal file-management system using QR and barcode identification."
+                                    loading="lazy">
+                            </div>
+
+                            <div class="exp-card__construction-overlay" aria-hidden="true">
+                                <!-- TODO: Replace the construction placeholder with a small custom illustration using the same visual context as this project. -->
+                                <img src="https://placehold.net/56x56.png"
+                                    alt="Placeholder for a small editorial illustration representing this experience page being under construction.">
+                                <span class="exp-card__construction-label">Under Construction</span>
+                                <span class="exp-card__construction-sub">Full experience coming soon</span>
+                            </div>
+
+                            <div class="exp-card__content">
+                                <!-- TODO: Confirm the exact official role title for this June 2025 experience. "Software Developer" is used as a working label. -->
+                                <h3 class="exp-card__role" id="exp-sb-role">Software Developer</h3>
+
+                                <div class="exp-card__tags" aria-label="Areas">
+                                    <span class="exp-card__tag">Full-Stack</span>
+                                </div>
+
+                                <div class="exp-card__actions">
+                                    <button type="button" class="exp-quickview-btn" data-dialog-target="qv-sb"
+                                        aria-haspopup="dialog">Quick View</button>
+
+                                    <!-- TODO: Complete the dedicated experience page before enabling "View Experience". Confirm exact role, employer, dates, scope, contributions, and outcomes first. -->
+                                    <span class="exp-detail-construction" role="button" aria-disabled="true"
+                                        tabindex="-1" title="Full experience page coming soon">Under Construction</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div><!-- /.exp-year-cards -->
+                </div><!-- /.exp-year-group 2025 -->
+
+
+                <!-- ══════════════════════════════════════════════════
+                     YEAR GROUP: 2024
+                     NOTE: YenkoDev / SeLeBox dates are unverified.
+                     This year group uses 2024 as a working estimate.
+                     TODO: Replace with the verified period once confirmed.
+                ══════════════════════════════════════════════════ -->
+                <!-- TODO: Replace 2024 with the verified start year for YenkoDev / SeLeBox. The year 2024 is an unverified estimate used for chronological ordering only. -->
+                <div class="exp-year-group" data-year="2024">
+                    <div class="exp-year-marker" aria-hidden="true">
+                        <span class="exp-year-label">2024</span>
+                        <span class="exp-year-line"></span>
+                    </div>
+
+                    <div class="exp-year-cards">
+
+                        <!-- ═══════════════════════════════════════════
+                             CARD — Software Developer
+                             YenkoDev / SeLeBox
+                             [Dates unverified — TODO]
+                             Tags: full-stack
+                             Status: Under Construction
+                             ═══════════════════════════════════════════ -->
+                        <!-- TODO: Update data-start with the verified YenkoDev / SeLeBox start date once confirmed. "2024-01" is a placeholder. -->
+                        <article class="exp-card exp-card--construction" data-tags="full-stack" data-start="2024-01"
+                            data-detail-status="construction" aria-labelledby="exp-yd-role">
+                            <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
+                            <div class="exp-card__illustration">
+                                <img src="https://placehold.net/280x200.png"
+                                    alt="Placeholder for a custom editorial illustration representing social application development, messaging, feeds, media handling, and caching."
+                                    loading="lazy">
+                            </div>
+
+                            <div class="exp-card__construction-overlay" aria-hidden="true">
+                                <!-- TODO: Replace the construction placeholder with a small custom illustration using the same visual context as this role. -->
+                                <img src="https://placehold.net/56x56.png"
+                                    alt="Placeholder for a small editorial illustration representing this experience page being under construction.">
+                                <span class="exp-card__construction-label">Under Construction</span>
+                                <span class="exp-card__construction-sub">Full experience coming soon</span>
+                            </div>
+
+                            <div class="exp-card__content">
+                                <!-- TODO: Confirm the exact role title for YenkoDev / SeLeBox. "Software Developer" is used as a working label. -->
+                                <h3 class="exp-card__role" id="exp-yd-role">Software Developer</h3>
+
+                                <div class="exp-card__tags" aria-label="Areas">
+                                    <span class="exp-card__tag">Full-Stack</span>
+                                </div>
+
+                                <div class="exp-card__actions">
+                                    <button type="button" class="exp-quickview-btn" data-dialog-target="qv-yd"
+                                        aria-haspopup="dialog">Quick View</button>
+
+                                    <!-- TODO: Complete the dedicated experience page before enabling "View Experience". Confirm verified dates, role, scope, contributions, and outcomes first. -->
+                                    <span class="exp-detail-construction" role="button" aria-disabled="true"
+                                        tabindex="-1" title="Full experience page coming soon">Under Construction</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div><!-- /.exp-year-cards -->
+                </div><!-- /.exp-year-group 2024 -->
+
+
+                <!-- ══════════════════════════════════════════════════
+                     YEAR GROUP: 2023
+                ══════════════════════════════════════════════════ -->
+                <div class="exp-year-group" data-year="2023">
+                    <div class="exp-year-marker" aria-hidden="true">
+                        <span class="exp-year-label">2023</span>
+                        <span class="exp-year-line"></span>
+                    </div>
+
+                    <div class="exp-year-cards">
+
+                        <!-- ═══════════════════════════════════════════
+                             CARD — Full-Time Instructor
+                             FEU Institute of Technology
+                             October 2023 — November 2025
+                             Tags: teaching, leadership
+                             Status: Complete — detail page available
+                             ═══════════════════════════════════════════ -->
+                        <article class="exp-card" data-tags="teaching leadership" data-start="2023-10"
+                            data-detail-status="complete" aria-labelledby="exp-feu-role">
+                            <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
+                            <div class="exp-card__illustration">
+                                <img src="https://placehold.net/280x200.png"
+                                    alt="Placeholder for a custom editorial illustration representing technical teaching, software-development instruction, mentoring, and modern development tooling."
+                                    loading="lazy">
+                            </div>
+
+                            <div class="exp-card__content">
+                                <h3 class="exp-card__role" id="exp-feu-role">Full-Time Instructor</h3>
+
+                                <div class="exp-card__tags" aria-label="Areas">
+                                    <span class="exp-card__tag">Teaching</span>
+                                    <span class="exp-card__tag">Leadership</span>
+                                </div>
+
+                                <div class="exp-card__actions">
+                                    <button type="button" class="exp-quickview-btn" data-dialog-target="qv-feu"
+                                        aria-haspopup="dialog">Quick View</button>
+
+                                    <a class="exp-detail-link" href="full-time-instructor/">View Experience →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ═══════════════════════════════════════════
+                             CARD — Software Engineer Intern
+                             Argon Software
+                             March 2023 — June 2023
+                             Tags: full-stack
+                             Status: Complete — detail page available
+                             ═══════════════════════════════════════════ -->
+                        <article class="exp-card" data-tags="full-stack" data-start="2023-03"
+                            data-detail-status="complete" aria-labelledby="exp-ag-role">
+                            <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
+                            <div class="exp-card__illustration">
+                                <img src="https://placehold.net/280x200.png"
+                                    alt="Placeholder for a custom editorial illustration representing web application development, performance optimization, analytics integration, and API testing."
+                                    loading="lazy">
+                            </div>
+
+                            <div class="exp-card__content">
+                                <h3 class="exp-card__role" id="exp-ag-role">Software Engineer Intern</h3>
+
+                                <div class="exp-card__tags" aria-label="Areas">
+                                    <span class="exp-card__tag">Full-Stack</span>
+                                </div>
+
+
+                                <div class="exp-card__actions">
+                                    <button type="button" class="exp-quickview-btn" data-dialog-target="qv-ag"
+                                        aria-haspopup="dialog">Quick View</button>
+
+                                    <a class="exp-detail-link" href="software-engineer-intern/">View Experience →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div><!-- /.exp-year-cards -->
+                </div><!-- /.exp-year-group 2023 -->
+
+            </div><!-- /.exp-timeline -->
+
+            <!-- Empty filter state -->
+            <div class="exp-empty" role="status" aria-live="polite" hidden>
+                <p class="exp-empty__message">No experience matches these filters.</p>
+                <p class="exp-empty__hint">Try Match Any or remove a filter.</p>
+            </div>
+
+        </section>
+
     </main>
 
+
+    <!-- ══════════════════════════════════════════════════════════════
+         QUICK VIEW MODALS
+    ══════════════════════════════════════════════════════════════════ -->
+
+    <div class="exp-qv-backdrop" aria-hidden="true" data-visible="false"></div>
+
+    <!-- ── QV: Full-Stack Developer — People Dynamics Inc. ───── -->
+    <dialog id="qv-pd" class="exp-qv-dialog" aria-labelledby="qv-pd-title" aria-modal="true">
+        <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
+
+        <div class="exp-qv-inner">
+            <header class="exp-qv-header">
+                <h2 class="exp-qv-role" id="qv-pd-title">Full-Stack Developer and DevOps Engineer</h2>
+                <p class="exp-qv-company">
+                    <a href="https://peopledynamics.co/" target="_blank" rel="noopener noreferrer">People Dynamics
+                        Inc.</a>
+                </p>
+                <p class="exp-qv-date">November 2025 — Present</p>
+            </header>
+
+            <p class="exp-qv-context">
+                Developing and modernizing HR assessment systems across People Dynamics Inc. and related Profiles Asia
+                Pacific initiatives, with secondary DevOps responsibilities.
+            </p>
+
+            <div>
+                <p class="exp-qv-section-label">Key Contributions</p>
+                <ul class="exp-qv-contributions" aria-label="Key contributions">
+                    <li>Incrementally modernized legacy application areas using N-Layer architecture, environment-based
+                        feature controls, and structured exception handling.</li>
+                    <li>Improved development and delivery workflows through Docker standardization, local database
+                        seeding with scrubbed data, engineering documentation (GoPick Manual), and GitHub Actions
+                        deployment automation to AWS EC2.</li>
+                </ul>
+            </div>
+
+            <div class="exp-qv-evidence" aria-label="Related evidence">
+                <p class="exp-qv-section-label">Related Evidence</p>
+                <!-- TODO: Link the strongest related Projects for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Projects</span>
+                    <!-- TODO: Add verified project names and links once available. -->
+                    <span class="exp-qv-evidence-detail">Related technical work from this role</span>
+                </div>
+                <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Skills</span>
+                    <span class="exp-qv-evidence-detail">Capabilities demonstrated during this experience</span>
+                </div>
+                <!-- TODO: Link only Credentials genuinely relevant to this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Credentials</span>
+                    <span class="exp-qv-evidence-detail">Relevant supporting certifications or training</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- ── QV: Full-Time Instructor — FEU Institute of Technology ── -->
+    <dialog id="qv-feu" class="exp-qv-dialog" aria-labelledby="qv-feu-title" aria-modal="true">
+        <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
+
+        <div class="exp-qv-inner">
+            <header class="exp-qv-header">
+                <h2 class="exp-qv-role" id="qv-feu-title">Full-Time Instructor</h2>
+                <p class="exp-qv-company">FEU Institute of Technology</p>
+                <p class="exp-qv-date">October 2023 — November 2025</p>
+            </header>
+
+
+            <p class="exp-qv-context">
+                Teaching and mentoring across web and software-development technologies, covering multiple sections.
+                Instructional work included building technical teaching materials and introducing reproducible
+                development tooling.
+            </p>
+
+            <div>
+                <p class="exp-qv-section-label">Key Contributions</p>
+                <ul class="exp-qv-contributions" aria-label="Key contributions">
+                    <li>Built technical teaching materials and reusable templates used across instructional sessions.
+                    </li>
+                    <li>Introduced students to more reproducible development workflows through Docker-based
+                        environments, GitHub Actions deployment examples, and web-development tools available through
+                        the GitHub Student Developer Pack.</li>
+                </ul>
+            </div>
+
+            <div class="exp-qv-evidence" aria-label="Related evidence">
+                <p class="exp-qv-section-label">Related Evidence</p>
+                <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Skills</span>
+                    <span class="exp-qv-evidence-detail">Capabilities demonstrated during this experience</span>
+                </div>
+                <!-- TODO: Link only Credentials genuinely relevant to this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Credentials</span>
+                    <span class="exp-qv-evidence-detail">Relevant supporting certifications or training</span>
+                </div>
+                <!-- TODO: Link any related technical work from this period if applicable. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Projects</span>
+                    <span class="exp-qv-evidence-detail">Any related technical work from this period</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- ── QV: Software Developer — Spring Boot Internal ─────── -->
+    <dialog id="qv-sb" class="exp-qv-dialog" aria-labelledby="qv-sb-title" aria-modal="true">
+        <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
+
+        <div class="exp-qv-inner">
+            <header class="exp-qv-header">
+                <!-- TODO: Confirm the exact role title for this June 2025 experience. -->
+                <h2 class="exp-qv-role" id="qv-sb-title">Software Developer</h2>
+                <!-- TODO: Confirm the employer or organization name for this experience before publishing. -->
+                <p class="exp-qv-company">Organization — Add verified name</p>
+                <!-- TODO: Confirm whether June 2025 represents the full period or only the project completion date. -->
+                <p class="exp-qv-date">June 2025</p>
+            </header>
+
+            <p class="exp-qv-context">
+                Built a Dockerized Spring Boot internal file-management system with QR code and barcode scanning, and
+                identification workflows.
+            </p>
+
+            <div>
+                <p class="exp-qv-section-label">Key Contributions</p>
+                <ul class="exp-qv-contributions" aria-label="Key contributions">
+                    <li>Implemented the internal file-management workflow including QR/barcode-based identification, and
+                        containerized the application with Docker.</li>
+                </ul>
+            </div>
+
+            <div class="exp-qv-evidence" aria-label="Related evidence">
+                <p class="exp-qv-section-label">Related Evidence</p>
+                <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Skills</span>
+                    <span class="exp-qv-evidence-detail">Capabilities demonstrated during this experience</span>
+                </div>
+                <!-- TODO: Add related project case study link once created. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Projects</span>
+                    <span class="exp-qv-evidence-detail">Related technical work from this period</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- ── QV: Software Developer — YenkoDev / SeLeBox ──────── -->
+    <dialog id="qv-yd" class="exp-qv-dialog" aria-labelledby="qv-yd-title" aria-modal="true">
+        <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
+
+        <div class="exp-qv-inner">
+            <header class="exp-qv-header">
+                <!-- TODO: Confirm the exact role title for YenkoDev / SeLeBox. -->
+                <h2 class="exp-qv-role" id="qv-yd-title">Software Developer</h2>
+                <p class="exp-qv-company">YenkoDev / SeLeBox</p>
+                <!-- TODO: Add the verified start and end dates for the YenkoDev / SeLeBox experience. -->
+                <p class="exp-qv-date">Add verified dates</p>
+            </header>
+
+            <p class="exp-qv-context">
+                Application development work on a social platform, focused on building core product features including
+                messaging, content feeds, media handling, and social interactions.
+            </p>
+
+            <div>
+                <p class="exp-qv-section-label">Key Contributions</p>
+                <ul class="exp-qv-contributions" aria-label="Key contributions">
+                    <li>Built the Chat Service and core messaging functionality.</li>
+                    <li>Developed Feed Services and Follow System, along with Offline Video Caching for improved media
+                        access.</li>
+                </ul>
+            </div>
+
+            <div class="exp-qv-evidence" aria-label="Related evidence">
+                <p class="exp-qv-section-label">Related Evidence</p>
+                <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Skills</span>
+                    <span class="exp-qv-evidence-detail">Capabilities demonstrated during this experience</span>
+                </div>
+                <!-- TODO: Add concrete outcomes for the Chat Service, Infinite Scrolling, Offline Video Caching, Follow System, GC Services, Post File Uploads, and Feed Services if available. Avoid invented percentages or performance claims. -->
+                <!-- TODO: Link the strongest related Projects for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Projects</span>
+                    <span class="exp-qv-evidence-detail">Related technical work from this period</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- ── QV: Software Engineer Intern — Argon Software ─────── -->
+    <dialog id="qv-ag" class="exp-qv-dialog" aria-labelledby="qv-ag-title" aria-modal="true">
+        <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
+
+        <div class="exp-qv-inner">
+            <header class="exp-qv-header">
+                <h2 class="exp-qv-role" id="qv-ag-title">Software Engineer Intern</h2>
+                <p class="exp-qv-company">Argon Software</p>
+                <p class="exp-qv-date">March 2023 — June 2023</p>
+            </header>
+
+            <p class="exp-qv-context">
+                Internship focused on web application development and website improvement, working within an existing
+                product codebase. Contributed to analytics integration, SEO analysis, API testing, and multi-framework
+                application work.
+            </p>
+
+            <div>
+                <p class="exp-qv-section-label">Key Contributions</p>
+                <ul class="exp-qv-contributions" aria-label="Key contributions">
+                    <li>Web application development across the Laravel, React, Next.js, and React Native ecosystem,
+                        including a sample project with a backend component.</li>
+                    <li>Identified and reported SEO and performance issues on the company website; the measured
+                        performance score improved from approximately 60% to 90% after addressing the reported findings.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="exp-qv-evidence" aria-label="Related evidence">
+                <p class="exp-qv-section-label">Related Evidence</p>
+                <!-- TODO: Link the strongest demonstrated Skills for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Skills</span>
+                    <span class="exp-qv-evidence-detail">Capabilities demonstrated during this experience</span>
+                </div>
+                <!-- TODO: Link the strongest related Projects for this experience. -->
+                <div class="exp-qv-evidence-row">
+                    <span class="exp-qv-evidence-type">Projects</span>
+                    <span class="exp-qv-evidence-detail">Related technical work from this period</span>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
     <footer class="site-footer">
         <div class="page-shell site-footer__inner">
             <div>
@@ -65,7 +646,8 @@
             <div>
                 <div class="site-footer__links">
                     <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
                     <a href="mailto:ramirezian037@gmail.com">Email</a>
                 </div>
                 <p class="site-footer__meta">© Ian Cedric Ramirez</p>
@@ -74,5 +656,8 @@
     </footer>
 
     <script src="../../shared/js/main.js"></script>
+    <script src="assets/js/experience.js"></script>
+
 </body>
+
 </html>

@@ -1,0 +1,1270 @@
+/* ============================================================
+   Experience page — experience.css
+   Depends on: /shared/css/global.css design tokens
+   Scope: /pages/experience/ only
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Page intro
+   ------------------------------------------------------------ */
+
+.exp-intro {
+    padding-bottom: 2rem;
+}
+
+.exp-intro .section__lead {
+    max-width: 38rem;
+    margin-top: 0.75rem;
+}
+
+/* ------------------------------------------------------------
+   Controls bar
+   Desktop: inline filter row + match + sort
+   Mobile: replaced by disclosure + inline match/sort
+   ------------------------------------------------------------ */
+
+.exp-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.exp-controls-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+}
+
+.exp-controls-label {
+    margin: 0 0.55rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+/* Filter / Match / Sort text buttons */
+.exp-filter-btn,
+.exp-match-btn,
+.exp-sort-btn {
+    padding: 0.2rem 0.4rem;
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    line-height: 1.4;
+    transition: color 140ms ease, border-color 140ms ease;
+    white-space: nowrap;
+}
+
+.exp-filter-btn:hover,
+.exp-match-btn:hover,
+.exp-sort-btn:hover {
+    color: var(--color-text);
+}
+
+.exp-filter-btn[aria-pressed="true"],
+.exp-match-btn[aria-pressed="true"],
+.exp-sort-btn[aria-pressed="true"] {
+    color: var(--color-accent-bright);
+    border-bottom-color: var(--color-accent-bright);
+}
+
+/* Active filter: "All" button special case —
+   uses aria-pressed="true" when no specific filter is chosen */
+.exp-filter-btn[data-filter="all"][aria-pressed="true"] {
+    color: var(--color-accent-bright);
+    border-bottom-color: var(--color-accent-bright);
+}
+
+/* ------------------------------------------------------------
+   Mobile filter disclosure
+   ------------------------------------------------------------ */
+
+.exp-mobile-filter {
+    display: none;
+    position: relative;
+}
+
+.exp-mobile-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 140ms ease, color 140ms ease;
+}
+
+.exp-mobile-trigger:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright);
+}
+
+.exp-mobile-trigger[aria-expanded="true"] {
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright);
+}
+
+.exp-mobile-trigger__arrow {
+    font-size: 0.68rem;
+    transition: transform 200ms ease;
+}
+
+.exp-mobile-trigger[aria-expanded="true"] .exp-mobile-trigger__arrow {
+    transform: rotate(180deg);
+}
+
+.exp-mobile-panel {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 14rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.exp-mobile-panel[aria-hidden="false"] {
+    display: block;
+}
+
+.exp-mobile-panel__heading {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.exp-mobile-checkboxes {
+    display: grid;
+    gap: 0.55rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.exp-mobile-checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.exp-mobile-checkboxes input[type="checkbox"] {
+    accent-color: var(--color-accent-bright);
+    width: 0.95rem;
+    height: 0.95rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.exp-mobile-panel__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.8rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.exp-mobile-clear {
+    padding: 0.15rem 0.35rem;
+    background: transparent;
+    border: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 140ms ease;
+}
+
+.exp-mobile-clear:hover {
+    color: var(--color-accent-bright);
+}
+
+/* ------------------------------------------------------------
+   Timeline + experience list
+   ------------------------------------------------------------ */
+
+.exp-list-section {
+    margin-top: 2.5rem;
+}
+
+.exp-timeline {
+    position: relative;
+    display: grid;
+    gap: 2rem;
+}
+
+/* Subtle vertical line running through the timeline */
+.exp-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5.5rem;
+    width: 1px;
+    background: var(--color-border);
+    pointer-events: none;
+}
+
+/* Year group */
+.exp-year-group {
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* Year marker row */
+.exp-year-marker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.exp-year-label {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    width: 4rem;
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.exp-year-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+    opacity: 0.6;
+}
+
+/* ------------------------------------------------------------
+   Experience cards
+   ------------------------------------------------------------ */
+
+.exp-card {
+    position: relative;
+    display: block;
+    margin-left: 7rem; /* offset to the right of the year label + timeline line */
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    overflow: hidden;
+    min-height: 9.5rem;
+    transform-origin: center;
+    transition: transform 200ms ease, border-color 200ms ease;
+    will-change: transform;
+}
+
+.exp-card:hover {
+    transform: translateX(4px) scale(1.012);
+    border-color: var(--color-accent);
+}
+
+/* Bottom layer (Z-1): Right 1/3 illustration with sharp slant left slice + extra width */
+.exp-card__illustration {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 44%; /* 1/3 + extra width so slant slice doesn't reveal empty background */
+    z-index: 1;
+    overflow: hidden;
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    background: color-mix(in srgb, var(--color-bg-secondary) 75%, var(--color-surface) 25%);
+    pointer-events: none;
+}
+
+.exp-card__illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Top content layer (Z-3): 2/5 visible surface, 3/5 transparent with smooth transition in between */
+.exp-card__content {
+    position: relative;
+    z-index: 3;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    min-height: 9.5rem;
+    background: linear-gradient(
+        90deg,
+        var(--color-surface) 0%,
+        var(--color-surface) 38%,
+        color-mix(in srgb, var(--color-surface) 80%, transparent) 46%,
+        color-mix(in srgb, var(--color-surface) 30%, transparent) 55%,
+        transparent 65%
+    );
+}
+
+.exp-card__role {
+    margin: 0;
+    font-size: 1.18rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+/* Tags row */
+.exp-card__tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+}
+
+.exp-card__tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.exp-card__tag + .exp-card__tag::before {
+    content: "·";
+    margin-right: 0.5rem;
+    color: var(--color-border);
+}
+
+.exp-card__tag-overflow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    opacity: 0.65;
+    white-space: nowrap;
+}
+
+/* Card actions */
+.exp-card__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin-top: auto;
+    padding-top: 0.35rem;
+}
+
+.exp-quickview-btn {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+    cursor: pointer;
+    transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.exp-quickview-btn:hover {
+    color: var(--color-accent-bright);
+    text-decoration-color: var(--color-accent-bright);
+}
+
+.exp-detail-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+    transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.exp-detail-link:hover {
+    color: var(--color-accent-bright);
+    text-decoration-color: currentColor;
+}
+
+/* Under construction action — visually disabled */
+.exp-detail-construction {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    opacity: 0.42;
+    cursor: default;
+    text-decoration: none;
+    pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   Middle layer (Z-2): Under-construction overlay
+   Shows in z-middle over the right illustration strip only
+   ------------------------------------------------------------ */
+
+.exp-card--construction .exp-card__construction-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 44%;
+    z-index: 2;
+    overflow: hidden;
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1.25rem; /* account for slant slice offset */
+    gap: 0.4rem;
+    background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+}
+
+.exp-card--construction:hover .exp-card__construction-overlay {
+    opacity: 1;
+}
+
+.exp-card__construction-overlay img {
+    width: 2.25rem;
+    height: 2.25rem;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+
+.exp-card__construction-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+.exp-card__construction-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    opacity: 0.7;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------
+   Empty filter state
+   ------------------------------------------------------------ */
+
+.exp-empty {
+    padding: 3rem 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.exp-empty[hidden] {
+    display: none;
+}
+
+.exp-empty__message {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.45rem;
+}
+
+.exp-empty__hint {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* Hide individual cards when filtered out */
+.exp-card[data-hidden="true"] {
+    display: none;
+}
+
+.exp-year-group[data-hidden="true"] {
+    display: none;
+}
+
+/* ------------------------------------------------------------
+   Quick View modal
+   ------------------------------------------------------------ */
+
+/* Custom backdrop — accent-tinted gradient with blur */
+.exp-qv-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 998;
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-accent-deep) 25%, transparent) 0%,
+        color-mix(in srgb, var(--color-bg) 65%, var(--color-accent-deep) 35%) 50%,
+        color-mix(in srgb, var(--color-bg) 45%, var(--color-accent) 55%) 100%
+    );
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.exp-qv-backdrop[data-visible="true"] {
+    display: block;
+}
+
+/* Dialog element */
+.exp-qv-dialog {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(38rem, calc(100vw - 2rem));
+    max-height: min(90vh, 44rem);
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+    padding: 0;
+    margin: 0;
+}
+
+/* Native backdrop styling using accent tint */
+.exp-qv-dialog::backdrop {
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--color-accent-deep) 25%, transparent) 0%,
+        color-mix(in srgb, var(--color-bg) 65%, var(--color-accent-deep) 35%) 50%,
+        color-mix(in srgb, var(--color-bg) 45%, var(--color-accent) 55%) 100%
+    );
+    backdrop-filter: blur(5px);
+}
+
+/* Native dialog reset + animation */
+.exp-qv-dialog[open] {
+    display: flex;
+    flex-direction: column;
+    animation: exp-qv-enter 220ms ease forwards;
+}
+
+/* Animation: slide up + scale in */
+@keyframes exp-qv-enter {
+    from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 1.2rem)) scale(0.975);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+/* Dialog inner structure */
+.exp-qv-inner {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    flex: 1;
+}
+
+/* Close button */
+.exp-qv-close {
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    padding: 0.25rem 0.45rem;
+    background: transparent;
+    border: 0;
+    font-size: 1.15rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: color 140ms ease;
+}
+
+.exp-qv-close:hover {
+    color: var(--color-accent-bright);
+}
+
+/* Header */
+.exp-qv-header {
+    padding-right: 2rem; /* avoid overlap with × button */
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1rem;
+}
+
+.exp-qv-role {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    color: var(--color-text);
+}
+
+.exp-qv-company {
+    margin: 0.3rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.exp-qv-company a {
+    color: var(--color-text-muted);
+    text-decoration-color: color-mix(in srgb, var(--color-text-muted) 45%, transparent);
+}
+
+.exp-qv-company a:hover {
+    color: var(--color-accent-bright);
+}
+
+.exp-qv-date {
+    margin: 0.2rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    opacity: 0.72;
+}
+
+/* Context */
+.exp-qv-context {
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Contributions */
+.exp-qv-section-label {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+}
+
+.exp-qv-contributions {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.exp-qv-contributions li {
+    display: flex;
+    gap: 0.65rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.55;
+}
+
+.exp-qv-contributions li::before {
+    content: "—";
+    color: var(--color-accent);
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    margin-top: 0.1em;
+}
+
+/* Evidence rows */
+.exp-qv-evidence {
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.85rem;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.exp-qv-evidence-row {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: baseline;
+}
+
+.exp-qv-evidence-type {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.exp-qv-evidence-detail {
+    font-size: 0.87rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+}
+
+.exp-qv-evidence-detail strong {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* ------------------------------------------------------------
+   Responsive — Tablet (≤ 900px)
+   ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+    .exp-card {
+        margin-left: 4rem;
+    }
+
+    .exp-timeline::before {
+        left: 3.2rem;
+    }
+
+    .exp-year-label {
+        width: 2.8rem;
+        font-size: 0.72rem;
+    }
+}
+
+/* ------------------------------------------------------------
+   Responsive — Mobile (≤ 760px)
+   ------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+    /* Controls: hide desktop filters, show mobile disclosure */
+    .exp-controls-group--desktop-filters {
+        display: none;
+    }
+
+    .exp-mobile-filter {
+        display: block;
+    }
+
+    /* Stack match/sort on their own row */
+    .exp-controls {
+        gap: 0.65rem 1.25rem;
+    }
+
+    /* Timeline: remove vertical line + year offset */
+    .exp-timeline::before {
+        display: none;
+    }
+
+    .exp-card {
+        margin-left: 0;
+    }
+
+    .exp-year-group {
+        gap: 0.9rem;
+    }
+
+    .exp-year-marker {
+        gap: 0.6rem;
+    }
+
+    .exp-year-label {
+        width: auto;
+        text-align: left;
+    }
+
+    .exp-card__illustration {
+        width: 50%;
+        opacity: 0.35;
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    /* Hide construction overlay on mobile (touch) */
+    .exp-card--construction .exp-card__construction-overlay {
+        display: none;
+    }
+
+    /* Quick View dialog full-width on mobile */
+    .exp-qv-dialog {
+        width: calc(100vw - 1.5rem);
+        max-height: 90vh;
+    }
+
+    .exp-qv-inner {
+        padding: 1.2rem;
+    }
+
+    .exp-qv-evidence-row {
+        grid-template-columns: 5.5rem minmax(0, 1fr);
+    }
+}
+
+/* ------------------------------------------------------------
+   Light mode compatibility
+   All values inherit from CSS custom properties automatically.
+   These overrides handle any surface/shadow adjustments.
+   ------------------------------------------------------------ */
+
+html[data-theme="light"] .exp-mobile-panel {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .exp-qv-backdrop {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 28%,
+        rgba(0, 0, 0, 0.18) 58%,
+        rgba(0, 0, 0, 0.34) 100%
+    );
+}
+
+/* ------------------------------------------------------------
+   Reduced motion
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+    .exp-card {
+        transition: border-color 0.01ms !important;
+    }
+
+    .exp-card:hover {
+        transform: none;
+    }
+
+    .exp-card--construction .exp-card__construction-overlay {
+        transition: none !important;
+    }
+
+    .exp-qv-dialog[open] {
+        animation: none;
+    }
+
+    .exp-mobile-trigger__arrow {
+        transition: none !important;
+    }
+}
+
+/* ============================================================
+   Experience detail pages
+   Used by: /pages/experience/[slug]/index.html
+   These pages are one level deeper than the index.
+   ============================================================ */
+
+/* ── Breadcrumb / back navigation ────────────────────────── */
+
+.exp-detail-nav {
+    padding: 1.4rem 0 0;
+}
+
+.exp-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: color 140ms ease;
+    padding: 0;
+}
+
+.exp-detail-back:hover {
+    color: var(--color-accent-bright);
+}
+
+.exp-detail-back::before {
+    content: '←';
+    font-style: normal;
+}
+
+/* ── Role header ─────────────────────────────────────────── */
+
+.exp-detail-header {
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.exp-detail-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 1rem;
+}
+
+.exp-detail-role {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 1rem;
+}
+
+.exp-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 1.5rem;
+}
+
+.exp-detail-period {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.exp-detail-company {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.exp-detail-company a {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 140ms ease;
+}
+
+.exp-detail-company a:hover {
+    color: var(--color-accent-bright);
+}
+
+.exp-detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+}
+
+.exp-detail-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.55rem;
+    border-radius: 2px;
+}
+
+/* ── Illustration frame ──────────────────────────────────── */
+
+.exp-detail-illustration {
+    margin: 2.5rem 0;
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-secondary);
+}
+
+.exp-detail-illustration img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+}
+
+/* ── Content sections ─────────────────────────────────────── */
+
+.exp-detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.exp-detail-section {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.exp-detail-section:last-child {
+    border-bottom: 0;
+}
+
+.exp-detail-section-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 1rem;
+}
+
+.exp-detail-section h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--color-text);
+    margin: 0 0 0.85rem;
+    line-height: 1.25;
+}
+
+.exp-detail-section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary, var(--color-text));
+    margin: 0 0 0.65rem;
+    max-width: 68ch;
+}
+
+.exp-detail-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Contribution list ───────────────────────────────────── */
+
+.exp-detail-contrib-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 68ch;
+}
+
+.exp-detail-contrib-list li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary, var(--color-text));
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.exp-detail-contrib-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* ── Technology grid ─────────────────────────────────────── */
+
+.exp-detail-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 3rem;
+    margin-top: 0.5rem;
+}
+
+.exp-detail-tech-category-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 0.65rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.4rem;
+}
+
+.exp-detail-tech-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.exp-detail-tech-list li {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.exp-detail-tech-list li abbr {
+    border-bottom: 1px dotted var(--color-border);
+    cursor: help;
+    text-decoration: none;
+}
+
+/* ── Tooling list (simple, inline) ──────────────────────── */
+
+.exp-detail-tooling {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+}
+
+.exp-detail-tooling li {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+}
+
+/* ── Evidence summary block ──────────────────────────────── */
+
+.exp-detail-evidence-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.exp-detail-evidence-row {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: baseline;
+}
+
+.exp-detail-evidence-type {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.exp-detail-evidence-detail {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+}
+
+/* ── Outcome metric (Argon performance score) ────────────── */
+
+.exp-detail-metric {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    margin-top: 0.65rem;
+}
+
+.exp-detail-metric__value {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.exp-detail-metric__arrow {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+}
+
+/* ── Note (placeholder note) ─────────────────────────────── */
+
+.exp-detail-note {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin: 0.5rem 0 0;
+    opacity: 0.7;
+}
+
+/* ── Responsive — tablet ─────────────────────────────────── */
+
+@media (max-width: 760px) {
+    .exp-detail-tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .exp-detail-role {
+        font-size: 1.75rem;
+    }
+
+    .exp-detail-evidence-row {
+        grid-template-columns: 6rem minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .exp-detail-meta {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .exp-detail-metric {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+}
