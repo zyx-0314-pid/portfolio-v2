@@ -204,54 +204,56 @@
 
         <section class="home-zone home-zone--studies" aria-labelledby="case-studies-title">
             <div class="page-shell">
-            <p class="section__eyebrow">Selected Case Studies</p>
-            <h2 class="section__title" id="case-studies-title">Evidence Through Technical Work</h2>
-            <div class="study-list">
-                <article class="study-item">
-                    <div>
-                        <h3 class="study-title">Example Project</h3>
-                        <div class="study-columns">
-                            <p><strong>Context</strong>Placeholder context for where the project was delivered.</p>
-                            <p><strong>Technical Problem</strong>Placeholder description of the key technical problem.</p>
-                            <p><strong>Important Decision</strong>Placeholder for a notable architectural or implementation decision.</p>
-                            <p><strong>Outcome / Improvement</strong>Placeholder for a verifiable result that can be expanded in the case study.</p>
+                <p class="section__eyebrow">Selected Case Studies</p>
+                <h2 class="section__title" id="case-studies-title">Evidence Through Technical Work</h2>
+                <div class="study-list">
+                    <article class="study-item">
+                        <div>
+                            <h3 class="study-title">GoPick</h3>
+                            <div class="study-columns">
+                                <p><strong>Context</strong>People Dynamics Inc. · HR &amp; Assessment Domain</p>
+                                <p><strong>Technical Problem</strong>Coupled legacy PHP system with undocumented state transitions and fragile assessment scoring workflows.</p>
+                                <p><strong>Important Decision</strong>Established an N-layer architectural boundary, decoupled core assessment modules, implemented environment feature toggles, and standardized Docker + GitHub Actions deployment to AWS EC2.</p>
+                                <p><strong>Outcome / Improvement</strong>Modularized assessment processing, zero-downtime deployment pipelines, and explicit engineering documentation (GoPick Manual).</p>
+                            </div>
+                            <a class="section-link" href="pages/projects/gopick/">Read case study →</a>
                         </div>
-                        <a class="section-link" href="pages/projects/example-project/">Read case study →</a>
-                    </div>
-                    <div>
-                        <figure class="study-media">
-                            <img src="https://placehold.net/960x600.png" alt="Placeholder for example project screenshot or architecture diagram">
-                        </figure>
-                        <p class="content-placeholder-note">Replace with a real architecture, deployment, or system-flow diagram relevant to this case study. Remove this note after adding the final image.</p>
-                    </div>
-                </article>
-                <article class="study-item">
-                    <div>
-                        <h3 class="study-title">Case Study Placeholder</h3>
-                        <div class="study-columns">
-                            <p><strong>Context</strong>Placeholder for project context.</p>
-                            <p><strong>Technical Problem</strong>Placeholder for the key engineering challenge.</p>
-                            <p><strong>Important Decision</strong>Placeholder for decision and tradeoff.</p>
-                            <p><strong>Outcome / Improvement</strong>Placeholder for measured or operational result.</p>
+                        <div>
+                            <figure class="study-media">
+                                <img src="https://placehold.net/960x600.png?text=GoPick+Architecture+%26+N-Layer+System" alt="Placeholder for GoPick system architecture diagram">
+                            </figure>
+                            <!-- TODO: Replace with real GoPick architecture or system-flow diagram when available. -->
+                            <p class="content-placeholder-note">Replace with a real architecture, deployment, or system-flow diagram relevant to this case study. Remove this note after adding the final image.</p>
                         </div>
-                        <a class="section-link" href="pages/projects/">Read case study →</a>
-                    </div>
-                    <div>
-                        <figure class="study-media">
-                            <img src="https://placehold.net/960x600.png" alt="Placeholder for project evidence image">
-                        </figure>
-                        <p class="content-placeholder-note">Replace with a real screenshot showing the project interface or technical area discussed in the case study. Avoid decorative mockups. Remove this note after adding the final image.</p>
-                    </div>
-                </article>
-            </div>
-            <a class="section-link" href="pages/projects/">Read Case Studies →</a>
+                    </article>
+                    <article class="study-item">
+                        <div>
+                            <h3 class="study-title">Veyra</h3>
+                            <div class="study-columns">
+                                <p><strong>Context</strong>Nyebe Creations Studio · Operations &amp; Multi-Tenant SaaS</p>
+                                <p><strong>Technical Problem</strong>Designing a multi-tenant feedback platform requiring strict organization data isolation, fine-grained RBAC, sub-second QR code response times, and developer observability.</p>
+                                <p><strong>Important Decision</strong>Implemented hybrid Clerk + custom app-layer RBAC authorization (Owner, Org Head, Member 1, Member 2), NeonDB Postgres connection pooling, Backblaze S3 media storage, and Sentry/PostHog observability.</p>
+                                <p><strong>Outcome / Improvement</strong>Sub-second QR response rates, isolated tenant boundary enforcement, non-destructive organization plan limits, and structured developer error monitoring.</p>
+                            </div>
+                            <a class="section-link" href="pages/projects/veyra/">Read case study →</a>
+                        </div>
+                        <div>
+                            <figure class="study-media">
+                                <img src="https://placehold.net/960x600.png?text=Veyra+Multi-Tenant+SaaS+Architecture" alt="Placeholder for Veyra multi-tenant architecture screenshot">
+                            </figure>
+                            <!-- TODO: Replace with real Veyra architecture or system-flow diagram when available. -->
+                            <p class="content-placeholder-note">Replace with a real screenshot showing the project interface or technical area discussed in the case study. Avoid decorative mockups. Remove this note after adding the final image.</p>
+                        </div>
+                    </article>
+                </div>
+                <a class="section-link" href="pages/projects/">Read All Case Studies →</a>
             </div>
         </section>
 
         <section class="home-zone home-zone--about" aria-labelledby="about-preview-title">
             <div class="page-shell">
-            <p class="section__eyebrow">About</p>
-            <h2 class="section__title" id="about-preview-title">Working Perspective</h2>
+                <p class="section__eyebrow">About</p>
+                <h2 class="section__title" id="about-preview-title">Working Perspective</h2>
             <div class="about-preview">
                 <div>
                     <p class="section__lead">I prefer reliability and clarity over novelty. I aim to understand a system before changing it, and I treat technical decisions as choices that should be justified by constraints, evidence, and long-term maintainability.</p>
