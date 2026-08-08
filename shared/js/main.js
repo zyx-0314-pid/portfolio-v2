@@ -157,7 +157,6 @@
                 [/about|perspective|interest/, 'fa-user'],
                 [/contact|email/, 'fa-envelope'],
                 [/credential|education|certif/, 'fa-award'],
-                [/resume/, 'fa-file-lines'],
                 [/filter|sort|control/, 'fa-sliders'],
                 [/year|timeline|history|period|\d{4}/, 'fa-calendar-days']
             ];
