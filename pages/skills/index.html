@@ -14,13 +14,17 @@
             }
         })();
     </script>
-    <title>Skills | Portfolio</title>
+    <title>Skills | Ian Cedric Ramirez</title>
+    <meta name="description" content="Capability and technology directory of Ian Cedric Ramirez — searchable skills gallery with depth levels, evidence records, and contextual links to projects, experience, and credentials.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/skills.css">
 </head>
 <body>
+
+    <!-- Site Header -->
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
@@ -34,7 +38,7 @@
                         <a href="../projects/">Projects</a>
                         <a href="../experience/">Experience</a>
                         <a href="../about/">About</a>
-                        <a href="./">Skills</a>
+                        <a href="./" aria-current="page">Skills</a>
                         <a href="../credentials/">Credentials</a>
                         <a href="../contact/">Contact</a>
                     </div>
@@ -46,14 +50,280 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
-        <section class="section" aria-labelledby="page-title">
-            <p class="section__eyebrow">Skills</p>
-            <h1 class="section__title" id="page-title">Skills | Portfolio</h1>
-            <p class="page-placeholder">Placeholder page shell for the skills page.</p>
-        </section>
+    <main class="skills-main" id="skills-main">
+        <div class="skills-page-shell">
+
+            <!-- ── Hero ──────────────────────────────────────────────────── -->
+            <section class="skills-hero" aria-labelledby="page-title">
+                <div class="page-hero__header">
+                    <p class="page-hero__eyebrow">CAPABILITY</p>
+                    <h1 class="page-hero__title" id="page-title">SKILLS</h1>
+                    <p class="page-hero__lead">What I can do, which technologies support it, how deeply I have applied each, and where the evidence lives.</p>
+                </div>
+            </section>
+
+            <!-- ── Capability Overview ────────────────────────────────────── -->
+            <section class="skills-capability-section" aria-labelledby="capability-heading">
+                <h2 id="capability-heading">Capability Overview</h2>
+                <p class="capability-intro">Ten areas where I have applied technical judgment. Each links to the filtered skill gallery below.</p>
+
+                <div class="capability-map" role="list">
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Development</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Building web applications, APIs, and interfaces across multiple languages and runtime environments.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>JavaScript</li>
+                                <li>TypeScript</li>
+                                <li>React</li>
+                                <li>Next.js</li>
+                                <li>Node.js</li>
+                                <li>PHP</li>
+                                <li>Java</li>
+                                <li>SQL</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Development" aria-label="Explore Development skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Architecture</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">System structure, service boundaries, technical decisions, and incremental modernization.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>REST API Design</li>
+                                <li>Layered Architecture</li>
+                                <li>Modular Design</li>
+                                <li>System Design</li>
+                                <li>Repository Pattern</li>
+                                <li>Legacy Modernization</li>
+                                <li>ADR</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Architecture" aria-label="Explore Architecture skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">DevOps</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Automated delivery pipelines, container management, and production environment operations.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>Docker</li>
+                                <li>GitHub Actions</li>
+                                <li>CI/CD</li>
+                                <li>Git</li>
+                                <li>Nginx</li>
+                                <li>Linux</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="DevOps" aria-label="Explore DevOps skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Infrastructure</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Cloud resource management, access control, networking, and compute configuration.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>Google Cloud Platform</li>
+                                <li>Amazon Web Services</li>
+                                <li>IAM &amp; Access Control</li>
+                                <li>Network Fundamentals</li>
+                                <li>Linux</li>
+                                <li>Nginx</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Infrastructure" aria-label="Explore Infrastructure skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Data</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Relational database design, query optimization, data modelling, and analytical pipelines.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>PostgreSQL</li>
+                                <li>MySQL</li>
+                                <li>SQL</li>
+                                <li>Prisma ORM</li>
+                                <li>Snowflake</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Data" aria-label="Explore Data skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Quality</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Automated test coverage, end-to-end validation, and CI-integrated quality gates.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>Unit Testing</li>
+                                <li>Playwright</li>
+                                <li>CI/CD</li>
+                                <li>Sentry</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Quality" aria-label="Explore Quality skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Security</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Access control, token-based authentication, and cloud permission boundary management.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>IAM &amp; Access Control</li>
+                                <li>JWT Authentication</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Security" aria-label="Explore Security skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Observability</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Error tracking, structured logging, and application health monitoring in production systems.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>Sentry</li>
+                                <li>Structured Logging</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Observability" aria-label="Explore Observability skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Documentation</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Technical writing, architecture decision records, and structured course material production.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>Technical Writing</li>
+                                <li>ADR</li>
+                                <li>Curriculum Design</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Documentation" aria-label="Explore Documentation skills">Explore ↓</a>
+                    </div>
+
+                    <div class="capability-map-item" role="listitem">
+                        <span class="capability-map-item__cat">Teaching</span>
+                        <div class="capability-map-item__body">
+                            <p class="capability-map-item__statement">Academic software development instruction, curriculum design, and mentoring student engineers.</p>
+                            <ul class="capability-map-item__skills" aria-label="Representative skills">
+                                <li>Software Dev Teaching</li>
+                                <li>Curriculum Design</li>
+                            </ul>
+                        </div>
+                        <a class="capability-map-item__anchor" href="#skill-directory-section" data-skill-category-anchor="Teaching" aria-label="Explore Teaching skills">Explore ↓</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── Skills Gallery ─────────────────────────────────────────── -->
+            <section id="skill-directory-section" aria-labelledby="directory-heading">
+
+                <!-- Search & Filters -->
+                <div class="skills-controls" aria-label="Skill filters and search">
+
+                    <div class="skills-search-row">
+                        <div class="skills-search-field">
+                            <label class="sr-only" for="skill-search">Search skills</label>
+                            <input type="search"
+                                   id="skill-search"
+                                   placeholder="Search by name, type, or capability..."
+                                   aria-label="Search skills">
+                        </div>
+                    </div>
+
+                    <div class="skills-filter-groups">
+
+                        <div class="filter-group" role="group" aria-label="Filter by category">
+                            <span class="filter-group__title" aria-hidden="true">CATEGORY</span>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="all" aria-pressed="true">All</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Development" aria-pressed="false">Development</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Architecture" aria-pressed="false">Architecture</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="DevOps" aria-pressed="false">DevOps</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Infrastructure" aria-pressed="false">Infrastructure</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Data" aria-pressed="false">Data</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Quality" aria-pressed="false">Quality</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Security" aria-pressed="false">Security</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Observability" aria-pressed="false">Observability</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Documentation" aria-pressed="false">Documentation</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="category" data-value="Teaching" aria-pressed="false">Teaching</button>
+                        </div>
+
+                        <div class="filter-group" role="group" aria-label="Filter by depth">
+                            <span class="filter-group__title" aria-hidden="true">DEPTH</span>
+                            <button type="button" class="filter-btn" data-skill-filter-group="depth" data-value="all" aria-pressed="true">All</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="depth" data-value="CORE" aria-pressed="false">Core</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="depth" data-value="APPLIED" aria-pressed="false">Applied</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="depth" data-value="PRACTICED" aria-pressed="false">Practiced</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="depth" data-value="EXPOSURE" aria-pressed="false">Exposure</button>
+                        </div>
+
+                        <div class="filter-group" role="group" aria-label="Filter by technology type">
+                            <span class="filter-group__title" aria-hidden="true">TYPE</span>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="all" aria-pressed="true">All</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Language" aria-pressed="false">Language</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Framework" aria-pressed="false">Framework</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Library" aria-pressed="false">Library</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Database" aria-pressed="false">Database</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Cloud" aria-pressed="false">Cloud</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Platform" aria-pressed="false">Platform</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Tool" aria-pressed="false">Tool</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Runtime" aria-pressed="false">Runtime</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Method" aria-pressed="false">Method</button>
+                            <button type="button" class="filter-btn" data-skill-filter-group="type" data-value="Practice" aria-pressed="false">Practice</button>
+                        </div>
+
+                    </div>
+
+                    <div class="skills-status-bar">
+                        <span class="result-count" id="skill-result-count" aria-live="polite" aria-atomic="true">Loading…</span>
+                        <button type="button" class="clear-filters-btn" id="skill-clear-filters" hidden>Clear filters</button>
+                    </div>
+
+                </div>
+
+                <!-- Gallery — populated by JS -->
+                <div class="skills-group-section" id="skills-group-section">
+                    <div class="skills-group-header">
+                        <h2 class="skills-group-title" id="directory-heading">SKILLS DIRECTORY</h2>
+                        <div class="skills-group-line" aria-hidden="true"></div>
+                    </div>
+                    <div class="skills-grid" id="skill-gallery" role="list" aria-label="Skills gallery"></div>
+                </div>
+
+                <!-- Empty state -->
+                <div class="skills-empty-state" id="skills-empty-state" hidden>
+                    <p>No skills match the current search and filters.</p>
+                    <button type="button" class="filter-btn" onclick="document.getElementById('skill-clear-filters').click();">Reset Filters</button>
+                </div>
+
+            </section>
+
+        </div><!-- /.skills-page-shell -->
     </main>
 
+    <!-- Skill Detail Modal -->
+    <div class="skill-modal-wrapper"
+         id="skill-modal"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="skill-modal-title"
+         hidden>
+        <div class="skill-modal-backdrop" id="skill-modal-backdrop"></div>
+        <div class="skill-modal-container">
+            <button type="button" class="skill-modal__close-btn" id="skill-modal-close" aria-label="Close skill detail">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="skill-modal-body" id="skill-modal-body">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Footer -->
     <footer class="site-footer">
         <div class="page-shell site-footer__inner">
             <div>
@@ -72,6 +342,9 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="../../shared/js/main.js"></script>
+    <script src="assets/js/skills-data.js"></script>
+    <script src="assets/js/skills.js"></script>
 </body>
 </html>
