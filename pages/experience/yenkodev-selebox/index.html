@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Full-Stack Developer — YenkoDev / SeLeBox Platform | Ian Cedric Ramirez</title>
+    <meta name="description"
+        content="Full-Stack Developer  at YenkoDev working on the SeLeBox Platform — social features, direct & group messaging, feed services, media uploads, infinite scrolling video feed, and offline video caching. May 2024 — Aug 2024.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/experience.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                        data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"
+                    title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+
+        <!-- ── Back navigation ────────────────────────────────────── -->
+        <nav class="exp-detail-nav" aria-label="Breadcrumb">
+            <a class="exp-detail-back" href="../">Experience</a>
+        </nav>
+
+        <!-- ── Role header ─────────────────────────────────────────── -->
+        <header class="exp-detail-header">
+            <p class="exp-detail-eyebrow">Experience</p>
+            <h1 class="exp-detail-role">Full-Stack Developer </h1>
+            <div class="exp-detail-meta">
+                <p class="exp-detail-period">May 2024 — Aug 2024</p>
+                <p class="exp-detail-company">YenkoDev — SeLeBox Platform</p>
+            </div>
+            <div class="exp-detail-tags">
+                <span class="exp-detail-tag">Full-Stack</span>
+            </div>
+        </header>
+
+        <!-- ── Illustration ────────────────────────────────────────── -->
+        <!-- TODO: Replace with the final custom SeLeBox experience illustration and update alt text to describe the actual artwork. -->
+        <div class="exp-detail-illustration">
+            <img src="https://placehold.net/1200x525.png"
+                alt="Placeholder for a custom editorial illustration representing social platform development, messaging, follower relationships, continuous video feeds, media uploads, and offline video access."
+                width="1200" height="525">
+        </div>
+
+        <!-- ── Content body ────────────────────────────────────────── -->
+        <div class="exp-detail-body">
+
+            <!-- ── Context ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-context">
+                <p class="exp-detail-section-label">Context</p>
+                <h2 id="section-context">Platform &amp; Team Relationship</h2>
+                <p>
+                    Worked with the development team at <strong>YenkoDev</strong> on the <strong>SeLeBox
+                        Platform</strong> as a part-time Full-Stack Developer.
+                </p>
+                <p>
+                    The engagement focused on extending an existing application codebase by designing, building, and
+                    integrating interconnected social, messaging, feed, and media capabilities.
+                </p>
+            </section>
+
+            <!-- ── Scope & Ownership ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-scope">
+                <p class="exp-detail-section-label">Scope &amp; Ownership</p>
+                <h2 id="section-scope">Feature Ownership Within an Existing Codebase</h2>
+                <p>
+                    Owned the implementation of several core social, messaging, feed, media, and offline-experience
+                    features within the existing SeLeBox platform.
+                </p>
+                <p>
+                    This work extended an existing platform rather than replacing it, requiring seamless integration
+                    with established user authentication, data models, and application workflows.
+                </p>
+                <!-- TODO: Add the exact technical architecture used by the SeLeBox platform if the original source/project can be reviewed. -->
+            </section>
+
+            <!-- ── Social Relationships ─────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-social">
+                <p class="exp-detail-section-label">Social Core</p>
+                <h2 id="section-social">Follow System &amp; Profile Integration</h2>
+                <p>
+                    Implemented follow and follow-back relationships between users, connecting user connections directly
+                    into profile displays.
+                </p>
+                <p>
+                    This follower relationship logic served as the foundation for permissions and content targeting
+                    across downstream features, including messaging access and feed content delivery.
+                </p>
+            </section>
+
+            <!-- ── Messaging Capabilities ───────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-messaging">
+                <p class="exp-detail-section-label">Communication</p>
+                <h2 id="section-messaging">Direct Messaging &amp; Group Chat Services</h2>
+                <p>
+                    <strong>Direct Chat:</strong> Implemented user-to-user direct messaging connected to
+                    follower/following relationships, enabling users to exchange direct text messages within established
+                    connections.
+                </p>
+                <!-- TODO: Add specific API/service architecture for Chat and Group Chat if available. -->
+                <p>
+                    <strong>Group Chat Services:</strong> Expanded the platform's messaging capabilities from one-to-one
+                    conversations into multi-user group chat support, allowing users to communicate collectively within
+                    shared group channels.
+                </p>
+            </section>
+
+            <!-- ── Feed & Media Services ────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-feed">
+                <p class="exp-detail-section-label">Content Delivery</p>
+                <h2 id="section-feed">Feed Services &amp; Media Uploads</h2>
+                <p>
+                    <strong>Feed Services:</strong> Implemented and extended feed-related services supporting social
+                    content delivery, combining posts, media attachments, and follower relationships into active user
+                    feeds.
+                </p>
+                <p>
+                    <strong>Media Uploading:</strong> Added image and video upload support for feed posts, enabling
+                    users to attach media files directly when publishing content to the platform.
+                </p>
+            </section>
+
+            <!-- ── Video Experience & Offline Caching ───────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-video">
+                <p class="exp-detail-section-label">Media &amp; Browsing</p>
+                <h2 id="section-video">Continuous Video Browsing &amp; Offline Caching</h2>
+                <p>
+                    <strong>Continuous Video Feed:</strong> Built a continuous video browsing experience using infinite
+                    scrolling, integrating engagement interactions such as Like, Comment, and Share for video content.
+                </p>
+                <!-- TODO: Document the exact mechanism used for infinite scrolling if publicly shareable. -->
+                <p>
+                    <strong>Offline Video Caching:</strong> Implemented offline video caching so selected videos could
+                    remain accessible to users even when an active network connection was unavailable.
+                </p>
+                <!-- TODO: Document the offline video caching/storage strategy if the implementation can be reviewed. -->
+            </section>
+
+            <!-- ── Feature Architecture ─────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-architecture">
+                <p class="exp-detail-section-label">Feature Interconnection</p>
+                <h2 id="section-architecture">Integrated Social Ecosystem</h2>
+                <p>
+                    Rather than isolated utilities, these features formed a connected social product workflow:
+                </p>
+                <ul class="exp-detail-contrib-list" aria-label="Feature connections">
+                    <li><strong>User Profiles &amp; Follow System:</strong> Established relationships that governed chat
+                        eligibility and feed distribution.</li>
+                    <li><strong>Messaging Engine:</strong> Provided direct and group chat channels grounded in social
+                        relationships.</li>
+                    <li><strong>Feed &amp; Media Publishing:</strong> Combined post creation, media uploads, and feed
+                        delivery.</li>
+                    <li><strong>Continuous Video &amp; Offline Caching:</strong> Delivered media browsing with offline
+                        access for selected content.</li>
+                </ul>
+            </section>
+
+            <!-- ── Technical Decisions ──────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-decisions">
+                <p class="exp-detail-section-label">Engineering Rationale</p>
+                <h2 id="section-decisions">Technical Decisions</h2>
+                <p>
+                    <strong>Building on an Existing System:</strong> Integrated new features into an existing
+                    application codebase without attempting a risky full rewrite, preserving existing auth and data
+                    structures.
+                </p>
+                <p>
+                    <strong>Connected Social Foundation:</strong> Positioned follow relationships as a core dependency
+                    for profiles, messaging permissions, and feed content visibility.
+                </p>
+                <p>
+                    <strong>Offline Media Boundary:</strong> Introduced offline caching specifically for selected video
+                    content to support offline access without falsely claiming full-application offline operation.
+                </p>
+                <p>
+                    <strong>Incremental Content Browsing:</strong> Implemented infinite scrolling to deliver a smooth,
+                    uninterrupted video browsing flow.
+                </p>
+            </section>
+
+            <!-- ── Key Contributions ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-contributions">
+                <p class="exp-detail-section-label">Key Contributions</p>
+                <h2 id="section-contributions">Summary of Contributions</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Key contributions">
+                    <li>
+                        Implemented follow and follow-back relationships and integrated follower/following information
+                        into user profiles.
+                    </li>
+                    <li>
+                        Built direct messaging between followers and expanded messaging into group-chat functionality.
+                    </li>
+                    <li>
+                        Developed a continuous video experience with infinite scrolling and integrated like, comment,
+                        and share interactions.
+                    </li>
+                    <li>
+                        Implemented offline caching for selected videos.
+                    </li>
+                    <li>
+                        Added image and video uploading for feed posts.
+                    </li>
+                    <li>
+                        Implemented and extended feed services supporting the platform's social-content workflows.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Outcomes ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-outcomes">
+                <p class="exp-detail-section-label">Outcomes</p>
+                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Qualitative outcomes">
+                    <li>Enabled users to establish follower/following relationships through the platform.</li>
+                    <li>Connected social relationships directly to messaging access and permissions.</li>
+                    <li>Extended one-to-one communication into multi-user group conversations.</li>
+                    <li>Enabled continuous video browsing rather than requiring discrete page-by-page navigation.</li>
+                    <li>Added Like, Comment, and Share engagement actions to video content.</li>
+                    <li>Allowed selected videos to remain accessible when offline.</li>
+                    <li>Enabled users to attach images and videos to feed posts.</li>
+                    <li>Expanded the platform's social and media capabilities through interconnected feature services.
+                    </li>
+                </ul>
+                <!-- TODO: Add measurable outcomes only if real metrics become available. -->
+            </section>
+
+            <!-- ── Related Evidence ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-evidence">
+                <p class="exp-detail-section-label">Related Evidence</p>
+                <h2 id="section-evidence">Skills &amp; Project Links</h2>
+                <div class="exp-detail-evidence-block">
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Skills</span>
+                        <span class="exp-detail-evidence-detail">Full-Stack Development · Social Platform Features ·
+                            Messaging Services · Feed Workflows · Media Handling · Offline Caching</span>
+                    </div>
+                    <!-- TODO: Link related SeLeBox project case study if a dedicated Projects page is created. -->
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Projects</span>
+                        <span class="exp-detail-evidence-detail">SeLeBox Platform Enhancements</span>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.exp-detail-body -->
+
+    </main>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+
+</body>
+
+</html>

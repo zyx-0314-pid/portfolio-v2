@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Web Developer &amp; IT Operations — ILTN Holdings LLC | Ian Cedric Ramirez</title>
+    <meta name="description" content="Web Developer &amp; IT Operations (Contract) at ILTN Holdings LLC — WordPress development, SaaS automation (GoHighLevel, Zapier, n8n), domain/DNS management, SPF/DKIM/DMARC setup, and email deliverability. May 2025 — Sep 2025.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/experience.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+
+        <!-- ── Back navigation ────────────────────────────────────── -->
+        <nav class="exp-detail-nav" aria-label="Breadcrumb">
+            <a class="exp-detail-back" href="../">Experience</a>
+        </nav>
+
+        <!-- ── Role header ─────────────────────────────────────────── -->
+        <header class="exp-detail-header">
+            <p class="exp-detail-eyebrow">Experience</p>
+            <!-- Original title: Remote IT Associate/Developer -->
+            <h1 class="exp-detail-role">Web Developer &amp; IT Operations</h1>
+            <div class="exp-detail-meta">
+                <p class="exp-detail-period">May 2025 — Sep 2025 · Contract · Remote</p>
+                <p class="exp-detail-company">ILTN Holdings LLC</p>
+            </div>
+            <div class="exp-detail-tags">
+                <span class="exp-detail-tag">DevOps</span>
+            </div>
+        </header>
+
+        <!-- ── Illustration ────────────────────────────────────────── -->
+        <!-- TODO: Replace with the final custom ILTN Holdings web operations illustration and update alt text to describe the actual artwork. -->
+        <div class="exp-detail-illustration">
+            <img
+                src="https://placehold.net/1200x525.png"
+                alt="Placeholder for a custom editorial illustration representing WordPress development, SaaS automation, connected web services, domain management, and email operations."
+                width="1200"
+                height="525"
+            >
+        </div>
+
+        <!-- ── Content body ────────────────────────────────────────── -->
+        <div class="exp-detail-body">
+
+            <!-- ── Context ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-context">
+                <p class="exp-detail-section-label">Context</p>
+                <h2 id="section-context">Operational Setting</h2>
+                <p>
+                    Provided remote contract services to <strong>ILTN Holdings LLC</strong>, combining WordPress website development, SaaS integration and automation, domain and email infrastructure management, and ongoing web/IT operational support.
+                </p>
+            </section>
+
+            <!-- ── Scope ───────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-scope">
+                <p class="exp-detail-section-label">Scope</p>
+                <h2 id="section-scope">Role Positioning</h2>
+                <p>
+                    This role centered on web operations, platform automation, WordPress management, domain infrastructure, and day-to-day IT support across connected SaaS environments.
+                </p>
+                <p>
+                    Development work focused on WordPress implementation, custom styling, plugin integration, and operational workflows rather than custom application backend engineering.
+                </p>
+            </section>
+
+            <!-- ── WordPress Development ───────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-wordpress">
+                <p class="exp-detail-section-label">Web Development</p>
+                <h2 id="section-wordpress">WordPress Development &amp; Site Maintenance</h2>
+                <p>
+                    Maintained and developed WordPress websites through page implementation, theme/CSS customization, plugin configuration, integrations, troubleshooting, and performance optimization.
+                </p>
+                <ul class="exp-detail-contrib-list" aria-label="WordPress responsibilities">
+                    <li>Created and updated website pages and content layouts.</li>
+                    <li>Applied theme customizations and custom CSS styling.</li>
+                    <li>Configured and maintained essential WordPress plugins.</li>
+                    <li>Built and integrated web forms for lead and contact collection.</li>
+                    <li>Troubleshot site errors, plugin conflicts, and page layout issues.</li>
+                    <li>Optimized website loading speeds and performance.</li>
+                </ul>
+                <!-- TODO: Add measurable WordPress performance improvements if historical measurements are available. -->
+            </section>
+
+            <!-- ── Automation & Tooling ────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-automation">
+                <p class="exp-detail-section-label">SaaS &amp; Integrations</p>
+                <h2 id="section-automation">Automation &amp; Platform Integrations</h2>
+                <p>
+                    Connected and managed SaaS tooling across CRM, lead capture, automation, and email campaign workflows:
+                </p>
+                <ul class="exp-detail-contrib-list" aria-label="Connected tools">
+                    <li><strong>GoHighLevel:</strong> Supported CRM operations, lead management, forms/funnels, contact workflows, and automation operations.</li>
+                    <li><strong>Zapier &amp; n8n:</strong> Connected separate platforms and automated repetitive data movement and workflow triggers between services.</li>
+                    <li><strong>Smartlead:</strong> Supported outbound email operations and campaign configuration.</li>
+                    <li><strong>TrulyInbox:</strong> Handled email inbox management and deliverability operations.</li>
+                    <li><strong>Google Console APIs:</strong> Supported Google service configurations and API integrations.</li>
+                </ul>
+                <!-- TODO: Add one concrete Zapier or n8n automation example if publicly shareable. -->
+                <!-- TODO: Add one concrete GoHighLevel workflow example if publicly shareable. -->
+            </section>
+
+            <!-- ── Domain & Email Infrastructure ────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-infrastructure">
+                <p class="exp-detail-section-label">Infrastructure</p>
+                <h2 id="section-infrastructure">Domain &amp; Email Infrastructure</h2>
+                <p>
+                    Managed domain administration and email infrastructure to ensure stable connectivity and high email deliverability across business operations:
+                </p>
+                <ul class="exp-detail-contrib-list" aria-label="Infrastructure responsibilities">
+                    <li>Administered domains and DNS settings via GoDaddy.</li>
+                    <li>Configured domain mappings, CNAMEs, and server record associations.</li>
+                    <li>Set up and verified mailbox accounts across domains.</li>
+                    <li>Implemented email authentication records including <strong>SPF</strong>, <strong>DKIM</strong>, and <strong>DMARC</strong>.</li>
+                    <li>Troubleshot email deliverability, spam flagging, and domain configuration issues.</li>
+                </ul>
+                <!-- TODO: Add a representative deliverability issue and resolution if publicly shareable. -->
+            </section>
+
+            <!-- ── Monitoring & IT Operations ───────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-monitoring">
+                <p class="exp-detail-section-label">Operations</p>
+                <h2 id="section-monitoring">Monitoring &amp; IT Support</h2>
+                <p>
+                    Monitored website and system health using <strong>Cymbals Manager</strong> to maintain operational visibility across connected web properties.
+                </p>
+                <p>
+                    Handled day-to-day IT support requests, website fixes, domain changes, and automation adjustments remotely to keep business workflows running reliably.
+                </p>
+            </section>
+
+            <!-- ── Operational Decisions ───────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-decisions">
+                <p class="exp-detail-section-label">Operational Principles</p>
+                <h2 id="section-decisions">Operational Decisions</h2>
+                <p>
+                    <strong>Automation Over Manual Work:</strong> Connected separate SaaS tools through automated integration workflows to reduce repetitive manual data entry.
+                </p>
+                <p>
+                    <strong>Domain Authentication Alignment:</strong> Configured SPF, DKIM, and DMARC records to establish proper email domain authentication and maintain inbox deliverability.
+                </p>
+                <p>
+                    <strong>Maintainable WordPress Operations:</strong> Combined theme customization, plugin health checks, and performance optimization rather than treating websites as static assets.
+                </p>
+                <p>
+                    <strong>Integration-First Strategy:</strong> Leveraged existing specialized platforms (GoHighLevel, Zapier, n8n) rather than building unnecessary custom software for operational workflows.
+                </p>
+            </section>
+
+            <!-- ── Key Contributions ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-contributions">
+                <p class="exp-detail-section-label">Key Contributions</p>
+                <h2 id="section-contributions">Summary of Contributions</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Key contributions">
+                    <li>
+                        Maintained and developed WordPress websites through page creation, theme/CSS customization, plugin configuration, integrations, troubleshooting, and performance optimization.
+                    </li>
+                    <li>
+                        Connected and managed SaaS tooling across lead, automation, email, and website workflows using GoHighLevel, Zapier, n8n, Smartlead, TrulyInbox, and Google Console APIs.
+                    </li>
+                    <li>
+                        Managed domain and email infrastructure including GoDaddy administration, DNS records, domain mapping, mailbox setup, and SPF/DKIM/DMARC authentication.
+                    </li>
+                    <li>
+                        Troubleshot website, domain, email, and deliverability issues across remote web and IT operations.
+                    </li>
+                    <li>
+                        Improved website performance and reliability of lead/contact workflows.
+                    </li>
+                    <li>
+                        Reduced repetitive manual work through automated workflows.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Outcomes ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-outcomes">
+                <p class="exp-detail-section-label">Outcomes</p>
+                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Qualitative outcomes">
+                    <li>Reduced repetitive operational work by connecting SaaS tools through automation workflows.</li>
+                    <li>Resolved domain, DNS, mailbox, and deliverability issues across web and email infrastructure.</li>
+                    <li>Improved and maintained WordPress website performance through troubleshooting and optimization.</li>
+                    <li>Supported more reliable lead and contact workflows across connected CRM, email, and automation tooling.</li>
+                    <li>Maintained day-to-day website and IT operations across a remote business environment.</li>
+                </ul>
+            </section>
+
+            <!-- ── Related Evidence ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-evidence">
+                <p class="exp-detail-section-label">Related Evidence</p>
+                <h2 id="section-evidence">Skills &amp; Operational Links</h2>
+                <div class="exp-detail-evidence-block">
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Skills</span>
+                        <!-- TODO: Link related automation/web-operations skills once Skills content is finalized. -->
+                        <span class="exp-detail-evidence-detail">WordPress Development · SaaS Automation · GoHighLevel · Zapier · n8n · DNS &amp; Email Infrastructure (SPF/DKIM/DMARC) · Cymbals Manager · Web &amp; IT Operations</span>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.exp-detail-body -->
+
+    </main>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+
+</body>
+</html>

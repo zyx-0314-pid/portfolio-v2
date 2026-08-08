@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Java Industry Immersion Trainee — Spring Valley Tech | Ian Cedric Ramirez</title>
+    <meta name="description" content="Java Industry Immersion Trainee at Spring Valley Tech — full-stack development of an internal records and storage tracking system using Spring Boot, React, PostgreSQL, and Docker. Around Jun 2025.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/experience.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../resume/">Resume</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+
+        <!-- ── Back navigation ────────────────────────────────────── -->
+        <nav class="exp-detail-nav" aria-label="Breadcrumb">
+            <a class="exp-detail-back" href="../">Experience</a>
+        </nav>
+
+        <!-- ── Role header ─────────────────────────────────────────── -->
+        <header class="exp-detail-header">
+            <p class="exp-detail-eyebrow">Experience</p>
+            <h1 class="exp-detail-role">Java Industry Immersion Trainee</h1>
+            <div class="exp-detail-meta">
+                <!-- TODO: Replace "Around Jun 2025" with the exact industry immersion dates if verified later. -->
+                <p class="exp-detail-period">Around Jun 2025</p>
+                <p class="exp-detail-company">Spring Valley Tech</p>
+            </div>
+            <div class="exp-detail-tags">
+                <span class="exp-detail-tag">Full-Stack</span>
+                <span class="exp-detail-tag">Training</span>
+            </div>
+        </header>
+
+        <!-- ── Illustration ────────────────────────────────────────── -->
+        <!-- TODO: Replace with the final custom Java industry immersion illustration and update alt text to describe the actual artwork. -->
+        <div class="exp-detail-illustration">
+            <img
+                src="https://placehold.net/1200x525.png"
+                alt="Placeholder for a custom editorial illustration representing Java industry immersion, full-stack Spring Boot development, QR/barcode record tracking, and physical storage workflows."
+                width="1200"
+                height="525"
+            >
+        </div>
+
+        <!-- ── Content body ────────────────────────────────────────── -->
+        <div class="exp-detail-body">
+
+            <!-- ── Training Context ─────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-training">
+                <p class="exp-detail-section-label">Training Context</p>
+                <h2 id="section-training">TESDA Java Preparation &amp; Industry Immersion</h2>
+                <p>
+                    Completed a Java-focused industry immersion at Spring Valley Tech following approximately two months of TESDA-related Java training and preparation.
+                </p>
+                <p>
+                    The immersion served as an intensive practical phase where concepts learned during training were applied directly to full-system implementation work.
+                </p>
+            </section>
+
+            <!-- ── Project Overview ─────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-project">
+                <p class="exp-detail-section-label">Main Project</p>
+                <h2 id="section-project">Internal Records &amp; Storage Tracking System</h2>
+                <p>
+                    Designed and built a Dockerized internal records and storage tracking system using Spring Boot, React, Tailwind CSS, and PostgreSQL. The application was designed to digitize paper-based tracking of physical records or items as they moved between storage locations, users, and lifecycle states.
+                </p>
+                <!-- TODO: Confirm whether the system was deployed or used internally beyond the immersion/demo environment. -->
+            </section>
+
+            <!-- ── Problem Context ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-problem">
+                <p class="exp-detail-section-label">Problem Context</p>
+                <h2 id="section-problem">Physical Storage &amp; Manual Tracking Challenge</h2>
+                <p>
+                    The workflow being modeled involved physical items and records—such as files, books, inventory records, and stored physical materials—distributed across drawers, rooms, storage boxes, and designated storage locations.
+                </p>
+                <p>
+                    The original workflow relied heavily on manual paper recording, creating challenges for item retrieval, tracking current location, identifying handling history, and auditing item statuses. The project aimed to make physical storage tracking structured, searchable, and verifiable.
+                </p>
+            </section>
+
+            <!-- ── System Workflow ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-workflow">
+                <p class="exp-detail-section-label">Core Workflow</p>
+                <h2 id="section-workflow">End-to-End Tracking Workflow</h2>
+                <p>
+                    The system models the complete record lifecycle through a structured sequential process:
+                </p>
+                <ol class="exp-detail-contrib-list" style="list-style: decimal; padding-left: 1.2rem;" aria-label="Tracking workflow steps">
+                    <li><strong>Create Record:</strong> Register item metadata and physical properties into the database.</li>
+                    <li><strong>Assign Storage Location:</strong> Associate the record with a specific room, box, or storage container.</li>
+                    <li><strong>Generate / Associate Code:</strong> Link a unique QR code or barcode to the item record.</li>
+                    <li><strong>Scan Item:</strong> Retrieve instant record details via camera or scanner input.</li>
+                    <li><strong>Identify Record:</strong> Verify item identity, current location, and current state.</li>
+                    <li><strong>Record Handler:</strong> Log the specific user performing or authorizing the transaction.</li>
+                    <li><strong>Record Destination:</strong> Specify the new storage location or borrower destination.</li>
+                    <li><strong>Update Status:</strong> Transition item lifecycle state in real time.</li>
+                    <li><strong>Preserve Action History:</strong> Store an immutable audit trail of movements and state changes.</li>
+                </ol>
+            </section>
+
+            <!-- ── Scope & Ownership ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-scope">
+                <p class="exp-detail-section-label">Scope &amp; Ownership</p>
+                <h2 id="section-scope">Full-Stack Ownership</h2>
+                <p>
+                    Owned the implementation across the application stack, from backend and database design through frontend, QR/barcode workflows, API documentation, and containerization.
+                </p>
+                <p>
+                    Responsibilities encompassed system design, Spring Boot backend API development, React/Tailwind user interface implementation, PostgreSQL schema modeling, Swagger documentation, Docker configuration, and core workflow testing.
+                </p>
+            </section>
+
+            <!-- ── Stack & Architecture ─────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-arch">
+                <p class="exp-detail-section-label">Architecture</p>
+                <h2 id="section-arch">Technology Stack &amp; Components</h2>
+                <div class="exp-detail-tech-grid" role="list" aria-label="Technology components">
+
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Backend</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>Java</li>
+                            <li>Spring Boot</li>
+                            <li>REST APIs</li>
+                            <li>Data Validation</li>
+                        </ul>
+                    </div>
+
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Frontend</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>React</li>
+                            <li>Tailwind CSS</li>
+                            <li>Record Forms</li>
+                            <li>Dashboard UI</li>
+                        </ul>
+                    </div>
+
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">Database</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>PostgreSQL</li>
+                            <li>Relational Schema</li>
+                            <li>Audit Trail Storage</li>
+                        </ul>
+                    </div>
+
+                    <div role="listitem">
+                        <p class="exp-detail-tech-category-label">API &amp; Environment</p>
+                        <ul class="exp-detail-tech-list">
+                            <li>Swagger / OpenAPI</li>
+                            <li>Docker</li>
+                            <li>Containerized Setup</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── QR & Barcode Workflows ────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-qr">
+                <p class="exp-detail-section-label">Identification</p>
+                <h2 id="section-qr">QR &amp; Barcode Identification</h2>
+                <p>
+                    Implemented dual support for both QR codes and barcodes to identify physical records and items.
+                </p>
+                <p>
+                    Upon scanning, the application instantly retrieves the corresponding item record, allowing handlers to log user actions, update destination locations, and record status changes directly within the item's movement history.
+                </p>
+            </section>
+
+            <!-- ── Record Lifecycle States ──────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-states">
+                <p class="exp-detail-section-label">Lifecycle Tracking</p>
+                <h2 id="section-states">Supported Lifecycle States</h2>
+                <p>
+                    The system models physical record management across six core lifecycle states:
+                </p>
+                <ul class="exp-detail-contrib-list" aria-label="Supported lifecycle states">
+                    <li><strong>Stored:</strong> Item is securely located in its assigned storage container/room.</li>
+                    <li><strong>Checked / Taken Out:</strong> Item is actively borrowed or retrieved for use.</li>
+                    <li><strong>Returned:</strong> Item has been returned to storage and verified.</li>
+                    <li><strong>Moved / Transferred:</strong> Item has been permanently or temporarily relocated to a new storage area.</li>
+                    <li><strong>Disposed:</strong> Item has reached the end of its retention period and is marked disposed.</li>
+                    <li><strong>Lost / Missing:</strong> Item is unaccounted for during inventory audits.</li>
+                </ul>
+            </section>
+
+            <!-- ── Dashboard & Monitoring ────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-dashboard">
+                <p class="exp-detail-section-label">Overview Interface</p>
+                <h2 id="section-dashboard">Functional Storage Dashboard</h2>
+                <p>
+                    Implemented a functional dashboard providing quick summary counts across key storage and operational metrics:
+                </p>
+                <ul class="exp-detail-contrib-list" aria-label="Dashboard metrics">
+                    <li>Total records and items registered in the system</li>
+                    <li>Storage location distribution and utilization</li>
+                    <li>Currently checked-out / taken items</li>
+                    <li>Disposed and archived records count</li>
+                </ul>
+            </section>
+
+            <!-- ── Technical Decisions ──────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-decisions">
+                <p class="exp-detail-section-label">Engineering Rationale</p>
+                <h2 id="section-decisions">Technical Decisions</h2>
+                <p>
+                    <strong>Spring Boot Backend:</strong> Used Spring Boot to translate Java training into a complete backend application with structured APIs, persistence, validation, and record-management workflows.
+                </p>
+                <p>
+                    <strong>React &amp; Tailwind Frontend:</strong> Built a clean, responsive single-page frontend using React and Tailwind CSS, separating presentation logic from backend API workflows.
+                </p>
+                <p>
+                    <strong>PostgreSQL Relational Storage:</strong> Selected PostgreSQL because the workflow depended on structured relationships between records, locations, statuses, and actions.
+                </p>
+                <!-- TODO: Add a sanitized ERD or exact database model if the original project/source is available. -->
+                <p>
+                    <strong>Docker Containerization:</strong> Containerized the application with Docker to make the development environment more reproducible and easier to run consistently.
+                </p>
+                <p>
+                    <strong>Swagger API Documentation:</strong> Documented and inspected backend endpoints through Swagger to make the API easier to understand and test during development.
+                </p>
+                <!-- TODO: Add exact testing tools/methods if the original project is available. -->
+            </section>
+
+            <!-- ── Key Contributions ────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-contributions">
+                <p class="exp-detail-section-label">Key Contributions</p>
+                <h2 id="section-contributions">Summary of Contributions</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Key contributions">
+                    <li>
+                        Designed and implemented the full application across Spring Boot, React, PostgreSQL, and Docker.
+                    </li>
+                    <li>
+                        Built QR/barcode identification workflows for retrieving physical record/item information.
+                    </li>
+                    <li>
+                        Modeled item lifecycle and movement states including storage, checkout, return, transfer, disposal, and missing states.
+                    </li>
+                    <li>
+                        Added responsibility tracking by recording who handled an item and where it was moved.
+                    </li>
+                    <li>
+                        Created a functional dashboard showing overall records and key storage/status counts.
+                    </li>
+                    <li>
+                        Documented backend APIs with Swagger.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ── Outcomes ─────────────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-outcomes">
+                <p class="exp-detail-section-label">Outcomes</p>
+                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+                <ul class="exp-detail-contrib-list" aria-label="Qualitative outcomes">
+                    <li>Converted a manual paper-record concept into a working digital workflow.</li>
+                    <li>Centralized item, location, and status information within one application.</li>
+                    <li>Enabled QR and barcode-based lookup of physical records.</li>
+                    <li>Made item movement and responsible-user actions recordable and traceable.</li>
+                    <li>Modeled the full lifecycle of stored, checked-out, transferred, returned, disposed, and missing records.</li>
+                    <li>Demonstrated a complete Java/Spring Boot application following Java-focused training.</li>
+                    <li>Integrated backend, frontend, relational database, API documentation, and containerization into one owned system.</li>
+                </ul>
+            </section>
+
+            <!-- ── Training Impact ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-impact">
+                <p class="exp-detail-section-label">Training Impact</p>
+                <h2 id="section-impact">From Preparation to Full System Implementation</h2>
+                <p>
+                    The immersion provided a practical environment to apply Java training beyond isolated exercises by designing and owning a complete full-stack system.
+                </p>
+            </section>
+
+            <!-- ── Related Evidence ──────────────────────────────────── -->
+            <section class="exp-detail-section" aria-labelledby="section-evidence">
+                <p class="exp-detail-section-label">Related Evidence</p>
+                <h2 id="section-evidence">Skills &amp; Project Links</h2>
+                <div class="exp-detail-evidence-block">
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Skills</span>
+                        <span class="exp-detail-evidence-detail">Java · Spring Boot · React · PostgreSQL · Docker · Swagger · Tailwind CSS</span>
+                    </div>
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Projects</span>
+                        <span class="exp-detail-evidence-detail">Internal Records &amp; Storage Tracking System</span>
+                    </div>
+                    <div class="exp-detail-evidence-row">
+                        <span class="exp-detail-evidence-type">Credentials</span>
+                        <span class="exp-detail-evidence-detail">TESDA Java-related training / preparation</span>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /.exp-detail-body -->
+
+    </main>
+
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+
+</body>
+</html>

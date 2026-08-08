@@ -66,7 +66,7 @@
             <p class="section__lead">Roles where I built, maintained, taught, and improved software systems.</p>
         </section>
 
-        <section class="section" aria-label="Years">
+        <section class="section" aria-label="Filter &amp; Sort">
 
             <div class="exp-controls" role="group" aria-label="Experience controls">
 
@@ -138,7 +138,7 @@
         </section>
 
         <!-- ── Experience timeline ─────────────────────────────────── -->
-        <section class="exp-list-section" aria-labelledby="timeline-label">
+        <div class="exp-list-section">
             <h2 id="timeline-label" class="sr-only">Professional timeline</h2>
 
             <div class="exp-timeline">
@@ -146,7 +146,7 @@
                 <!-- ══════════════════════════════════════════════════
                      YEAR GROUP: 2025
                 ══════════════════════════════════════════════════ -->
-                <div class="exp-year-group" data-year="2025">
+                <section class="exp-year-group" data-year="2025" aria-label="2025">
                     <div class="exp-year-marker" aria-hidden="true">
                         <span class="exp-year-label">2025</span>
                         <span class="exp-year-line"></span>
@@ -157,7 +157,7 @@
                         <!-- ═══════════════════════════════════════════
                              CARD — Full-Stack Developer
                              People Dynamics Inc.
-                             November 2025 — Present
+                             Nov 2025 — Present
                              Tags: full-stack, devops
                              Status: Complete — detail page available
                              ═══════════════════════════════════════════ -->
@@ -173,6 +173,8 @@
                             <div class="exp-card__content">
                                 <h3 class="exp-card__role" id="exp-pd-role">Full-Stack Developer and DevOps Engineer
                                 </h3>
+                                <p class="exp-card__company">People Dynamics Inc. <span class="exp-card__period">· Nov
+                                        2025 — Present</span></p>
 
                                 <div class="exp-card__tags" aria-label="Areas">
                                     <span class="exp-card__tag">Full-Stack</span>
@@ -189,32 +191,25 @@
                         </article>
 
                         <!-- ═══════════════════════════════════════════
-                             CARD — Software Developer
-                             Spring Boot Internal File Management
-                             June 2025
+                             CARD — Java Industry Immersion Trainee
+                             Spring Valley Tech
+                             Around Jun 2025
                              Tags: full-stack
-                             Status: Under Construction
+                             Status: Complete — detail page available
                              ═══════════════════════════════════════════ -->
-                        <article class="exp-card exp-card--construction" data-tags="full-stack" data-start="2025-06"
-                            data-detail-status="construction" aria-labelledby="exp-sb-role">
+                        <article class="exp-card" data-tags="full-stack" data-start="2025-06"
+                            data-detail-status="complete" aria-labelledby="exp-svt-role">
                             <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
                             <div class="exp-card__illustration">
                                 <img src="https://placehold.net/280x200.png"
-                                    alt="Placeholder for a custom editorial illustration representing a Dockerized internal file-management system using QR and barcode identification."
+                                    alt="Placeholder for a custom editorial illustration representing Java industry immersion, full-stack Spring Boot development, QR/barcode record tracking, and physical storage workflows."
                                     loading="lazy">
                             </div>
 
-                            <div class="exp-card__construction-overlay" aria-hidden="true">
-                                <!-- TODO: Replace the construction placeholder with a small custom illustration using the same visual context as this project. -->
-                                <img src="https://placehold.net/56x56.png"
-                                    alt="Placeholder for a small editorial illustration representing this experience page being under construction.">
-                                <span class="exp-card__construction-label">Under Construction</span>
-                                <span class="exp-card__construction-sub">Full experience coming soon</span>
-                            </div>
-
                             <div class="exp-card__content">
-                                <!-- TODO: Confirm the exact official role title for this June 2025 experience. "Software Developer" is used as a working label. -->
-                                <h3 class="exp-card__role" id="exp-sb-role">Software Developer</h3>
+                                <h3 class="exp-card__role" id="exp-svt-role">Java Industry Immersion Trainee</h3>
+                                <p class="exp-card__company">Spring Valley Tech <span class="exp-card__period">· Around
+                                        Jun 2025</span></p>
 
                                 <div class="exp-card__tags" aria-label="Areas">
                                     <span class="exp-card__tag">Full-Stack</span>
@@ -224,25 +219,53 @@
                                     <button type="button" class="exp-quickview-btn" data-dialog-target="qv-sb"
                                         aria-haspopup="dialog">Quick View</button>
 
-                                    <!-- TODO: Complete the dedicated experience page before enabling "View Experience". Confirm exact role, employer, dates, scope, contributions, and outcomes first. -->
-                                    <span class="exp-detail-construction" role="button" aria-disabled="true"
-                                        tabindex="-1" title="Full experience page coming soon">Under Construction</span>
+                                    <a class="exp-detail-link" href="java-industry-immersion/">View Experience →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- ═══════════════════════════════════════════
+                             CARD — Web Developer & IT Operations
+                             ILTN Holdings LLC
+                             May 2025 — Sep 2025
+                             Tags: devops
+                             Status: Complete — detail page available
+                             ═══════════════════════════════════════════ -->
+                        <article class="exp-card" data-tags="devops" data-start="2025-05" data-detail-status="complete"
+                            aria-labelledby="exp-iltn-role">
+                            <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
+                            <div class="exp-card__illustration">
+                                <img src="https://placehold.net/280x200.png"
+                                    alt="Placeholder for a custom editorial illustration representing WordPress development, SaaS automation, connected web services, domain management, and email operations."
+                                    loading="lazy">
+                            </div>
+
+                            <div class="exp-card__content">
+                                <h3 class="exp-card__role" id="exp-iltn-role">Web Developer &amp; IT Operations</h3>
+                                <p class="exp-card__company">ILTN Holdings LLC <span class="exp-card__period">· May 2025
+                                        — Sep 2025 · Contract</span></p>
+
+                                <div class="exp-card__tags" aria-label="Areas">
+                                    <span class="exp-card__tag">DevOps</span>
+                                </div>
+
+                                <div class="exp-card__actions">
+                                    <button type="button" class="exp-quickview-btn" data-dialog-target="qv-iltn"
+                                        aria-haspopup="dialog">Quick View</button>
+
+                                    <a class="exp-detail-link" href="iltn-holdings/">View Experience →</a>
                                 </div>
                             </div>
                         </article>
 
                     </div><!-- /.exp-year-cards -->
-                </div><!-- /.exp-year-group 2025 -->
+                </section><!-- /.exp-year-group 2025 -->
 
 
                 <!-- ══════════════════════════════════════════════════
                      YEAR GROUP: 2024
-                     NOTE: YenkoDev / SeLeBox dates are unverified.
-                     This year group uses 2024 as a working estimate.
-                     TODO: Replace with the verified period once confirmed.
                 ══════════════════════════════════════════════════ -->
-                <!-- TODO: Replace 2024 with the verified start year for YenkoDev / SeLeBox. The year 2024 is an unverified estimate used for chronological ordering only. -->
-                <div class="exp-year-group" data-year="2024">
+                <section class="exp-year-group" data-year="2024" aria-label="2024">
                     <div class="exp-year-marker" aria-hidden="true">
                         <span class="exp-year-label">2024</span>
                         <span class="exp-year-line"></span>
@@ -251,33 +274,25 @@
                     <div class="exp-year-cards">
 
                         <!-- ═══════════════════════════════════════════
-                             CARD — Software Developer
-                             YenkoDev / SeLeBox
-                             [Dates unverified — TODO]
+                             CARD — Full-Stack Developer 
+                             YenkoDev — SeLeBox Platform
+                             May 2024 — Aug 2024
                              Tags: full-stack
-                             Status: Under Construction
+                             Status: Complete — detail page available
                              ═══════════════════════════════════════════ -->
-                        <!-- TODO: Update data-start with the verified YenkoDev / SeLeBox start date once confirmed. "2024-01" is a placeholder. -->
-                        <article class="exp-card exp-card--construction" data-tags="full-stack" data-start="2024-01"
-                            data-detail-status="construction" aria-labelledby="exp-yd-role">
+                        <article class="exp-card" data-tags="full-stack" data-start="2024-05"
+                            data-detail-status="complete" aria-labelledby="exp-yd-role">
                             <!-- TODO: Replace this placeholder with the custom editorial illustration for this experience. Update the alt text afterward so it describes the actual final artwork. -->
                             <div class="exp-card__illustration">
                                 <img src="https://placehold.net/280x200.png"
-                                    alt="Placeholder for a custom editorial illustration representing social application development, messaging, feeds, media handling, and caching."
+                                    alt="Placeholder for a custom editorial illustration representing social platform development, messaging, follower relationships, continuous video feeds, media uploads, and offline video access."
                                     loading="lazy">
                             </div>
 
-                            <div class="exp-card__construction-overlay" aria-hidden="true">
-                                <!-- TODO: Replace the construction placeholder with a small custom illustration using the same visual context as this role. -->
-                                <img src="https://placehold.net/56x56.png"
-                                    alt="Placeholder for a small editorial illustration representing this experience page being under construction.">
-                                <span class="exp-card__construction-label">Under Construction</span>
-                                <span class="exp-card__construction-sub">Full experience coming soon</span>
-                            </div>
-
                             <div class="exp-card__content">
-                                <!-- TODO: Confirm the exact role title for YenkoDev / SeLeBox. "Software Developer" is used as a working label. -->
-                                <h3 class="exp-card__role" id="exp-yd-role">Software Developer</h3>
+                                <h3 class="exp-card__role" id="exp-yd-role">Full-Stack Developer </h3>
+                                <p class="exp-card__company">YenkoDev — SeLeBox Platform <span
+                                        class="exp-card__period">· May 2024 — Aug 2024 · Part-time</span></p>
 
                                 <div class="exp-card__tags" aria-label="Areas">
                                     <span class="exp-card__tag">Full-Stack</span>
@@ -287,21 +302,19 @@
                                     <button type="button" class="exp-quickview-btn" data-dialog-target="qv-yd"
                                         aria-haspopup="dialog">Quick View</button>
 
-                                    <!-- TODO: Complete the dedicated experience page before enabling "View Experience". Confirm verified dates, role, scope, contributions, and outcomes first. -->
-                                    <span class="exp-detail-construction" role="button" aria-disabled="true"
-                                        tabindex="-1" title="Full experience page coming soon">Under Construction</span>
+                                    <a class="exp-detail-link" href="yenkodev-selebox/">View Experience →</a>
                                 </div>
                             </div>
                         </article>
 
                     </div><!-- /.exp-year-cards -->
-                </div><!-- /.exp-year-group 2024 -->
+                </section><!-- /.exp-year-group 2024 -->
 
 
                 <!-- ══════════════════════════════════════════════════
                      YEAR GROUP: 2023
                 ══════════════════════════════════════════════════ -->
-                <div class="exp-year-group" data-year="2023">
+                <section class="exp-year-group" data-year="2023" aria-label="2023">
                     <div class="exp-year-marker" aria-hidden="true">
                         <span class="exp-year-label">2023</span>
                         <span class="exp-year-line"></span>
@@ -312,7 +325,7 @@
                         <!-- ═══════════════════════════════════════════
                              CARD — Full-Time Instructor
                              FEU Institute of Technology
-                             October 2023 — November 2025
+                             Oct 2023 — Nov 2025
                              Tags: teaching, leadership
                              Status: Complete — detail page available
                              ═══════════════════════════════════════════ -->
@@ -327,6 +340,8 @@
 
                             <div class="exp-card__content">
                                 <h3 class="exp-card__role" id="exp-feu-role">Full-Time Instructor</h3>
+                                <p class="exp-card__company">FEU Institute of Technology <span
+                                        class="exp-card__period">· Oct 2023 — Nov 2025</span></p>
 
                                 <div class="exp-card__tags" aria-label="Areas">
                                     <span class="exp-card__tag">Teaching</span>
@@ -345,7 +360,7 @@
                         <!-- ═══════════════════════════════════════════
                              CARD — Software Engineer Intern
                              Argon Software
-                             March 2023 — June 2023
+                             Mar 2023 — Jun 2023
                              Tags: full-stack
                              Status: Complete — detail page available
                              ═══════════════════════════════════════════ -->
@@ -360,6 +375,8 @@
 
                             <div class="exp-card__content">
                                 <h3 class="exp-card__role" id="exp-ag-role">Software Engineer Intern</h3>
+                                <p class="exp-card__company">Argon Software <span class="exp-card__period">· Mar 2023 —
+                                        Jun 2023 · Internship</span></p>
 
                                 <div class="exp-card__tags" aria-label="Areas">
                                     <span class="exp-card__tag">Full-Stack</span>
@@ -376,7 +393,7 @@
                         </article>
 
                     </div><!-- /.exp-year-cards -->
-                </div><!-- /.exp-year-group 2023 -->
+                </section><!-- /.exp-year-group 2023 -->
 
             </div><!-- /.exp-timeline -->
 
@@ -386,7 +403,7 @@
                 <p class="exp-empty__hint">Try Match Any or remove a filter.</p>
             </div>
 
-        </section>
+            </section>
 
     </main>
 
@@ -408,7 +425,7 @@
                     <a href="https://peopledynamics.co/" target="_blank" rel="noopener noreferrer">People Dynamics
                         Inc.</a>
                 </p>
-                <p class="exp-qv-date">November 2025 — Present</p>
+                <p class="exp-qv-date">Nov 2025 — Present</p>
             </header>
 
             <p class="exp-qv-context">
@@ -458,7 +475,7 @@
             <header class="exp-qv-header">
                 <h2 class="exp-qv-role" id="qv-feu-title">Full-Time Instructor</h2>
                 <p class="exp-qv-company">FEU Institute of Technology</p>
-                <p class="exp-qv-date">October 2023 — November 2025</p>
+                <p class="exp-qv-date">Oct 2023 — Nov 2025</p>
             </header>
 
 
@@ -501,30 +518,30 @@
     </dialog>
 
 
-    <!-- ── QV: Software Developer — Spring Boot Internal ─────── -->
+    <!-- ── QV: Java Industry Immersion Trainee — Spring Valley Tech ── -->
     <dialog id="qv-sb" class="exp-qv-dialog" aria-labelledby="qv-sb-title" aria-modal="true">
         <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
 
         <div class="exp-qv-inner">
             <header class="exp-qv-header">
-                <!-- TODO: Confirm the exact role title for this June 2025 experience. -->
-                <h2 class="exp-qv-role" id="qv-sb-title">Software Developer</h2>
-                <!-- TODO: Confirm the employer or organization name for this experience before publishing. -->
-                <p class="exp-qv-company">Organization — Add verified name</p>
-                <!-- TODO: Confirm whether June 2025 represents the full period or only the project completion date. -->
-                <p class="exp-qv-date">June 2025</p>
+                <h2 class="exp-qv-role" id="qv-sb-title">Java Industry Immersion Trainee</h2>
+                <p class="exp-qv-company">Spring Valley Tech</p>
+                <!-- TODO: Replace "Around Jun 2025" with the exact industry immersion dates if verified later. -->
+                <p class="exp-qv-date">Around Jun 2025</p>
             </header>
 
             <p class="exp-qv-context">
-                Built a Dockerized Spring Boot internal file-management system with QR code and barcode scanning, and
-                identification workflows.
+                Java-focused industry immersion following TESDA-related training, centered on building a complete
+                internal records and storage tracking system.
             </p>
 
             <div>
                 <p class="exp-qv-section-label">Key Contributions</p>
                 <ul class="exp-qv-contributions" aria-label="Key contributions">
-                    <li>Implemented the internal file-management workflow including QR/barcode-based identification, and
-                        containerized the application with Docker.</li>
+                    <li>Owned a Dockerized Spring Boot, React, and PostgreSQL application for tracking stored physical
+                        records/items and their lifecycle.</li>
+                    <li>Implemented QR/barcode identification, movement tracking, responsible-user recording, and a
+                        functional status dashboard.</li>
                 </ul>
             </div>
 
@@ -544,31 +561,58 @@
         </div>
     </dialog>
 
-
-    <!-- ── QV: Software Developer — YenkoDev / SeLeBox ──────── -->
-    <dialog id="qv-yd" class="exp-qv-dialog" aria-labelledby="qv-yd-title" aria-modal="true">
+    <!-- ── QV: Web Developer & IT Operations — ILTN Holdings LLC ───── -->
+    <dialog id="qv-iltn" class="exp-qv-dialog" aria-labelledby="qv-iltn-title" aria-modal="true">
         <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
 
         <div class="exp-qv-inner">
             <header class="exp-qv-header">
-                <!-- TODO: Confirm the exact role title for YenkoDev / SeLeBox. -->
-                <h2 class="exp-qv-role" id="qv-yd-title">Software Developer</h2>
-                <p class="exp-qv-company">YenkoDev / SeLeBox</p>
-                <!-- TODO: Add the verified start and end dates for the YenkoDev / SeLeBox experience. -->
-                <p class="exp-qv-date">Add verified dates</p>
+                <h2 class="exp-qv-role" id="qv-iltn-title">Web Developer &amp; IT Operations</h2>
+                <p class="exp-qv-company">ILTN Holdings LLC</p>
+                <p class="exp-qv-date">May 2025 — Sep 2025 · Contract · Remote</p>
             </header>
 
             <p class="exp-qv-context">
-                Application development work on a social platform, focused on building core product features including
-                messaging, content feeds, media handling, and social interactions.
+                Combined WordPress development, SaaS automation, domain/email infrastructure, and day-to-day web
+                operations across a remote business environment.
             </p>
 
             <div>
                 <p class="exp-qv-section-label">Key Contributions</p>
                 <ul class="exp-qv-contributions" aria-label="Key contributions">
-                    <li>Built the Chat Service and core messaging functionality.</li>
-                    <li>Developed Feed Services and Follow System, along with Offline Video Caching for improved media
-                        access.</li>
+                    <li>Maintained and developed WordPress sites while troubleshooting integrations and performance
+                        issues.</li>
+                    <li>Managed automation, domains, DNS, and email-deliverability infrastructure across connected SaaS
+                        tools.</li>
+                </ul>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- ── QV: Full-Stack Developer  — YenkoDev / SeLeBox ── -->
+    <dialog id="qv-yd" class="exp-qv-dialog" aria-labelledby="qv-yd-title" aria-modal="true">
+        <button type="button" class="exp-qv-close" aria-label="Close quick view">×</button>
+
+        <div class="exp-qv-inner">
+            <header class="exp-qv-header">
+                <h2 class="exp-qv-role" id="qv-yd-title">Full-Stack Developer </h2>
+                <p class="exp-qv-company">YenkoDev — SeLeBox Platform</p>
+                <p class="exp-qv-date">May 2024 — Aug 2024</p>
+            </header>
+
+            <p class="exp-qv-context">
+                Extended an existing social platform through messaging, follower relationships, feed functionality,
+                media handling, continuous video browsing, and offline video capabilities.
+            </p>
+
+            <div>
+                <p class="exp-qv-section-label">Key Contributions</p>
+                <ul class="exp-qv-contributions" aria-label="Key contributions">
+                    <li>Built interconnected follow, direct-chat, and group-chat functionality for the platform's social
+                        experience.</li>
+                    <li>Implemented continuous video browsing with engagement actions and offline caching for selected
+                        videos.</li>
                 </ul>
             </div>
 
@@ -598,7 +642,7 @@
             <header class="exp-qv-header">
                 <h2 class="exp-qv-role" id="qv-ag-title">Software Engineer Intern</h2>
                 <p class="exp-qv-company">Argon Software</p>
-                <p class="exp-qv-date">March 2023 — June 2023</p>
+                <p class="exp-qv-date">Mar 2023 — Jun 2023</p>
             </header>
 
             <p class="exp-qv-context">

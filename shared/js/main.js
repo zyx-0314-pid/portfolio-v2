@@ -158,10 +158,23 @@
                 [/contact|email/, 'fa-envelope'],
                 [/credential|education|certif/, 'fa-award'],
                 [/resume/, 'fa-file-lines'],
-                [/year|timeline|history|period/, 'fa-calendar-days']
+                [/filter|sort|control/, 'fa-sliders'],
+                [/year|timeline|history|period|\d{4}/, 'fa-calendar-days']
             ];
 
             return iconRules.find(([pattern]) => pattern.test(normalizedLabel))?.[1] || 'fa-code';
+        };
+
+        const scrollToSection = (targetSection) => {
+            const header = document.querySelector('.site-header');
+            const headerHeight = header ? header.getBoundingClientRect().height : 80;
+            const extraPadding = 24;
+            const targetY = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight - extraPadding;
+
+            window.scrollTo({
+                top: Math.max(0, targetY),
+                behavior: 'smooth'
+            });
         };
 
         const entries = sections.map((section, index) => {
@@ -191,7 +204,7 @@
             button.append(labelElement);
 
             button.addEventListener('click', () => {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToSection(section);
             });
 
             button.addEventListener('keydown', (event) => {
@@ -203,7 +216,7 @@
                 const direction = event.key === 'ArrowDown' ? 1 : -1;
                 const targetIndex = Math.min(Math.max(index + direction, 0), sections.length - 1);
                 entries[targetIndex].button.focus();
-                sections[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToSection(sections[targetIndex]);
             });
 
             item.append(button);
@@ -212,7 +225,9 @@
         });
 
         const updateCurrentSection = () => {
-            const viewportReference = window.innerHeight * 0.42;
+            const header = document.querySelector('.site-header');
+            const headerHeight = header ? header.getBoundingClientRect().height : 80;
+            const viewportReference = headerHeight + 50;
             let currentIndex = 0;
             let closestDistance = Number.POSITIVE_INFINITY;
 

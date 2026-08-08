@@ -343,6 +343,18 @@
     color: var(--color-text);
 }
 
+.exp-card__company {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+.exp-card__period {
+    color: var(--color-text-muted);
+    opacity: 0.85;
+}
+
 /* Tags row */
 .exp-card__tags {
     display: flex;
