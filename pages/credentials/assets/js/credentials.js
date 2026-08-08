@@ -105,8 +105,8 @@
 
     // Type filter
     if (state.type !== 'all') {
-      const normalizedType = item.type.toLowerCase().replace(/\s+/g, '-');
-      const targetType = state.type.toLowerCase().replace(/\s+/g, '-');
+      const normalizedType = item.type.toLowerCase().trim();
+      const targetType = state.type.toLowerCase().trim();
       if (normalizedType !== targetType) return false;
     }
 
@@ -168,7 +168,10 @@
         <div class="cred-card__issuer-badge">
           ${issuerBadgeSvg}
         </div>
-        <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
+        <div class="cred-card__badges">
+          ${item.highValue ? `<span class="cred-badge cred-badge--high-value">HIGH VALUE</span>` : ''}
+          <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
+        </div>
       </div>
       
       <div class="cred-card__body">
@@ -444,6 +447,7 @@
         </div>
 
         <div class="cred-modal__badges">
+          ${item.highValue ? `<span class="cred-badge cred-badge--high-value">HIGH VALUE</span>` : ''}
           <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
         </div>
       </header>
