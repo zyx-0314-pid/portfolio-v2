@@ -1,12 +1,12 @@
 /* ==========================================================================
    ABOUT PAGE BEHAVIOR — Phase 13.1 About Visual Redesign
-   Carousel Interactivity, Sticky Rail Observer & Scroll-Entry Motion
+   Continuous Auto-Moving Infinite Carousel & Sticky Navigation Rail
    ========================================================================== */
 
 (() => {
     'use strict';
 
-    // ── Carousel Interactivity ────────────────────────────────────────────────
+    // ── Continuous Auto-Moving Infinite Carousel ──────────────────────────────
     const initializeCarousel = () => {
         const carousel = document.querySelector('[data-identity-carousel]');
         if (!carousel) return;
@@ -18,68 +18,133 @@
 
         if (!track) return;
 
-        const cards = Array.from(track.querySelectorAll('.identity-card'));
-        if (!cards.length) return;
+        const originalCards = Array.from(track.querySelectorAll('.identity-card'));
+        const originalCount = originalCards.length;
+        if (!originalCount) return;
 
+        // Clone cards to create a seamless infinite loop
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+
+        const allCards = Array.from(track.querySelectorAll('.identity-card'));
+
+        // Measure single set width (including gaps)
+        const calculateSetWidth = () => {
+            if (originalCount < 2) return 0;
+            const firstCardLeft = originalCards[0].offsetLeft;
+            const lastCardRight = originalCards[originalCount - 1].offsetLeft + originalCards[originalCount - 1].offsetWidth;
+            const gap = originalCards[1].offsetLeft - (originalCards[0].offsetLeft + originalCards[0].offsetWidth);
+            return (lastCardRight - firstCardLeft) + gap;
+        };
+
+        let singleSetWidth = calculateSetWidth();
+
+        window.addEventListener('resize', () => {
+            singleSetWidth = calculateSetWidth();
+        }, { passive: true });
+
+        // Step size for manual next/prev navigation buttons
         const getScrollStep = () => {
-            const cardWidth = cards[0].offsetWidth;
-            const gap = 24; // 1.5rem gap
+            const cardWidth = originalCards[0].offsetWidth;
+            const gap = 24;
             return cardWidth + gap;
         };
 
-        const updateScrollControls = () => {
-            const maxScroll = track.scrollWidth - track.clientWidth;
-            const currentScroll = track.scrollLeft;
-
-            if (prevBtn) prevBtn.disabled = currentScroll <= 5;
-            if (nextBtn) nextBtn.disabled = currentScroll >= maxScroll - 5;
-
-            if (metaCounter) {
-                const cardWidth = cards[0].offsetWidth;
-                const activeIndex = Math.min(
-                    cards.length,
-                    Math.max(1, Math.round(currentScroll / cardWidth) + 1)
-                );
-                metaCounter.textContent = `${String(activeIndex).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
-            }
+        // Update Counter Display
+        const updateCounter = () => {
+            if (!metaCounter) return;
+            const cardWidth = originalCards[0].offsetWidth + 24;
+            const currentScroll = track.scrollLeft % Math.max(1, singleSetWidth);
+            const activeIndex = (Math.round(currentScroll / cardWidth) % originalCount) + 1;
+            metaCounter.textContent = `${String(activeIndex).padStart(2, '0')} / ${String(originalCount).padStart(2, '0')}`;
         };
 
+        // Check reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        let isPaused = false;
+        let animationFrameId = null;
+        const autoScrollSpeed = 0.8; // pixels per frame
+
+        // Infinite Auto-Scroll Animation Loop
+        const autoScrollLoop = () => {
+            if (!prefersReducedMotion && !isPaused) {
+                track.scrollLeft += autoScrollSpeed;
+
+                // Infinite seamless loop boundary check
+                if (singleSetWidth > 0 && track.scrollLeft >= singleSetWidth) {
+                    track.scrollLeft -= singleSetWidth;
+                }
+
+                updateCounter();
+            }
+            animationFrameId = requestAnimationFrame(autoScrollLoop);
+        };
+
+        if (!prefersReducedMotion) {
+            animationFrameId = requestAnimationFrame(autoScrollLoop);
+        }
+
+        // Pause auto-scroll on hover, focus, touch, or drag
+        const pause = () => { isPaused = true; };
+        const resume = () => { isPaused = false; };
+
+        carousel.addEventListener('mouseenter', pause);
+        carousel.addEventListener('mouseleave', resume);
+        track.addEventListener('focusin', pause);
+        track.addEventListener('focusout', resume);
+        track.addEventListener('touchstart', pause, { passive: true });
+        track.addEventListener('touchend', resume, { passive: true });
+
+        // Manual Prev / Next Button Controls
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+                pause();
+                const step = getScrollStep();
+                track.scrollBy({ left: -step, behavior: 'smooth' });
+                setTimeout(updateCounter, 300);
             });
         }
 
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+                pause();
+                const step = getScrollStep();
+                track.scrollBy({ left: step, behavior: 'smooth' });
+                setTimeout(updateCounter, 300);
             });
         }
 
-        // Track scroll events to update controls
-        let scrollTimeout;
+        // Track scroll event to keep loop bound clean if user manually scrolls
         track.addEventListener('scroll', () => {
-            if (scrollTimeout) clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(updateScrollControls, 40);
+            if (singleSetWidth > 0 && track.scrollLeft >= singleSetWidth * 1.9) {
+                track.scrollLeft -= singleSetWidth;
+            } else if (singleSetWidth > 0 && track.scrollLeft <= 0 && isPaused) {
+                track.scrollLeft += singleSetWidth;
+            }
+            updateCounter();
         }, { passive: true });
 
-        // Pointer dragging (Grab to scroll)
+        // Pointer Dragging (Grab to Scroll)
         let isDragging = false;
         let startX = 0;
         let startScrollLeft = 0;
 
         track.addEventListener('mousedown', (e) => {
             isDragging = true;
+            isPaused = true;
             startX = e.pageX - track.offsetLeft;
             startScrollLeft = track.scrollLeft;
         });
 
-        track.addEventListener('mouseleave', () => {
-            isDragging = false;
-        });
-
-        track.addEventListener('mouseup', () => {
-            isDragging = false;
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                isPaused = false;
+            }
         });
 
         track.addEventListener('mousemove', (e) => {
@@ -88,78 +153,52 @@
             const x = e.pageX - track.offsetLeft;
             const walk = (x - startX) * 1.5;
             track.scrollLeft = startScrollLeft - walk;
+            updateCounter();
         });
 
-        // Keyboard navigation within carousel track
+        // Keyboard Navigation (Arrow Keys)
         track.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') {
                 e.preventDefault();
+                pause();
                 track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
             } else if (e.key === 'ArrowLeft') {
                 e.preventDefault();
+                pause();
                 track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
             }
         });
-
-        updateScrollControls();
     };
 
-    // ── Sticky Navigation & Hash Observer ───────────────────────────────────
+    // ── Sticky Identity Navigation Rail Observer ─────────────────────────────
     const initializeStickyNav = () => {
         const stickyNav = document.querySelector('[data-sticky-nav]');
         if (!stickyNav) return;
 
-        const navLinks = Array.from(stickyNav.querySelectorAll('.sticky-nav__link'));
-        const sections = navLinks
-            .map(link => {
-                const targetId = link.getAttribute('href')?.replace('#', '');
-                return targetId ? document.getElementById(targetId) : null;
-            })
-            .filter(Boolean);
+        const links = Array.from(stickyNav.querySelectorAll('.sticky-nav__link'));
+        if (!links.length) return;
+
+        const sections = links.map(link => {
+            const id = link.getAttribute('href').replace('#', '');
+            return document.getElementById(id);
+        }).filter(Boolean);
 
         if (!sections.length) return;
 
-        const setActiveLink = (targetId) => {
-            navLinks.forEach(link => {
-                const linkTarget = link.getAttribute('href')?.replace('#', '');
-                if (linkTarget === targetId) {
-                    link.setAttribute('aria-current', 'true');
+        const setActiveLink = (id) => {
+            links.forEach(link => {
+                const targetId = link.getAttribute('href').replace('#', '');
+                if (targetId === id) {
                     link.classList.add('is-active');
+                    link.setAttribute('aria-current', 'true');
                     link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
-                    link.removeAttribute('aria-current');
                     link.classList.remove('is-active');
+                    link.removeAttribute('aria-current');
                 }
             });
         };
 
-        // Smooth scroll on sticky nav link click
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    const targetEl = document.getElementById(href.slice(1));
-                    if (targetEl) {
-                        e.preventDefault();
-                        const headerOffset = 130;
-                        const elementPosition = targetEl.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-
-                        setActiveLink(href.slice(1));
-                        if (history.pushState) {
-                            history.pushState(null, null, href);
-                        }
-                    }
-                }
-            });
-        });
-
-        // IntersectionObserver to highlight active section on scroll
         const observerOptions = {
             root: null,
             rootMargin: '-20% 0px -55% 0px',
@@ -169,8 +208,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const activeId = entry.target.id;
-                    setActiveLink(activeId);
+                    setActiveLink(entry.target.id);
                 }
             });
         }, observerOptions);
@@ -189,36 +227,8 @@
         }
     };
 
-    // ── Restrained Scroll-Entry Motion ───────────────────────────────────────
-    const initializeScrollMotion = () => {
-        // Check reduced motion preference
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const revealElements = document.querySelectorAll('.scroll-reveal');
-
-        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-            revealElements.forEach(el => el.classList.add('is-visible'));
-            return;
-        }
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            root: null,
-            rootMargin: '0px 0px -10% 0px',
-            threshold: 0.1
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-    };
-
     document.addEventListener('DOMContentLoaded', () => {
         initializeCarousel();
         initializeStickyNav();
-        initializeScrollMotion();
     });
 })();

@@ -1,6 +1,6 @@
 /**
  * Credentials Gallery & Modal Interactive Logic
- * Ian Cedric Ramirez Portfolio - Phase 14 Credentials
+ * Ian Cedric Ramirez Portfolio - Phase 14.1 Credentials Correction
  */
 
 (() => {
@@ -24,9 +24,6 @@
   const clearFiltersBtn = document.getElementById('clear-filters');
 
   // Group Containers
-  const highValueSection = document.getElementById('group-high-value');
-  const highValueGrid = document.getElementById('grid-high-value');
-  
   const certsSection = document.getElementById('group-certifications');
   const certsGrid = document.getElementById('grid-certifications');
   
@@ -131,39 +128,32 @@
     return true;
   };
 
-  // Default Sort Order: High Value -> Current first, newest first -> Expired lower
+  // Default Sort Order: Current first, then alphabetical/date
   const sortCredentials = (items) => {
     return [...items].sort((a, b) => {
-      // 1. Current status before Expired
       if (a.status === 'Current' && b.status !== 'Current') return -1;
       if (a.status !== 'Current' && b.status === 'Current') return 1;
-
-      // 2. High Value first
-      if (a.highValue && !b.highValue) return -1;
-      if (!a.highValue && b.highValue) return 1;
-
-      // 3. Name alphabetical fallback
       return a.name.localeCompare(b.name);
     });
   };
 
-  // Render Card HTML
+  // Render Card HTML (Minimal Glance Summary)
   const createCardElement = (item) => {
     const card = document.createElement('article');
-    card.className = `cred-card ${item.highValue ? 'cred-card--high-value' : ''} ${item.status.toLowerCase() === 'expired' ? 'cred-card--expired' : ''}`;
+    card.className = `cred-card ${item.status.toLowerCase() === 'expired' ? 'cred-card--expired' : ''}`;
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-haspopup', 'dialog');
     card.setAttribute('data-cred-id', item.id);
 
-    // Card tags: limit visible to 2-3
-    const visibleTags = [];
-    if (item.domains[0]) visibleTags.push(item.domains[0]);
-    if (item.level) visibleTags.push(item.level);
-    if (item.type && visibleTags.length < 3) visibleTags.push(item.type);
+    // Limit visible tags to 2-3
+    const visibleTags = item.domains.slice(0, 3);
 
     // Issuer Icon SVG / Visual Badge
     const issuerBadgeSvg = getIssuerBadgeSvg(item.issuer);
+
+    // Type & Level line
+    const typeLevelText = item.level ? `${item.type} · ${item.level}` : item.type;
 
     card.innerHTML = `
       <!-- TODO: Confirm credential earned/completed date. -->
@@ -178,27 +168,23 @@
         <div class="cred-card__issuer-badge">
           ${issuerBadgeSvg}
         </div>
-        <div class="cred-card__badges">
-          ${item.highValue ? `<span class="cred-badge cred-badge--high-value"><i class="fa-solid fa-certificate" aria-hidden="true"></i> High Value</span>` : ''}
-          <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
-        </div>
+        <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
       </div>
       
       <div class="cred-card__body">
         <p class="cred-card__issuer">${escapeHtml(item.issuer)}</p>
         <h3 class="cred-card__title">${escapeHtml(item.name)}</h3>
-        <p class="cred-card__meta-line">
-          <span>${escapeHtml(item.type)}</span>
-          <span class="cred-card__meta-sep">•</span>
-          <span>${escapeHtml(item.level)}</span>
-        </p>
+        <p class="cred-card__meta-line">${escapeHtml(typeLevelText)}</p>
       </div>
 
       <div class="cred-card__footer">
         <div class="cred-card__tags">
           ${visibleTags.map(tag => `<span class="cred-card__tag">${escapeHtml(tag)}</span>`).join('')}
         </div>
-        <span class="cred-card__action">View Details →</span>
+        <div class="cred-card__action-row">
+          <span class="cred-card__year">${escapeHtml(item.earnedYear)}</span>
+          <span class="cred-card__action">View Credential →</span>
+        </div>
       </div>
     `;
 
@@ -262,23 +248,13 @@
       clearFiltersBtn.hidden = !isFiltered;
     }
 
-    // Categorize filtered credentials
-    const highValueItems = sortCredentials(filtered.filter(item => item.highValue));
-    const certItems = sortCredentials(filtered.filter(item => !item.highValue && item.type === 'Certification'));
-    const trainingItems = sortCredentials(filtered.filter(item => !item.highValue && item.type !== 'Certification'));
+    // Categorize filtered credentials strictly by category
+    const certItems = sortCredentials(filtered.filter(item => item.category === 'CERTIFICATIONS'));
+    const trainingItems = sortCredentials(filtered.filter(item => item.category === 'TRAINING & PROGRAMS'));
 
     // Clear grids
-    highValueGrid.innerHTML = '';
     certsGrid.innerHTML = '';
     trainingGrid.innerHTML = '';
-
-    // Render High Value Group
-    if (highValueItems.length > 0) {
-      highValueSection.hidden = false;
-      highValueItems.forEach(item => highValueGrid.appendChild(createCardElement(item)));
-    } else {
-      highValueSection.hidden = true;
-    }
 
     // Render Certifications Group
     if (certItems.length > 0) {
@@ -468,7 +444,6 @@
         </div>
 
         <div class="cred-modal__badges">
-          ${item.highValue ? `<span class="cred-badge cred-badge--high-value"><i class="fa-solid fa-certificate" aria-hidden="true"></i> High Value</span>` : ''}
           <span class="cred-badge cred-badge--${item.status.toLowerCase()}">${item.status}</span>
         </div>
       </header>
@@ -493,7 +468,7 @@
           </div>
           <div class="cred-modal__meta-item">
             <dt>Level</dt>
-            <dd>${escapeHtml(item.level)}</dd>
+            <dd>${escapeHtml(item.level || 'Standard')}</dd>
           </div>
           <div class="cred-modal__meta-item">
             <dt>Status</dt>

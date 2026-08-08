@@ -1,6 +1,6 @@
 /**
  * Credential Inventory & Repository Data
- * Ian Cedric Ramirez Portfolio - Phase 14 Credentials
+ * Ian Cedric Ramirez Portfolio - Phase 14.1 Credentials Correction
  * Fetched & Verified Date: 2026-08-08
  */
 
@@ -9,6 +9,7 @@ window.CREDENTIALS_DATA = [
     id: "gcp-ace",
     name: "Google Cloud Associate Cloud Engineer",
     issuer: "Google Cloud",
+    category: "CERTIFICATIONS",
     type: "Certification",
     level: "Associate",
     domains: ["Cloud", "DevOps", "Platform"],
@@ -16,7 +17,6 @@ window.CREDENTIALS_DATA = [
     earnedYear: "Unverified",
     expiresDate: null, // Expiration policy unverified
     status: "Current",
-    highValue: true,
     credentialId: null, // Credential ID unverified / private
     verificationLinks: [], // Official verification URL unverified
     certificateAsset: null, // Certificate asset unverified
@@ -90,6 +90,7 @@ window.CREDENTIALS_DATA = [
     id: "snowflake-snowpro-associate",
     name: "Snowflake SnowPro Associate",
     issuer: "Snowflake",
+    category: "CERTIFICATIONS",
     type: "Certification",
     level: "Associate",
     domains: ["Data", "Cloud", "Platform"],
@@ -97,7 +98,6 @@ window.CREDENTIALS_DATA = [
     earnedYear: "Unverified",
     expiresDate: null,
     status: "Current",
-    highValue: true,
     credentialId: null,
     verificationLinks: [],
     certificateAsset: null,
@@ -174,6 +174,7 @@ window.CREDENTIALS_DATA = [
     id: "github-foundations",
     name: "GitHub Foundations",
     issuer: "GitHub",
+    category: "CERTIFICATIONS",
     type: "Certification",
     level: "Foundational",
     domains: ["Git & GitHub", "DevOps", "Software Engineering"],
@@ -181,7 +182,6 @@ window.CREDENTIALS_DATA = [
     earnedYear: "Unverified",
     expiresDate: null,
     status: "Current",
-    highValue: true,
     credentialId: null,
     verificationLinks: [],
     certificateAsset: null,
@@ -268,6 +268,7 @@ window.CREDENTIALS_DATA = [
     id: "docker-foundations-prof-cert",
     name: "Docker Foundations Professional Certificate",
     issuer: "Docker",
+    category: "CERTIFICATIONS",
     type: "Professional Certificate",
     level: "Professional",
     domains: ["Containers", "DevOps", "Platform"],
@@ -275,7 +276,6 @@ window.CREDENTIALS_DATA = [
     earnedYear: "Unverified",
     expiresDate: null,
     status: "Current",
-    highValue: false,
     credentialId: null,
     verificationLinks: [],
     certificateAsset: null,
@@ -350,6 +350,7 @@ window.CREDENTIALS_DATA = [
     id: "aws-restart-training",
     name: "AWS re/Start Training Graduate",
     issuer: "Amazon Web Services (AWS)",
+    category: "TRAINING & PROGRAMS",
     type: "Training",
     level: "Foundational",
     domains: ["Cloud", "DevOps", "Software Engineering"],
@@ -357,7 +358,6 @@ window.CREDENTIALS_DATA = [
     earnedYear: "Unverified",
     expiresDate: "None",
     status: "Current",
-    highValue: false,
     credentialId: null,
     verificationLinks: [],
     certificateAsset: null,
