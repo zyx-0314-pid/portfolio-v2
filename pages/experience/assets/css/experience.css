@@ -289,6 +289,34 @@
     will-change: transform;
 }
 
+.exp-card--current {
+    border-left: 3px solid var(--color-accent-bright);
+}
+
+.exp-card__current-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent-bright) 35%, transparent);
+    background: color-mix(in srgb, var(--color-accent-bright) 10%, transparent);
+    color: var(--color-accent-bright);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.exp-card__pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-accent-bright);
+    box-shadow: 0 0 6px var(--color-accent-bright);
+}
+
 .exp-card:hover {
     transform: translateX(4px) scale(1.012);
     border-color: var(--color-accent);

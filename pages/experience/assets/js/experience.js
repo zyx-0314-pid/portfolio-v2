@@ -110,6 +110,18 @@
     const applyFilters = () => {
         let anyVisible = false;
 
+        // Sort the year groups themselves
+        yearGroups.sort((a, b) => {
+            const aYear = parseInt(a.dataset.year || '0', 10);
+            const bYear = parseInt(b.dataset.year || '0', 10);
+            return sortMode === 'newest' ? bYear - aYear : aYear - bYear;
+        });
+
+        // Re-append year groups to timeline container in sorted order
+        if (timelineEl) {
+            yearGroups.forEach((group) => timelineEl.append(group));
+        }
+
         // Sort cards within each year group
         yearGroups.forEach((group) => {
             const cards = Array.from(group.querySelectorAll('.exp-card'));
@@ -122,7 +134,10 @@
                     : aStart.localeCompare(bStart);
             });
 
-            cards.forEach((card) => group.querySelector('.exp-year-cards')?.append(card));
+            const cardsContainer = group.querySelector('.exp-year-cards');
+            if (cardsContainer) {
+                cards.forEach((card) => cardsContainer.append(card));
+            }
         });
 
         // Show / hide cards
