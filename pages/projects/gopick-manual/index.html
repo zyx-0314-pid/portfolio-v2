@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>GoPick Manual — Engineering &amp; QA Documentation | Ian Cedric Ramirez</title>
+    <meta name="description" content="GoPick Manual case study — web-based engineering and operational documentation turning legacy HR assessment platform behavior, constraints, and QA boundaries into a shared maintainable reference.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">GoPick Manual</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · Engineering Documentation Artifact</p>
+                        <h1 class="project-header__title" id="page-title">GoPick Manual</h1>
+                        <p class="project-header__summary">GoPick Manual is a web-based engineering and operational documentation resource created to make the behavior of an existing HR assessment platform easier to understand, test, maintain, and hand over. It documents workflows, expected behavior, development standards, QA boundaries, constraints, troubleshooting information, and system context.</p>
+                        <p class="project-header__summary">The manual is maintained alongside ongoing GoPick development at People Dynamics Inc. so documentation evolves as system behavior changes.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#why-needed">Why It Was Needed</a>
+                            <a href="#structure">Documentation Structure</a>
+                            <a href="#behavior-framework">Behavior Framework</a>
+                            <a href="#legacy-alignment">Legacy Modernization</a>
+                            <a href="#maintenance">Maintenance Workflow</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with final GoPick Manual artwork and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom GoPick Manual illustration showing engineering documentation connecting legacy system behavior, QA expectations, developer standards, troubleshooting, and knowledge transfer.">
+                            <div class="project-header__hero-text">
+                                <strong>GoPick Manual System Resource</strong><br>
+                                Implicit Legacy Knowledge → Explicit Engineering &amp; QA Standards
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>HR &amp; Assessment (Documentation)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>Documentation Owner / Contributor</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Related System</dt>
+                        <dd><a href="../gopick/">GoPick Platform Case Study →</a></dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Provenance</dt>
+                        <dd><a href="../../experience/full-stack-developer/">People Dynamics Inc. →</a></dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Format</dt>
+                        <dd>Web-Based Engineering Documentation</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Status</dt>
+                        <dd>Active Documentation · Maintained</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Artifact Context</strong>
+                        Engineered as a supporting engineering and operational reference alongside the live <strong>GoPick</strong> application at <strong>People Dynamics Inc.</strong>
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview &amp; Primary Audience</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>GoPick Manual is not a generic end-user guide or a standalone SaaS product. It functions as an internal engineering and QA documentation system designed to convert implicit legacy application behavior into explicit shared standards.</p>
+                        <p>Primary target audiences:</p>
+                        <ul>
+                            <li><strong>Developers:</strong> Architecture boundaries, coding standards, route guards, and refactoring constraints.</li>
+                            <li><strong>QA / Testers:</strong> Test execution boundaries, preconditions, valid/invalid flows, and expected output states.</li>
+                            <li><strong>Internal Administrators &amp; Staff:</strong> System setup prerequisites, operational instructions, and troubleshooting steps.</li>
+                            <li><strong>New Developer Onboarding:</strong> Contextual guide for understanding legacy system components quickly.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Engineering Value</strong>
+                            <span>Reduces reliance on developer memory and unfamiliar legacy code inspection before implementing feature updates.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="why-needed" aria-labelledby="why-needed-title">
+                <h2 id="why-needed-title">Why It Was Needed</h2>
+                <p>GoPick is an existing production application with complex legacy workflows that were difficult to trace across coupled codebase areas. Without explicit documentation, feature additions or bug fixes required repeatedly deciphering legacy behavior.</p>
+                <div class="project-diagram" aria-label="Knowledge preservation transformation">
+                    <pre>Implicit Legacy System Knowledge (Code / Tribal Memory)
+        ↓
+Behavior Difficult &amp; Time-Consuming to Trace
+        ↓
+Document Current Behavior &amp; Constraints
+        ↓
+Define Expected Behavior &amp; QA Test Boundaries
+        ↓
+Explicit Shared Engineering Reference (GoPick Manual)
+        ↓
+Safer Code Modification &amp; Regression Testing</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="structure" aria-labelledby="structure-title">
+                <h2 id="structure-title">Documentation Structure</h2>
+                <p>The manual organizes operational and technical information into four distinct reference areas:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>1. Operational &amp; User Procedures</strong>
+                        <span>Step-by-step user workflows, required account setup, system prerequisites, operational warnings, and known functional constraints.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>2. Engineering &amp; Architectural Standards</strong>
+                        <span>Developer coding standards, current system behavior rules, expected outputs, 5-layer architectural guardrails, and change documentation.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>3. QA &amp; Testing Boundaries</strong>
+                        <span>Verification boundaries, expected output states, testing guidance across valid/invalid flows, and regression limits.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>4. Support &amp; Troubleshooting Guidance</strong>
+                        <span>Diagnostic resolution steps, common error symptoms, prerequisite checks, and operational maintenance notes.</span>
+                    </div>
+                </div>
+                <!-- TODO: Add sanitized examples of actual GoPick Manual pages if approved for public display. -->
+            </section>
+
+            <section class="project-section" id="behavior-framework" aria-labelledby="behavior-framework-title">
+                <h2 id="behavior-framework-title">Current vs. Expected Behavior Framework</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>One of the manual's core contributions is establishing a clear distinction between what the legacy system currently does and what it should do under defined conditions.</p>
+                        <p>Every documented module answers five key engineering questions:</p>
+                        <ul>
+                            <li><strong>Current Behavior:</strong> What does the system currently do in production?</li>
+                            <li><strong>Expected Behavior:</strong> What should occur according to system specifications?</li>
+                            <li><strong>Constraint:</strong> What data or environmental conditions affect that behavior?</li>
+                            <li><strong>QA Boundary:</strong> What explicit scenarios must QA verify?</li>
+                            <li><strong>Warning:</strong> What actions can lead to incorrect results or unexpected errors?</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Shared Interpretation</strong>
+                            <span>Eliminates ambiguity between developers and QA testers during release verification cycles.</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO: Add a representative current-behavior vs expected-behavior example if publicly safe. -->
+            </section>
+
+            <section class="project-section" id="legacy-alignment" aria-labelledby="legacy-alignment-title">
+                <h2 id="legacy-alignment-title">Legacy System Modernization Alignment</h2>
+                <p>GoPick Manual directly supports legacy refactoring by establishing an explicit understanding phase before code modifications take place:</p>
+                <div class="project-diagram" aria-label="Modernization workflow cycle">
+                    <pre>Understand Legacy Behavior
+        ↓
+Document Behavior &amp; Constraints in Manual
+        ↓
+Execute Refactoring / Feature Implementation
+        ↓
+Validate Against QA Boundaries
+        ↓
+Update Documentation to Reflect New State</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="maintenance" aria-labelledby="maintenance-title">
+                <h2 id="maintenance-title">Maintenance Workflow</h2>
+                <p>To prevent documentation drift, the manual is updated as an integral part of ongoing engineering work:</p>
+                <div class="project-diagram" aria-label="Documentation maintenance workflow">
+                    <pre>System / Feature Change
+        ↓
+Code Implementation
+        ↓
+QA &amp; Developer Validation
+        ↓
+Documentation Review
+        ↓
+Manual Updated &amp; Published alongside Release</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Shared Engineering Reference</strong>
+                        <span>Created an explicit single source of truth for expected GoPick behavior across teams.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Improved Developer &amp; QA Alignment</strong>
+                        <span>Established clear verification boundaries and test prerequisites for release sanity checks.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Safer Legacy Maintenance</strong>
+                        <span>Made legacy workflows easier to trace and evaluate before code modifications.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Knowledge Preservation</strong>
+                        <span>Reduced dependence on individual developer memory and undocumented system assumptions.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Streamlined Onboarding</strong>
+                        <span>Provided new developers with structured architectural context and operational guardrails.</span>
+                    </div>
+                </div>
+                <!-- TODO: Add measurable documentation/onboarding outcomes only if actual evidence becomes available. -->
+                <!-- TODO: Add approved public documentation link only if one becomes available. -->
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Primary System Case Study</strong>
+                        <p>GoPick — HR assessment platform legacy modernization and 5-layer architecture refactoring.</p>
+                        <a class="related-link" href="../gopick/">View GoPick Case Study →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Related Experience</strong>
+                        <p>Full-Stack Developer at People Dynamics Inc. Engineering documentation ownership and system maintenance.</p>
+                        <a class="related-link" href="../../experience/full-stack-developer/">View People Dynamics Inc. Experience →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Skills &amp; Credentials</strong>
+                        <p>Technical communication, architecture documentation, and QA standardization.</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../talara/">← Previous Case Study (Talara)</a>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Case Study →</span>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
