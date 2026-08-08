@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>SIMS — Student Information &amp; Achievement System | Ian Cedric Ramirez</title>
+    <meta name="description" content="SIMS case study — departmental student-information system for student profiles, academic/extracurricular achievements, Hall of Fame recognition, and relational organization connections.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">SIMS</span>
+        </nav>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · Education &amp; Relational Systems</p>
+                        <h1 class="project-header__title" id="page-title">SIMS</h1>
+                        <p class="project-header__summary">SIMS (Student Information Management System) is a departmental student-information system created for the Computer Science program of Isabela State University – Echague Campus. Rather than focusing primarily on enrollment, the system centralized student profiles, academic and extracurricular achievements, Hall of Fame recognition, and student-organization relationships.</p>
+                        <p class="project-header__summary">As System Architect and Developer, I designed and implemented the full-stack application, relational data structure, role-based access, achievement workflows, and local-network deployment.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#story">Case Study Narrative</a>
+                            <a href="#roles">Roles &amp; Access</a>
+                            <a href="#student-info">Student Profiles</a>
+                            <a href="#achievements">Achievements &amp; Recognition</a>
+                            <a href="#hall-of-fame">Hall of Fame</a>
+                            <a href="#organizations">Organization Relationships</a>
+                            <a href="#relational-data">Relational Data Model</a>
+                            <a href="#stack">Technology Stack</a>
+                            <a href="#deployment">Local LAN Deployment</a>
+                            <a href="#testing">Manual Testing</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#retrospective">Retrospective</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <!-- TODO: Replace with final SIMS artwork and update alt text to describe the actual image. -->
+                        <figure class="project-header__hero" aria-label="Placeholder for a custom SIMS illustration showing student profiles connected to achievements, Hall of Fame recognition, organizations, and role-based departmental access.">
+                            <div class="project-header__hero-text">
+                                <strong>SIMS Departmental System</strong><br>
+                                Student Profiles &amp; Achievements → Hall of Fame → Organization Links
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>Education (Departmental SaaS)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>System Architect + Developer</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Provenance</dt>
+                        <dd>Isabela State University – Echague Campus</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Year &amp; Origin</dt>
+                        <dd>2021 · Capstone Project</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Core Stack</dt>
+                        <dd>PHP · MySQL · Auth0 · Tailwind CSS</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Deployment</dt>
+                        <dd>Local LAN Server Setup</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Institutional Context</strong>
+                        Engineered as a 2021 Capstone Project for the <strong>Department of Computer Science</strong> at <strong>Isabela State University – Echague Campus</strong>.
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Overview &amp; Digitalization Purpose</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>SIMS was developed to digitize and centralize student records that were previously scattered across physical documents and uncoordinated lists within the Computer Science department.</p>
+                        <p>Rather than duplicating university-wide registrar functions (such as tuition billing or official grade processing), SIMS focused on preserving and presenting student accomplishments, certifications, awards, and student-organization memberships.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>System Positioning</strong>
+                            <span>Departmental student profile, achievement recognition, and organization relationship management.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Engineering Focus</strong>
+                            <span>Full-Stack · Data</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="story" aria-labelledby="story-title">
+                <h2 id="story-title">Case Study Narrative Flow</h2>
+                <p>The central system narrative demonstrates how manual student records were transformed into a structured departmental recognition platform:</p>
+                <div class="project-diagram" aria-label="SIMS central narrative flow diagram">
+                    <pre>Manual / Scattered Student Information
+        ↓
+Structured Student Profiles
+        ↓
+Academic &amp; Extracurricular Achievement Records
+        ↓
+Student-Organization Memberships &amp; Positions
+        ↓
+Departmental Hall of Fame &amp; Recognition
+        ↓
+Role-Based Department Access (Admin, Faculty, Student, Chair)
+        ↓
+Locally Deployed Department System (LAN Access)</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="roles" aria-labelledby="roles-title">
+                <h2 id="roles-title">User Roles &amp; Access Control</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The application enforced role-based access control to tailor interface views and operational capabilities across different department stakeholders:</p>
+                        <ul>
+                            <li><strong>Department Administrator:</strong> Full system record management, achievement verification, and organization data oversight.</li>
+                            <li><strong>Faculty / Instructor:</strong> Ability to view, manage, and verify relevant student academic and project records.</li>
+                            <li><strong>Students:</strong> Self-service profile viewing, personal achievement submission, and organization membership checks.</li>
+                            <li><strong>Program Chair / Head:</strong> Department-level overview reporting and program visibility.</li>
+                            <li><strong>Organization Officers:</strong> Management of student organization profiles, activities, and officer lists.</li>
+                        </ul>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Role-Based Navigation</strong>
+                            <span>Auth0 login sessions resolved user roles to present role-specific dashboards and menu options.</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO: Confirm exact role permission matrix if original source is available. -->
+            </section>
+
+            <section class="project-section" id="student-info" aria-labelledby="student-info-title">
+                <h2 id="student-info-title">Student Profile Management</h2>
+                <p>Student profile records centralized essential student identity and departmental involvement in one searchable database:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Student Identity &amp; Profile Data</strong>
+                        <span>Basic academic metadata, program year, contact information, and profile records.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Integrated Achievement History</strong>
+                        <span>Chronological list of earned awards, certifications, rankings, and competition recognitions.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Organization Involvement</strong>
+                        <span>Active and historical memberships in recognized Computer Science student organizations.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="achievements" aria-labelledby="achievements-title">
+                <h2 id="achievements-title">Achievement &amp; Recognition Subsystem</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The achievement subsystem gave SIMS its distinct identity by capturing diverse student accomplishments beyond standard course grades.</p>
+                        <p>Tracked achievement categories:</p>
+                        <ul>
+                            <li><strong>Competition Achievements:</strong> Hackathons, programming contests, and academic quizzes.</li>
+                            <li><strong>Industry Certifications:</strong> Technical skills certifications and online credentials.</li>
+                            <li><strong>Academic Awards:</strong> Honor rolls, dean's lists, and research recognitions.</li>
+                            <li><strong>Student Projects:</strong> Capstone projects, software demonstrations, and research outputs.</li>
+                            <li><strong>Organization Achievements:</strong> Group awards and departmental event rankings.</li>
+                        </ul>
+                    </div>
+                    <div class="project-diagram" aria-label="Achievement record flow diagram">
+                        <pre>Student Accomplishment
+        ↓
+Record Achievement Entry
+├── Category &amp; Title
+├── Date &amp; Description
+├── Ranking / Award Title
+├── Supporting Evidence / Photo
+└── Related Organization
+        ↓
+Store in Relational Schema
+        ↓
+Display on Student Profile &amp; Department Hall of Fame</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="hall-of-fame" aria-labelledby="hall-of-fame-title">
+                <h2 id="hall-of-fame-title">Departmental Hall of Fame</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>SIMS featured a central <strong>Hall of Fame</strong> showcase highlighting top student achievements, competition winners, and program honors.</p>
+                        <p>The Hall of Fame served as a public recognition mechanism within the department, preserving accomplishment history for upcoming student batches.</p>
+                        <!-- TODO: Confirm whether achievement records required approval before Hall of Fame publication. -->
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Recognition Preservation</strong>
+                            <span>Ensured student awards and competition successes remained visible across academic years rather than being lost over time.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="organizations" aria-labelledby="organizations-title">
+                <h2 id="organizations-title">Student Organization Relationships</h2>
+                <p>Student organizations were modeled as relational entities rather than flat text fields, establishing rich connections between students and campus groups:</p>
+                <div class="project-diagram" aria-label="Student and organization relationship model">
+                    <pre>Student Entity
+   │
+   ├── Member Of ──────► Student Organization Profile
+   │                          ├── Executive Officers &amp; Positions
+   ├── Officer Role ──────────┤── Activity / Event Logs
+   │                          └── Group Achievements
+   └── Membership History ────┘</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="relational-data" aria-labelledby="relational-data-title">
+                <h2 id="relational-data-title">Relational Data Modeling</h2>
+                <p>SIMS demonstrated early relational schema design using MySQL to connect core entities:</p>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Student ↔ Achievement</strong>
+                        <span>One-to-many relationship linking students to multiple documented accomplishments.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Student ↔ Organization (Membership &amp; Roles)</strong>
+                        <span>Many-to-many relationship tracking student involvement, officer positions, and historical terms.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Organization ↔ Achievement &amp; Events</strong>
+                        <span>Linking group achievements and activities directly to student organization profiles.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="stack" aria-labelledby="stack-title">
+                <h2 id="stack-title">Verified Technology Stack</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Backend &amp; Database</strong>
+                        <span>PHP (Full-Stack application logic) · MySQL (Relational database)</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Authentication &amp; UI</strong>
+                        <span>Auth0 (User authentication) · Tailwind CSS (Responsive styling)</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Deployment &amp; Testing</strong>
+                        <span>Local LAN Server Deployment · Manual Functional Testing</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="deployment" aria-labelledby="deployment-title">
+                <h2 id="deployment-title">Local Network (LAN) Deployment</h2>
+                <p>The system was deployed on a local PHP/MySQL server accessible over the institutional local area network (LAN IP), enabling multiple department computers to access SIMS simultaneously:</p>
+                <div class="project-diagram" aria-label="Local network deployment diagram">
+                    <pre>Department Local Server (PHP + MySQL Instance)
+        │
+        └── Local Area Network (LAN IP Access)
+              ├── Admin Workstation
+              ├── Faculty Computers
+              └── Student Lab Workstations</pre>
+                </div>
+                <!-- TODO: Confirm exact local server software used for LAN deployment. -->
+            </section>
+
+            <section class="project-section" id="testing" aria-labelledby="testing-title">
+                <h2 id="testing-title">Manual Functional Testing</h2>
+                <p>System quality was validated through manual functional testing routines covering Auth0 authentication, role routing, student profile creation, achievement logging, Hall of Fame rendering, organization updates, and LAN connection sanity checks.</p>
+            </section>
+
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>Centralized Departmental Records</strong>
+                        <span>Replaced manual record keeping with a structured, searchable student database.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Visible Achievement Recognition</strong>
+                        <span>Created a central Hall of Fame showcase preserving student awards and competition successes.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Relational Organization Mapping</strong>
+                        <span>Connected student profiles with organization memberships, officer roles, and activity records.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Functional Local Network Deployment</strong>
+                        <span>Successfully operated across department computers over a local LAN setup.</span>
+                    </div>
+                </div>
+                <!-- TODO: Add screenshots only if old project assets are available and appropriate for public display. -->
+                <!-- TODO: Add repository/source link only if verified and public. -->
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Retrospective &amp; Foundations</h2>
+                <div class="retrospective-item">
+                    <h3>Early Relational Data Design</h3>
+                    <p>SIMS served as an early full-stack project demonstrating how relational data modeling becomes essential when connecting student profiles, achievements, organization memberships, and officer positions.</p>
+                </div>
+                <div class="retrospective-item">
+                    <h3>Focusing on Recognition Over Administration</h3>
+                    <p>By focusing on achievement tracking and Hall of Fame recognition rather than standard enrollment workflows, SIMS provided immediate value to the Computer Science department community.</p>
+                </div>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Professional Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item">
+                        <strong>Skills Demonstrated</strong>
+                        <p>PHP · MySQL · Auth0 · Tailwind CSS · Relational Data Modeling · Role-Based Access · Local Network Deployment</p>
+                        <a class="related-link" href="../../skills/">Explore Skills →</a>
+                    </div>
+                    <div class="related-link-item">
+                        <strong>Relevant Credentials &amp; Certifications</strong>
+                        <p>Academic credentials, Computer Science capstone reference, and early software engineering projects.</p>
+                        <a class="related-link" href="../../credentials/">View Credentials →</a>
+                    </div>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../gopick-manual/">← Previous Case Study (GoPick Manual)</a>
+                <a href="../">All Projects</a>
+                <span aria-disabled="true">Next Case Study →</span>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Developer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
