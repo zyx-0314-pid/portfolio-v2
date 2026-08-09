@@ -84,7 +84,7 @@ html[data-theme="light"] {
     background: var(--surface-depth-raised);
 }
 
-#movies-anime {
+#read-anime {
     background: var(--surface-depth-base);
 }
 
@@ -1347,6 +1347,46 @@ html[data-theme="light"] {
     z-index: 2;
 }
 
+@media (max-width: 720px) {
+    .games-shelf-layout {
+        gap: 2.5rem;
+    }
+
+    .games-shelf-section-title {
+        margin-bottom: 1.25rem;
+    }
+
+    .games-shelf-track {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        overflow: visible;
+        padding: 0;
+        margin-inline: 0;
+    }
+
+    .game-artwork-card {
+        min-width: 0;
+        padding: 1rem;
+    }
+
+    .game-artwork-title {
+        font-size: 0.9rem;
+        line-height: 1.15;
+    }
+
+    .game-artwork-meta {
+        font-size: 0.68rem;
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 340px) {
+    .games-shelf-track {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ── 07. MUSIC — Typographic Artist Composition ─────────────────────────── */
 
 .music-split-grid {
@@ -1410,7 +1450,7 @@ html[data-theme="light"] {
     color: var(--color-text);
 }
 
-/* ── 08. MOVIES & ANIME — Genre Header & Poster Strip ───────────────────── */
+/* ── 08. READ & ANIME — Genre Header & Poster Strip ───────────────────── */
 
 .genre-hero-strip {
     display: flex;

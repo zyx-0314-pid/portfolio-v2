@@ -171,7 +171,7 @@
                 [/making|tinkering/, 'fa-hammer'],
                 [/games?/, 'fa-gamepad'],
                 [/music/, 'fa-music'],
-                [/manga|manhwa|manhua|manfra|anime|movies?/, 'fa-book-open-reader'],
+                [/manga|manhwa|manhua|manfra|anime|read?/, 'fa-book-open-reader'],
                 [/photography|photo/, 'fa-camera'],
                 [/reading|books?/, 'fa-book-open'],
                 [/closing|portfolio navigation/, 'fa-arrow-up-right-from-square'],
