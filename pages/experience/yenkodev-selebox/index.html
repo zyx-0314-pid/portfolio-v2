@@ -56,17 +56,19 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main">
+        <article class="experience-page">
 
         <!-- ── Back navigation ────────────────────────────────────── -->
         <nav class="exp-detail-nav" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Experience</a> / <span aria-current="page">Full-Stack Engineer</span>
         </nav>
+        <section class="exp-section exp-section--gradient exp-detail-hero">
 
         <!-- ── Role header ─────────────────────────────────────────── -->
         <header class="exp-detail-header">
-            <p class="exp-detail-eyebrow">Experience</p>
-            <h1 class="exp-detail-role">Full-Stack Engineer </h1>
+            <p class="exp-eyebrow">Experience</p>
+            <h1 class="exp-detail-role exp-display">Full-Stack Engineer </h1>
             <div class="exp-detail-meta">
                 <p class="exp-detail-period">May 2024 - Aug 2024</p>
                 <p class="exp-detail-company">YenkoDev - SeLeBox Platform</p>
@@ -78,19 +80,20 @@
 
         <!-- ── Illustration ────────────────────────────────────────── -->
         <!-- TODO: Replace with the final custom SeLeBox experience illustration and update alt text to describe the actual artwork. -->
-        <div class="exp-detail-illustration">
+        <div class="exp-detail-illustration exp-media-frame exp-media-frame--square">
             <img src="https://placehold.co/1200x525"
                 alt="Placeholder for a custom editorial illustration representing social platform development, messaging, follower relationships, continuous video feeds, media uploads, and offline video access."
                 width="1200" height="525">
         </div>
+        </section>
 
         <!-- ── Content body ────────────────────────────────────────── -->
         <div class="exp-detail-body">
 
             <!-- ── Context ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-context">
-                <p class="exp-detail-section-label">Context</p>
-                <h2 id="section-context">Platform &amp; Team Relationship</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-context">
+                <p class="exp-eyebrow">Context</p>
+                <h2 class="exp-section-title" id="section-context">Platform &amp; Team Relationship</h2>
                 <p>
                     Worked with the development team at <strong>YenkoDev</strong> on the <strong>SeLeBox
                         Platform</strong> as a part-time Full-Stack Engineer.
@@ -102,9 +105,9 @@
             </section>
 
             <!-- ── Scope & Ownership ────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-scope">
-                <p class="exp-detail-section-label">Scope &amp; Ownership</p>
-                <h2 id="section-scope">Feature Ownership Within an Existing Codebase</h2>
+            <section class="exp-detail-section exp-section exp-section--subtle" aria-labelledby="section-scope">
+                <p class="exp-eyebrow">Scope &amp; Ownership</p>
+                <h2 class="exp-section-title" id="section-scope">Feature Ownership Within an Existing Codebase</h2>
                 <p>
                     Owned the implementation of several core social, messaging, feed, media, and offline-experience
                     features within the existing SeLeBox platform.
@@ -117,9 +120,9 @@
             </section>
 
             <!-- ── Social Relationships ─────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-social">
-                <p class="exp-detail-section-label">Social Core</p>
-                <h2 id="section-social">Follow System &amp; Profile Integration</h2>
+            <section class="exp-detail-section exp-section exp-section--grid" aria-labelledby="section-social">
+                <p class="exp-eyebrow">Social Core</p>
+                <h2 class="exp-section-title" id="section-social">Follow System &amp; Profile Integration</h2>
                 <p>
                     Implemented follow and follow-back relationships between users, connecting user connections directly
                     into profile displays.
@@ -131,9 +134,9 @@
             </section>
 
             <!-- ── Messaging Capabilities ───────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-messaging">
-                <p class="exp-detail-section-label">Communication</p>
-                <h2 id="section-messaging">Direct Messaging &amp; Group Chat Services</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-messaging">
+                <p class="exp-eyebrow">Communication</p>
+                <h2 class="exp-section-title" id="section-messaging">Direct Messaging &amp; Group Chat Services</h2>
                 <p>
                     <strong>Direct Chat:</strong> Implemented user-to-user direct messaging connected to
                     follower/following relationships, enabling users to exchange direct text messages within established
@@ -148,9 +151,9 @@
             </section>
 
             <!-- ── Feed & Media Services ────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-feed">
-                <p class="exp-detail-section-label">Content Delivery</p>
-                <h2 id="section-feed">Feed Services &amp; Media Uploads</h2>
+            <section class="exp-detail-section exp-section exp-section--tinted" aria-labelledby="section-feed">
+                <p class="exp-eyebrow">Content Delivery</p>
+                <h2 class="exp-section-title" id="section-feed">Feed Services &amp; Media Uploads</h2>
                 <p>
                     <strong>Feed Services:</strong> Implemented and extended feed-related services supporting social
                     content delivery, combining posts, media attachments, and follower relationships into active user
@@ -163,9 +166,9 @@
             </section>
 
             <!-- ── Video Experience & Offline Caching ───────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-video">
-                <p class="exp-detail-section-label">Media &amp; Browsing</p>
-                <h2 id="section-video">Continuous Video Browsing &amp; Offline Caching</h2>
+            <section class="exp-detail-section exp-section exp-section--paper" aria-labelledby="section-video">
+                <p class="exp-eyebrow">Media &amp; Browsing</p>
+                <h2 class="exp-section-title" id="section-video">Continuous Video Browsing &amp; Offline Caching</h2>
                 <p>
                     <strong>Continuous Video Feed:</strong> Built a continuous video browsing experience using infinite
                     scrolling, integrating engagement interactions such as Like, Comment, and Share for video content.
@@ -179,9 +182,9 @@
             </section>
 
             <!-- ── Feature Architecture ─────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-architecture">
-                <p class="exp-detail-section-label">Feature Interconnection</p>
-                <h2 id="section-architecture">Integrated Social Ecosystem</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-architecture">
+                <p class="exp-eyebrow">Feature Interconnection</p>
+                <h2 class="exp-section-title" id="section-architecture">Integrated Social Ecosystem</h2>
                 <p>
                     Rather than isolated utilities, these features formed a connected social product workflow:
                 </p>
@@ -198,9 +201,9 @@
             </section>
 
             <!-- ── Technical Decisions ──────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-decisions">
-                <p class="exp-detail-section-label">Engineering Rationale</p>
-                <h2 id="section-decisions">Technical Decisions</h2>
+            <section class="exp-detail-section exp-section exp-section--terminal" aria-labelledby="section-decisions">
+                <p class="exp-eyebrow">Engineering Rationale</p>
+                <h2 class="exp-section-title" id="section-decisions">Technical Decisions</h2>
                 <p>
                     <strong>Building on an Existing System:</strong> Integrated new features into an existing
                     application codebase without attempting a risky full rewrite, preserving existing auth and data
@@ -221,9 +224,9 @@
             </section>
 
             <!-- ── Key Contributions ────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-contributions">
-                <p class="exp-detail-section-label">Key Contributions</p>
-                <h2 id="section-contributions">Summary of Contributions</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-contributions">
+                <p class="exp-eyebrow">Key Contributions</p>
+                <h2 class="exp-section-title" id="section-contributions">Summary of Contributions</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Key contributions">
                     <li>
                         Implemented follow and follow-back relationships and integrated follower/following information
@@ -249,9 +252,9 @@
             </section>
 
             <!-- ── Outcomes ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-outcomes">
-                <p class="exp-detail-section-label">Outcomes</p>
-                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+            <section class="exp-detail-section exp-section exp-section--contrast" aria-labelledby="section-outcomes">
+                <p class="exp-eyebrow">Outcomes</p>
+                <h2 class="exp-section-title" id="section-outcomes">Qualitative Outcomes</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Qualitative outcomes">
                     <li>Enabled users to establish follower/following relationships through the platform.</li>
                     <li>Connected social relationships directly to messaging access and permissions.</li>
@@ -267,9 +270,9 @@
             </section>
 
             <!-- ── Related Evidence ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-evidence">
-                <p class="exp-detail-section-label">Related Evidence</p>
-                <h2 id="section-evidence">Skills &amp; Project Links</h2>
+            <section class="exp-detail-section exp-section exp-section--raised" aria-labelledby="section-evidence">
+                <p class="exp-eyebrow">Related Evidence</p>
+                <h2 class="exp-section-title" id="section-evidence">Skills &amp; Project Links</h2>
                 <div class="exp-detail-evidence-block">
                     <div class="exp-detail-evidence-row">
                         <span class="exp-detail-evidence-type">Skills</span>
@@ -285,6 +288,7 @@
 
         </div><!-- /.exp-detail-body -->
 
+            </article>
     </main>
 
 

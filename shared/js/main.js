@@ -357,6 +357,10 @@
             return;
         }
 
+        if (main.querySelector(':scope > .experience-page')) {
+            return;
+        }
+
         const existingNav = document.querySelector('[data-sticky-nav]');
         const usedIds = new Set(Array.from(document.querySelectorAll('[id]')).map((element) => element.id));
         const toSectionId = (label, index) => {

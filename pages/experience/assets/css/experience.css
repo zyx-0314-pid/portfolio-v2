@@ -2,7 +2,7 @@
 .experience-main {
     width: 100%;
     min-height: calc(100vh - 12rem);
-    background-color: var(--surface-depth-raised);
+    background-color: var(--color-bg-secondary);
     background-image: 
         radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--color-border) 40%, transparent) 1px, transparent 0);
     background-size: 28px 28px;
@@ -427,7 +427,7 @@
     transform: translateY(-4px);
     border-color: var(--color-accent-bright);
     border-left-color: var(--color-accent-bright);
-    background: color-mix(in srgb, var(--surface-depth-card) 90%, var(--color-accent-deep) 10%);
+    background: color-mix(in srgb, var(--color-surface) 90%, var(--color-accent-deep) 10%);
     box-shadow: 0 8px 24px -4px color-mix(in srgb, var(--color-accent-bright) 35%, transparent),
                 0 12px 24px -6px rgba(0, 0, 0, 0.45);
     position: relative;
@@ -1221,10 +1221,16 @@ html[data-theme="light"] .exp-qv-backdrop {
     line-height: 1.25;
 }
 
+.experience-page .exp-detail-section .exp-section-title {
+    font-size: clamp(2rem, 3.8vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: 0;
+}
+
 .exp-detail-section p {
     font-size: 0.95rem;
     line-height: 1.7;
-    color: var(--color-text-secondary, var(--color-text));
+    color: var(--color-text-muted);
     margin: 0 0 0.65rem;
     max-width: 68ch;
 }
@@ -1248,7 +1254,7 @@ html[data-theme="light"] .exp-qv-backdrop {
 .exp-detail-contrib-list li {
     font-size: 0.95rem;
     line-height: 1.65;
-    color: var(--color-text-secondary, var(--color-text));
+    color: var(--color-text-muted);
     padding-left: 1.25rem;
     position: relative;
 }
@@ -1421,5 +1427,948 @@ html[data-theme="light"] .exp-qv-backdrop {
     .exp-detail-metric {
         flex-direction: column;
         gap: 0.15rem;
+    }
+}
+
+/* ============================================================
+   Experience presentation system
+   Scoped toolkit for Experience detail pages.
+   ============================================================ */
+
+.experience-page {
+    --exp-content-max: 86rem;
+    --exp-wide-max: 108rem;
+    --exp-reading-max: 64rem;
+    --exp-section-space: clamp(4.75rem, 7vw, 7.5rem);
+    --exp-section-space-sm: clamp(3.5rem, 5vw, 5rem);
+    --exp-gutter: clamp(1.25rem, 4vw, 4rem);
+    --exp-radius-sm: 2px;
+    --exp-radius-md: 4px;
+    --exp-radius-lg: 8px;
+    --exp-border: var(--color-border);
+    --exp-surface: var(--color-bg);
+    --exp-surface-raised: var(--color-surface);
+    --exp-surface-muted: var(--color-bg-secondary);
+    --exp-text: var(--color-text);
+    --exp-text-muted: var(--color-text-muted);
+    --exp-accent: var(--color-accent);
+    --exp-accent-soft: color-mix(in srgb, var(--exp-accent) 12%, transparent);
+    --exp-accent-strong: var(--color-accent-bright);
+    --exp-hero-bg: var(--color-bg);
+    --exp-section-tint: color-mix(in srgb, var(--exp-accent) 8%, var(--color-bg));
+    --exp-grid-color: color-mix(in srgb, var(--exp-accent) 22%, transparent);
+    width: 100%;
+    overflow-x: clip;
+    background: var(--exp-surface);
+    color: var(--exp-text);
+}
+
+.experience-page .exp-detail-nav,
+.experience-page .exp-detail-header,
+.experience-page .exp-detail-body,
+.experience-page .exp-detail-section {
+    border: 0;
+}
+
+.experience-page .exp-detail-nav {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    margin-inline: auto;
+    padding-top: clamp(1.25rem, 3vw, 2rem);
+}
+
+.experience-page > .exp-section {
+    grid-column: 1 / -1;
+}
+
+.exp-detail-hero {
+    display: grid;
+    grid-template-columns:
+        minmax(var(--exp-gutter), 1fr)
+        minmax(0, calc(var(--exp-content-max) * 0.52))
+        minmax(0, calc(var(--exp-content-max) * 0.48))
+        minmax(var(--exp-gutter), 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+}
+
+.exp-detail-hero > .exp-detail-header {
+    grid-column: 2 / 3;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.exp-detail-hero > .exp-detail-illustration {
+    grid-column: 3 / 4;
+    width: 100%;
+    margin: 0;
+}
+
+.exp-section--gradient > .exp-split--text-heavy {
+    --exp-left: 1.15fr;
+    --exp-right: 0.85fr;
+}
+
+.experience-page .exp-detail-header {
+    padding: 0;
+}
+
+.experience-page .exp-detail-meta,
+.experience-page .exp-detail-tags {
+    margin-top: clamp(1rem, 2vw, 1.5rem);
+}
+
+.experience-page .exp-detail-illustration {
+    margin-block: 0;
+}
+
+.experience-page .exp-detail-illustration.exp-media-frame {
+    display: flex;
+    min-height: clamp(18rem, 28vw, 30rem);
+    padding: clamp(0.75rem, 1.4vw, 1.25rem);
+}
+
+.experience-page .exp-detail-illustration.exp-media-frame img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+.experience-page .exp-detail-body {
+    display: block;
+}
+
+.experience-page .exp-detail-section {
+    padding: 0;
+}
+
+.experience-page .exp-detail-section.exp-section {
+    padding-block: var(--exp-section-space);
+}
+
+.experience-page .exp-detail-section.exp-section--compact {
+    padding-block: var(--exp-section-space-sm);
+}
+
+.experience-page > .exp-detail-header,
+.experience-page > .exp-detail-illustration {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    margin-inline: auto;
+}
+
+.experience-page > .exp-detail-header {
+    padding-block: var(--exp-section-space-sm) clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.experience-page > .exp-detail-illustration {
+    margin-block: 0 var(--exp-section-space);
+}
+
+.experience-page > .exp-detail-header + .exp-detail-illustration {
+    margin-top: 0;
+}
+
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) {
+    padding-block: var(--exp-section-space-sm);
+    background: var(--exp-surface);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > :not(.exp-container):not(.exp-reading):not(.exp-wide):not(.exp-full) {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    margin-inline: auto;
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-eyebrow,
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-section-title {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    margin-inline: auto;
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-section-title {
+    margin-bottom: clamp(1.35rem, 2.5vw, 2.25rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > p {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-reading-max));
+    margin-inline: auto;
+    color: var(--exp-text-muted);
+    font-size: clamp(1rem, 1.3vw, 1.12rem);
+    line-height: 1.75;
+    margin-block: 0 clamp(1rem, 2vw, 1.4rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-wide-max));
+    max-width: var(--exp-wide-max);
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list:not(.exp-stack):not(.exp-numbered-story) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list:not(.exp-stack):not(.exp-numbered-story) > li {
+    padding: clamp(1rem, 2vw, 1.35rem);
+    border: 1px solid var(--exp-border);
+    background: color-mix(in srgb, var(--exp-surface-muted) 84%, var(--exp-surface-raised) 16%);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-tech-grid,
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-evidence-block,
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-architecture {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    max-width: var(--exp-content-max);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-evidence-block {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-tooling {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    max-width: var(--exp-content-max);
+    margin-top: clamp(1.25rem, 2.5vw, 2rem);
+    padding-top: 1rem;
+    border-top: 1px solid var(--exp-border);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section--contrast > .exp-detail-contrib-list {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
+
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section):nth-of-type(even) {
+    background: color-mix(in srgb, var(--exp-surface-muted) 55%, var(--exp-surface) 45%);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) + .exp-detail-section:not(.exp-section) {
+    border-top: 1px solid color-mix(in srgb, var(--exp-border) 58%, transparent);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) h2 {
+    max-width: var(--exp-reading-max);
+    margin-bottom: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) p,
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) ul,
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) ol,
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) .exp-detail-tech-grid,
+.experience-page .exp-detail-body > .exp-detail-section:not(.exp-section) .exp-detail-evidence-block {
+    max-width: var(--exp-reading-max);
+}
+
+.experience-page .exp-detail-section p,
+.experience-page .exp-detail-contrib-list {
+    max-width: none;
+}
+
+.experience-page .exp-detail-contrib-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-page .exp-detail-contrib-list li {
+    padding-left: 0;
+}
+
+.experience-page .exp-detail-contrib-list li::before {
+    content: none;
+}
+
+.experience-page .exp-artifact-row {
+    display: grid;
+    flex-direction: initial;
+}
+
+.experience-page .exp-artifact-row > li {
+    padding: clamp(1rem, 2vw, 1.35rem);
+    border: 1px solid var(--exp-border);
+    background: color-mix(in srgb, var(--exp-surface-muted) 84%, var(--exp-surface-raised) 16%);
+    line-height: 1.65;
+}
+
+.experience-page .exp-numbered-story {
+    display: flex;
+    flex-direction: column;
+    counter-reset: exp-story;
+    gap: clamp(1.25rem, 2.4vw, 2rem);
+}
+
+.experience-page .exp-numbered-story > li {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(0.75rem, 1.5vw, 1.1rem);
+    align-items: start;
+    padding-block: clamp(1.3rem, 2.6vw, 2.2rem);
+    border-top: 1px solid var(--exp-border);
+    line-height: 1.65;
+}
+
+.experience-page .exp-numbered-story > li::before {
+    counter-increment: exp-story;
+    content: counter(exp-story, decimal-leading-zero);
+    position: static;
+    color: color-mix(in srgb, var(--exp-accent) 78%, var(--exp-text));
+    font-family: var(--font-mono);
+    font-size: clamp(2.4rem, 5vw, 5.25rem);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: 0;
+}
+
+.experience-page .exp-detail-evidence-block {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.experience-page .exp-detail-evidence-row {
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--exp-border);
+}
+
+.exp-container,
+.exp-reading,
+.exp-wide {
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+    margin-inline: auto;
+}
+
+.exp-reading {
+    max-width: var(--exp-reading-max);
+}
+
+.exp-wide {
+    max-width: var(--exp-wide-max);
+}
+
+.exp-full {
+    width: 100%;
+}
+
+.exp-section {
+    position: relative;
+    padding-block: var(--exp-section-space);
+    overflow: visible;
+}
+
+.exp-section--compact {
+    padding-block: var(--exp-section-space-sm);
+}
+
+.exp-section--plain {
+    background: var(--exp-surface);
+}
+
+.exp-section--subtle {
+    background: color-mix(in srgb, var(--exp-surface-muted) 62%, var(--exp-surface) 38%);
+}
+
+.exp-section--raised {
+    background: var(--exp-surface-raised);
+}
+
+.exp-section--tinted {
+    background: var(--exp-section-tint);
+}
+
+.exp-section--contrast {
+    background: color-mix(in srgb, var(--color-bg-secondary) 78%, #000 22%);
+}
+
+html[data-theme="light"] .exp-section--contrast {
+    background: color-mix(in srgb, var(--color-bg-secondary) 70%, #fff 30%);
+}
+
+.exp-section--gradient {
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--exp-accent) 12%, transparent), transparent 42%),
+        linear-gradient(180deg, var(--exp-surface-muted), var(--exp-surface));
+}
+
+.exp-section--grid {
+    background-color: var(--exp-surface);
+    background-image:
+        linear-gradient(var(--exp-grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--exp-grid-color) 1px, transparent 1px);
+    background-size: 42px 42px;
+}
+
+.exp-section--noise {
+    background:
+        radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--exp-text) 5%, transparent) 0 1px, transparent 1px),
+        var(--exp-surface-muted);
+    background-size: 9px 9px;
+}
+
+.exp-section--paper {
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--exp-border) 55%, transparent) 1px, transparent 1px) 0 0 / 100% 2.1rem,
+        color-mix(in srgb, var(--exp-surface-muted) 82%, var(--exp-surface) 18%);
+}
+
+.exp-section--terminal {
+    background:
+        linear-gradient(180deg, color-mix(in srgb, #000 14%, transparent), transparent),
+        color-mix(in srgb, var(--color-bg) 88%, var(--exp-accent) 12%);
+}
+
+.exp-display {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 7.6rem);
+    font-weight: 600;
+    line-height: 0.95;
+    letter-spacing: 0;
+    max-width: 11ch;
+}
+
+.exp-section-title {
+    margin: 0;
+    font-size: clamp(2.25rem, 4vw, 4.6rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.exp-section-title + :where(p, ul, ol, div) {
+    margin-top: clamp(1.35rem, 2.5vw, 2.25rem);
+}
+
+.exp-eyebrow,
+.exp-meta {
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.exp-eyebrow {
+    margin: 0 0 clamp(1rem, 1.8vw, 1.4rem);
+    color: var(--exp-accent-strong);
+    font-size: clamp(0.72rem, 1vw, 0.82rem);
+    font-weight: 600;
+}
+
+.exp-meta {
+    margin: 0;
+    color: var(--exp-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.exp-prose {
+    max-width: var(--exp-reading-max);
+    color: var(--exp-text-muted);
+    font-size: clamp(1rem, 1.3vw, 1.12rem);
+    line-height: 1.75;
+}
+
+.exp-prose p {
+    margin-block: 0 clamp(1rem, 2vw, 1.4rem);
+}
+
+.exp-prose > *:first-child {
+    margin-top: 0;
+}
+
+.exp-prose > *:last-child {
+    margin-bottom: 0;
+}
+
+.exp-statement {
+    margin: 0;
+    font-size: clamp(2.6rem, 9vw, 8.5rem);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.exp-number {
+    color: color-mix(in srgb, var(--exp-accent) 46%, transparent);
+    font-family: var(--font-mono);
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    font-weight: 600;
+    line-height: 0.8;
+}
+
+.exp-split,
+.exp-asymmetric {
+    display: grid;
+    grid-template-columns: minmax(0, var(--exp-left, 1fr)) minmax(0, var(--exp-right, 1fr));
+    gap: clamp(2rem, 5vw, 5.5rem);
+    align-items: var(--exp-align, start);
+}
+
+.exp-split--text-heavy {
+    --exp-left: 0.72fr;
+    --exp-right: 1.28fr;
+}
+
+.exp-split--media-heavy {
+    --exp-left: 0.75fr;
+    --exp-right: 1.25fr;
+}
+
+.exp-asymmetric--40-60 {
+    --exp-left: 0.8fr;
+    --exp-right: 1.2fr;
+}
+
+.exp-asymmetric--35-65 {
+    --exp-left: 0.7fr;
+    --exp-right: 1.3fr;
+}
+
+.exp-asymmetric--65-35 {
+    --exp-left: 1.3fr;
+    --exp-right: 0.7fr;
+}
+
+.exp-stack {
+    display: grid;
+    gap: var(--exp-stack-gap, clamp(1rem, 2.5vw, 2rem));
+}
+
+.exp-stack > .exp-section-title + .exp-detail-contrib-list,
+.exp-stack > .exp-section-title + .exp-artifact-row {
+    margin-top: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.exp-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+}
+
+.exp-stage {
+    position: relative;
+    min-height: auto;
+    padding: clamp(1rem, 3vw, 2rem);
+    overflow: clip;
+}
+
+.exp-overlap {
+    position: relative;
+    margin-top: var(--exp-overlap-y, 0);
+    z-index: 1;
+}
+
+.exp-offset-left {
+    transform: translateX(clamp(-4rem, -4vw, -1.5rem));
+}
+
+.exp-offset-right {
+    transform: translateX(clamp(0rem, 1.5vw, 1.5rem));
+}
+
+.exp-media,
+.exp-media-frame,
+.exp-illustration,
+.exp-screenshot,
+.exp-artifact,
+.exp-figure {
+    min-width: 0;
+}
+
+.exp-media img,
+.exp-media-frame img,
+.exp-illustration img,
+.exp-screenshot img,
+.exp-artifact img,
+.exp-figure img {
+    width: 100%;
+    height: auto;
+}
+
+.exp-media-frame,
+.exp-screenshot,
+.exp-artifact {
+    border: 1px solid var(--exp-border);
+    background: color-mix(in srgb, var(--exp-surface-muted) 78%, var(--exp-surface-raised) 22%);
+    overflow: hidden;
+}
+
+.exp-media-frame {
+    border-radius: var(--exp-media-radius, var(--exp-radius-md));
+    padding: var(--exp-media-padding, 0.75rem);
+}
+
+.exp-media-frame--square {
+    --exp-media-radius: 0;
+}
+
+.exp-media-frame--rounded {
+    --exp-media-radius: var(--exp-radius-lg);
+}
+
+.exp-illustration {
+    overflow: visible;
+}
+
+.exp-illustration img {
+    transform: translate(var(--exp-offset-x, 0), var(--exp-offset-y, 0)) rotate(var(--exp-rotate, 0)) scale(var(--exp-scale, 1));
+    transform-origin: center;
+}
+
+.exp-screenshot {
+    border-radius: var(--exp-radius-sm);
+    padding: 0.5rem;
+}
+
+.exp-artifact {
+    border-radius: var(--exp-radius-sm);
+    padding: clamp(0.85rem, 2vw, 1.35rem);
+}
+
+.exp-collage {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2vw, 1.25rem);
+    align-items: center;
+}
+
+.exp-collage-item {
+    grid-column: span var(--exp-span, 3);
+    transform: translate(var(--exp-offset-x, 0), var(--exp-offset-y, 0)) rotate(var(--exp-rotate, 0)) scale(var(--exp-scale, 1));
+}
+
+.exp-collage-item--dominant {
+    --exp-span: 4;
+}
+
+.exp-figure {
+    margin: 0;
+}
+
+.exp-figure-caption {
+    margin-top: 0.65rem;
+    color: var(--exp-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+}
+
+.exp-card {
+    border-radius: var(--exp-radius-sm);
+}
+
+.experience-page .exp-card {
+    border: 1px solid var(--exp-border);
+    background: var(--exp-surface-raised);
+    box-shadow: none;
+}
+
+.exp-card--quiet {
+    border-color: transparent;
+    background: transparent;
+}
+
+.exp-card--visual {
+    padding: 0;
+    overflow: hidden;
+}
+
+.exp-card--technical {
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--exp-grid-color) 42%, transparent) 1px, transparent 1px) 0 0 / 28px 28px,
+        var(--exp-surface-raised);
+}
+
+.exp-card--artifact {
+    background: color-mix(in srgb, var(--exp-surface-muted) 84%, var(--exp-surface-raised) 16%);
+}
+
+.exp-card--floating {
+    box-shadow: 0 1rem 2.5rem color-mix(in srgb, #000 18%, transparent);
+}
+
+.exp-numbered-story {
+    display: grid;
+    gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.exp-story-index {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(1rem, 3vw, 2rem);
+    align-items: start;
+    padding-block: clamp(1.2rem, 3vw, 2rem);
+    border-top: 1px solid var(--exp-border);
+}
+
+.exp-flow {
+    display: grid;
+    gap: 0.85rem;
+    align-content: center;
+    max-width: 34rem;
+}
+
+.exp-flow-node {
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--exp-border);
+    background: var(--exp-surface-raised);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+}
+
+.exp-flow-line {
+    width: 1px;
+    min-height: 2rem;
+    margin-inline: 1rem;
+    background: var(--exp-border);
+}
+
+.experience-page .exp-timeline {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.experience-page .exp-timeline-item {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 1rem;
+    border-top: 1px solid var(--exp-border);
+}
+
+.exp-metric {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.exp-metric-value {
+    color: var(--exp-text);
+    font-family: var(--font-mono);
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1;
+}
+
+.exp-metric-label {
+    color: var(--exp-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.exp-terminal-block {
+    padding: clamp(1rem, 2vw, 1.35rem);
+    border: 1px solid color-mix(in srgb, var(--exp-accent) 28%, var(--exp-border));
+    background: color-mix(in srgb, #000 22%, var(--exp-surface-raised));
+    color: var(--exp-text);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.7;
+    overflow-x: auto;
+}
+
+html[data-theme="light"] .exp-terminal-block {
+    background: color-mix(in srgb, var(--exp-surface-muted) 88%, #000 12%);
+}
+
+.exp-quote-block {
+    margin: 0;
+    padding-left: clamp(1rem, 3vw, 2rem);
+    border-left: 3px solid var(--exp-accent);
+    color: var(--exp-text);
+    font-size: clamp(1.35rem, 2.4vw, 2rem);
+    line-height: 1.35;
+}
+
+.exp-artifact-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-block: 0;
+}
+
+.experience-page .exp-section + .exp-section {
+    margin-top: 0;
+}
+
+@media (min-width: 901px) {
+    .experience-page .exp-numbered-story {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 0;
+    }
+
+    .experience-page .exp-numbered-story > li {
+        width: min(82%, 64rem);
+        min-height: 0;
+        transform: none;
+    }
+
+    .experience-page .exp-numbered-story > li:nth-child(odd) {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .experience-page .exp-numbered-story > li:nth-child(even) {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .exp-detail-hero {
+        grid-template-columns: minmax(var(--exp-gutter), 1fr) minmax(0, var(--exp-content-max)) minmax(var(--exp-gutter), 1fr);
+    }
+
+    .exp-detail-hero > .exp-detail-header,
+    .exp-detail-hero > .exp-detail-illustration {
+        grid-column: 2 / 3;
+    }
+
+    .exp-detail-hero > .exp-detail-illustration {
+        margin-top: clamp(1rem, 4vw, 2rem);
+    }
+
+    .exp-split,
+    .exp-asymmetric,
+    .experience-page .exp-timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .exp-offset-left,
+    .exp-offset-right,
+    .exp-illustration img,
+    .exp-collage-item,
+    .experience-page .exp-numbered-story > li {
+        transform: none;
+    }
+
+    .exp-collage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .exp-collage-item,
+    .exp-collage-item--dominant {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .experience-page {
+        --exp-gutter: clamp(1.25rem, 6vw, 1.75rem);
+        --exp-section-space: clamp(3rem, 12vw, 4.5rem);
+        --exp-section-space-sm: clamp(2.25rem, 9vw, 3rem);
+    }
+
+    .exp-display,
+    .exp-section-title,
+    .exp-statement {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .exp-stage {
+        min-height: auto;
+        padding: 1rem;
+    }
+
+    .exp-overlap {
+        margin-top: 0;
+    }
+
+    .exp-illustration {
+        overflow: clip;
+    }
+
+    .exp-collage {
+        grid-template-columns: 1fr;
+    }
+
+    .exp-story-index {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-page .exp-numbered-story > li,
+    .experience-page .exp-detail-evidence-row {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-page .exp-numbered-story > li {
+        gap: 0.75rem;
+    }
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story > li {
+    grid-template-columns: auto minmax(0, 1fr);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    width: min(100% - (2 * var(--exp-gutter)), var(--exp-reading-max));
+    max-width: var(--exp-reading-max);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story > li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    width: 100%;
+    gap: clamp(0.65rem, 1.5vw, 1.25rem) clamp(1rem, 2.5vw, 2rem);
+    margin-inline: 0;
+    transform: none;
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-section-title + .exp-detail-contrib-list.exp-numbered-story {
+    margin-top: clamp(2rem, 4vw, 3.75rem);
+}
+
+.experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story > li::before {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: baseline;
+    font-size: clamp(1rem, 1.6vw, 1.5rem);
+    line-height: 1;
+}
+
+.experience-page .exp-story-title {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    color: var(--exp-text);
+    font-size: clamp(1.45rem, 2.6vw, 2.85rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: 0;
+}
+
+.experience-page .exp-story-copy {
+    grid-column: 1 / -1;
+    color: var(--exp-text-muted);
+    font-size: clamp(1rem, 1.3vw, 1.12rem);
+    line-height: 1.75;
+}
+
+@media (min-width: 901px) {
+    .experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story {
+        width: min(100% - (2 * var(--exp-gutter)), var(--exp-content-max));
+        max-width: var(--exp-content-max);
+    }
+
+    .experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story > li {
+        width: min(78%, 62rem);
+    }
+
+    .experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story > li:nth-child(odd) {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .experience-page .exp-detail-body > .exp-detail-section.exp-section > .exp-detail-contrib-list.exp-numbered-story > li:nth-child(even) {
+        margin-left: auto;
+        margin-right: 0;
     }
 }

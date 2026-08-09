@@ -49,17 +49,19 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main">
+        <article class="experience-page">
 
         <!-- ── Back navigation ────────────────────────────────────── -->
         <nav class="exp-detail-nav" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Experience</a> / <span aria-current="page">Software Engineer Intern</span>
         </nav>
+        <section class="exp-section exp-section--gradient exp-detail-hero">
 
         <!-- ── Role header ─────────────────────────────────────────── -->
         <header class="exp-detail-header">
-            <p class="exp-detail-eyebrow">Experience</p>
-            <h1 class="exp-detail-role">Software Engineer Intern</h1>
+            <p class="exp-eyebrow">Experience</p>
+            <h1 class="exp-detail-role exp-display">Software Engineer Intern</h1>
             <div class="exp-detail-meta">
                 <p class="exp-detail-period">Mar 2023 - Jun 2023</p>
                 <p class="exp-detail-company">Argon Software</p>
@@ -71,7 +73,7 @@
 
         <!-- ── Illustration ────────────────────────────────────────── -->
         <!-- TODO: Replace this placeholder with the custom editorial illustration for the Argon Software internship. The illustration should represent web application development, performance optimization, analytics, and API testing. Update the alt text when the real image is added, remove this note, and remove the placeholder-note paragraph below. -->
-        <div class="exp-detail-illustration">
+        <div class="exp-detail-illustration exp-media-frame exp-media-frame--square">
             <img
                 src="https://placehold.co/1200x525"
                 alt="Placeholder for a custom editorial illustration representing web application development, performance optimization, analytics integration, and API testing during the Argon Software internship."
@@ -79,41 +81,42 @@
                 height="525"
             >
         </div>
+        </section>
 
         <!-- ── Content body ────────────────────────────────────────── -->
         <div class="exp-detail-body">
 
             <!-- ── Context ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-context">
-                <p class="exp-detail-section-label">Context</p>
-                <h2 id="section-context">Internship Environment</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-context">
+                <p class="exp-eyebrow">Context</p>
+                <h2 class="exp-section-title" id="section-context">Internship Environment</h2>
                 <p>
                     A software engineering internship at Argon Software focused on web application development within an existing product codebase. Work included building application features, improving the company's public-facing website, conducting technical analysis, and contributing to the team's development workflow.
                 </p>
             </section>
 
             <!-- ── Scope ───────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-scope">
-                <p class="exp-detail-section-label">Scope</p>
-                <h2 id="section-scope">Responsibilities</h2>
+            <section class="exp-detail-section exp-section exp-section--subtle" aria-labelledby="section-scope">
+                <p class="exp-eyebrow">Scope</p>
+                <h2 class="exp-section-title" id="section-scope">Responsibilities</h2>
                 <p>
                     Web application development using Laravel, React, Next.js, and React Native. Website improvement work covering analytics integration and providing a sample project with a backend. SEO and performance analysis on the existing company website. API endpoint testing. Participation in team collaboration and project tracking workflows.
                 </p>
             </section>
 
             <!-- ── Web Application Development ─────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-web-dev">
-                <p class="exp-detail-section-label">Application Development</p>
-                <h2 id="section-web-dev">Web Application Development</h2>
+            <section class="exp-detail-section exp-section exp-section--grid" aria-labelledby="section-web-dev">
+                <p class="exp-eyebrow">Application Development</p>
+                <h2 class="exp-section-title" id="section-web-dev">Web Application Development</h2>
                 <p>
                     Built web applications using Laravel, React, Next.js, and React Native. Work spanned backend-driven application patterns with Laravel and frontend-first approaches using React and Next.js, contributing practical experience across both layers of web development.
                 </p>
             </section>
 
             <!-- ── Website Improvement ──────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-website">
-                <p class="exp-detail-section-label">Website Improvement</p>
-                <h2 id="section-website">Website Improvement and Analytics</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-website">
+                <p class="exp-eyebrow">Website Improvement</p>
+                <h2 class="exp-section-title" id="section-website">Website Improvement and Analytics</h2>
                 <p>
                     Contributed to improvements on the Argon Software company website. Work included integrating Google Analytics and providing a sample project demonstrating a backend architecture.
                 </p>
@@ -121,9 +124,9 @@
             </section>
 
             <!-- ── SEO and Performance ──────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-seo">
-                <p class="exp-detail-section-label">SEO & Performance Analysis</p>
-                <h2 id="section-seo">SEO Analysis and Performance Improvement</h2>
+            <section class="exp-detail-section exp-section exp-section--tinted" aria-labelledby="section-seo">
+                <p class="exp-eyebrow">SEO & Performance Analysis</p>
+                <h2 class="exp-section-title" id="section-seo">SEO Analysis and Performance Improvement</h2>
                 <p>
                     Conducted an SEO analysis of the company website, identified key issues, and reported the findings. After addressing the reported issues, the measured website performance score improved from approximately 60% to 90%.
                 </p>
@@ -137,18 +140,18 @@
             </section>
 
             <!-- ── API Testing ──────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-api">
-                <p class="exp-detail-section-label">API Testing</p>
-                <h2 id="section-api">Endpoint Testing</h2>
+            <section class="exp-detail-section exp-section exp-section--paper" aria-labelledby="section-api">
+                <p class="exp-eyebrow">API Testing</p>
+                <h2 class="exp-section-title" id="section-api">Endpoint Testing</h2>
                 <p>
                     Used Postman for API endpoint testing as part of the development and verification workflow.
                 </p>
             </section>
 
             <!-- ── Development Environment ─────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-env">
-                <p class="exp-detail-section-label">Development Environment</p>
-                <h2 id="section-env">Tooling and Environment</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-env">
+                <p class="exp-eyebrow">Development Environment</p>
+                <h2 class="exp-section-title" id="section-env">Tooling and Environment</h2>
                 <p>
                     Applied Docker for environment containerization. Integrated design references using Figma and participated in presentation workflows.
                 </p>
@@ -163,18 +166,18 @@
             </section>
 
             <!-- ── Team Workflow ────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-workflow">
-                <p class="exp-detail-section-label">Team Workflow</p>
-                <h2 id="section-workflow">Collaboration and Task Tracking</h2>
+            <section class="exp-detail-section exp-section exp-section--terminal" aria-labelledby="section-workflow">
+                <p class="exp-eyebrow">Team Workflow</p>
+                <h2 class="exp-section-title" id="section-workflow">Collaboration and Task Tracking</h2>
                 <p>
                     Used Trello and GitHub for issue tracking and task management. Communicated through Slack. Version control and code collaboration managed through GitHub.
                 </p>
             </section>
 
             <!-- ── Key Contributions ────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-contributions">
-                <p class="exp-detail-section-label">Key Contributions</p>
-                <h2 id="section-contributions">Contributions</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-contributions">
+                <p class="exp-eyebrow">Key Contributions</p>
+                <h2 class="exp-section-title" id="section-contributions">Contributions</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Key contributions">
                     <li>
                         Built web applications using Laravel, React, Next.js, and React Native - contributing across both backend and frontend layers of the stack.
@@ -195,9 +198,9 @@
             </section>
 
             <!-- ── Outcomes ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-outcomes">
-                <p class="exp-detail-section-label">Outcomes</p>
-                <h2 id="section-outcomes">Results</h2>
+            <section class="exp-detail-section exp-section exp-section--contrast" aria-labelledby="section-outcomes">
+                <p class="exp-eyebrow">Outcomes</p>
+                <h2 class="exp-section-title" id="section-outcomes">Results</h2>
                 <p>
                     The measured website performance score improved from approximately 60% to 90% following identification and resolution of the reported SEO and performance issues.
                 </p>
@@ -206,9 +209,9 @@
             </section>
 
             <!-- ── Related Evidence ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-evidence">
-                <p class="exp-detail-section-label">Related Evidence</p>
-                <h2 id="section-evidence">Skills &amp; Projects</h2>
+            <section class="exp-detail-section exp-section exp-section--raised" aria-labelledby="section-evidence">
+                <p class="exp-eyebrow">Related Evidence</p>
+                <h2 class="exp-section-title" id="section-evidence">Skills &amp; Projects</h2>
                 <div class="exp-detail-evidence-block">
                     <div class="exp-detail-evidence-row">
                         <span class="exp-detail-evidence-type">Skills</span>
@@ -227,6 +230,7 @@
 
         </div><!-- /.exp-detail-body -->
 
+            </article>
     </main>
 
 
