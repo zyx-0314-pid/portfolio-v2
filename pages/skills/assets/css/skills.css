@@ -201,7 +201,7 @@
     gap: 1rem;
 }
 
-/* Shared filter group / button — mirrors credentials page */
+/* Shared filter group / button - mirrors credentials page */
 .filter-group {
     display: flex;
     flex-wrap: wrap;

@@ -1,6 +1,6 @@
 /**
  * Skills Directory Data
- * Ian Cedric Ramirez Portfolio — Phase 15
+ * Ian Cedric Ramirez Portfolio - Phase 15
  *
  * Controlled taxonomies:
  *   categories: Development · Architecture · DevOps · Infrastructure · Data ·
@@ -30,8 +30,8 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Front-end scripting, application behavior, and instructional JavaScript work across web projects and coursework.",
     evidence: [
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence alongside Laravel, React, Next.js, React Native, TypeScript, Docker, Postman, and Figma." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught JavaScript as a core course subject." },
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence alongside Laravel, React, Next.js, React Native, TypeScript, Docker, Postman, and Figma." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught JavaScript as a core course subject." },
       { kind: "credential", label: "Mozilla JavaScript Foundations Professional Certificate", url: "../credentials/certifications/mozilla-javascript-foundations-professional-certificate/", note: "Validated JavaScript language foundations." },
       { kind: "training", label: "JavaScript Essentials 1", url: "../credentials/training/cisco-javascript-essentials-1/", note: "Structured JavaScript fundamentals training." },
       { kind: "training", label: "JavaScript Essentials 2", url: "../credentials/training/cisco-javascript-essentials-2/", note: "Structured intermediate JavaScript training." },
@@ -48,7 +48,7 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Typed JavaScript application development exposure from internship work.",
     evidence: [
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence alongside Laravel, React, Next.js, React Native, PHP, JavaScript, Docker, Postman, and Figma." }
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence alongside Laravel, React, Next.js, React Native, PHP, JavaScript, Docker, Postman, and Figma." }
     ]
   },
 
@@ -75,9 +75,9 @@ window.SKILLS_DATA = [
     summary: "Server-side web application development across Yii2, WordPress, Laravel, and PHP/MySQL systems.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Verified core stack: Yii2 (PHP), MySQL, Redis, AWS." },
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Verified stack includes PHP and MySQL." },
-      { kind: "experience", label: "Web Developer & IT Operations — ILTN Holdings", url: "../experience/iltn-holdings/", note: "WordPress website development, theme/CSS customization, plugin configuration, integrations, and troubleshooting." },
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence." }
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Verified stack includes PHP and MySQL." },
+      { kind: "experience", label: "Web Developer & IT Operations - ILTN Holdings", url: "../experience/iltn-holdings/", note: "WordPress website development, theme/CSS customization, plugin configuration, integrations, and troubleshooting." },
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence." }
     ]
   },
 
@@ -91,7 +91,7 @@ window.SKILLS_DATA = [
     summary: "Enterprise back-end application development with the Spring ecosystem.",
     evidence: [
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Java Spring Boot back-end for QR-based storage and records management." },
-      { kind: "experience", label: "Java Industry Immersion Trainee — Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Full-stack Java development using Spring Boot and MVC architecture." }
+      { kind: "experience", label: "Java Industry Immersion Trainee - Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Full-stack Java development using Spring Boot and MVC architecture." }
     ]
   },
 
@@ -104,7 +104,7 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Semantic markup for web interfaces and documentation. Applied in every web-facing deliverable.",
     evidence: [
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught HTML as a core subject." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught HTML as a core subject." },
       { kind: "credential", label: "IT Specialist - HTML and CSS", url: "../credentials/certifications/it-specialist-html-and-css/", note: "Validated HTML and CSS web markup fundamentals." }
     ]
   },
@@ -118,8 +118,8 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Styling systems, responsive design, and component-level presentation.",
     evidence: [
-      { kind: "experience", label: "Web Developer & IT Operations — ILTN Holdings", url: "../experience/iltn-holdings/", note: "WordPress theme/CSS customization and page implementation." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught CSS as a core subject." },
+      { kind: "experience", label: "Web Developer & IT Operations - ILTN Holdings", url: "../experience/iltn-holdings/", note: "WordPress theme/CSS customization and page implementation." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught CSS as a core subject." },
       { kind: "credential", label: "CSS (Basic) Certificate", url: "../credentials/certifications/hackerrank-css-basic-certificate/", note: "Validated CSS fundamentals." },
       { kind: "credential", label: "IT Specialist - HTML and CSS", url: "../credentials/certifications/it-specialist-html-and-css/", note: "Validated HTML and CSS web styling fundamentals." }
     ]
@@ -135,7 +135,7 @@ window.SKILLS_DATA = [
     summary: "Relational database querying and modeling across MySQL, PostgreSQL, and training contexts.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Verified stack includes MySQL." },
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Verified stack includes MySQL and relational data modeling." },
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Verified stack includes MySQL and relational data modeling." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Verified stack includes PostgreSQL." },
       { kind: "training", label: "AWS re/Start Training Graduate", url: "../credentials/training/aws-restart-training-graduate/", note: "SQL operations as part of cloud automation curriculum." }
     ]
@@ -156,8 +156,8 @@ window.SKILLS_DATA = [
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Verified core stack includes React.js." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Verified core stack includes React.js." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Verified stack includes React." },
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications using React, Next.js, Laravel, and React Native." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "React appears in the covered technology list." }
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications using React, Next.js, Laravel, and React Native." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "React appears in the covered technology list." }
     ]
   },
 
@@ -171,8 +171,8 @@ window.SKILLS_DATA = [
     summary: "Full-stack React framework with server-side rendering and API routing.",
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Selective rendering strategy for authenticated and data-dependent operational workflows." },
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications using Laravel, React, Next.js, and React Native." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Next.js appears in the covered technology list." }
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications using Laravel, React, Next.js, and React Native." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Next.js appears in the covered technology list." }
     ]
   },
 
@@ -185,8 +185,8 @@ window.SKILLS_DATA = [
     lastApplied: 2023,
     summary: "PHP application framework used in internship web application work and later instructional context.",
     evidence: [
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications across Laravel, React, Next.js, and React Native." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Included Laravel in full-stack teaching and technology coverage." }
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications across Laravel, React, Next.js, and React Native." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Included Laravel in full-stack teaching and technology coverage." }
     ]
   },
 
@@ -199,7 +199,7 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "PHP framework used for standardized instructional templates and Dockerized classroom environments.",
     evidence: [
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Built a Dockerized CodeIgniter 4 template with application, database, and Redis services." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Built a Dockerized CodeIgniter 4 template with application, database, and Redis services." }
     ]
   },
 
@@ -212,7 +212,7 @@ window.SKILLS_DATA = [
     lastApplied: 2023,
     summary: "Mobile application development exposure through internship work across the React ecosystem.",
     evidence: [
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Contributed in a stack that included Laravel, React, Next.js, and React Native." }
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Contributed in a stack that included Laravel, React, Next.js, and React Native." }
     ]
   },
 
@@ -226,7 +226,7 @@ window.SKILLS_DATA = [
     summary: "Enterprise Java back-end services. Applied in records management and industry immersion systems.",
     evidence: [
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "REST API services, JPA repositories, and layered back-end structure." },
-      { kind: "experience", label: "Java Industry Immersion Trainee — Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Full Spring MVC and Boot pattern application." }
+      { kind: "experience", label: "Java Industry Immersion Trainee - Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Full Spring MVC and Boot pattern application." }
     ]
   },
 
@@ -256,8 +256,8 @@ window.SKILLS_DATA = [
     summary: "Relational database used in PostgreSQL-backed projects and application environments.",
     evidence: [
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Verified stack includes PostgreSQL." },
-      { kind: "experience", label: "Java Industry Immersion Trainee — Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Designed PostgreSQL schema modeling for the records tracking system." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "PostgreSQL appears in the covered database technology list." }
+      { kind: "experience", label: "Java Industry Immersion Trainee - Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Designed PostgreSQL schema modeling for the records tracking system." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "PostgreSQL appears in the covered database technology list." }
     ]
   },
 
@@ -270,9 +270,9 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "Relational database used in PHP/MySQL systems and instructional/database contexts.",
     evidence: [
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Relational database for student profiles, achievements, organizations, and role-based department workflows." },
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Relational database for student profiles, achievements, organizations, and role-based department workflows." },
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Verified core stack includes MySQL." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "MySQL appears in the covered database technology list." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "MySQL appears in the covered database technology list." }
     ]
   },
 
@@ -285,7 +285,7 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "In-memory service used in Dockerized instructional environments and legacy platform context.",
     evidence: [
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Prepared CodeIgniter 4 classroom environments with application, database, and Redis services." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Prepared CodeIgniter 4 classroom environments with application, database, and Redis services." },
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Appears in the verified legacy modernization stack context for HR assessment systems." }
     ]
   },
@@ -333,7 +333,7 @@ window.SKILLS_DATA = [
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Verified stack includes Docker." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes Docker local runtime." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Verified stack includes Docker container runtime." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized local PHP, database, and Redis development environments through Docker." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized local PHP, database, and Redis development environments through Docker." },
       { kind: "credential", label: "Docker Foundations Professional Certificate", url: "../credentials/certifications/docker-docker-foundations-professional-certificate/", note: "Validated containerization, image builds, volumes, and Compose." }
     ]
   },
@@ -348,7 +348,7 @@ window.SKILLS_DATA = [
     summary: "Cloud platform knowledge from certification and instructional technology coverage.",
     evidence: [
       { kind: "credential", label: "Google Cloud Associate Cloud Engineer", url: "../credentials/certifications/google-associate-cloud-engineer/", note: "Validated cloud solution planning, operation, access, and security." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Google Cloud appears in the covered deployment platform list." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Google Cloud appears in the covered deployment platform list." }
     ]
   },
 
@@ -362,7 +362,7 @@ window.SKILLS_DATA = [
     summary: "Core cloud services including EC2, S3, VPC, and IAM from structured training.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Verified stack includes AWS-hosted application/server environment, object storage, and CloudFront." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Maintained and researched AWS services including EC2, RDS, S3, and CloudFront within assigned scope." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Maintained and researched AWS services including EC2, RDS, S3, and CloudFront within assigned scope." },
       { kind: "training", label: "AWS re/Start Training Graduate", url: "../credentials/training/aws-restart-training-graduate/", note: "Completed hands-on cohort covering EC2, S3, VPC, IAM, Linux, Python, and networking." }
     ]
   },
@@ -377,7 +377,7 @@ window.SKILLS_DATA = [
     summary: "Command-line administration, shell scripting, permissions, and process management.",
     evidence: [
       { kind: "training", label: "AWS re/Start Training Graduate", url: "../credentials/", note: "Linux system administration as part of cloud readiness curriculum." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Linux-related deployment target preparation appears in the teaching context through AWS/server preparation." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Linux-related deployment target preparation appears in the teaching context through AWS/server preparation." }
     ]
   },
 
@@ -393,7 +393,7 @@ window.SKILLS_DATA = [
       { kind: "credential", label: "GitHub Foundations", url: "../credentials/", note: "Validated branching, collaboration, Actions, and security." },
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "GitHub Flow, branch protection, and pull request reviews." },
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Multi-contributor branch management and issue tracking." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized team repository collaboration and CI/CD pipelines." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized team repository collaboration and CI/CD pipelines." }
     ]
   },
 
@@ -408,8 +408,8 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Automated delivery pipeline built on GitHub Actions, Docker containers, Appwrite schema migrations, and Vercel hosting." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes GitHub Actions CI pipeline." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Implemented GitHub Actions deployment workflows for GoPick/PDI work, connecting by SSH to update the AWS EC2 application environment." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Implemented GitHub Actions deployment workflows to GitHub Pages for student static-web projects." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Implemented GitHub Actions deployment workflows for GoPick/PDI work, connecting by SSH to update the AWS EC2 application environment." },
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Implemented GitHub Actions deployment workflows to GitHub Pages for student static-web projects." }
     ]
   },
 
@@ -424,7 +424,7 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "GitHub Actions CI pipeline in the verified project stack." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Automated CI/CD deployment operations." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "GitHub Actions deployment workflows triggered by main-branch merges for the AWS EC2 application environment." },
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "GitHub Actions deployment workflows triggered by main-branch merges for the AWS EC2 application environment." },
       { kind: "credential", label: "GitHub Foundations", url: "../credentials/", note: "Validated Actions workflow syntax, secrets, and CI/CD basics." }
     ]
   },
@@ -441,7 +441,7 @@ window.SKILLS_DATA = [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Production hosting target for the operations platform." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Deployment platform in the feedback and review-management SaaS stack." },
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Deployment platform for the React social platform frontend." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Included Vercel in deployment platform coverage." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Included Vercel in deployment platform coverage." }
     ]
   },
 
@@ -511,7 +511,7 @@ window.SKILLS_DATA = [
     summary: "Designing and implementing RESTful service interfaces across multiple full-stack systems.",
     evidence: [
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Storage record CRUD REST interface." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Designed and maintained production REST APIs." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Designed and maintained production REST APIs." }
     ]
   },
 
@@ -522,12 +522,12 @@ window.SKILLS_DATA = [
     type: "Method",
     depth: "APPLIED",
     lastApplied: 2026,
-    summary: "Organizing systems with clear separation of concerns — presentation, application, domain, and data access layers.",
+    summary: "Organizing systems with clear separation of concerns - presentation, application, domain, and data access layers.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Structured layer separation in full-stack assessment platform." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Layered boundaries across UI, application services, authorization, persistence, and audit workflows." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Layered structure across UI, application logic, repository access, and operational workflows." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught layered architecture as a foundational design principle." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Taught layered architecture as a foundational design principle." }
     ]
   },
 
@@ -541,7 +541,7 @@ window.SKILLS_DATA = [
     summary: "Decomposing systems into independently responsible modules with clear boundaries.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Feature-module boundaries in full-stack HR platform." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Reusable modular teaching templates for student starter projects." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Reusable modular teaching templates for student starter projects." }
     ]
   },
 
@@ -558,7 +558,7 @@ window.SKILLS_DATA = [
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Social platform system modeling." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "System architect and lead developer for multi-tenant feedback, RBAC, audit, and deployment architecture." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "System architect and lead developer for resource operations, reservations, maintenance, observability, and capacity limits." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "System-level decisions across legacy modernization and new feature delivery." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "System-level decisions across legacy modernization and new feature delivery." }
     ]
   },
 
@@ -583,10 +583,10 @@ window.SKILLS_DATA = [
     type: "Method",
     depth: "APPLIED",
     lastApplied: 2026,
-    summary: "Incrementally improving older systems — identifying risk, establishing safe boundaries, and introducing modern patterns where they provide clear value.",
+    summary: "Incrementally improving older systems - identifying risk, establishing safe boundaries, and introducing modern patterns where they provide clear value.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Legacy HR assessment platform modernization through safer architectural boundaries and incremental changes." },
-      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer — People Dynamics", url: "../experience/full-stack-developer/", note: "Modernized legacy HR and assessment system infrastructure and codebase." }
+      { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Modernized legacy HR and assessment system infrastructure and codebase." }
     ]
   },
 
@@ -607,7 +607,7 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Playwright scripts for local end-to-end verification of complex UI flows." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes Playwright end-to-end tests." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Performed browser-level validation through Playwright." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Performed browser-level validation through Playwright." }
     ]
   },
 
@@ -647,8 +647,8 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "API request validation and manual service testing.",
     evidence: [
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Used for API testing in instructional validation workflows." },
-      { kind: "experience", label: "Software Engineer Intern — Argon Software", url: "../experience/software-engineer-intern/", note: "Used for API endpoint testing during internship work." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Used for API testing in instructional validation workflows." },
+      { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Used for API endpoint testing during internship work." }
     ]
   },
 
@@ -662,7 +662,7 @@ window.SKILLS_DATA = [
     summary: "API documentation and endpoint validation for service-based systems.",
     evidence: [
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Swagger/OpenAPI used to document and validate Spring Boot REST endpoints." },
-      { kind: "experience", label: "Java Industry Immersion Trainee — Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Included Swagger documentation in the full-stack Java immersion scope." }
+      { kind: "experience", label: "Java Industry Immersion Trainee - Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Included Swagger documentation in the full-stack Java immersion scope." }
     ]
   },
 
@@ -708,7 +708,7 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Custom RBAC for owner, organization, member, moderation, and audit workflows." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Application-layer permission boundaries around operational resource access." },
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Role-specific dashboards and menu options through Auth0-backed sessions." }
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Role-specific dashboards and menu options through Auth0-backed sessions." }
     ]
   },
 
@@ -721,7 +721,7 @@ window.SKILLS_DATA = [
     lastApplied: 2021,
     summary: "Authentication service used for role-resolved student information system sessions.",
     evidence: [
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Auth0 login sessions resolved user roles for departmental access." }
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Auth0 login sessions resolved user roles for departmental access." }
     ]
   },
 
@@ -782,7 +782,7 @@ window.SKILLS_DATA = [
     summary: "Writing technical documentation for systems, APIs, and user-facing guides.",
     evidence: [
       { kind: "project", label: "GoPick Manual", url: "../projects/gopick-manual/", note: "Produced offline-accessible user documentation for GoPick." },
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Course materials, rubrics, and structured technical guides." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Course materials, rubrics, and structured technical guides." }
     ]
   },
 
@@ -798,8 +798,8 @@ window.SKILLS_DATA = [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Responsive UI layer in the verified operations platform stack." },
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "React frontend styling for social platform workflows." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Responsive React UI and scanner view styling." },
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Responsive styling for the departmental student-information system." },
-      { kind: "experience", label: "Java Industry Immersion Trainee — Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Built the React/Tailwind frontend for the records tracking application." }
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Responsive styling for the departmental student-information system." },
+      { kind: "experience", label: "Java Industry Immersion Trainee - Spring Valley Tech", url: "../experience/java-industry-immersion/", note: "Built the React/Tailwind frontend for the records tracking application." }
     ]
   },
 
@@ -815,7 +815,7 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "Teaching full-stack development, applied software engineering, and industry best practices in an academic context.",
     evidence: [
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Designed and delivered curriculum for core web development and software engineering subjects." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Designed and delivered curriculum for core web development and software engineering subjects." }
     ]
   },
 
@@ -828,7 +828,7 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "Designing structured learning paths, course materials, and practical exercises.",
     evidence: [
-      { kind: "experience", label: "Full-Time Instructor — FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Developed reusable course templates, project frameworks, and student assessment rubrics." }
+      { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Developed reusable course templates, project frameworks, and student assessment rubrics." }
     ]
   },
 
@@ -860,8 +860,8 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Resource lifecycles, reservations, assignments, maintenance, and organizational capacity limits." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Physical storage hierarchy, record/item states, and append-oriented movement history." },
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Student profiles, achievements, Hall of Fame recognition, and organization relationships." },
-      { kind: "project", label: "WOTS — Water Order Tracking System", url: "../projects/wots/", note: "Customer orders, container borrowing rules, payments, delivery activity, and sales reporting." }
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Student profiles, achievements, Hall of Fame recognition, and organization relationships." },
+      { kind: "project", label: "WOTS - Water Order Tracking System", url: "../projects/wots/", note: "Customer orders, container borrowing rules, payments, delivery activity, and sales reporting." }
     ]
   },
 
@@ -874,7 +874,7 @@ window.SKILLS_DATA = [
     lastApplied: 2022,
     summary: "Camera-based environmental sensing for on-device assistive navigation research.",
     evidence: [
-      { kind: "project", label: "PUGS — Path Utility Guide System", url: "../projects/pugs/", note: "Obstacle proximity detection, free path analysis, and multimodal haptic/audio feedback." }
+      { kind: "project", label: "PUGS - Path Utility Guide System", url: "../projects/pugs/", note: "Obstacle proximity detection, free path analysis, and multimodal haptic/audio feedback." }
     ]
   },
 
@@ -887,7 +887,7 @@ window.SKILLS_DATA = [
     lastApplied: 2022,
     summary: "Android smartphone application work in a research prototype context.",
     evidence: [
-      { kind: "project", label: "PUGS — Path Utility Guide System", url: "../projects/pugs/", note: "On-device Android prototype using smartphone camera input for assistive navigation." }
+      { kind: "project", label: "PUGS - Path Utility Guide System", url: "../projects/pugs/", note: "On-device Android prototype using smartphone camera input for assistive navigation." }
     ]
   },
 
@@ -900,8 +900,8 @@ window.SKILLS_DATA = [
     lastApplied: 2021,
     summary: "Deploying web applications on local servers for LAN-accessible operations.",
     evidence: [
-      { kind: "project", label: "SIMS — Student Information Management System", url: "../projects/sims/", note: "Local PHP/MySQL server accessed by multiple department computers over LAN." },
-      { kind: "project", label: "WOTS — Water Order Tracking System", url: "../projects/wots/", note: "Locally deployed operations system for a refilling station workflow." }
+      { kind: "project", label: "SIMS - Student Information Management System", url: "../projects/sims/", note: "Local PHP/MySQL server accessed by multiple department computers over LAN." },
+      { kind: "project", label: "WOTS - Water Order Tracking System", url: "../projects/wots/", note: "Locally deployed operations system for a refilling station workflow." }
     ]
   },
 
@@ -914,7 +914,7 @@ window.SKILLS_DATA = [
     lastApplied: 2025,
     summary: "CMS customization, plugin integration, and business web system management.",
     evidence: [
-      { kind: "experience", label: "Web Developer & IT Operations — ILTN Holdings", url: "../experience/iltn-holdings/", note: "WordPress-based business web systems and SaaS service integration." }
+      { kind: "experience", label: "Web Developer & IT Operations - ILTN Holdings", url: "../experience/iltn-holdings/", note: "WordPress-based business web systems and SaaS service integration." }
     ]
   }
 

@@ -14,13 +14,14 @@
             }
         })();
     </script>
-    <title>GoPick — Legacy Modernization & Architecture | Ian Cedric Ramirez</title>
-    <meta name="description" content="GoPick case study — incremental legacy modernization, modular 5-layer architecture, Accounts reference migration, consumable Meters domain logic, feature controls, and engineering documentation.">
+    <title>GoPick - Legacy Modernization & Architecture | Ian Cedric Ramirez</title>
+    <meta name="description" content="GoPick case study - incremental legacy modernization, modular 5-layer architecture, Accounts reference migration, consumable Meters domain logic, feature controls, and engineering documentation.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="gopick">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">GoPick</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -87,12 +96,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with the final GoPick project illustration and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom project illustration representing an HR assessment platform undergoing incremental legacy modernization into a modular five-layer architecture.">
-                            <div class="project-header__hero-text">
-                                <strong>GoPick System Architecture</strong><br>
-                                HR Assessment Platform · Incremental 5-Layer Modernization
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom project illustration representing an HR assessment platform undergoing incremental legacy modernization into a modular five-layer architecture." width="1600" height="700">
                     </div>
                 </div>
 
@@ -250,7 +254,7 @@ System gradually improves over time</pre>
             </section>
 
             <section class="project-section" id="architecture" aria-labelledby="architecture-title">
-                <h2 id="architecture-title">Architecture — Modular 5-Layer Structure</h2>
+                <h2 id="architecture-title">Architecture - Modular 5-Layer Structure</h2>
                 <p>The modernization introduces explicit responsibility ownership within each module boundary while establishing clean supporting shared layers:</p>
                 <div class="project-section__split">
                     <div class="project-diagram" aria-label="5-Layer module layout">
@@ -294,7 +298,7 @@ Shared System Infrastructure
             </section>
 
             <section class="project-section" id="accounts" aria-labelledby="accounts-title">
-                <h2 id="accounts-title">Accounts — Reference Modernization</h2>
+                <h2 id="accounts-title">Accounts - Reference Modernization</h2>
                 <div class="project-section__split">
                     <div>
                         <p>The <strong>Accounts</strong> module was selected as the reference implementation to prove out the 5-layer architecture. Previously, account management, company hierarchy lookups, and subscription status validations were dispersed across controllers and embedded view scripts.</p>
@@ -343,7 +347,7 @@ Shared System Infrastructure
             </section>
 
             <section class="project-section" id="meters" aria-labelledby="meters-title">
-                <h2 id="meters-title">Meters — Domain Logic Case Study</h2>
+                <h2 id="meters-title">Meters - Domain Logic Case Study</h2>
                 <div class="project-section__split">
                     <div>
                         <p><strong>Meters</strong> represent consumable credit units associated with client accounts and candidate report generation. Different assessment report types consume varying meter amounts based on report complexity and candidate evaluation scope.</p>
@@ -605,7 +609,7 @@ Reject Request Safely     Generate Report File
                 <div class="related-link-list">
                     <div class="related-link-item">
                         <strong>Related Experience</strong>
-                        <p>Full-Stack Engineer &amp; DevOps Engineer at People Dynamics Inc. (Nov 2025 — Present). Application modernization, N-Layer architecture, feature controls, and DevOps scope.</p>
+                        <p>Full-Stack Engineer &amp; DevOps Engineer at People Dynamics Inc. (Nov 2025 - Present). Application modernization, N-Layer architecture, feature controls, and DevOps scope.</p>
                         <a class="related-link" href="../../experience/full-stack-developer/">View Full-Stack Engineer Experience →</a>
                     </div>
                     <div class="related-link-item">

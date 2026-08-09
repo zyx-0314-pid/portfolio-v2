@@ -1,6 +1,6 @@
 /**
- * Credentials Gallery — Interactive Logic
- * Ian Cedric Ramirez Portfolio — Phase 15 (Modal → Detail Pages)
+ * Credentials Gallery - Interactive Logic
+ * Ian Cedric Ramirez Portfolio - Phase 15 (Modal → Detail Pages)
  *
  * Modal dependency fully removed.
  * Cards are now <a> links navigating to dedicated detail pages.
@@ -10,7 +10,7 @@
 (() => {
   const data = window.CREDENTIALS_DATA || [];
 
-  // Active filter state — arrays for multi-select
+  // Active filter state - arrays for multi-select
   const state = {
     search: '',
     types: [],    // empty = "All"
@@ -206,7 +206,7 @@
   // ── Card Rendering ─────────────────────────────────────────────────────────
 
   const createCardElement = (item) => {
-    // Outer link — the card IS the link
+    // Outer link - the card IS the link
     const link = document.createElement('a');
     link.className = `cred-card-link ${item.status?.toLowerCase() === 'expired' ? 'cred-card-link--expired' : ''}`;
     link.href = item.detailUrl || '#';

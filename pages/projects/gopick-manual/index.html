@@ -14,13 +14,14 @@
             }
         })();
     </script>
-    <title>GoPick Manual — Engineering &amp; QA Documentation | Ian Cedric Ramirez</title>
-    <meta name="description" content="GoPick Manual case study — web-based engineering and operational documentation turning legacy HR assessment platform behavior, constraints, and QA boundaries into a shared maintainable reference.">
+    <title>GoPick Manual - Engineering &amp; QA Documentation | Ian Cedric Ramirez</title>
+    <meta name="description" content="GoPick Manual case study - web-based engineering and operational documentation turning legacy HR assessment platform behavior, constraints, and QA boundaries into a shared maintainable reference.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="gopick-manual">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">GoPick Manual</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -76,12 +85,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final GoPick Manual artwork and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom GoPick Manual illustration showing engineering documentation connecting legacy system behavior, QA expectations, developer standards, troubleshooting, and knowledge transfer.">
-                            <div class="project-header__hero-text">
-                                <strong>GoPick Manual System Resource</strong><br>
-                                Implicit Legacy Knowledge → Explicit Engineering &amp; QA Standards
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom GoPick Manual illustration showing engineering documentation connecting legacy system behavior, QA expectations, developer standards, troubleshooting, and knowledge transfer." width="1600" height="700">
                     </div>
                 </div>
 
@@ -270,7 +274,7 @@ Manual Updated &amp; Published alongside Release</pre>
                 <div class="related-link-list">
                     <div class="related-link-item">
                         <strong>Primary System Case Study</strong>
-                        <p>GoPick — HR assessment platform legacy modernization and 5-layer architecture refactoring.</p>
+                        <p>GoPick - HR assessment platform legacy modernization and 5-layer architecture refactoring.</p>
                         <a class="related-link" href="../gopick/">View GoPick Case Study →</a>
                     </div>
                     <div class="related-link-item">

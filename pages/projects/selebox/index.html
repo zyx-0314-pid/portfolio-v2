@@ -14,13 +14,14 @@
             }
         })();
     </script>
-    <title>SeLeBox — Social & Entertainment Feature Expansion | Ian Cedric Ramirez</title>
-    <meta name="description" content="SeLeBox case study — extending an existing entertainment platform with profile social graphs, direct messaging, group chat, media feed uploads, continuous vertical video feed, and offline caching.">
+    <title>SeLeBox - Social & Entertainment Feature Expansion | Ian Cedric Ramirez</title>
+    <meta name="description" content="SeLeBox case study - extending an existing entertainment platform with profile social graphs, direct messaging, group chat, media feed uploads, continuous vertical video feed, and offline caching.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="selebox">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">SeLeBox</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -59,7 +68,7 @@
                     <div>
                         <p class="section__eyebrow">Case Study · Social &amp; Entertainment</p>
                         <h1 class="project-header__title" id="page-title">SeLeBox</h1>
-                        <p class="project-header__summary">SeLeBox began as an entertainment platform centered around audiobook and story content. As a Full-Stack Engineer at YenkoDev, my work focused on extending the existing production application with interconnected social features — including profile social graphs, direct messaging, group chat, user-generated media feeds, continuous vertical video discovery, and offline media availability.</p>
+                        <p class="project-header__summary">SeLeBox began as an entertainment platform centered around audiobook and story content. As a Full-Stack Engineer at YenkoDev, my work focused on extending the existing production application with interconnected social features - including profile social graphs, direct messaging, group chat, user-generated media feeds, continuous vertical video discovery, and offline media availability.</p>
 
                         <nav class="project-toc" aria-label="On-page contents">
                             <a href="#overview">Overview</a>
@@ -83,12 +92,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final SeLeBox project artwork and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom SeLeBox project illustration showing an entertainment platform evolving from audiobook content into interconnected social, messaging, feed, and video experiences.">
-                            <div class="project-header__hero-text">
-                                <strong>SeLeBox Platform Evolution</strong><br>
-                                Audiobooks &amp; Digital Content → Interconnected Social &amp; Video Ecosystem
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom SeLeBox project illustration showing an entertainment platform evolving from audiobook content into interconnected social, messaging, feed, and video experiences." width="1600" height="700">
                     </div>
                 </div>
 
@@ -249,7 +253,7 @@ Messaging Subsystem     Feed Subsystem        Social Discovery
             </section>
 
             <section class="project-section" id="social" aria-labelledby="social-title">
-                <h2 id="social-title">Social Relationships — Follow / Follow Back</h2>
+                <h2 id="social-title">Social Relationships - Follow / Follow Back</h2>
                 <div class="project-section__split">
                     <div>
                         <p>Implemented profile-level social relationship capabilities. The social graph enabled users to connect with story creators and fellow community members.</p>
@@ -270,7 +274,7 @@ Messaging Subsystem     Feed Subsystem        Social Discovery
             </section>
 
             <section class="project-section" id="messaging" aria-labelledby="messaging-title">
-                <h2 id="messaging-title">Messaging Subsystem — Direct &amp; Group Chat</h2>
+                <h2 id="messaging-title">Messaging Subsystem - Direct &amp; Group Chat</h2>
                 <div class="project-section__split">
                     <div>
                         <p>Designed and integrated communication tools to foster user interaction directly within the application.</p>
@@ -362,7 +366,7 @@ Update Feed List Output</pre>
             </section>
 
             <section class="project-section" id="backend" aria-labelledby="backend-title">
-                <h2 id="backend-title">Backend Services — Appwrite &amp; Firebase Transition</h2>
+                <h2 id="backend-title">Backend Services - Appwrite &amp; Firebase Transition</h2>
                 <div class="project-section__split">
                     <div>
                         <p>Development was executed in a dual backend-service environment. The engineering direction focused on gradually shifting application services toward <strong>Appwrite</strong> while maintaining legacy integrations with <strong>Firebase</strong>.</p>

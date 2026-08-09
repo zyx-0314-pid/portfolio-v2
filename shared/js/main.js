@@ -149,7 +149,7 @@
     };
 
     const initializeSectionNavigator = () => {
-        const sections = Array.from(document.querySelectorAll('main section'));
+        const sections = Array.from(document.querySelectorAll('main > header, main > article > header, main section'));
         if (!sections.length) {
             return;
         }
@@ -340,6 +340,162 @@
         updateCurrentSection();
     };
 
+    const initializeStickySectionNavigation = () => {
+        const main = document.querySelector('main');
+        if (!main) {
+            return;
+        }
+
+        const existingNav = document.querySelector('[data-sticky-nav]');
+        const usedIds = new Set(Array.from(document.querySelectorAll('[id]')).map((element) => element.id));
+        const toSectionId = (label, index) => {
+            const base = label
+                .toLowerCase()
+                .replace(/&/g, ' and ')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '') || `page-section-${index + 1}`;
+            let id = base;
+            let count = 2;
+
+            while (usedIds.has(id)) {
+                id = `${base}-${count}`;
+                count += 1;
+            }
+
+            usedIds.add(id);
+            return id;
+        };
+
+        const getSectionLabel = (section) => {
+            const labelledBy = section.getAttribute('aria-labelledby');
+            const labelledHeading = labelledBy ? document.getElementById(labelledBy) : null;
+            const visibleHeading = section.querySelector('h2, h1, .section__eyebrow');
+            return section.getAttribute('aria-label') || (labelledHeading || visibleHeading)?.textContent.trim() || '';
+        };
+
+        const sections = Array.from(main.querySelectorAll(':scope > header, :scope > article > header, section')).filter((section, index) => {
+            if (section.closest('.cookie-consent')) {
+                return false;
+            }
+
+            const label = getSectionLabel(section);
+            if (!label) {
+                return false;
+            }
+
+            if (!section.id) {
+                section.id = toSectionId(label, index);
+            }
+
+            return true;
+        });
+
+        if (existingNav) {
+            initializeStickyNavState(existingNav);
+            return;
+        }
+
+        if (sections.length < 2) {
+            return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'sticky-nav-wrapper';
+
+        const shell = document.createElement('div');
+        shell.className = 'page-shell';
+
+        const nav = document.createElement('nav');
+        nav.className = 'sticky-nav';
+        nav.dataset.stickyNav = '';
+        nav.setAttribute('aria-label', 'Page section navigator');
+
+        const list = document.createElement('ul');
+        list.className = 'sticky-nav__list';
+
+        sections.forEach((section) => {
+            const label = getSectionLabel(section);
+
+            if (!label) {
+                return;
+            }
+
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.className = 'sticky-nav__link';
+            link.href = `#${section.id}`;
+            link.textContent = label;
+            item.append(link);
+            list.append(item);
+        });
+
+        if (!list.children.length) {
+            return;
+        }
+
+        nav.append(list);
+        shell.append(nav);
+        wrapper.append(shell);
+
+        const firstSection = sections[0];
+        const firstSectionIsHero = Boolean(firstSection.querySelector('h1'));
+        firstSection.insertAdjacentElement(firstSectionIsHero ? 'afterend' : 'beforebegin', wrapper);
+        initializeStickyNavState(nav);
+    };
+
+    const initializeStickyNavState = (stickyNav) => {
+        const links = Array.from(stickyNav.querySelectorAll('.sticky-nav__link'));
+        if (!links.length) {
+            return;
+        }
+
+        const sections = links
+            .map((link) => document.getElementById(link.getAttribute('href')?.replace('#', '') || ''))
+            .filter(Boolean);
+
+        if (!sections.length) {
+            return;
+        }
+
+        const setActiveLink = (id) => {
+            links.forEach((link) => {
+                const targetId = link.getAttribute('href')?.replace('#', '');
+                if (targetId === id) {
+                    link.classList.add('is-active');
+                    link.setAttribute('aria-current', 'true');
+                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    return;
+                }
+
+                link.classList.remove('is-active');
+                link.removeAttribute('aria-current');
+            });
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveLink(entry.target.id);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-20% 0px -55% 0px',
+            threshold: 0
+        });
+
+        sections.forEach((section) => observer.observe(section));
+
+        if (window.location.hash) {
+            const initialId = window.location.hash.slice(1);
+            if (document.getElementById(initialId)) {
+                window.setTimeout(() => setActiveLink(initialId), 100);
+            }
+        } else {
+            setActiveLink(sections[0].id);
+        }
+    };
+
     const initializePrivacyFooterLink = () => {
         const footerLinks = document.querySelector('.site-footer__links');
         if (!footerLinks || footerLinks.querySelector('[data-privacy-link]')) {
@@ -431,6 +587,7 @@
     initializeTheme();
     initializeNavigation();
     initializeActiveNavigation();
+    initializeStickySectionNavigation();
     initializeSectionNavigator();
     initializePrivacyFooterLink();
     initializeCookieConsent();

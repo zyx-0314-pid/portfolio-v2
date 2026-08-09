@@ -15,12 +15,13 @@
         })();
     </script>
     <title>Internal Records &amp; Storage Tracking System | Ian Cedric Ramirez</title>
-    <meta name="description" content="Internal Records &amp; Storage Tracking System case study — full-stack Java/React physical records traceability system built during the Spring Valley Tech immersion, featuring multi-tier storage hierarchy, QR/barcode scanning, and append-oriented movement history.">
+    <meta name="description" content="Internal Records &amp; Storage Tracking System case study - full-stack Java/React physical records traceability system built during the Spring Valley Tech immersion, featuring multi-tier storage hierarchy, QR/barcode scanning, and append-oriented movement history.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="internal-records-storage">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">Internal Records &amp; Storage Tracking System</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -82,12 +91,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final Internal Records & Storage Tracking System artwork and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom Internal Records & Storage Tracking System illustration showing physical storage hierarchy, QR/barcode scanning, item lifecycle states, and append-oriented movement history.">
-                            <div class="project-header__hero-text">
-                                <strong>Internal Records &amp; Storage Tracking System</strong><br>
-                                Hierarchical Storage → QR/Barcode Identification → Append Movement Logs
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom Internal Records & Storage Tracking System illustration showing physical storage hierarchy, QR/barcode scanning, item lifecycle states, and append-oriented movement history." width="1600" height="700">
                     </div>
                 </div>
 

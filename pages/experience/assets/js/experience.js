@@ -14,7 +14,7 @@
     let sortMode      = 'newest';  // 'newest' | 'oldest'
 
     // ----------------------------------------------------------------
-    // DOM references — gathered once after DOMContentLoaded
+    // DOM references - gathered once after DOMContentLoaded
     // ----------------------------------------------------------------
 
     let allFilterBtns     = [];
@@ -32,7 +32,7 @@
     // Quick View
     let qvBackdrop = null;
     let qvDialog   = null;
-    let qvTrigger  = null; // element that opened the modal — for focus restoration
+    let qvTrigger  = null; // element that opened the modal - for focus restoration
 
     // ----------------------------------------------------------------
     // URL state helpers
@@ -181,7 +181,7 @@
     };
 
     // ----------------------------------------------------------------
-    // UI sync — update button aria-pressed + mobile checkboxes
+    // UI sync - update button aria-pressed + mobile checkboxes
     // ----------------------------------------------------------------
 
     const syncFilterUI = () => {
@@ -417,7 +417,7 @@
     };
 
     // ----------------------------------------------------------------
-    // Popstate — Back/Forward support
+    // Popstate - Back/Forward support
     // ----------------------------------------------------------------
 
     const handlePopstate = (event) => {

@@ -14,13 +14,14 @@
             }
         })();
     </script>
-    <title>Veyra — Multi-Tenant Feedback SaaS, RBAC &amp; DevOps | Ian Cedric Ramirez</title>
-    <meta name="description" content="Veyra case study — multi-tenant feedback and review-management platform with QR entry points, custom RBAC authorization, moderation workflows, security audit logging, and automated CI/CD deployment operations.">
+    <title>Veyra - Multi-Tenant Feedback SaaS, RBAC &amp; DevOps | Ian Cedric Ramirez</title>
+    <meta name="description" content="Veyra case study - multi-tenant feedback and review-management platform with QR entry points, custom RBAC authorization, moderation workflows, security audit logging, and automated CI/CD deployment operations.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="veyra">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">Veyra</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -84,12 +93,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final Veyra project artwork and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom Veyra project illustration showing a multi-tenant SaaS feedback platform with QR scanning, custom RBAC authorization boundaries, moderation workflows, and automated deployment pipelines.">
-                            <div class="project-header__hero-text">
-                                <strong>Veyra System Architecture</strong><br>
-                                QR Feedback Entry → Multi-Tenant Isolation → RBAC Security → Automated CI/CD Ops
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom Veyra project illustration showing a multi-tenant SaaS feedback platform with QR scanning, custom RBAC authorization boundaries, moderation workflows, and automated deployment pipelines." width="1600" height="700">
                     </div>
                 </div>
 
@@ -336,7 +340,7 @@ Authorized Staff Review Status
                 <h2 id="observability-title">Observability &amp; Security Audit Logging</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>Security and compliance are reinforced through structured audit logging. Sensitive administrative operations—such as role modifications, member invitations, status overrides, and subscription changes—generate immutable security audit events.</p>
+                        <p>Security and compliance are reinforced through structured audit logging. Sensitive administrative operations-such as role modifications, member invitations, status overrides, and subscription changes-generate immutable security audit events.</p>
                     </div>
                     <div class="project-note-list">
                         <div class="project-note-item">
@@ -469,7 +473,7 @@ Build &amp; Deploy Pipeline
                 <div class="related-link-list">
                     <div class="related-link-item">
                         <strong>Studio Organization</strong>
-                        <p>Nyebe Creations Studio — Technical leadership, system architecture, multi-tenant SaaS engineering, and developer operations.</p>
+                        <p>Nyebe Creations Studio - Technical leadership, system architecture, multi-tenant SaaS engineering, and developer operations.</p>
                     </div>
                     <div class="related-link-item">
                         <strong>Skills Demonstrated</strong>

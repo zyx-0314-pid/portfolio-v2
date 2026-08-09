@@ -14,13 +14,14 @@
             }
         })();
     </script>
-    <title>PUGS — Camera-Based Assistive Navigation Prototype | Ian Cedric Ramirez</title>
-    <meta name="description" content="PUGS case study — camera-based assistive navigation research prototype for blind and visually impaired users, utilizing on-device smartphone vision, obstacle proximity detection, free path analysis, and multimodal feedback.">
+    <title>PUGS - Camera-Based Assistive Navigation Prototype | Ian Cedric Ramirez</title>
+    <meta name="description" content="PUGS case study - camera-based assistive navigation research prototype for blind and visually impaired users, utilizing on-device smartphone vision, obstacle proximity detection, free path analysis, and multimodal feedback.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="pugs">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">PUGS</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -79,12 +88,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final PUGS artwork and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom PUGS illustration showing camera-based obstacle sensing, frame positioning, free path selection, and multimodal haptic/audio feedback.">
-                            <div class="project-header__hero-text">
-                                <strong>PUGS Assistive Navigation Research</strong><br>
-                                Smartphone Camera Sensing → Frame Spatial Analysis → Haptic &amp; Audio Guidance
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom PUGS illustration showing camera-based obstacle sensing, frame positioning, free path selection, and multimodal haptic/audio feedback." width="1600" height="700">
                     </div>
                 </div>
 

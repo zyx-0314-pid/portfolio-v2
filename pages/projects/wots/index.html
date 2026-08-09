@@ -14,13 +14,14 @@
             }
         })();
     </script>
-    <title>WOTS — Water Order, Container &amp; Delivery Operations | Ian Cedric Ramirez</title>
-    <meta name="description" content="WOTS case study — commissioned water order tracking and operations system managing customer water orders, container inventory, container borrowing/sales, payment status, delivery routes, and reporting.">
+    <title>WOTS - Water Order, Container &amp; Delivery Operations | Ian Cedric Ramirez</title>
+    <meta name="description" content="WOTS case study - commissioned water order tracking and operations system managing customer water orders, container inventory, container borrowing/sales, payment status, delivery routes, and reporting.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -48,10 +49,18 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="wots">
         <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">WOTS</span>
         </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
 
         <article class="project-page" aria-labelledby="page-title">
             <header class="project-header">
@@ -81,12 +90,7 @@
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final WOTS artwork and update alt text to describe the actual image. -->
-                        <figure class="project-header__hero" aria-label="Placeholder for a custom WOTS illustration showing customer water orders, sold versus borrowed container tracking, payment statuses, delivery route assignments, and sales reporting.">
-                            <div class="project-header__hero-text">
-                                <strong>WOTS Refilling Station Operations</strong><br>
-                                Customer Orders → Sold vs Borrowed Containers → Delivery Routes &amp; Reporting
-                            </div>
-                        </figure>
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom WOTS illustration showing customer water orders, sold versus borrowed container tracking, payment statuses, delivery route assignments, and sales reporting." width="1600" height="700">
                     </div>
                 </div>
 
@@ -188,7 +192,7 @@ Daily Operational &amp; Sales Reporting</pre>
             </section>
 
             <section class="project-section" id="container-rule" aria-labelledby="container-rule-title">
-                <h2 id="container-rule-title">Container Ownership Engine — Sold vs. Borrowed</h2>
+                <h2 id="container-rule-title">Container Ownership Engine - Sold vs. Borrowed</h2>
                 <div class="comparison-box" aria-label="Sold versus Borrowed Container Business Rules">
                     <div class="comparison-column">
                         <h3>SOLD CONTAINERS</h3>
@@ -346,7 +350,7 @@ Order History &amp; Container Audit Log</pre>
                 <h2 id="retrospective-title">Retrospective &amp; Real-World System Design</h2>
                 <div class="retrospective-item">
                     <h3>Modeling Real-World Business Rules</h3>
-                    <p>WOTS demonstrated that effective software engineering requires translating nuanced domain rules—such as sold versus borrowed container inventory—into clear database schemas and application logic.</p>
+                    <p>WOTS demonstrated that effective software engineering requires translating nuanced domain rules-such as sold versus borrowed container inventory-into clear database schemas and application logic.</p>
                 </div>
                 <div class="retrospective-item">
                     <h3>Operational Usability Under Production Constraints</h3>

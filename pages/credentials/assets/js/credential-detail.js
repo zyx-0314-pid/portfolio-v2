@@ -96,9 +96,7 @@
     container.innerHTML = `
       <div class="cred-detail-shell">
         <nav class="cred-breadcrumb" aria-label="Breadcrumb">
-          <a href="${root}">Home</a><span class="cred-breadcrumb__sep">/</span>
-          <a href="${root}pages/credentials/">${listingLabel}</a><span class="cred-breadcrumb__sep">/</span>
-          <span class="cred-breadcrumb__current">${window.escapeHtml(record.name)}</span>
+          <a href="${root}">Home</a> / <a href="${root}pages/credentials/">${listingLabel}</a> / <span class="cred-breadcrumb__current" aria-current="page">${window.escapeHtml(record.name)}</span>
         </nav>
 
         <header class="cred-detail-header">

@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ABOUT PAGE BEHAVIOR — Phase 13.1 About Visual Redesign
-   Continuous Auto-Moving Infinite Carousel & Sticky Navigation Rail
+   ABOUT PAGE BEHAVIOR - Phase 13.1 About Visual Redesign
+   Continuous Auto-Moving Infinite Carousel
    ========================================================================== */
 
 (() => {
@@ -170,65 +170,7 @@
         });
     };
 
-    // ── Sticky Identity Navigation Rail Observer ─────────────────────────────
-    const initializeStickyNav = () => {
-        const stickyNav = document.querySelector('[data-sticky-nav]');
-        if (!stickyNav) return;
-
-        const links = Array.from(stickyNav.querySelectorAll('.sticky-nav__link'));
-        if (!links.length) return;
-
-        const sections = links.map(link => {
-            const id = link.getAttribute('href').replace('#', '');
-            return document.getElementById(id);
-        }).filter(Boolean);
-
-        if (!sections.length) return;
-
-        const setActiveLink = (id) => {
-            links.forEach(link => {
-                const targetId = link.getAttribute('href').replace('#', '');
-                if (targetId === id) {
-                    link.classList.add('is-active');
-                    link.setAttribute('aria-current', 'true');
-                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    link.classList.remove('is-active');
-                    link.removeAttribute('aria-current');
-                }
-            });
-        };
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '-20% 0px -55% 0px',
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActiveLink(entry.target.id);
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach(section => observer.observe(section));
-
-        // Sync initial hash if present
-        if (window.location.hash) {
-            const initialId = window.location.hash.slice(1);
-            const targetEl = document.getElementById(initialId);
-            if (targetEl) {
-                setTimeout(() => {
-                    setActiveLink(initialId);
-                }, 100);
-            }
-        }
-    };
-
     document.addEventListener('DOMContentLoaded', () => {
         initializeCarousel();
-        initializeStickyNav();
     });
 })();

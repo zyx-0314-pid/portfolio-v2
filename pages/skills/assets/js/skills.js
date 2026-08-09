@@ -1,6 +1,6 @@
 /**
  * Skills Gallery & Modal Controller
- * Ian Cedric Ramirez Portfolio — Phase 15 (Card Gallery + Modal)
+ * Ian Cedric Ramirez Portfolio - Phase 15 (Card Gallery + Modal)
  *
  * Filter logic:
  *   OR within each filter group, AND across groups.
@@ -372,7 +372,7 @@
       </section>
 
       <section class="skill-modal__section">
-        <h3 class="skill-modal__section-heading">Depth — ${skill.depth}</h3>
+        <h3 class="skill-modal__section-heading">Depth - ${skill.depth}</h3>
         <p class="skill-modal__depth-box">${escapeHtml(depthDesc)}</p>
       </section>
 
