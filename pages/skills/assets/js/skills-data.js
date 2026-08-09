@@ -46,8 +46,9 @@ window.SKILLS_DATA = [
     type: "Language",
     depth: "APPLIED",
     lastApplied: 2026,
-    summary: "Typed JavaScript application development exposure from internship work.",
+    summary: "Typed JavaScript application development with React 19 and TanStack Start across production SaaS and internship work.",
     evidence: [
+      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Core application stack built with React 19, TypeScript, and TanStack Start." },
       { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Listed in the internship skill evidence alongside Laravel, React, Next.js, React Native, PHP, JavaScript, Docker, Postman, and Figma." }
     ]
   },
@@ -330,7 +331,7 @@ window.SKILLS_DATA = [
     summary: "Container image builds, Docker Compose multi-service environments, and environment isolation.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Docker used for the standardized local PHP, database, and Redis development environment." },
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Verified stack includes Docker." },
+      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Portable Docker production image targeting Kubernetes as an AWS-ready production profile." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes Docker local runtime." },
       { kind: "project", label: "Internal Records Storage System", url: "../projects/internal-records-storage/", note: "Verified stack includes Docker container runtime." },
       { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Standardized local PHP, database, and Redis development environments through Docker." },
@@ -406,7 +407,7 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Automated build, validation, and deployment workflows where explicitly documented.",
     evidence: [
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Automated delivery pipeline built on GitHub Actions, Docker containers, Appwrite schema migrations, and Vercel hosting." },
+      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "CI quality gates built on GitHub Actions, SonarQube, Playwright, Codecov, Docker containers, and Appwrite Sites SSR runtime." },
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes GitHub Actions CI pipeline." },
       { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "Implemented GitHub Actions deployment workflows for GoPick/PDI work, connecting by SSH to update the AWS EC2 application environment." },
       { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Implemented GitHub Actions deployment workflows to GitHub Pages for student static-web projects." }
@@ -423,7 +424,7 @@ window.SKILLS_DATA = [
     summary: "Workflow automation for CI/CD, scheduled jobs, and deployment pipelines.",
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "GitHub Actions CI pipeline in the verified project stack." },
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Automated CI/CD deployment operations." },
+      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "CI quality gates, lint/type/build verification, SonarQube, and Playwright workflows." },
       { kind: "experience", label: "Full-Stack Engineer & DevOps Engineer - People Dynamics", url: "../experience/full-stack-developer/", note: "GitHub Actions deployment workflows triggered by main-branch merges for the AWS EC2 application environment." },
       { kind: "credential", label: "GitHub Foundations", url: "../credentials/", note: "Validated Actions workflow syntax, secrets, and CI/CD basics." }
     ]
@@ -439,7 +440,6 @@ window.SKILLS_DATA = [
     summary: "Production hosting and deployment platform for Next.js and React applications.",
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Production hosting target for the operations platform." },
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Deployment platform in the feedback and review-management SaaS stack." },
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Deployment platform for the React social platform frontend." },
       { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Included Vercel in deployment platform coverage." }
     ]
@@ -455,7 +455,7 @@ window.SKILLS_DATA = [
     summary: "Backend-as-a-service platform for storage, application services, and data-backed product workflows.",
     evidence: [
       { kind: "project", label: "SeLeBox", url: "../projects/selebox/", note: "Integrated Appwrite services and storage during the platform's Firebase-to-Appwrite transition." },
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Application backend platform for multi-tenant feedback, moderation, audit, and QR workflows." }
+      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Backend platform and Appwrite Sites SSR production runtime for multi-tenant feedback, moderation, developer observability, and Appwrite Functions." }
     ]
   },
 
@@ -738,7 +738,7 @@ window.SKILLS_DATA = [
     summary: "Error tracking and performance monitoring in production web applications.",
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified observability stack includes Sentry error monitoring." },
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Project highlight and case study identify Sentry as part of observability." }
+      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Integrated Sentry error monitoring alongside internal scrubbed diagnostics for developer observability." }
     ]
   },
 
@@ -751,8 +751,7 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Product analytics and operational event visibility for SaaS application workflows.",
     evidence: [
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Used alongside Sentry and internal dashboards for developer observability." },
-      { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Part of the feedback platform observability architecture." }
+      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Used alongside Sentry and internal dashboards for developer observability." }
     ]
   },
 

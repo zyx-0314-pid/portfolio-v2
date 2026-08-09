@@ -252,21 +252,11 @@
                             <li><strong>Leave Untouched Legacy Stable:</strong> Untouched legacy regions remain operational until future work touches them, minimizing unnecessary regression risk.</li>
                         </ol>
                     </div>
-                    <div class="project-diagram" aria-label="Incremental migration workflow">
-                        <pre>LEGACY MODULE AREA
-        ↓
-Requirement / Bug / Feature touches area
-        ↓
-Identify affected responsibilities
-        ↓
-Refactor necessary boundary
-        ↓
-New code follows 5-layer standard
-        ↓
-Untouched code remains legacy
-        ↓
-System gradually improves over time</pre>
-                    </div>
+                    <figure class="project-diagram" aria-label="Incremental migration strategy diagram">
+                        <img class="theme-img theme-img--light" src="assets/img/incremental_migration_strategy_light.png" alt="Incremental migration strategy diagram for GoPick (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/incremental_migration_strategy_light.png" data-src-dark="assets/img/incremental_migration_strategy_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/incremental_migration_strategy_dark.png" alt="Incremental migration strategy diagram for GoPick (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/incremental_migration_strategy_light.png" data-src-dark="assets/img/incremental_migration_strategy_dark.png">
+                        <figcaption class="screenshot-caption">Incremental Migration Strategy: Opportunistic refactoring flow transitioning legacy modules to the explicit 5-layer architecture.</figcaption>
+                    </figure>
                 </div>
             </section>
 

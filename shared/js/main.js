@@ -42,11 +42,22 @@
             toggle.dataset.theme = normalizedTheme;
         }
 
+        updateThemeImages(normalizedTheme);
+
         try {
             window.localStorage.setItem(themeKey, normalizedTheme);
         } catch {
             // Ignore storage failures and keep the current session theme.
         }
+    };
+
+    const updateThemeImages = (theme) => {
+        document.querySelectorAll('img[data-src-light][data-src-dark]').forEach((img) => {
+            const targetSrc = theme === 'light' ? img.dataset.srcLight : img.dataset.srcDark;
+            if (targetSrc && img.getAttribute('src') !== targetSrc) {
+                img.setAttribute('src', targetSrc);
+            }
+        });
     };
 
     const initializeTheme = () => {

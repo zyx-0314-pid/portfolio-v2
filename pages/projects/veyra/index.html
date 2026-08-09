@@ -14,8 +14,8 @@
             }
         })();
     </script>
-    <title>Veyra - Multi-Tenant Feedback SaaS, RBAC &amp; DevOps | Ian Cedric Ramirez</title>
-    <meta name="description" content="Veyra case study - multi-tenant feedback and review-management platform with QR entry points, custom RBAC authorization, moderation workflows, security audit logging, and automated CI/CD deployment operations.">
+    <title>Veyra - Multi-Tenant Feedback SaaS, RBAC &amp; Developer Operations | Ian Cedric Ramirez</title>
+    <meta name="description" content="Veyra case study - multi-tenant feedback and review-management platform with QR entry points, custom RBAC, developer operations analytics, consent-gated first-party analytics, Appwrite Sites SSR production runtime, and CI quality gates.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -68,8 +68,8 @@
                     <div>
                         <p class="section__eyebrow">Case Study · Operations &amp; Multi-Tenant SaaS</p>
                         <h1 class="project-header__title" id="page-title">Veyra</h1>
-                        <p class="project-header__summary">Veyra is a multi-tenant feedback and review-management platform designed for organizations to collect public feedback through QR-based entry points, moderate and manage responses, publish approved reviews, manage subscriptions and access, and operate the platform through administrative and developer tooling.</p>
-                        <p class="project-header__summary">As System Architect and Lead Developer at Nyebe Creations Studio, I designed the application structure, tenant and authorization boundaries, backend-service integration, operational tooling, security visibility, and deployment workflow while remaining hands-on with full-stack implementation.</p>
+                        <p class="project-header__summary">Veyra is a multi-tenant feedback and review-management platform designed for organizations to collect public feedback through QR-based entry points, moderate responses, publish approved reviews, manage subscriptions, and operate the platform through administrative and developer tooling.</p>
+                        <p class="project-header__summary">As System Architect and Lead Developer at Nyebe Creations Studio, I designed the application structure, tenant data boundaries, custom application RBAC, developer observability dashboard, consent-gated first-party analytics, and portable production runtime architecture.</p>
 
                         <nav class="project-toc" aria-label="On-page contents">
                             <a href="#overview">Overview</a>
@@ -81,8 +81,10 @@
                             <a href="#rbac">Custom RBAC Architecture</a>
                             <a href="#qr-workflow">Public QR Feedback Pipeline</a>
                             <a href="#subscription">Subscription Lifecycle</a>
-                            <a href="#observability">Observability &amp; Audit Logs</a>
-                            <a href="#ops">DevOps &amp; CI/CD</a>
+                            <a href="#dev-observability">Developer Operations &amp; Analytics</a>
+                            <a href="#security-governance">Security, Data Governance &amp; Quality</a>
+                            <a href="#devops">CI, Quality Gates &amp; Deployment Profiles</a>
+                            <a href="#planned">Roadmap &amp; Planned Features</a>
                             <a href="#constraints">Constraints</a>
                             <a href="#decisions">Technical Decisions</a>
                             <a href="#outcomes">Outcomes</a>
@@ -92,8 +94,7 @@
                     </div>
 
                     <div class="project-header__hero-container">
-                        <!-- TODO: Replace with final Veyra project artwork and update alt text to describe the actual image. -->
-                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom Veyra project illustration showing a multi-tenant SaaS feedback platform with QR scanning, custom RBAC authorization boundaries, moderation workflows, and automated deployment pipelines." width="1600" height="700">
+                        <img class="project-header__hero" src="assets/img/veyra_case_study_wallpaper.png" alt="Veyra case study wallpaper illustrating a multi-tenant SaaS feedback platform with QR scanning, custom RBAC authorization boundaries, developer observability, and Appwrite Sites SSR runtime." width="1600" height="700">
                     </div>
                 </div>
 
@@ -112,19 +113,19 @@
                     </div>
                     <div class="project-fact">
                         <dt>Lifecycle</dt>
-                        <dd>Active Development · Production-Ready</dd>
+                        <dd>Active Development · Appwrite Sites Production</dd>
                     </div>
                     <div class="project-fact">
                         <dt>Core Stack</dt>
-                        <dd>React.js · Node.js · Appwrite · Tailwind CSS</dd>
+                        <dd>React + TypeScript · TanStack Start / Router / Query · Appwrite · Tailwind CSS</dd>
                     </div>
                     <div class="project-fact">
-                        <dt>DevOps</dt>
-                        <dd>Docker · GitHub Actions · Vercel / Cloud</dd>
+                        <dt>DevOps / Runtime</dt>
+                        <dd>Appwrite Sites SSR · Docker · Kubernetes · Appwrite Functions</dd>
                     </div>
                     <div class="project-provenance">
                         <strong>Provenance &amp; Studio Team Context</strong>
-                        Engineered under <strong>Nyebe Creations Studio</strong>. Technical leadership across multi-tenant architecture, security boundaries, and automated developer operations.
+                        Engineered under <strong>Nyebe Creations Studio</strong>. Technical leadership across multi-tenant architecture, security boundaries, developer observability, and portable runtime profiles.
                     </div>
                 </dl>
             </header>
@@ -133,8 +134,8 @@
                 <h2 id="overview-title">Overview &amp; Architectural Focus</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>While public QR code scanning serves as the initial customer interaction point, Veyra is fundamentally a multi-tenant SaaS platform built for security, operational visibility, and tenant isolation.</p>
-                        <p>The primary engineering effort was focused on building a robust backend service architecture, explicit tenant data boundaries, fine-grained Role-Based Access Control (RBAC), audit logging, and streamlined developer deployment pipelines.</p>
+                        <p>While public QR code scanning serves as the initial customer interaction point, Veyra is fundamentally a multi-tenant SaaS platform built for security, operational visibility, data governance, and tenant isolation.</p>
+                        <p>The primary engineering effort was focused on building a robust backend service architecture, explicit tenant data boundaries, custom Role-Based Access Control (RBAC), developer operations analytics, consent-gated first-party analytics, and reproducible runtime deployment profiles.</p>
                     </div>
                     <div class="project-note-list">
                         <div class="project-note-item">
@@ -151,28 +152,12 @@
 
             <section class="project-section" id="narrative" aria-labelledby="narrative-title">
                 <h2 id="narrative-title">Central System Narrative Flow</h2>
-                <p>The complete end-to-end Veyra architecture connects public customer feedback entry with tenant management, security enforcement, and deployment automation:</p>
-                <div class="project-diagram" aria-label="End-to-end system narrative flow">
-                    <pre>Public Feedback (QR Code Entry)
-        ↓
-Tenant-Aware SaaS Platform
-        ↓
-Moderation / Review Workflows
-        ↓
-Public Approved Content &amp; API Display
-        ↓
-Subscription Lifecycle &amp; Access Controls
-        ↓
-RBAC + Layered Permissions Enforcement
-        ↓
-Explicit Data &amp; Tenant Boundaries
-        ↓
-Security Monitoring &amp; Audit Event Logs
-        ↓
-Observability Infrastructure
-        ↓
-Automated CI/CD &amp; Deployment Operations</pre>
-                </div>
+                <p>The complete end-to-end Veyra architecture connects public customer feedback entry with tenant management, security enforcement, developer analytics, and runtime deployment profiles:</p>
+                <figure class="project-diagram" aria-label="End-to-end system narrative flow diagram">
+                    <img class="theme-img theme-img--light" src="assets/img/central_system_narrative_flow_light.png" alt="Central system narrative flow diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/central_system_narrative_flow_light.png" data-src-dark="assets/img/central_system_narrative_flow_dark.png">
+                    <img class="theme-img theme-img--dark" src="assets/img/central_system_narrative_flow_dark.png" alt="Central system narrative flow diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/central_system_narrative_flow_light.png" data-src-dark="assets/img/central_system_narrative_flow_dark.png">
+                    <figcaption class="screenshot-caption">Central System Narrative Flow: End-to-end architecture connecting customer QR entry points to multi-tenant operations, RBAC, and runtime deployment profiles.</figcaption>
+                </figure>
             </section>
 
             <section class="project-section" id="ownership" aria-labelledby="ownership-title">
@@ -208,19 +193,11 @@ Automated CI/CD &amp; Deployment Operations</pre>
                             <li><strong>Subscription Records:</strong> Billing status, tier limits, and feature flags.</li>
                         </ul>
                     </div>
-                    <div class="project-diagram" aria-label="Multi-tenant hierarchy diagram">
-                        <pre>Platform Infrastructure
-        ↓
-Organizations (Tenants)
-        ↓
-Organization-Scoped Resources
-├── Members &amp; Accounts
-├── Feedback Submissions
-├── Reviews &amp; Moderation
-├── Role &amp; Permission Templates
-├── Subscriptions &amp; Tier Limits
-└── Security Audit Logs</pre>
-                    </div>
+                    <figure class="project-diagram" aria-label="Multi-tenant architecture diagram">
+                        <img class="theme-img theme-img--light" src="assets/img/multi_tenant_architecture_light.png" alt="Multi-tenant architecture diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/multi_tenant_architecture_light.png" data-src-dark="assets/img/multi_tenant_architecture_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/multi_tenant_architecture_dark.png" alt="Multi-tenant architecture diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/multi_tenant_architecture_light.png" data-src-dark="assets/img/multi_tenant_architecture_dark.png">
+                        <figcaption class="screenshot-caption">Multi-Tenant Architecture: Resource scoping and tenant-bound entity relationships across organization members, submissions, and reviews.</figcaption>
+                    </figure>
                 </div>
             </section>
 
@@ -228,36 +205,34 @@ Organization-Scoped Resources
                 <h2 id="isolation-title">Database Isolation Model</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>The platform architecture distinguishes between default shared tenancy and requirement-driven isolation models:</p>
+                        <p>Dedicated tenant databases are an optional, platform-controlled isolation tier rather than the default. The initial implementation is complete with platform-controlled request/approval control-plane records, database provisioning, schema verification, authenticated binding resolution, data migration/export, and guarded retirement tooling. Activation remains subject to release gates for affected data flows and erasure behavior before claiming full active per-tenant database isolation in production.</p>
                         <div class="project-note-list">
                             <div class="project-note-item">
                                 <strong>DEFAULT: Shared Tenant-Aware Data</strong>
                                 <span>All organization data resides within shared collection structures guarded by explicit tenant ID scoping and backend permission rules.</span>
                             </div>
                             <div class="project-note-item">
-                                <strong>OPTIONAL: Requirement-Driven Isolation</strong>
-                                <span>Architecture supports provisioning dedicated isolated database instances for enterprise deployments requiring strict physical data separation.</span>
+                                <strong>IMPLEMENTATION FOUNDATION COMPLETE: Dedicated Data Isolation</strong>
+                                <span>Platform-controlled request/approval control plane, schema verification, tenant binding, migration/export, and retirement tooling are implemented under active release gates.</span>
                             </div>
                         </div>
-                        <!-- TODO: Confirm whether dedicated tenant databases have been deployed in practice before presenting them as implemented infrastructure. -->
                     </div>
+                    <figure class="project-diagram" aria-label="Database isolation model diagram">
+                        <img class="theme-img theme-img--light" src="assets/img/veyra_data_isolation_light.png" alt="Database isolation model diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/veyra_data_isolation_light.png" data-src-dark="assets/img/veyra_data_isolation_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/veyra_data_isolation_dark.png" alt="Database isolation model diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/veyra_data_isolation_light.png" data-src-dark="assets/img/veyra_data_isolation_dark.png">
+                        <figcaption class="screenshot-caption">Database Isolation Model: Shared tenant-aware data architecture with optional platform-controlled dedicated database tier.</figcaption>
+                    </figure>
                 </div>
             </section>
 
             <section class="project-section" id="tenancy-principle" aria-labelledby="tenancy-principle-title">
                 <h2 id="tenancy-principle-title">Core Tenancy Principle</h2>
                 <p>In Veyra, a user request is never authorized simply because the target record exists in the system. The platform evaluates identity, organization context, and specific role capabilities simultaneously before granting access:</p>
-                <div class="project-diagram" aria-label="Tenancy authorization evaluation flow">
-                    <pre>Authenticated User Request
-        ↓
-Establish Organization Context
-        ↓
-Role / Permission Template Evaluation
-        ↓
-Tenant Boundary Check (Record Tenant ID == Context Org ID)
-        ↓
-Grant Permitted Resource Operation</pre>
-                </div>
+                <figure class="project-diagram" aria-label="Core tenancy principle diagram">
+                    <img class="theme-img theme-img--light" src="assets/img/core_tenancy_principle_light.png" alt="Core tenancy principle diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/core_tenancy_principle_light.png" data-src-dark="assets/img/core_tenancy_principle_dark.png">
+                    <img class="theme-img theme-img--dark" src="assets/img/core_tenancy_principle_dark.png" alt="Core tenancy principle diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/core_tenancy_principle_light.png" data-src-dark="assets/img/core_tenancy_principle_dark.png">
+                    <figcaption class="screenshot-caption">Core Tenancy Principle: Multi-point authorization evaluation connecting identity, organization context, and permission templates.</figcaption>
+                </figure>
             </section>
 
             <section class="project-section" id="rbac" aria-labelledby="rbac-title">
@@ -267,111 +242,121 @@ Grant Permitted Resource Operation</pre>
                         <p>Veyra implements a multi-layered security and authorization architecture combining server-side application logic, Appwrite document permissions, and database-stored role definitions.</p>
                         <p>Role family hierarchy:</p>
                         <ul>
-                            <li><strong>platform_owner:</strong> Global system administrator managing platform-wide tenants, billing, and operational health.</li>
-                            <li><strong>org_admin:</strong> Organization administrator managing local members, custom roles, subscription settings, and review policies.</li>
-                            <li><strong>dev:</strong> Developer role with access to system logging, API tokens, and integration webhooks.</li>
-                            <li><strong>Configurable Role Templates:</strong> Custom organization roles defining granular capabilities for staff and moderators.</li>
+                            <li><strong>platform_owner:</strong> Global system administrator managing platform-wide tenants, custom role template definitions, billing lifecycle, and operational health.</li>
+                            <li><strong>org_admin:</strong> Organization administrator managing organization members, subscription settings, review policies, and moderation workflows using platform-defined role capabilities.</li>
+                            <li><strong>dev:</strong> Developer operations role with access to observability dashboards, developer action management, Appwrite Function health/management, and failure signal forecasting.</li>
+                            <li><strong>Configurable Role Templates:</strong> Platform-managed role templates with platform and tenant scope for fine-grained capability assignment.</li>
                         </ul>
                     </div>
-                    <div class="project-diagram" aria-label="Layered authorization model">
-                        <pre>User Request
-     ↓
-Authentication Check
-     ↓
-Server Application Authorization
-     ↓
-Role / Permission Definition Check
-     ↓
-Organization Boundary Enforcement
-     ↓
-Appwrite Backend Permission Boundary
-     ↓
-Target Resource Action</pre>
-                    </div>
+                    <figure class="project-diagram" aria-label="RBAC layered authorization model diagram">
+                        <img class="theme-img theme-img--light" src="assets/img/rbac_light.png" alt="RBAC layered authorization model diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/rbac_light.png" data-src-dark="assets/img/rbac_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/rbac_dark.png" alt="RBAC layered authorization model diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/rbac_light.png" data-src-dark="assets/img/rbac_dark.png">
+                        <figcaption class="screenshot-caption">Custom RBAC: Multi-layered authorization model combining authentication, server application logic, role definitions, tenant boundary enforcement, and Appwrite backend permissions.</figcaption>
+                    </figure>
                 </div>
             </section>
 
             <section class="project-section" id="qr-workflow" aria-labelledby="qr-workflow-title">
                 <h2 id="qr-workflow-title">Public QR Feedback Pipeline</h2>
-                <p>The public entry point for customer feedback relies on QR code location markers that encode target organization context without requiring customer account registration:</p>
-                <div class="project-diagram" aria-label="Public QR feedback workflow">
-                    <pre>Customer Scans QR Code
-        ↓
-Extract Organization Context
-        ↓
-Render Public Feedback Form
-        ↓
-Input Validation &amp; Rate-Limiting Protection
-        ↓
-Submit Feedback Record
-        ↓
-Enter Organization Moderation Queue
-        ↓
-Authorized Staff Review Status
-        ├── Approve → Publish to Approved Reviews &amp; Public API
-        ├── Reject → Archive Submission Record
-        └── Needs Action → Flag for Follow-Up</pre>
-                </div>
+                <p>The public entry point for customer feedback relies on location-based QR code markers where an opaque QR slug resolves persisted organization and feedback configuration on the server, accepting anonymous submissions through validated, rate-limited public APIs without trusting a browser-supplied tenant identifier or encoding tokens in public URLs:</p>
+                <figure class="project-diagram" aria-label="Public QR feedback workflow diagram">
+                    <img class="theme-img theme-img--light" src="assets/img/public_feedback_workflow_light.png" alt="Public QR feedback pipeline diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/public_feedback_workflow_light.png" data-src-dark="assets/img/public_feedback_workflow_dark.png">
+                    <img class="theme-img theme-img--dark" src="assets/img/public_feedback_workflow_dark.png" alt="Public QR feedback pipeline diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/public_feedback_workflow_light.png" data-src-dark="assets/img/public_feedback_workflow_dark.png">
+                    <figcaption class="screenshot-caption">Public QR Feedback Pipeline: Customer QR entry through server-side context resolution, validation, moderation queue, and staff review outcomes.</figcaption>
+                </figure>
             </section>
 
             <section class="project-section" id="subscription" aria-labelledby="subscription-title">
                 <h2 id="subscription-title">Subscription Lifecycle &amp; Feature Access</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>Organization features, usage quotas, member limits, and API access are governed by subscription lifecycle management.</p>
+                        <p>Organization features, usage quotas, member limits, and API access are governed by explicit subscription lifecycle management.</p>
                         <p>Key subscription capabilities:</p>
                         <ul>
-                            <li><strong>Tiered Subscription Statuses:</strong> Active, Trialing, Past Due, and Canceled lifecycle states.</li>
-                            <li><strong>Feature Access Gates:</strong> Dynamic checks enforcing feature availability based on active subscription tier.</li>
-                            <li><strong>Payment Verification Workflow:</strong> Automated handling of subscription updates and access state synchronization.</li>
+                            <li><strong>Implemented Lifecycle Statuses:</strong> Active paid, payment pending verification, payment rejected, overdue grace period, free version active, free version expired, and subscription required.</li>
+                            <li><strong>Feature &amp; Quota Access Gates:</strong> Dynamic checks enforcing feature availability and member limits based on active subscription state.</li>
+                            <li><strong>Payment Verification Workflow:</strong> Manual payment verification paired with automated billing lifecycle transitions, renewal reminders, grace periods, and free-version fallback.</li>
                         </ul>
                     </div>
                     <div class="project-note-list">
                         <div class="project-note-item">
                             <strong>Access Guardrails</strong>
-                            <span>Subscription middleware automatically restricts administrative actions when an organization subscription enters expired or past-due states.</span>
+                            <span>Subscription middleware automatically restricts administrative actions when an organization subscription enters expired or overdue grace states.</span>
                         </div>
                     </div>
                 </div>
-                <!-- TODO: Confirm exact subscription payment gateway integration details before documenting transaction workflows. -->
             </section>
 
-            <section class="project-section" id="observability" aria-labelledby="observability-title">
-                <h2 id="observability-title">Observability &amp; Security Audit Logging</h2>
+            <section class="project-section" id="dev-observability" aria-labelledby="dev-observability-title">
+                <h2 id="dev-observability-title">Developer Operations &amp; Analytics</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>Security and compliance are reinforced through structured audit logging. Sensitive administrative operations-such as role modifications, member invitations, status overrides, and subscription changes-generate immutable security audit events.</p>
+                        <p>Veyra combines structured operational telemetry, developer read auditing, Sentry error monitoring, health/cron/function tooling, and scrubbed developer-facing diagnostics. The developer dashboard separates current actionable posture from historical trends and forecast output so resolved issues do not inflate active operational counts.</p>
                     </div>
                     <div class="project-note-list">
                         <div class="project-note-item">
-                            <strong>Audit Record Scoping</strong>
-                            <span>Every audit event logs actor ID, action type, target resource, timestamp, IP context, and organization tenant ID.</span>
+                            <strong>Actionable Posture &amp; Decision Queue</strong>
+                            <span>Tracks unresolved failures, active system posture, function health, and active operational work items.</span>
                         </div>
                         <div class="project-note-item">
-                            <strong>System Visibility</strong>
-                            <span>Provides studio administrators with clear visibility into security-sensitive operations across all platform tenants.</span>
+                            <strong>Historical Signal Regression</strong>
+                            <span>Renders occurrence-aware failure, security, and cron series over elapsed time buckets using linear regression via <code>simple-statistics</code> with sample guards and R-squared fit interpretation.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>SARIMA Failure Volume Forecasting</strong>
+                            <span>Evaluates daily failure volume using SARIMA models via the <code>arima</code> package (minimum 84 daily observations, 7-day weekly seasonality and horizon, evaluated with MAE/RMSE) and automatically falls back to a weekly seasonal-naive baseline if SARIMA does not improve MAE by at least 5%.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Diagnostic Redaction &amp; Observability</strong>
+                            <span>Integrates Sentry error monitoring alongside internal HMAC-signed observability ingestion with timestamp/nonce replay protection, developer read auditing, and strict redaction of credentials, bearer tokens, JWTs, API keys, and stack frames.</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="project-section" id="ops" aria-labelledby="ops-title">
-                <h2 id="ops-title">DevOps &amp; CI/CD Deployment Operations</h2>
+            <section class="project-section" id="security-governance" aria-labelledby="security-governance-title">
+                <h2 id="security-governance-title">Security, Data Governance &amp; Quality</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>To ensure high developer productivity and reliable release workflows, Veyra features an automated delivery pipeline built on GitHub Actions, Docker containers, Appwrite schema migrations, and Vercel hosting.</p>
+                        <p>Platform security, data handling, and release stability are managed through explicit data retention policies, consent-gated public analytics, provider fallbacks, and multi-layered quality gates.</p>
                     </div>
-                    <div class="project-diagram" aria-label="DevOps deployment pipeline">
-                        <pre>Developer Push / Pull Request
-        ↓
-GitHub Actions CI Workflow
-├── Code Formatting &amp; Static Analysis
-├── Automated Unit &amp; Integration Tests
-└── Appwrite Schema Verification
-        ↓
-Build &amp; Deploy Pipeline
-├── Staging Environment Deploy (Vercel / Docker)
-└── Production Deployment Verification</pre>
+                    <div class="project-note-list">
+                        <div class="project-note-item">
+                            <strong>Consent-Gated First-Party Public Analytics</strong>
+                            <span>Records minimized public-page engagement only after explicit user choice using a separate random identifier (no authenticated identity or tenant data is collected). Retains raw events for 30 days, enforces minimum-cohort suppression (cohort &ge; 5), and generates rolling means, OLS regression, and Median/MAD anomaly evidence on published aggregates.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Structured Security Records &amp; Data Classification</strong>
+                            <span>Structured security and audit records log actor, action, target resource, timestamp, and organization scope while IP-derived data is contextual or hashed. Data retention follows typed classification rules with legal-hold-aware cleanup.</span>
+                        </div>
+                        <div class="project-note-item">
+                            <strong>Transactional Email Resilience</strong>
+                            <span>Uses an ordered Brevo primary and Resend secondary fallback workflow with fail-closed behavior when provider delivery acceptance is uncertain, preventing duplicate email dispatch.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="devops" aria-labelledby="devops-title">
+                <h2 id="devops-title">CI, Quality Gates &amp; Deployment Profiles</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>The repository uses a portable TanStack server build with Appwrite Sites SSR as the existing production profile and Docker/Kubernetes as an AWS-ready alternative. CI quality is enforced through GitHub Actions and Travis checks for lint/type/build, coverage, Playwright end-to-end testing, and self-hosted SonarQube Community quality gates, with Codecov and CodeScene providing supplementary quality evidence.</p>
+                    </div>
+                    <figure class="project-diagram" aria-label="CI, quality gates, and deployment profiles diagram">
+                        <img class="theme-img theme-img--light" src="assets/img/delivery_deployment_light.png" alt="CI, quality gates, and deployment profiles diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/delivery_deployment_light.png" data-src-dark="assets/img/delivery_deployment_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/delivery_deployment_dark.png" alt="CI, quality gates, and deployment profiles diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/delivery_deployment_light.png" data-src-dark="assets/img/delivery_deployment_dark.png">
+                        <figcaption class="screenshot-caption">Delivery &amp; Deployment: GitHub Actions and Travis CI quality workflows with dual Appwrite Sites SSR and Docker/Kubernetes runtime profiles.</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="project-section" id="planned" aria-labelledby="planned-title">
+                <h2 id="planned-title">Roadmap &amp; Planned Features</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item">
+                        <strong>PostHog Product Analytics Integration (PLANNED)</strong>
+                        <span>PostHog integration is planned as a future product analytics addition to complement the existing consent-gated first-party analytics system. It is currently not present in the production dependency tree and will remain documented as planned until merged into main release.</span>
                     </div>
                 </div>
             </section>
@@ -392,8 +377,8 @@ Build &amp; Deploy Pipeline
                         <span>Evaluating role templates, organization boundaries, and Appwrite backend permissions needed to execute efficiently without causing API latency.</span>
                     </div>
                     <div class="project-note-item">
-                        <strong>DevOps Automation</strong>
-                        <span>Managing backend service updates across local, staging, and production environments required reproducible deployment scripts.</span>
+                        <strong>DevOps &amp; Quality Engineering</strong>
+                        <span>Managing backend service updates across local, staging, and production environments required reproducible deployment scripts and SonarQube quality gates.</span>
                     </div>
                 </div>
             </section>
@@ -402,29 +387,34 @@ Build &amp; Deploy Pipeline
                 <h2 id="decisions-title">Key Technical Decisions</h2>
                 <div class="decision-list">
                     <article class="decision-item">
-                        <h3>1. Explicit Tenant-Scoped Record Architecture</h3>
-                        <p><strong>Context:</strong> SaaS application serving multiple organizations on shared infrastructure.</p>
-                        <p><strong>Decision:</strong> Bind all resource models to explicit organization IDs and enforce tenant boundary checks at the application controller layer.</p>
+                        <h3>1. Explicit Tenant-Scoped Record Architecture &amp; Appwrite Sites SSR</h3>
+                        <p><strong>Context:</strong> Multi-tenant SaaS serving multiple organizations requiring portable runtime rendering and strict data boundaries.</p>
+                        <p><strong>Decision:</strong> Standardized on React 19 + TanStack Start and Appwrite Sites SSR, binding resource models to explicit organization IDs with application controller boundary checks.</p>
                     </article>
                     <article class="decision-item">
-                        <h3>2. Multi-Layered RBAC Security Boundary</h3>
-                        <p><strong>Context:</strong> Different organizations require distinct user permissions and access levels.</p>
-                        <p><strong>Decision:</strong> Combine server authorization logic with database-stored role permission templates and Appwrite security rules.</p>
+                        <h3>2. Server-Side Context Resolution for QR Entries</h3>
+                        <p><strong>Context:</strong> Public customers need a frictionless way to submit feedback without creating accounts or exposing organization credentials in URLs.</p>
+                        <p><strong>Decision:</strong> Resolve opaque QR slugs to persisted organization and feedback configuration on the server, accepting validated submissions through rate-limited public APIs without trusting browser-supplied tenant identifiers.</p>
                     </article>
                     <article class="decision-item">
-                        <h3>3. Anonymous QR Feedback Entry Points</h3>
-                        <p><strong>Context:</strong> Public customers need a frictionless way to submit reviews without creating platform accounts.</p>
-                        <p><strong>Decision:</strong> Encode organization tokens in public QR links and accept anonymous submissions into a moderated holding queue.</p>
+                        <h3>3. Actionable Developer Operations &amp; SARIMA Signal Forecasting</h3>
+                        <p><strong>Context:</strong> Maintaining operational health across services and Appwrite Functions without inflating failure counts with resolved issues.</p>
+                        <p><strong>Decision:</strong> Build an in-app developer console separating current actionable posture from historical trend regression and SARIMA daily failure volume forecasting (benchmarked against a weekly seasonal-naive baseline using MAE/RMSE).</p>
                     </article>
                     <article class="decision-item">
-                        <h3>4. Structured Security Audit Event Pipeline</h3>
-                        <p><strong>Context:</strong> Need for operational accountability and security visibility across administrative actions.</p>
-                        <p><strong>Decision:</strong> Emit immutable audit log events for all permission, member, and subscription modifications.</p>
+                        <h3>4. Privacy-First Consent-Gated Public Analytics</h3>
+                        <p><strong>Context:</strong> Measuring public feedback engagement without compromising user privacy or mixing public analytics with authenticated tenant telemetry.</p>
+                        <p><strong>Decision:</strong> Implement a consent-gated first-party analytics boundary storing minimized page interactions under random post-consent IDs, with 30-day raw event retention, minimum-cohort suppression (&ge; 5), and Median/MAD anomaly evidence.</p>
                     </article>
                     <article class="decision-item">
-                        <h3>5. Automated CI/CD Delivery Pipeline</h3>
-                        <p><strong>Context:</strong> Frequent feature updates required reliable testing and deployment automation.</p>
-                        <p><strong>Decision:</strong> Implement GitHub Actions workflows for automated testing, schema verification, and Vercel/cloud deployments.</p>
+                        <h3>5. Multi-Layered Quality Gates &amp; Dual Deployment Profiles</h3>
+                        <p><strong>Context:</strong> Ensuring release quality across schema updates, application services, and multiple deployment targets.</p>
+                        <p><strong>Decision:</strong> Combine GitHub Actions, Travis, Playwright, Codecov, CodeScene, and self-hosted SonarQube Community quality gates with dual Appwrite Sites SSR and Docker/Kubernetes runtime profiles.</p>
+                    </article>
+                    <article class="decision-item">
+                        <h3>6. Transactional Email Resilience</h3>
+                        <p><strong>Context:</strong> Delivering critical administrative notifications and verification emails reliably.</p>
+                        <p><strong>Decision:</strong> Implement ordered Brevo primary and Resend fallback dispatch with fail-closed rules around uncertain provider delivery acceptance to prevent duplicate mail.</p>
                     </article>
                 </div>
             </section>
@@ -433,38 +423,42 @@ Build &amp; Deploy Pipeline
                 <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
                 <div class="project-note-list">
                     <div class="project-note-item">
-                        <strong>Production-Ready Multi-Tenant Platform</strong>
-                        <span>Engineered a secure, tenant-isolated feedback management SaaS for Nyebe Creations Studio.</span>
+                        <strong>Active Multi-Tenant Platform with Production Runtime</strong>
+                        <span>Engineered a secure, tenant-isolated feedback SaaS on Appwrite Sites SSR with continuing security and privacy release gates.</span>
                     </div>
                     <div class="project-note-item">
-                        <strong>Robust Security &amp; Authorization</strong>
-                        <span>Implemented multi-layered RBAC preventing unauthorized access across organization data boundaries.</span>
+                        <strong>Robust Security &amp; Custom Role Boundaries</strong>
+                        <span>Implemented multi-layered custom RBAC preventing unauthorized access across organization data boundaries.</span>
                     </div>
                     <div class="project-note-item">
-                        <strong>Streamlined Feedback Moderation</strong>
-                        <span>Provided organizations with structured moderation pipelines from public QR submission to published review API.</span>
+                        <strong>Actionable Developer Observability &amp; Forecasting</strong>
+                        <span>Equipped developers with real-time health posture, scrubbed diagnostics, historical signal regression, and SARIMA failure volume forecasting.</span>
                     </div>
                     <div class="project-note-item">
-                        <strong>Operational Audit Visibility</strong>
-                        <span>Established clear audit logging across administrative and security-sensitive operations.</span>
+                        <strong>Privacy-First Consent-Gated Analytics</strong>
+                        <span>Delivered public engagement insight through cohort-guarded first-party analytics with MAD anomaly detection.</span>
                     </div>
                     <div class="project-note-item">
-                        <strong>Automated Developer Operations</strong>
-                        <span>Accelerated development cycles through reproducible CI/CD pipelines and deployment automation.</span>
+                        <strong>Verified CI Quality Gates</strong>
+                        <span>Maintained high codebase reliability through SonarQube, Playwright, Codecov, and multi-runner CI checks.</span>
                     </div>
                 </div>
-                <!-- TODO: Add measurable outcomes only if real analytics/evidence becomes available. -->
+                <figure class="project-diagram" aria-label="Verified qualitative outcomes diagram">
+                    <img class="theme-img theme-img--light" src="assets/img/verified_qualitative_outcomes_light.png" alt="Verified qualitative outcomes diagram for Veyra (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/verified_qualitative_outcomes_light.png" data-src-dark="assets/img/verified_qualitative_outcomes_dark.png">
+                    <img class="theme-img theme-img--dark" src="assets/img/verified_qualitative_outcomes_dark.png" alt="Verified qualitative outcomes diagram for Veyra (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/verified_qualitative_outcomes_light.png" data-src-dark="assets/img/verified_qualitative_outcomes_dark.png">
+                    <figcaption class="screenshot-caption">Verified Qualitative Outcomes: Platform delivery, security boundaries, developer observability, privacy-first analytics, and CI quality gates.</figcaption>
+                </figure>
             </section>
 
             <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
                 <h2 id="retrospective-title">Lessons &amp; Retrospective</h2>
                 <div class="retrospective-item">
-                    <h3>Architecture Before Implementation</h3>
-                    <p>Veyra demonstrated that establishing clear tenant isolation principles and RBAC models upfront prevents complex security refactoring as feature requirements grow. Designing authorization at both the application level and backend service layer ensured robust security by default.</p>
+                    <h3>Architecture &amp; Authorization Boundaries First</h3>
+                    <p>Veyra demonstrated that establishing explicit tenant scoping, custom RBAC roles, and server-side context resolution upfront prevents security refactoring as feature sets expand.</p>
                 </div>
                 <div class="retrospective-item">
-                    <h3>DevOps as a Product Enabler</h3>
-                    <p>Automating build, test, and Appwrite schema deployment workflows early in the project allowed the studio team to iterate rapidly on new features without sacrificing stability or environment consistency.</p>
+                    <h3>Observability &amp; Quality Engineering as Product Foundations</h3>
+                    <p>Integrating in-app developer operations, SARIMA signal forecasting, scrubbed diagnostics, and SonarQube quality gates allowed the team to maintain high operational stability and catch regressions early.</p>
                 </div>
             </section>
 
@@ -473,11 +467,11 @@ Build &amp; Deploy Pipeline
                 <div class="related-link-list">
                     <div class="related-link-item">
                         <strong>Studio Organization</strong>
-                        <p>Nyebe Creations Studio - Technical leadership, system architecture, multi-tenant SaaS engineering, and developer operations.</p>
+                        <p>Nyebe Creations Studio - Technical leadership, system architecture, multi-tenant SaaS engineering, developer operations, and privacy-first analytics.</p>
                     </div>
                     <div class="related-link-item">
                         <strong>Skills Demonstrated</strong>
-                        <p>React.js · Node.js · Appwrite · Tailwind CSS · Multi-Tenant Architecture · RBAC Security · Docker · GitHub Actions · Vercel</p>
+                        <p>React + TypeScript · TanStack Start · Appwrite Sites SSR · Tailwind CSS · Multi-Tenant Architecture · Custom RBAC · Sentry · Docker · Kubernetes · SonarQube · GitHub Actions</p>
                         <a class="related-link" href="../../skills/">Explore Skills →</a>
                     </div>
                     <div class="related-link-item">
@@ -486,8 +480,8 @@ Build &amp; Deploy Pipeline
                         <a class="related-link" href="../../credentials/">View Credentials →</a>
                     </div>
                 </div>
-                <!-- TODO: Add approved project screenshots or public links if available later. -->
             </section>
+                <!-- TODO: Add approved project screenshots or public links if available later. -->
 
             <nav class="project-nav" aria-label="Project navigation">
                 <a href="../selebox/">← Previous Case Study (SeLeBox)</a>
