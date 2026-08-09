@@ -1,0 +1,305 @@
+[data-case-study-id="gopick"] {
+    --gopick-grid-line: color-mix(in srgb, var(--color-border) 26%, transparent);
+    --gopick-panel: color-mix(in srgb, var(--color-bg-secondary) 70%, transparent);
+    --gopick-before-bg: color-mix(in srgb, #160f0d 48%, var(--color-bg) 52%);
+    --gopick-before-line: color-mix(in srgb, #c97350 24%, transparent);
+    --gopick-before-border: color-mix(in srgb, #c97350 42%, var(--color-border));
+    --gopick-before-muted: color-mix(in srgb, #f0c0aa 52%, var(--color-text-muted));
+    --gopick-risk-card: color-mix(in srgb, #26100c 88%, var(--color-bg-secondary));
+    --gopick-risk-card-border: color-mix(in srgb, #e48964 64%, var(--color-border));
+    --gopick-risk-card-text: color-mix(in srgb, #ffd1bd 90%, var(--color-text));
+    --gopick-risk-card-mark: color-mix(in srgb, #ff8c62 70%, var(--color-accent));
+    --gopick-risk-card-shadow: 0 1rem 2.5rem color-mix(in srgb, #000 36%, transparent);
+}
+
+html[data-theme="light"] [data-case-study-id="gopick"] {
+    --gopick-before-bg: color-mix(in srgb, #f3e7df 68%, var(--color-bg) 32%);
+    --gopick-before-line: color-mix(in srgb, #8f4d34 20%, transparent);
+    --gopick-before-border: color-mix(in srgb, #8f4d34 34%, var(--color-border));
+    --gopick-before-muted: color-mix(in srgb, #6e3b2c 46%, var(--color-text-muted));
+    --gopick-risk-card: color-mix(in srgb, #fff4ec 88%, var(--color-bg-secondary));
+    --gopick-risk-card-border: color-mix(in srgb, #a4573c 48%, var(--color-border));
+    --gopick-risk-card-text: color-mix(in srgb, #552417 84%, var(--color-text));
+    --gopick-risk-card-mark: color-mix(in srgb, #a9492d 70%, var(--color-accent));
+    --gopick-risk-card-shadow: 0 1rem 2.25rem color-mix(in srgb, #6e3b2c 18%, transparent);
+}
+
+html:has([data-case-study-id="gopick"]),
+body:has([data-case-study-id="gopick"]) {
+    overflow-x: clip;
+}
+
+[data-case-study-id="gopick"] .gopick-ecosystem {
+    position: relative;
+    overflow: hidden;
+    min-block-size: 100%;
+    padding: clamp(1rem, 3vi, 1.5rem);
+    border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
+    background:
+        linear-gradient(to right, var(--gopick-grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--gopick-grid-line) 1px, transparent 1px),
+        color-mix(in srgb, var(--color-bg-secondary) 76%, transparent);
+    background-size: 3rem 3rem;
+}
+
+[data-case-study-id="gopick"] .gopick-ecosystem::before {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: clamp(1rem, 3vi, 1.5rem);
+    inline-size: clamp(5rem, 14vi, 9rem);
+    block-size: 1px;
+    background: var(--color-accent);
+}
+
+[data-case-study-id="gopick"] .gopick-ecosystem__label {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+    font: 600 0.78rem/1.4 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+[data-case-study-id="gopick"] .gopick-ecosystem__modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: gopick-module;
+}
+
+[data-case-study-id="gopick"] .gopick-ecosystem__modules li {
+    counter-increment: gopick-module;
+    position: relative;
+    display: flex;
+    min-block-size: 3.25rem;
+    align-items: flex-end;
+    padding: 0.7rem 0.7rem 0.65rem;
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+    background: color-mix(in srgb, var(--color-bg) 62%, transparent);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.35;
+}
+
+[data-case-study-id="gopick"] .gopick-ecosystem__modules li::before {
+    content: counter(gopick-module, decimal-leading-zero);
+    position: absolute;
+    inset-block-start: 0.55rem;
+    inset-inline-start: 0.7rem;
+    color: color-mix(in srgb, var(--color-accent) 76%, var(--color-text-muted));
+    font-size: 0.62rem;
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state {
+    isolation: isolate;
+    padding: clamp(1.25rem, 4vi, 2.25rem);
+    border-block: 1px solid var(--gopick-before-border);
+    border-inline: 0;
+    background: transparent;
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset-block: 0;
+    inset-inline-start: 50%;
+    inline-size: 100vw;
+    transform: translateX(-50%);
+    background:
+        linear-gradient(to right, var(--gopick-before-line) 1px, transparent 1px),
+        linear-gradient(to bottom, color-mix(in srgb, var(--gopick-before-line) 62%, transparent) 1px, transparent 1px),
+        var(--gopick-before-bg);
+    background-size: clamp(3.25rem, 8vw, 5.5rem) clamp(3.25rem, 8vw, 5.5rem), 100% 4.5rem, auto;
+    pointer-events: none;
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state::before {
+    inline-size: clamp(5rem, 14vi, 10rem);
+    background: var(--gopick-before-border);
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state h2 {
+    color: var(--color-text);
+    font-size: clamp(2rem, 5vi, 3.4rem);
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state p,
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state li,
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .project-note-item span {
+    color: var(--gopick-before-muted);
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .project-section__split {
+    align-items: start;
+    gap: clamp(1.5rem, 5vi, 4rem);
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .project-note-list {
+    border-block-start: 1px solid var(--gopick-before-border);
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .project-note-item {
+    position: relative;
+    padding-block: clamp(1rem, 3vi, 1.45rem);
+    padding-inline: clamp(0.75rem, 2vi, 1rem);
+    border-block-start-color: var(--gopick-before-border);
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .project-note-item:first-child {
+    padding-block-start: clamp(1rem, 3vi, 1.45rem);
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .gopick-risk-note:hover,
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .gopick-risk-note:focus-within {
+    border-color: var(--gopick-risk-card-border);
+    background: color-mix(in srgb, var(--gopick-risk-card) 76%, transparent);
+    transform: translateX(0.2rem);
+}
+
+[data-case-study-id="gopick"] .gopick-risk-callout {
+    display: none;
+    max-inline-size: 34rem;
+    margin: 0;
+    padding: clamp(0.9rem, 2vi, 1.1rem) clamp(1rem, 2.6vi, 1.35rem);
+    border: 1px solid var(--gopick-risk-card-border);
+    border-inline-start-width: 0.35rem;
+    background:
+        linear-gradient(to right, color-mix(in srgb, var(--gopick-risk-card-mark) 14%, transparent), transparent 58%),
+        var(--gopick-risk-card);
+    color: var(--gopick-risk-card-text);
+    font-family: var(--font-mono);
+    font-size: clamp(0.86rem, 1.35vi, 1rem);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+[data-case-study-id="gopick"] .gopick-risk-callout::before {
+    content: "";
+    display: block;
+    inline-size: clamp(2.5rem, 8vi, 4.75rem);
+    block-size: 1px;
+    margin-block-end: 0.75rem;
+    background: var(--gopick-risk-card-mark);
+}
+
+[data-case-study-id="gopick"] .gopick-risk-callout .gopick-risk-blast {
+    display: inline-block;
+    color: #ff3b30 !important;
+    font-size: 1.08em;
+    line-height: inherit;
+    animation: gopick-risk-shake 620ms steps(2, end) infinite;
+}
+
+[data-case-study-id="gopick"] .gopick-risk-callout .gopick-risk-wave {
+    display: inline-block;
+    color: color-mix(in srgb, #67b7ff 82%, var(--color-text)) !important;
+    font-size: 1em;
+    line-height: inherit;
+    animation: gopick-risk-wave 1.35s ease-in-out infinite;
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-risk-callout {
+    position: absolute;
+    z-index: 2;
+    inset-block-start: 0;
+    inset-inline: auto clamp(0.75rem, 2vi, 1rem);
+    display: block;
+    inline-size: min(28rem, calc(100% - clamp(1.5rem, 4vi, 2rem)));
+    box-shadow: var(--gopick-risk-card-shadow);
+    opacity: 0;
+    transform: translate(0.75rem, calc(-100% - 0.85rem)) scale(0.98);
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+    pointer-events: none;
+}
+
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-risk-note:hover .gopick-risk-callout,
+[data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-risk-note:focus-within .gopick-risk-callout {
+    opacity: 1;
+    transform: translate(0.75rem, calc(-100% - 0.55rem)) scale(1);
+}
+
+[data-case-study-mode="article"] [data-case-study-id="gopick"] .gopick-risk-callout {
+    display: none;
+}
+
+@keyframes gopick-risk-shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-0.08rem);
+    }
+
+    40% {
+        transform: translateX(0.08rem);
+    }
+
+    60% {
+        transform: translateX(-0.05rem);
+    }
+
+    80% {
+        transform: translateX(0.05rem);
+    }
+}
+
+@keyframes gopick-risk-wave {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-0.08rem) rotate(-1.5deg);
+    }
+
+    50% {
+        transform: translateY(0.03rem) rotate(1.5deg);
+    }
+
+    75% {
+        transform: translateY(-0.04rem) rotate(-0.8deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-before-state .project-note-item,
+    [data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-risk-callout {
+        transition: none;
+        transform: none;
+    }
+
+    [data-case-study-id="gopick"] .gopick-risk-callout :is(.gopick-risk-blast, .gopick-risk-wave) {
+        animation: none;
+    }
+}
+
+@media (max-width: 35.999rem) {
+    [data-case-study-id="gopick"] .gopick-ecosystem__modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    [data-case-study-mode="visual"] [data-case-study-id="gopick"] .gopick-risk-callout {
+        position: static;
+        inline-size: auto;
+        margin-block-end: 0.85rem;
+        box-shadow: none;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+    }
+}

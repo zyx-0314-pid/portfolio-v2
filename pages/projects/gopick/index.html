@@ -21,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
     <link rel="stylesheet" href="../assets/css/case-study.css">
+    <link rel="stylesheet" href="assets/css/gopick.css">
     <script src="../assets/js/case-study.js"></script>
 </head>
 <body>
@@ -107,7 +108,7 @@
                     </div>
                     <div class="project-fact">
                         <dt>My Role</dt>
-                        <dd>Major Contributor</dd>
+                        <dd>Fullstack Engineer &amp; DevOps Engineer</dd>
                     </div>
                     <div class="project-fact">
                         <dt>Lifecycle</dt>
@@ -115,7 +116,7 @@
                     </div>
                     <div class="project-fact">
                         <dt>Engineering Focus</dt>
-                        <dd>Full-Stack / Architecture / Modernization</dd>
+                        <dd>Fullstack / DevOps / Architecture / Modernization</dd>
                     </div>
                     <div class="project-fact">
                         <dt>Core Stack</dt>
@@ -140,15 +141,28 @@
                         <p>GoPick is an enterprise HR assessment platform engineered to support complex HR workflows. The system manages candidate evaluation cycles, assessment delivery, advisory evaluation workflows, report compilation, account management, consumable report-generation credits, and platform asset organization.</p>
                         <p>Where relevant to candidate evaluation integrity, anti-cheating and assessment safeguards are built into the platform workflow. This case study focuses exclusively on application architecture, structural engineering, and delivery practices. Confidential assessment algorithms, scoring logic, proprietary evaluation standards, and client data are strictly excluded.</p>
                     </div>
-                    <div class="project-diagram" aria-label="GoPick major module tree">
-                        <pre>GoPick Ecosystem
-├── Accounts      (Account &amp; company configuration)
-├── Advisory      (Evaluation &amp; advisory workflows)
-├── Candidates    (Candidate profiles &amp; lifecycle)
-├── Assessments   (Assessment packages &amp; delivery)
-├── Reports       (Report generation &amp; exports)
-├── Meters        (Consumable report credit ledger)
-└── Assets        (Platform &amp; document assets)</pre>
+                    <div class="gopick-ecosystem" aria-label="GoPick ecosystem modules">
+                        <p class="gopick-ecosystem__label">GoPick Ecosystem</p>
+                        <ol class="gopick-ecosystem__modules">
+                            <li>Dashboard</li>
+                            <li>Account</li>
+                            <li>Candidate</li>
+                            <li>Assessment</li>
+                            <li>Test Norms</li>
+                            <li>Meters</li>
+                            <li>Reports</li>
+                            <li>users</li>
+                            <li>Role/Permission</li>
+                            <li>Activity log</li>
+                            <li>assessment account schedule</li>
+                            <li>email template</li>
+                            <li>emails</li>
+                            <li>advisory</li>
+                            <li>help desk</li>
+                            <li>test settings</li>
+                            <li>report templates</li>
+                            <li>resource center</li>
+                        </ol>
                     </div>
                 </div>
             </section>
@@ -156,7 +170,7 @@
             <section class="project-section" id="role" aria-labelledby="role-title">
                 <h2 id="role-title">My Role &amp; Ownership Boundary</h2>
                 <div class="project-section__split">
-                    <p>As a <strong>Major Contributor</strong> on GoPick, my contributions encompass significant work across legacy modernization, application architecture, feature development, system reliability, engineering documentation, feature delivery controls, developer testing, and ongoing maintenance.</p>
+                    <p>As a <strong>Fullstack Engineer and DevOps Engineer</strong> on GoPick, my contributions encompass significant work across legacy modernization, application architecture, feature development, system reliability, engineering documentation, feature delivery controls, developer testing, deployment workflows, and ongoing maintenance.</p>
                     <p>This case study does not claim ownership of the entire GoPick platform. Instead, it documents specific structural improvements, architecture standards, and critical subsystem features personally designed and implemented during active platform development.</p>
                 </div>
             </section>
@@ -192,11 +206,12 @@
                 </div>
             </section>
 
-            <section class="project-section" id="before-state" aria-labelledby="before-state-title">
+            <section class="project-section gopick-before-state" id="before-state" aria-labelledby="before-state-title">
                 <h2 id="before-state-title">Legacy Before-State</h2>
                 <div class="project-section__split">
                     <div>
                         <p>The initial state of legacy areas contained typical characteristics of long-lived enterprise web applications where rapid feature growth preceded formal architectural boundaries. Responsibilities were loosely defined and frequently coupled across physical files.</p>
+                        <p>That cost did not disappear. It accumulated as cognitive load for every new developer asked to trace behavior through implicit boundaries, side effects, and undocumented execution paths.</p>
                         <p>Common technical challenges in legacy areas included:</p>
                         <ul>
                             <li>Business logic and execution branching embedded directly within controller actions.</li>
@@ -211,11 +226,13 @@
                             <strong>Mixed Responsibilities</strong>
                             <span>Single files contained combinations of raw SQL, PHP business operations, HTML presentation, JavaScript snippets, and inline CSS.</span>
                         </div>
-                        <div class="project-note-item">
+                        <div class="project-note-item gopick-risk-note">
                             <strong>Low Traceability</strong>
                             <span>Tracing the exact data transformation flow required stepping through multiple implicit class calls and view includes.</span>
+                            <em class="gopick-risk-callout">Different environments, different ghosts. <span class="gopick-risk-wave">feat. Multo - CoJ🎶</span></em>
                         </div>
-                        <div class="project-note-item">
+                        <div class="project-note-item gopick-risk-note">
+                            <em class="gopick-risk-callout">Touch it once, and you inherit the <span class="gopick-risk-blast">BLAST RADIUS</span>.</em>
                             <strong>High Side-Effect Risk</strong>
                             <span>Lack of explicit boundary isolation meant changing a shared database query for one module risked breaking unassociated pages.</span>
                         </div>
