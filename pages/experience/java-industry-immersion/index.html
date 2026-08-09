@@ -49,17 +49,19 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main">
+        <article class="experience-page">
 
         <!-- ── Back navigation ────────────────────────────────────── -->
         <nav class="exp-detail-nav" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Experience</a> / <span aria-current="page">Java Industry Immersion Trainee</span>
         </nav>
+        <section class="exp-section exp-section--gradient exp-detail-hero">
 
         <!-- ── Role header ─────────────────────────────────────────── -->
         <header class="exp-detail-header">
-            <p class="exp-detail-eyebrow">Experience</p>
-            <h1 class="exp-detail-role">Java Industry Immersion Trainee</h1>
+            <p class="exp-eyebrow">Experience</p>
+            <h1 class="exp-detail-role exp-display">Java Industry Immersion Trainee</h1>
             <div class="exp-detail-meta">
                 <!-- TODO: Replace "Around Jun 2025" with the exact industry immersion dates if verified later. -->
                 <p class="exp-detail-period">Around Jun 2025</p>
@@ -73,7 +75,7 @@
 
         <!-- ── Illustration ────────────────────────────────────────── -->
         <!-- TODO: Replace with the final custom Java industry immersion illustration and update alt text to describe the actual artwork. -->
-        <div class="exp-detail-illustration">
+        <div class="exp-detail-illustration exp-media-frame exp-media-frame--square">
             <img
                 src="https://placehold.co/1200x525"
                 alt="Placeholder for a custom editorial illustration representing Java industry immersion, full-stack Spring Boot development, QR/barcode record tracking, and physical storage workflows."
@@ -81,14 +83,15 @@
                 height="525"
             >
         </div>
+        </section>
 
         <!-- ── Content body ────────────────────────────────────────── -->
         <div class="exp-detail-body">
 
             <!-- ── Training Context ─────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-training">
-                <p class="exp-detail-section-label">Training Context</p>
-                <h2 id="section-training">TESDA Java Preparation &amp; Industry Immersion</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-training">
+                <p class="exp-eyebrow">Training Context</p>
+                <h2 class="exp-section-title" id="section-training">TESDA Java Preparation &amp; Industry Immersion</h2>
                 <p>
                     Completed a Java-focused industry immersion at Spring Valley Tech following approximately two months of TESDA-related Java training and preparation.
                 </p>
@@ -98,9 +101,9 @@
             </section>
 
             <!-- ── Project Overview ─────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-project">
-                <p class="exp-detail-section-label">Main Project</p>
-                <h2 id="section-project">Internal Records &amp; Storage Tracking System</h2>
+            <section class="exp-detail-section exp-section exp-section--subtle" aria-labelledby="section-project">
+                <p class="exp-eyebrow">Main Project</p>
+                <h2 class="exp-section-title" id="section-project">Internal Records &amp; Storage Tracking System</h2>
                 <p>
                     Designed and built a Dockerized internal records and storage tracking system using Spring Boot, React, Tailwind CSS, and PostgreSQL. The application was designed to digitize paper-based tracking of physical records or items as they moved between storage locations, users, and lifecycle states.
                 </p>
@@ -108,9 +111,9 @@
             </section>
 
             <!-- ── Problem Context ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-problem">
-                <p class="exp-detail-section-label">Problem Context</p>
-                <h2 id="section-problem">Physical Storage &amp; Manual Tracking Challenge</h2>
+            <section class="exp-detail-section exp-section exp-section--grid" aria-labelledby="section-problem">
+                <p class="exp-eyebrow">Problem Context</p>
+                <h2 class="exp-section-title" id="section-problem">Physical Storage &amp; Manual Tracking Challenge</h2>
                 <p>
                     The workflow being modeled involved physical items and records-such as files, books, inventory records, and stored physical materials-distributed across drawers, rooms, storage boxes, and designated storage locations.
                 </p>
@@ -120,9 +123,9 @@
             </section>
 
             <!-- ── System Workflow ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-workflow">
-                <p class="exp-detail-section-label">Core Workflow</p>
-                <h2 id="section-workflow">End-to-End Tracking Workflow</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-workflow">
+                <p class="exp-eyebrow">Core Workflow</p>
+                <h2 class="exp-section-title" id="section-workflow">End-to-End Tracking Workflow</h2>
                 <p>
                     The system models the complete record lifecycle through a structured sequential process:
                 </p>
@@ -140,9 +143,9 @@
             </section>
 
             <!-- ── Scope & Ownership ────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-scope">
-                <p class="exp-detail-section-label">Scope &amp; Ownership</p>
-                <h2 id="section-scope">Full-Stack Ownership</h2>
+            <section class="exp-detail-section exp-section exp-section--tinted" aria-labelledby="section-scope">
+                <p class="exp-eyebrow">Scope &amp; Ownership</p>
+                <h2 class="exp-section-title" id="section-scope">Full-Stack Ownership</h2>
                 <p>
                     Owned the implementation across the application stack, from backend and database design through frontend, QR/barcode workflows, API documentation, and containerization.
                 </p>
@@ -152,9 +155,9 @@
             </section>
 
             <!-- ── Stack & Architecture ─────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-arch">
-                <p class="exp-detail-section-label">Architecture</p>
-                <h2 id="section-arch">Technology Stack &amp; Components</h2>
+            <section class="exp-detail-section exp-section exp-section--paper" aria-labelledby="section-arch">
+                <p class="exp-eyebrow">Architecture</p>
+                <h2 class="exp-section-title" id="section-arch">Technology Stack &amp; Components</h2>
                 <div class="exp-detail-tech-grid" role="list" aria-label="Technology components">
 
                     <div role="listitem">
@@ -199,9 +202,9 @@
             </section>
 
             <!-- ── QR & Barcode Workflows ────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-qr">
-                <p class="exp-detail-section-label">Identification</p>
-                <h2 id="section-qr">QR &amp; Barcode Identification</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-qr">
+                <p class="exp-eyebrow">Identification</p>
+                <h2 class="exp-section-title" id="section-qr">QR &amp; Barcode Identification</h2>
                 <p>
                     Implemented dual support for both QR codes and barcodes to identify physical records and items.
                 </p>
@@ -211,9 +214,9 @@
             </section>
 
             <!-- ── Record Lifecycle States ──────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-states">
-                <p class="exp-detail-section-label">Lifecycle Tracking</p>
-                <h2 id="section-states">Supported Lifecycle States</h2>
+            <section class="exp-detail-section exp-section exp-section--terminal" aria-labelledby="section-states">
+                <p class="exp-eyebrow">Lifecycle Tracking</p>
+                <h2 class="exp-section-title" id="section-states">Supported Lifecycle States</h2>
                 <p>
                     The system models physical record management across six core lifecycle states:
                 </p>
@@ -228,9 +231,9 @@
             </section>
 
             <!-- ── Dashboard & Monitoring ────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-dashboard">
-                <p class="exp-detail-section-label">Overview Interface</p>
-                <h2 id="section-dashboard">Functional Storage Dashboard</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-dashboard">
+                <p class="exp-eyebrow">Overview Interface</p>
+                <h2 class="exp-section-title" id="section-dashboard">Functional Storage Dashboard</h2>
                 <p>
                     Implemented a functional dashboard providing quick summary counts across key storage and operational metrics:
                 </p>
@@ -243,9 +246,9 @@
             </section>
 
             <!-- ── Technical Decisions ──────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-decisions">
-                <p class="exp-detail-section-label">Engineering Rationale</p>
-                <h2 id="section-decisions">Technical Decisions</h2>
+            <section class="exp-detail-section exp-section exp-section--contrast" aria-labelledby="section-decisions">
+                <p class="exp-eyebrow">Engineering Rationale</p>
+                <h2 class="exp-section-title" id="section-decisions">Technical Decisions</h2>
                 <p>
                     <strong>Spring Boot Backend:</strong> Used Spring Boot to translate Java training into a complete backend application with structured APIs, persistence, validation, and record-management workflows.
                 </p>
@@ -266,9 +269,9 @@
             </section>
 
             <!-- ── Key Contributions ────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-contributions">
-                <p class="exp-detail-section-label">Key Contributions</p>
-                <h2 id="section-contributions">Summary of Contributions</h2>
+            <section class="exp-detail-section exp-section exp-section--raised" aria-labelledby="section-contributions">
+                <p class="exp-eyebrow">Key Contributions</p>
+                <h2 class="exp-section-title" id="section-contributions">Summary of Contributions</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Key contributions">
                     <li>
                         Designed and implemented the full application across Spring Boot, React, PostgreSQL, and Docker.
@@ -292,9 +295,9 @@
             </section>
 
             <!-- ── Outcomes ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-outcomes">
-                <p class="exp-detail-section-label">Outcomes</p>
-                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-outcomes">
+                <p class="exp-eyebrow">Outcomes</p>
+                <h2 class="exp-section-title" id="section-outcomes">Qualitative Outcomes</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Qualitative outcomes">
                     <li>Converted a manual paper-record concept into a working digital workflow.</li>
                     <li>Centralized item, location, and status information within one application.</li>
@@ -307,18 +310,18 @@
             </section>
 
             <!-- ── Training Impact ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-impact">
-                <p class="exp-detail-section-label">Training Impact</p>
-                <h2 id="section-impact">From Preparation to Full System Implementation</h2>
+            <section class="exp-detail-section exp-section exp-section--subtle" aria-labelledby="section-impact">
+                <p class="exp-eyebrow">Training Impact</p>
+                <h2 class="exp-section-title" id="section-impact">From Preparation to Full System Implementation</h2>
                 <p>
                     The immersion provided a practical environment to apply Java training beyond isolated exercises by designing and owning a complete full-stack system.
                 </p>
             </section>
 
             <!-- ── Related Evidence ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-evidence">
-                <p class="exp-detail-section-label">Related Evidence</p>
-                <h2 id="section-evidence">Skills &amp; Project Links</h2>
+            <section class="exp-detail-section exp-section exp-section--grid" aria-labelledby="section-evidence">
+                <p class="exp-eyebrow">Related Evidence</p>
+                <h2 class="exp-section-title" id="section-evidence">Skills &amp; Project Links</h2>
                 <div class="exp-detail-evidence-block">
                     <div class="exp-detail-evidence-row">
                         <span class="exp-detail-evidence-type">Skills</span>
@@ -337,6 +340,7 @@
 
         </div><!-- /.exp-detail-body -->
 
+            </article>
     </main>
 
 

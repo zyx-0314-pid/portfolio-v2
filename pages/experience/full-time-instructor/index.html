@@ -49,17 +49,19 @@
         </div>
     </header>
 
-    <main class="site-main page-shell">
+    <main class="site-main">
+        <article class="experience-page">
 
         <!-- ── Back navigation ────────────────────────────────────── -->
         <nav class="exp-detail-nav" aria-label="Breadcrumb">
             <a href="../../../">Home</a> / <a href="../">Experience</a> / <span aria-current="page">Full-Time Instructor · Full-Stack Development</span>
         </nav>
+        <section class="exp-section exp-section--gradient exp-detail-hero">
 
         <!-- ── Role header ─────────────────────────────────────────── -->
         <header class="exp-detail-header">
-            <p class="exp-detail-eyebrow">Experience</p>
-            <h1 class="exp-detail-role">Full-Time Instructor · Full-Stack Development</h1>
+            <p class="exp-eyebrow">Experience</p>
+            <h1 class="exp-detail-role exp-display">Full-Time Instructor · Full-Stack Development</h1>
             <div class="exp-detail-meta">
                 <p class="exp-detail-period">Oct 2023 - Nov 2025</p>
                 <p class="exp-detail-company">FEU Institute of Technology</p>
@@ -73,7 +75,7 @@
 
         <!-- ── Illustration ────────────────────────────────────────── -->
         <!-- TODO: Replace this placeholder with the custom editorial illustration for the FEU teaching role. The illustration should represent software-development teaching, mentoring, reusable full-stack templates, containerized development, automated deployment, and QA. Update the alt text when the real image is added and remove this note. -->
-        <div class="exp-detail-illustration">
+        <div class="exp-detail-illustration exp-media-frame exp-media-frame--square">
             <img
                 src="https://placehold.co/1200x525"
                 alt="Placeholder for a custom editorial illustration representing software-development teaching, mentoring, reusable full-stack templates, containerized development, automated deployment, and QA."
@@ -81,14 +83,15 @@
                 height="525"
             >
         </div>
+        </section>
 
         <!-- ── Content body ────────────────────────────────────────── -->
         <div class="exp-detail-body">
 
             <!-- ── Context ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-context">
-                <p class="exp-detail-section-label">Context</p>
-                <h2 id="section-context">Academic &amp; Technical Environment</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-context">
+                <p class="exp-eyebrow">Context</p>
+                <h2 class="exp-section-title" id="section-context">Academic &amp; Technical Environment</h2>
                 <p>
                     Full-time instructional role at FEU Institute of Technology, combining technical teaching across multiple class sections with hands-on full-stack development, project template design, containerized environments, deployment automation, and software testing practices.
                 </p>
@@ -98,9 +101,9 @@
             </section>
 
             <!-- ── Scope ───────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-scope">
-                <p class="exp-detail-section-label">Scope</p>
-                <h2 id="section-scope">Instructional &amp; Development Scope</h2>
+            <section class="exp-detail-section exp-section exp-section--subtle" aria-labelledby="section-scope">
+                <p class="exp-eyebrow">Scope</p>
+                <h2 class="exp-section-title" id="section-scope">Instructional &amp; Development Scope</h2>
                 <p>
                     Taught and mentored students across software-development subjects while also designing reusable project standards, building web-development templates, containerizing application environments, implementing automated deployment workflows, and validating applications through functional, API, and browser-based testing.
                 </p>
@@ -112,9 +115,9 @@
             </section>
 
             <!-- ── Web Design 1 & 2 Standards ──────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-webdesign">
-                <p class="exp-detail-section-label">Technical Standards &amp; Templates</p>
-                <h2 id="section-webdesign">Web Design 1 &amp; 2 Standard Templates</h2>
+            <section class="exp-detail-section exp-section exp-section--grid" aria-labelledby="section-webdesign">
+                <p class="exp-eyebrow">Technical Standards &amp; Templates</p>
+                <h2 class="exp-section-title" id="section-webdesign">Web Design 1 &amp; 2 Standard Templates</h2>
                 <p>
                     Created standardized Web Design templates using a <strong>Sliced Architecture</strong> project structure to introduce students to clearer separation, organization, and maintainable frontend project conventions.
                 </p>
@@ -125,9 +128,9 @@
             </section>
 
             <!-- ── Deployment Automation ───────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-deployment">
-                <p class="exp-detail-section-label">Deployment Automation</p>
-                <h2 id="section-deployment">GitHub Actions → GitHub Pages Deployment</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-deployment">
+                <p class="exp-eyebrow">Deployment Automation</p>
+                <h2 class="exp-section-title" id="section-deployment">GitHub Actions → GitHub Pages Deployment</h2>
                 <p>
                     Implemented automated deployment workflows for static projects through <strong>GitHub Actions</strong> targeting <strong>GitHub Pages</strong>.
                 </p>
@@ -137,9 +140,9 @@
             </section>
 
             <!-- ── CodeIgniter 4 Standard Environment ──────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-ci4">
-                <p class="exp-detail-section-label">Development Environments</p>
-                <h2 id="section-ci4">CodeIgniter 4 Standard Dockerized Environment</h2>
+            <section class="exp-detail-section exp-section exp-section--tinted" aria-labelledby="section-ci4">
+                <p class="exp-eyebrow">Development Environments</p>
+                <h2 class="exp-section-title" id="section-ci4">CodeIgniter 4 Standard Dockerized Environment</h2>
                 <p>
                     Built a standardized Dockerized CodeIgniter 4 project template with the application, database, and <strong>Redis</strong> services prepared as a reusable environment for students and instructors.
                 </p>
@@ -151,9 +154,9 @@
             </section>
 
             <!-- ── QA & Validation ─────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-qa">
-                <p class="exp-detail-section-label">QA &amp; Validation</p>
-                <h2 id="section-qa">Functional, API, &amp; End-to-End Testing</h2>
+            <section class="exp-detail-section exp-section exp-section--paper" aria-labelledby="section-qa">
+                <p class="exp-eyebrow">QA &amp; Validation</p>
+                <h2 class="exp-section-title" id="section-qa">Functional, API, &amp; End-to-End Testing</h2>
                 <p>
                     Validated instructional and web-system implementations through manual functional testing, API testing with <strong>Postman</strong>, and browser-based testing with <strong>Playwright</strong>.
                 </p>
@@ -164,9 +167,9 @@
             </section>
 
             <!-- ── Technical Contribution Model ───────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-model">
-                <p class="exp-detail-section-label">Contribution Model</p>
-                <h2 id="section-model">Technical System &amp; Practice Flow</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-model">
+                <p class="exp-eyebrow">Contribution Model</p>
+                <h2 class="exp-section-title" id="section-model">Technical System &amp; Practice Flow</h2>
                 <div class="exp-detail-architecture" style="background: var(--color-surface); padding: 1.25rem; border: 1px solid var(--color-border); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; color: var(--color-text-muted);">
                     <pre style="margin: 0; white-space: pre-wrap;">Teaching
     ↓
@@ -189,9 +192,9 @@ Deployment Practice
             </section>
 
             <!-- ── Technologies and Subjects ────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-tech">
-                <p class="exp-detail-section-label">Technologies &amp; Subjects</p>
-                <h2 id="section-tech">Instructional &amp; Tooling Scope</h2>
+            <section class="exp-detail-section exp-section exp-section--terminal" aria-labelledby="section-tech">
+                <p class="exp-eyebrow">Technologies &amp; Subjects</p>
+                <h2 class="exp-section-title" id="section-tech">Instructional &amp; Tooling Scope</h2>
                 <p>
                     Technologies taught in curriculum or utilized within standard templates, development environments, deployment workflows, and testing practices.
                 </p>
@@ -284,9 +287,9 @@ Deployment Practice
             </section>
 
             <!-- ── Key Contributions ────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-contributions">
-                <p class="exp-detail-section-label">Key Contributions</p>
-                <h2 id="section-contributions">Selected Contributions</h2>
+            <section class="exp-detail-section exp-section exp-section--plain" aria-labelledby="section-contributions">
+                <p class="exp-eyebrow">Key Contributions</p>
+                <h2 class="exp-section-title" id="section-contributions">Selected Contributions</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Key contributions">
                     <li>
                         Designed reusable Web Design 1 &amp; 2 project standards using Sliced Architecture.
@@ -313,9 +316,9 @@ Deployment Practice
             </section>
 
             <!-- ── Outcomes ─────────────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-outcomes">
-                <p class="exp-detail-section-label">Outcomes</p>
-                <h2 id="section-outcomes">Qualitative Outcomes</h2>
+            <section class="exp-detail-section exp-section exp-section--contrast" aria-labelledby="section-outcomes">
+                <p class="exp-eyebrow">Outcomes</p>
+                <h2 class="exp-section-title" id="section-outcomes">Qualitative Outcomes</h2>
                 <ul class="exp-detail-contrib-list" aria-label="Qualitative outcomes">
                     <li>Gave students a standardized structure for Web Design projects.</li>
                     <li>Connected classroom development with actual source-controlled deployment through GitHub Actions and GitHub Pages.</li>
@@ -329,9 +332,9 @@ Deployment Practice
             </section>
 
             <!-- ── Related Evidence ──────────────────────────────────── -->
-            <section class="exp-detail-section" aria-labelledby="section-evidence">
-                <p class="exp-detail-section-label">Related Evidence</p>
-                <h2 id="section-evidence">Skills &amp; Credentials</h2>
+            <section class="exp-detail-section exp-section exp-section--raised" aria-labelledby="section-evidence">
+                <p class="exp-eyebrow">Related Evidence</p>
+                <h2 class="exp-section-title" id="section-evidence">Skills &amp; Credentials</h2>
                 <div class="exp-detail-evidence-block">
                     <div class="exp-detail-evidence-row">
                         <span class="exp-detail-evidence-type">Skills</span>
@@ -350,6 +353,7 @@ Deployment Practice
 
         </div><!-- /.exp-detail-body -->
 
+            </article>
     </main>
 
     <!-- ── Footer ─────────────────────────────────────────────── -->
