@@ -403,6 +403,12 @@
     color: var(--color-text);
 }
 
+.project-card__title--research {
+    font-size: 0.98rem;
+    line-height: 1.35;
+    font-weight: 600;
+}
+
 .project-card__provenance {
     margin: 0;
     font-size: 0.8rem;
@@ -534,6 +540,49 @@
     margin: 0;
     color: var(--muted);
     font-size: 0.92rem;
+}
+
+/* --------------------------------------------------------------------------
+   Published Research Special Card Styling
+   -------------------------------------------------------------------------- */
+.project-card--research {
+    border-color: color-mix(in srgb, var(--color-accent) 45%, var(--border));
+    background: color-mix(in srgb, var(--color-bg-secondary) 85%, var(--color-surface) 15%);
+}
+
+.project-card__type-badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent-bright, #00e5c0);
+    background: color-mix(in srgb, var(--color-accent-deep) 30%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.project-card__ext-links-placeholder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+}
+
+.project-card__ext-links-placeholder span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.15rem 0.4rem;
+    background: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
 }
 
 /* --------------------------------------------------------------------------

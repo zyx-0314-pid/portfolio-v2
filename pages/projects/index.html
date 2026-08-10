@@ -97,6 +97,16 @@
             </div>
 
             <div class="projects-filter-groups">
+                <div class="filter-group" id="type-filters" role="group" aria-label="Filter by Project Type">
+                    <span class="filter-group__title">TYPE</span>
+                    <button type="button" class="filter-btn" data-filter-group="type" data-value="all"
+                        aria-pressed="true">All</button>
+                    <button type="button" class="filter-btn" data-filter-group="type" data-value="engineering"
+                        aria-pressed="false">Engineering</button>
+                    <button type="button" class="filter-btn" data-filter-group="type" data-value="research"
+                        aria-pressed="false">Research</button>
+                </div>
+
                 <div class="filter-group" id="domain-filters" role="group" aria-label="Filter by Domain">
                     <span class="filter-group__title">DOMAIN</span>
                     <button type="button" class="filter-btn" data-filter-group="domain" data-value="all"
@@ -133,7 +143,7 @@
             </div>
 
             <div class="projects-status-bar">
-                <span class="result-count" id="result-count">12 PROJECTS</span>
+                <span class="result-count" id="result-count">13 PROJECTS</span>
                 <button type="button" class="clear-filters-btn" id="clear-filters" hidden>Clear filters</button>
             </div>
         </section>
@@ -148,9 +158,43 @@
 
             <div class="project-gallery" id="project-gallery" role="list">
 
+                <!-- Published Research: Digital Governance in Philippine SUCs -->
+                <article class="project-card project-card--research" role="listitem" data-type="research" data-domain="education"
+                    data-focus="architecture, data, modernization" data-relevance="1" data-date="2024"
+                    data-search-keywords="Development and Evaluation of an Enterprise-Level Information System for Digital Governance in Philippine SUCs IEEE HNICEM 2024 Published Research Education Architecture SUCs ISO/IEC 25010 Lagman Ramirez">
+                    <div class="project-card__media">
+                        <img src="./assets/img/DG-SUC-ESE.png" alt="Development and Evaluation of an Enterprise-Level Information System for Digital Governance in Philippine SUCs research illustration" class="project-card__media-image">
+                    </div>
+                    <div class="project-card__body">
+                        <span class="project-card__type-badge">IEEE HNICEM 2024 · PUBLISHED RESEARCH</span>
+                        <p class="project-card__domain">Education &amp; Governance</p>
+                        <h3 class="project-card__title project-card__title--research">Development and Evaluation of an Enterprise-Level Information System for Digital Governance in Philippine SUCs</h3>
+                        <p class="project-card__provenance">FEU Institute of Technology · Co-author</p>
+                        <p class="project-card__summary">IEEE conference paper examining an enterprise information system integrating Research, Instruction, and Extension mandates across Philippine SUCs for real-time leadership visibility and digital governance.</p>
+                        <p class="project-card__evidence"><strong>Primary Metric:</strong> ISO/IEC 25010 overall quality score <strong>3.73 / Excellent</strong></p>
+                        <div class="project-card__fact-group">
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Role</span>
+                                <span class="project-card__fact-value">Co-author</span>
+                            </div>
+                            <div class="project-card__fact">
+                                <span class="project-card__fact-label">Venue</span>
+                                <span class="project-card__fact-value">2024 IEEE 16th HNICEM</span>
+                            </div>
+                        </div>
+                        <div class="project-card__ext-links-placeholder">
+                            <a href="https://ieeexplore.ieee.org/document/11258693" target="_blank" rel="noopener noreferrer">IEEE Xplore ↗</a>
+                            <a href="https://doi.org/10.1109/HNICEM64917.2024.11258693" target="_blank" rel="noopener noreferrer">DOI ↗</a>
+                        </div>
+                        <div class="project-card__footer">
+                            <a class="project-card__action-link" href="digital-governance-sucs/">View Research Project →</a>
+                        </div>
+                    </div>
+                </article>
+
                 <!-- 01: GoPick (Complete V1 Case Study) -->
-                <article class="project-card" role="listitem" data-domain="hr-assessment"
-                    data-focus="full-stack, architecture, modernization" data-relevance="1" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="hr-assessment"
+                    data-focus="full-stack, architecture, modernization" data-relevance="2" data-date="2025"
                     data-search-keywords="GoPick HR Assessment Full-Stack Architecture Modernization Legacy Yii2 MySQL Redis AWS">
                     <div class="project-card__media">
                         <img src="./assets/img/gopick.png" alt="GoPick system architecture diagram" class="project-card__media-image">
@@ -183,8 +227,8 @@
 
                 <!-- 02: JFP – GoPick (Pending Case Study) -->
                 <!-- TODO: Complete JFP – GoPick case study after data integration boundaries are verified. -->
-                <article class="project-card" role="listitem" data-domain="hr-assessment"
-                    data-focus="full-stack, architecture" data-relevance="2" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="hr-assessment"
+                    data-focus="full-stack, architecture" data-relevance="3" data-date="2025"
                     data-search-keywords="JFP GoPick Specialized Assessment Systems HR Ecosystem Connected">
                     <div class="project-card__media">
                         <div class="project-card__media-placeholder">
@@ -219,8 +263,8 @@
 
                 <!-- 03: SeLeBox (Pending Case Study) -->
                 <!-- TODO: Complete SeLeBox case study from verified Experience evidence. -->
-                <article class="project-card" role="listitem" data-domain="social" data-focus="full-stack, architecture"
-                    data-relevance="3" data-date="2024"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="social" data-focus="full-stack, architecture"
+                    data-relevance="4" data-date="2024"
                     data-search-keywords="SeLeBox YenkoDev Social Messaging Video Feed Infinite Scroll Offline Caching Media">
                     <div class="project-card__media">
                         <img src="./assets/img/selebox.png" alt="SeLeBox social media application illustration" class="project-card__media-image">
@@ -251,8 +295,8 @@
                 </article>
 
                 <!-- 04: Veyra (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="operations"
-                    data-focus="full-stack, architecture, devops, infrastructure, data" data-relevance="4" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="operations"
+                    data-focus="full-stack, architecture, devops, infrastructure, data" data-relevance="5" data-date="2025"
                     data-search-keywords="Veyra Nyebe Creations Studio Multi Tenant SaaS Feedback Review QR RBAC Security Audit Observability Appwrite Sites SSR Docker Kubernetes Sentry TanStack TypeScript Brevo Resend SARIMA SonarQube">
                     <div class="project-card__media">
                         <!-- <div class="project-card__media-placeholder">
@@ -277,6 +321,9 @@
                                 <span class="project-card__fact-value">Active Development</span>
                             </div>
                         </div>
+                        <div class="project-card__ext-links-placeholder">
+                            <a href="https://veyra.pulse-desk.app/" target="_blank" rel="noopener noreferrer">Live Platform (veyra.pulse-desk.app) ↗</a>
+                        </div>
                         <div class="project-card__footer">
                             <a class="project-card__action-link" href="veyra/">Read Case Study →</a>
                         </div>
@@ -284,8 +331,8 @@
                 </article>
 
                 <!-- 05: Talara (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="operations"
-                    data-focus="full-stack, architecture, devops, infrastructure, data" data-relevance="5" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="operations"
+                    data-focus="full-stack, architecture, devops, infrastructure, data" data-relevance="6" data-date="2025"
                     data-search-keywords="Talara Equipment Facility Resource Operations Reservations Maintenance Consumables Clerk NeonDB Backblaze Sentry Nextjs">
                     <div class="project-card__media">
                         <img src="./assets/img/talara.png" alt="Talara operations platform illustration" class="project-card__media-image">
@@ -306,6 +353,9 @@
                                 <span class="project-card__fact-value">Development</span>
                             </div>
                         </div>
+                        <div class="project-card__ext-links-placeholder">
+                            <a href="https://talara.nyebecreations.click/" target="_blank" rel="noopener noreferrer">Live Platform (talara.nyebecreations.click) ↗</a>
+                        </div>
                         <div class="project-card__footer">
                             <a class="project-card__action-link" href="talara/">Read Case Study →</a>
                         </div>
@@ -314,8 +364,8 @@
 
                 <!-- 06: AC Local (Pending Case Study) -->
                 <!-- TODO: Complete AC Local project case study. -->
-                <article class="project-card" role="listitem" data-domain="hr-assessment"
-                    data-focus="full-stack, modernization" data-relevance="6" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="hr-assessment"
+                    data-focus="full-stack, modernization" data-relevance="7" data-date="2025"
                     data-search-keywords="AC Local People Dynamics Philippine HR Assessment SaaS Supporting Contributor">
                     <div class="project-card__media">
                         <img src="./assets/img/ac_local.png" alt="AC Local HR assessment platform illustration" class="project-card__media-image">
@@ -347,8 +397,8 @@
 
                 <!-- 07: JFP – AC Local (Pending Case Study) -->
                 <!-- TODO: Complete JFP – AC Local project case study. -->
-                <article class="project-card" role="listitem" data-domain="hr-assessment" data-focus="full-stack"
-                    data-relevance="7" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="hr-assessment" data-focus="full-stack"
+                    data-relevance="8" data-date="2025"
                     data-search-keywords="JFP AC Local People Dynamics PDI Internal Specialized Assessment Connected System">
                     <div class="project-card__media">
                         <div class="project-card__media-placeholder">
@@ -382,8 +432,8 @@
                 </article>
 
                 <!-- 08: Internal Records & Storage Tracking System (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="operations"
-                    data-focus="full-stack, architecture, data" data-relevance="8" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="operations"
+                    data-focus="full-stack, architecture, data" data-relevance="9" data-date="2025"
                     data-search-keywords="Internal Records Storage Tracking System Spring Valley Java Spring Boot React PostgreSQL QR Code Barcode Hierarchy Location Audit Trail Movement History Immersion">
                     <div class="project-card__media">
                         <img src="./assets/img/IRSTS.png" alt="Internal Records & Storage Tracking System illustration" class="project-card__media-image">
@@ -412,8 +462,8 @@
                 </article>
 
                 <!-- 09: GoPick Manual (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="hr-assessment"
-                    data-focus="modernization, architecture" data-relevance="9" data-date="2025"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="hr-assessment"
+                    data-focus="modernization, architecture" data-relevance="10" data-date="2025"
                     data-search-keywords="GoPick Manual Engineering Documentation Standards Operations QA Guardrails People Dynamics PDI">
                     <div class="project-card__media">
                         <img src="./assets/img/gopick_manual.png" alt="GoPick Manual documentation illustration" class="project-card__media-image">
@@ -442,8 +492,8 @@
                 </article>
 
                 <!-- 10: SIMS - Student Information Management System (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="education" data-focus="full-stack, data"
-                    data-relevance="10" data-date="2021"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="education" data-focus="full-stack, data"
+                    data-relevance="11" data-date="2021"
                     data-search-keywords="SIMS Student Information Management System Isabela State University Computer Science Education Hall of Fame Achievements Organizations PHP MySQL Auth0">
                     <div class="project-card__media">
                         <img src="./assets/img/SIMS.png" alt="SIMS student information management system illustration" class="project-card__media-image">
@@ -471,8 +521,8 @@
                 </article>
 
                 <!-- 11: WOTS - Water Order Tracking System (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="operations" data-focus="full-stack, devops"
-                    data-relevance="11" data-date="2021"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="operations" data-focus="full-stack, devops"
+                    data-relevance="12" data-date="2021"
                     data-search-keywords="WOTS Water Order Tracking System Operations Delivery Logistics Container Borrowing Sales Inventory Refilling Station">
                     <div class="project-card__media">
                         <img src="./assets/img/WOTS.png" alt="WOTS water order tracking system illustration" class="project-card__media-image">
@@ -500,8 +550,8 @@
                 </article>
 
                 <!-- 12: PUGS - Path Utility Guide System (Complete Case Study) -->
-                <article class="project-card" role="listitem" data-domain="consumer" data-focus="full-stack, architecture"
-                    data-relevance="12" data-date="2022"
+                <article class="project-card" role="listitem" data-type="engineering" data-domain="consumer" data-focus="full-stack, architecture"
+                    data-relevance="13" data-date="2022"
                     data-search-keywords="PUGS Path Utility Guide System Consumer Accessibility Assistive Technology Blind Visually Impaired Camera Computer Vision On-Device Haptics Android">
                     <div class="project-card__media">
                         <img src="./assets/img/PUGS.png" alt="PUGS assistive navigation system illustration" class="project-card__media-image">

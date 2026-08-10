@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Development &amp; Evaluation of an Enterprise System for Digital Governance | Published Research | Ian Cedric Ramirez</title>
+    <meta name="description"
+        content="Published Research: Development and Evaluation of an Enterprise-Level Information System for Digital Governance in Philippine SUCs Using Agile Software Methodology and ISO/IEC 25010 Software Quality Model. IEEE HNICEM 2024.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Digital Governance in Philippine SUCs | IEEE HNICEM 2024 Published Research">
+    <meta property="og:description" content="IEEE conference paper examining an enterprise-level information system integrating Research, Instruction, and Extension functions for digital governance in Philippine State Universities and Colleges.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/research-project.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                        data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../" aria-current="page">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"
+                    title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main research-main">
+        <div class="research-page-shell">
+
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb research-breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">Digital Governance in SUCs</span>
+            </nav>
+
+            <!-- Research Paper Header & Meta -->
+            <header class="research-header">
+                <div class="research-venue-badge">IEEE HNICEM 2024 · Conference Paper</div>
+                <p class="research-eyebrow">PUBLISHED RESEARCH · ENTERPRISE INFORMATION SYSTEMS</p>
+                <h1 class="research-title">Development and Evaluation of an Enterprise-Level Information System for Digital Governance in Philippine SUCs</h1>
+                <p class="research-subtitle">Using Agile Software Methodology and the ISO/IEC 25010 Software Quality Model</p>
+                
+                <div class="research-meta-strip">
+                    <div class="research-meta-item">
+                        <span class="research-meta-label">Publication</span>
+                        <span class="research-meta-value">2024 IEEE 16th HNICEM</span>
+                    </div>
+                    <div class="research-meta-item">
+                        <span class="research-meta-label">Author Role</span>
+                        <span class="research-meta-value">Ian Cedric R. Ramirez · Co-author</span>
+                    </div>
+                    <div class="research-meta-item">
+                        <span class="research-meta-label">Affiliation</span>
+                        <span class="research-meta-value"><a href="https://www.feutech.edu.ph/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">FEU Institute of Technology ↗</a></span>
+                    </div>
+                    <div class="research-meta-item">
+                        <span class="research-meta-label">DOI</span>
+                        <span class="research-meta-value">10.1109/HNICEM64917.2024.11258693</span>
+                    </div>
+                    <div class="research-meta-item">
+                        <span class="research-meta-label">Pages &amp; Indexing</span>
+                        <span class="research-meta-value">pp. 1–6 · Scopus 105030150631</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Mobile Article Top Navigation (< 1101px) -->
+            <nav class="research-top-nav" aria-label="Article section navigation">
+                <div class="research-top-nav__scroll">
+                    <a href="#overview" class="research-top-nav__link">Overview</a>
+                    <a href="#problem" class="research-top-nav__link">Problem</a>
+                    <a href="#model" class="research-top-nav__link">Model</a>
+                    <a href="#methodology" class="research-top-nav__link">Methodology</a>
+                    <a href="#evaluation" class="research-top-nav__link">ISO 25010 Evaluation</a>
+                    <a href="#findings" class="research-top-nav__link">Findings</a>
+                    <a href="#contribution" class="research-top-nav__link">Contribution</a>
+                    <a href="#authors" class="research-top-nav__link">Authors</a>
+                    <a href="#citation" class="research-top-nav__link">Citation</a>
+                    <a href="#external-links" class="research-top-nav__link">Verification Links</a>
+                </div>
+            </nav>
+
+            <!-- Main Technical Reading Column -->
+            <article class="research-article">
+
+                <!-- 01: Overview -->
+                <section class="research-section" id="overview" aria-labelledby="heading-overview">
+                    <p class="research-eyebrow">Overview</p>
+                    <h2 class="research-section-title" id="heading-overview">Research Overview</h2>
+                    <p>
+                        The research examined an enterprise-level information system designed to integrate Research, Instruction, and Extension functions across Philippine State Universities and Colleges (SUCs). The platform was intended to give institutional leaders a consolidated, real-time view of organizational performance and accomplishments while supporting broader digital-governance initiatives in higher education.
+                    </p>
+                    
+                    <figure class="research-diagram" aria-label="Digital Governance Integration Diagram">
+                        <img class="theme-img theme-img--light" src="assets/img/research_overview_light.png" alt="Digital Governance Integration Overview Diagram (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/research_overview_light.png" data-src-dark="assets/img/research_overview_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/research_overview_dark.png" alt="Digital Governance Integration Overview Diagram (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/research_overview_light.png" data-src-dark="assets/img/research_overview_dark.png">
+                    </figure>
+                </section>
+
+                <!-- 02: Research Problem -->
+                <section class="research-section" id="problem" aria-labelledby="heading-problem">
+                    <p class="research-eyebrow">Problem Statement</p>
+                    <h2 class="research-section-title" id="heading-problem">Research Problem</h2>
+                    <p>
+                        Philippine SUCs operate across multiple institutional mandates. The study explored whether these core academic and operational functions could be integrated through a single enterprise-level information system rather than being viewed independently, enabling institutional leadership to obtain a more unified picture of performance and accomplishment.
+                    </p>
+                </section>
+
+                <!-- 03: System / Research Model -->
+                <section class="research-section" id="model" aria-labelledby="heading-model">
+                    <p class="research-eyebrow">Architecture &amp; Framework</p>
+                    <h2 class="research-section-title" id="heading-model">System / Research Model</h2>
+                    <p>
+                        The conceptual model links day-to-day institutional operations directly into decision support for digital governance.
+                    </p>
+                    
+                    <figure class="research-diagram" aria-label="System Concept Flowchart">
+                        <img class="theme-img theme-img--light" src="assets/img/research_model_light.png" alt="System &amp; Research Model Flowchart (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/research_model_light.png" data-src-dark="assets/img/research_model_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/research_model_dark.png" alt="System &amp; Research Model Flowchart (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/research_model_light.png" data-src-dark="assets/img/research_model_dark.png">
+                    </figure>
+                </section>
+
+                <!-- 04: Methodology -->
+                <section class="research-section" id="methodology" aria-labelledby="heading-methodology">
+                    <p class="research-eyebrow">Approach &amp; Protocol</p>
+                    <h2 class="research-section-title" id="heading-methodology">Methodology</h2>
+                    
+                    <h3 style="font-size: 1.1rem; color: var(--color-text); margin-top: 1rem; margin-bottom: 0.5rem;">Research Design</h3>
+                    <p>
+                        The study employed a <strong>descriptive-developmental research approach</strong>, combining system development with structured evaluation of the resulting software product.
+                    </p>
+
+                    <h3 style="font-size: 1.1rem; color: var(--color-text); margin-top: 1.25rem; margin-bottom: 0.5rem;">Software Development Lifecycle</h3>
+                    <p>
+                        Development followed the <strong>Agile Development Model</strong>, allowing the application to progress through an iterative software-development lifecycle from initiation toward completion.
+                    </p>
+
+                    <figure class="research-diagram" aria-label="Methodology Lifecycle Flowchart">
+                        <img class="theme-img theme-img--light" src="assets/img/methodology_light.png" alt="Methodology &amp; Quality Model Lifecycle Flowchart (light theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="light" data-src-light="assets/img/methodology_light.png" data-src-dark="assets/img/methodology_dark.png">
+                        <img class="theme-img theme-img--dark" src="assets/img/methodology_dark.png" alt="Methodology &amp; Quality Model Lifecycle Flowchart (dark theme)" width="1200" height="800" loading="lazy" decoding="async" data-theme-image="dark" data-src-light="assets/img/methodology_light.png" data-src-dark="assets/img/methodology_dark.png">
+                    </figure>
+                </section>
+
+                <!-- 05: Evaluation -->
+                <section class="research-section" id="evaluation" aria-labelledby="heading-evaluation">
+                    <p class="research-eyebrow">Assessment &amp; Metrics</p>
+                    <h2 class="research-section-title" id="heading-evaluation">ISO/IEC 25010 Software Quality Evaluation</h2>
+                    <p>
+                        System product quality was formally evaluated against the eight product-quality characteristics defined by the <strong>ISO/IEC 25010 Software Engineering standard</strong>:
+                    </p>
+
+                    <div class="iso-evaluation-container">
+                        <div class="iso-grid">
+                            <div class="iso-card">
+                                <div class="iso-card__num">01</div>
+                                <div class="iso-card__title">Functional Suitability</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">02</div>
+                                <div class="iso-card__title">Performance Efficiency</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">03</div>
+                                <div class="iso-card__title">Compatibility</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">04</div>
+                                <div class="iso-card__title">Usability</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">05</div>
+                                <div class="iso-card__title">Reliability</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">06</div>
+                                <div class="iso-card__title">Security</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">07</div>
+                                <div class="iso-card__title">Maintainability</div>
+                            </div>
+                            <div class="iso-card">
+                                <div class="iso-card__num">08</div>
+                                <div class="iso-card__title">Portability</div>
+                            </div>
+                        </div>
+
+                        <div class="iso-score-box">
+                            <div class="iso-score-val">3.73</div>
+                            <div class="iso-score-rating">EXCELLENT</div>
+                            <div class="iso-score-label">Overall Weighted Mean<br>IT Expert Assessment</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 06: Key Findings -->
+                <section class="research-section" id="findings" aria-labelledby="heading-findings">
+                    <p class="research-eyebrow">Results &amp; Discussion</p>
+                    <h2 class="research-section-title" id="heading-findings">Key Findings &amp; Policy Relevance</h2>
+                    <p>
+                        Evaluation by IT experts produced an overall weighted mean of <strong>3.73</strong>, interpreted in the study as <strong>Excellent</strong> in terms of product quality. Based on this assessment, the researchers concluded that the developed system achieved a high level of software quality and recommended its operational use.
+                    </p>
+                    <p>
+                        Beyond software evaluation, the research positioned the platform as a mechanism for improving institutional visibility over Research, Instruction, and Extension activities and as evidence that may support policies and guidelines for integrating digital technologies into higher education governance.
+                    </p>
+                </section>
+
+                <!-- 07: My Contribution -->
+                <section class="research-section" id="contribution" aria-labelledby="heading-contribution">
+                    <p class="research-eyebrow">Role &amp; Ownership</p>
+                    <h2 class="research-section-title" id="heading-contribution">My Contribution</h2>
+                    <p>
+                        <strong>Co-author</strong>, affiliated with <strong>FEU Institute of Technology</strong>, Manila. Publication recorded in archived FEU institutional research files and Scopus records.
+                    </p>
+                    <!-- TODO: Add Ian Cedric R. Ramirez's verified individual contribution once detailed component responsibility is specified. -->
+                </section>
+
+                <!-- 08: Authors & Institutions -->
+                <section class="research-section" id="authors" aria-labelledby="heading-authors">
+                    <p class="research-eyebrow">Authorship &amp; Affiliation</p>
+                    <h2 class="research-section-title" id="heading-authors">Authors &amp; Research Institutions</h2>
+                    
+                    <h3 style="font-size: 1.05rem; color: var(--color-text); margin-top: 1rem; margin-bottom: 0.5rem;">Co-Authors</h3>
+                    <div class="authors-grid">
+                        <div class="author-card">Ace C. Lagman</div>
+                        <div class="author-card author-card--self">Ian Cedric R. Ramirez</div>
+                        <div class="author-card">Allen Paul Esteban</div>
+                        <div class="author-card">Reden Paul L. Rivera</div>
+                        <div class="author-card">Ronel Delos Santos</div>
+                        <div class="author-card">Joseph J. Juliano</div>
+                    </div>
+
+                    <h3 style="font-size: 1.05rem; color: var(--color-text); margin-top: 1.5rem; margin-bottom: 0.5rem;">Participating Academic Institutions</h3>
+                    <ul class="institutions-list">
+                        <li><a href="https://www.feutech.edu.ph/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">FEU Institute of Technology ↗</a></li>
+                        <li><a href="https://neust.edu.ph/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Nueva Ecija University of Science and Technology ↗</a></li>
+                        <li><a href="https://pampangastateu.edu.ph/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Don Honorio Ventura State University ↗</a></li>
+                        <li><a href="https://prmsu.edu.ph/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">President Ramon Magsaysay State University ↗</a></li>
+                    </ul>
+                </section>
+
+                <!-- 09: Publication & Citation -->
+                <section class="research-section" id="citation" aria-labelledby="heading-citation">
+                    <p class="research-eyebrow">Reference &amp; Indexing</p>
+                    <h2 class="research-section-title" id="heading-citation">Publication &amp; Citation</h2>
+                    <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+                        Official bibliographic reference string as recorded in FEU repository:
+                    </p>
+                    <div class="research-citation-box">
+                        <pre class="research-citation-code"><code>Lagman, A. C., Ramirez, I. C. R., Esteban, A. P., Rivera, R. P. L., Santos, R. D., &amp; Juliano, J. J. (2025). Development and Evaluation of an Enterpriselevel Information System for Digital Governance in Philippine SUCs Using Agile Software Methodology and ISO/IEC 25010 Software Quality Model. 2024 IEEE 16th HNICEM, 1–6.</code></pre>
+                    </div>
+                </section>
+
+                <!-- 10: External Links / Verification -->
+                <section class="research-section" id="external-links" aria-labelledby="heading-external-links">
+                    <p class="research-eyebrow">Verification</p>
+                    <h2 class="research-section-title" id="heading-external-links">Verified Publication Destinations</h2>
+                    <div class="research-links-grid">
+                        <div class="research-link-card">
+                            <div>
+                                <h3 class="research-link-title">IEEE Xplore</h3>
+                                <p class="research-link-desc">Primary IEEE digital library publication record.</p>
+                            </div>
+                            <a href="https://ieeexplore.ieee.org/document/11258693" target="_blank" rel="noopener noreferrer" class="research-ext-button">
+                                Open IEEE Xplore ↗
+                            </a>
+                        </div>
+                        <div class="research-link-card">
+                            <div>
+                                <h3 class="research-link-title">Digital Object Identifier (DOI)</h3>
+                                <p class="research-link-desc">Direct DOI permanent article resolver: <code>10.1109/HNICEM64917.2024.11258693</code>.</p>
+                            </div>
+                            <a href="https://doi.org/10.1109/HNICEM64917.2024.11258693" target="_blank" rel="noopener noreferrer" class="research-ext-button">
+                                Resolve DOI ↗
+                            </a>
+                        </div>
+                        <div class="research-link-card">
+                            <div>
+                                <h3 class="research-link-title">FEU Research Repository</h3>
+                                <p class="research-link-desc">Official FEU Tech repository paper record.</p>
+                            </div>
+                            <a href="https://paraverse.feutech.edu.ph/repository/article/10.1109/hnicem64917.2024.11258693" target="_blank" rel="noopener noreferrer" class="research-ext-button">
+                                Open FEU Article Record ↗
+                            </a>
+                        </div>
+                        <div class="research-link-card">
+                            <div>
+                                <h3 class="research-link-title">FEU Author Record</h3>
+                                <p class="research-link-desc">Institutional author index for Ian Cedric R. Ramirez.</p>
+                            </div>
+                            <a href="https://paraverse.feutech.edu.ph/repository/browse/author/F946303202T" target="_blank" rel="noopener noreferrer" class="research-ext-button">
+                                View Author Record ↗
+                            </a>
+                        </div>
+                        <div class="research-link-card">
+                            <div>
+                                <h3 class="research-link-title">FEU Academic Briefcase</h3>
+                                <p class="research-link-desc">Archived institutional academic profile.</p>
+                            </div>
+                            <a href="https://paraverse.feutech.edu.ph/briefcase/profile/F946303202T" target="_blank" rel="noopener noreferrer" class="research-ext-button">
+                                View Academic Profile ↗
+                            </a>
+                        </div>
+                        <div class="research-link-card">
+                            <div>
+                                <h3 class="research-link-title">Scopus Indexing</h3>
+                                <p class="research-link-desc">Scopus secondary document record: <code>105030150631</code>.</p>
+                            </div>
+                            <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105030150631&amp;origin=inward" target="_blank" rel="noopener noreferrer" class="research-ext-button">
+                                View Scopus Record ↗
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+
+        </div><!-- /.research-page-shell -->
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Engineer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+    <script src="assets/js/research-project.js"></script>
+</body>
+
+</html>
