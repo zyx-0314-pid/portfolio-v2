@@ -1,0 +1,123 @@
+[data-case-study-id="jfp"] {
+    --jfp-grid-line: color-mix(in srgb, var(--color-border) 26%, transparent);
+    --jfp-panel: color-mix(in srgb, var(--color-bg-secondary) 70%, transparent);
+}
+
+html:has([data-case-study-id="jfp"]),
+body:has([data-case-study-id="jfp"]) {
+    overflow-x: clip;
+}
+
+[data-case-study-id="jfp"] .jfp-dimensions {
+    position: relative;
+    overflow: hidden;
+    min-block-size: 100%;
+    padding: clamp(1rem, 3vi, 1.5rem);
+    border: 1px solid color-mix(in srgb, var(--color-border) 82%, transparent);
+    background:
+        linear-gradient(to right, var(--jfp-grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--jfp-grid-line) 1px, transparent 1px),
+        color-mix(in srgb, var(--color-bg-secondary) 76%, transparent);
+    background-size: 3rem 3rem;
+}
+
+[data-case-study-id="jfp"] .jfp-dimensions__label {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+    font: 600 0.78rem/1.4 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+[data-case-study-id="jfp"] .jfp-dimensions__list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+[data-case-study-id="jfp"] .jfp-dimensions__item {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg) 60%, transparent);
+}
+
+[data-case-study-id="jfp"] .jfp-dimensions__item strong {
+    display: block;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+}
+
+[data-case-study-id="jfp"] .jfp-dimensions__item span {
+    display: block;
+    margin-block-start: 0.2rem;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+[data-case-study-id="jfp"] .jfp-modernization-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+[data-case-study-id="jfp"] .jfp-modern-card {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-secondary) 65%, transparent);
+}
+
+[data-case-study-id="jfp"] .jfp-modern-card__title {
+    margin: 0 0 0.75rem;
+    font: 600 1.05rem/1.3 var(--font-mono);
+    color: var(--color-accent-bright);
+}
+
+[data-case-study-id="jfp"] .jfp-modern-card__stages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 0.85rem;
+}
+
+[data-case-study-id="jfp"] .jfp-stage {
+    padding: 0.75rem 0.9rem;
+    border-block-start: 2px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg) 50%, transparent);
+}
+
+[data-case-study-id="jfp"] .jfp-stage--before {
+    border-block-start-color: color-mix(in srgb, #c97350 70%, var(--color-border));
+}
+
+[data-case-study-id="jfp"] .jfp-stage--change {
+    border-block-start-color: var(--color-accent);
+}
+
+[data-case-study-id="jfp"] .jfp-stage--after {
+    border-block-start-color: color-mix(in srgb, #50c99c 80%, var(--color-accent));
+}
+
+[data-case-study-id="jfp"] .jfp-stage__label {
+    margin: 0 0 0.35rem;
+    font: 600 0.7rem/1 var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+[data-case-study-id="jfp"] .jfp-stage--before .jfp-stage__label {
+    color: color-mix(in srgb, #c97350 90%, var(--color-text));
+}
+
+[data-case-study-id="jfp"] .jfp-stage--after .jfp-stage__label {
+    color: color-mix(in srgb, #50c99c 90%, var(--color-text));
+}
+
+[data-case-study-id="jfp"] .jfp-stage p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
