@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>JFP – AC Local — Job Fit Profile (Philippine Local) | Ian Cedric Ramirez</title>
+    <meta name="description" content="JFP – AC Local case study - specialized Philippine local Job Fit assessment workflow, AC Local integration, candidate staging, account guardrails, and 5-layer modernization.">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <link rel="stylesheet" href="../jfp/assets/css/jfp.css">
+    <script src="../assets/js/case-study.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="jfp">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">JFP – AC Local</span>
+        </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Case Study · HR &amp; Assessment (Philippine Local)</p>
+                        <h1 class="project-header__title" id="page-title">JFP – AC Local</h1>
+                        <p class="project-header__summary">JFP – AC Local is a specialized Job Fit assessment application connected to the AC Local HR SaaS platform within the People Dynamics ecosystem. Tailored specifically for Philippine local corporate requirements, it supports Job Fit-specific benchmark configuration, local norm presets, candidate preparation, and assessment scheduling across Cognitive Ability, Personality, and Occupational Interest dimensions.<br><br>My contributions center on supporting candidate preparation guardrails, account expiration filtering, session-backed staging, and ensuring seamless schedule handoffs to the AC Local assessment runtime.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#overview">Overview</a>
+                            <a href="#role">My Role</a>
+                            <a href="#local-context">Local Context</a>
+                            <a href="#assessment-workflow">Assessment Workflow</a>
+                            <a href="#integration-boundary">Integration Boundary</a>
+                            <a href="#architecture">Architecture</a>
+                            <a href="#candidate-account-handling">Candidate &amp; Account Handling</a>
+                            <a href="#reliability">Reliability</a>
+                            <a href="#decisions">Technical Decisions</a>
+                            <a href="#testing">Testing</a>
+                            <a href="#technology">Technology</a>
+                            <a href="#outcomes">Outcomes</a>
+                            <a href="#retrospective">Retrospective</a>
+                            <a href="#related">Related Work</a>
+                        </nav>
+                    </div>
+
+                    <div class="project-header__hero-container">
+                        <img class="project-header__hero" src="../assets/img/jfp_local.png" alt="Illustration representing Philippine local Job Fit assessment configuration and AC Local integration." width="1600" height="700">
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Domain</dt>
+                        <dd>HR &amp; Assessment (Philippine Local)</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>My Role</dt>
+                        <dd>Supporting Contributor</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Lifecycle</dt>
+                        <dd>Deployed</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Engineering Focus</dt>
+                        <dd>Full-Stack / Local PH Integration / Candidate Staging / Guardrails</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Core Stack</dt>
+                        <dd>PHP · MySQL/MariaDB · Bootstrap · jQuery</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>System Type</dt>
+                        <dd>Specialized Assessment Application (Local PH)</dd>
+                    </div>
+                    <div class="project-provenance">
+                        <strong>Provenance &amp; Professional Relationship</strong>
+                        JFP – AC Local is a professional project associated with my Full-Stack Engineer and DevOps Engineer role at <strong>People Dynamics Inc.</strong>, operating within the broader AC Local Philippine assessment ecosystem.
+                        <a href="../../experience/full-stack-developer/">View Related Experience →</a>
+                    </div>
+                </dl>
+            </header>
+
+            <!-- 04. Overview -->
+            <section class="project-section" id="overview" aria-labelledby="overview-title">
+                <h2 id="overview-title">Specialized Philippine Local Job Fit Platform</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>JFP – AC Local provides a focused <strong>Job Fit assessment preparation and scheduling workflow</strong> for Philippine domestic clients. Rather than reproducing the broader account management, evaluation, and reporting features of AC Local, JFP concentrates on configuring Job Fit benchmarks and candidate schedules.</p>
+                        <p>The Job Fit model evaluates candidates across three core dimensions—<strong>Cognitive Ability, Personality, and Occupational Interest</strong>—combining client-specific benchmarks, norms, and competency presets before transferring candidate control to AC Local.</p>
+                        <p>Designed for local organizational contexts, JFP – AC Local operates under streamlined Philippine regulatory requirements while maintaining strict data integrity and transactional safety during schedule creation.</p>
+                    </div>
+                    <div class="jfp-dimensions" aria-label="3-dimension Job Fit model breakdown">
+                        <p class="jfp-dimensions__label">Job Fit Profile Dimensions</p>
+                        <ul class="jfp-dimensions__list">
+                            <li class="jfp-dimensions__item">
+                                <strong>Cognitive Ability</strong>
+                                <span>Problem-solving capacity, spatial reasoning, verbal logic, and analytical evaluation.</span>
+                            </li>
+                            <li class="jfp-dimensions__item">
+                                <strong>Personality</strong>
+                                <span>Behavioral traits, workplace tendencies, interpersonal style, and emotional resilience.</span>
+                            </li>
+                            <li class="jfp-dimensions__item">
+                                <strong>Occupational Interest</strong>
+                                <span>Career orientation, role affinity, work environment alignment, and task motivations.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 05. My Role -->
+            <section class="project-section" id="role" aria-labelledby="role-title">
+                <h2 id="role-title">My Role &amp; Ownership Boundary</h2>
+                <p>As a Supporting Contributor on JFP – AC Local, my work centered on assisting with schedule-test workflow enhancements, verifying candidate import validation routines, supporting account expiration guardrails, and ensuring consistent session-backed candidate staging across local assessment preparation steps.</p>
+                <p>This case study does not claim ownership of the original JFP product, proprietary assessment methodology, scoring engine, norms content, report-generation algorithms, or the complete AC Local runtime environment. It documents only application support work verified by commit history.</p>
+            </section>
+
+            <!-- 06. Local Context -->
+            <section class="project-section" id="local-context" aria-labelledby="local-context-title">
+                <h2 id="local-context-title">Philippine Local Operational Context</h2>
+                <p>While sharing underlying Job Fit evaluation logic with international variants, JFP – AC Local is optimized for domestic client operations:</p>
+                <div class="project-note-list">
+                    <article class="project-note-item">
+                        <h3>Local Corporate Presets</h3>
+                        <p>Pre-configured benchmark and norm presets tailored specifically for Philippine industry standards, government organ requirements, and domestic corporate profiles.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Account Expiration Enforcement</h3>
+                        <p>Enforces local client account license expiration dates, preventing users from staging or scheduling assessments against expired client account contracts.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Streamlined Scheduling Workflow</h3>
+                        <p>Optimized scheduling wizard that reduces administrative steps for HR coordinators handling local bulk candidate evaluations.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 07. Assessment Workflow -->
+            <section class="project-section" id="assessment-workflow" aria-labelledby="assessment-workflow-title">
+                <h2 id="assessment-workflow-title">Candidate Scheduling &amp; AC Local Handoff</h2>
+                <figure class="project-diagram" aria-label="Local candidate scheduling workflow diagram">
+                    <pre>
+Client / Admin Scheduler (Local PH)
+        ↓
+Local Account &amp; License Validation
+        ↓
+Candidate Batch Preparation
+        ↓
+Validation &amp; Session Staging
+        ↓
+Job Fit Configuration
+ ┌─────────────┬─────────────┬─────────────┐
+ │ Cognitive   │ Personality │ Occupational│
+ │ Preset      │ Preset      │ Interest    │
+ └─────────────┴─────────────┴─────────────┘
+        ↓
+Local Benchmark &amp; Competency Selection
+        ↓
+Final Schedule Submission
+        ↓
+Create User + Candidate + Metadata
+        ↓
+Create Assessment Schedule + Authorization
+        ↓
+Send Candidate Invitation
+        ↓
+Parent AC Local Assessment Runtime
+                    </pre>
+                </figure>
+                <p>JFP – AC Local's scope concludes upon successfully staging and committing candidate schedules into the AC Local database. Assessment delivery, anti-cheating monitoring, scoring, and report compilation are handled by the main AC Local engine.</p>
+            </section>
+
+            <!-- 08. Integration Boundary -->
+            <section class="project-section" id="integration-boundary" aria-labelledby="integration-boundary-title">
+                <h2 id="integration-boundary-title">Connected Application &amp; Data Boundary</h2>
+                <div class="comparison-box" aria-label="JFP responsibility versus AC Local platform responsibility">
+                    <div class="comparison-column">
+                        <h3>JFP – AC Local Responsibility</h3>
+                        <ul>
+                            <li>Job Fit benchmark setup</li>
+                            <li>JAS / manual benchmark flows</li>
+                            <li>Cognitive preset selection</li>
+                            <li>Personality preset selection</li>
+                            <li>Occupational-interest preset selection</li>
+                            <li>Local PH norm lookup</li>
+                            <li>Competency configuration</li>
+                            <li>Candidate staging &amp; import processing</li>
+                            <li>Schedule configuration</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>Parent AC Local Responsibility</h3>
+                        <ul>
+                            <li>Account ownership &amp; tenancy</li>
+                            <li>User identity management</li>
+                            <li>Persistent candidate records</li>
+                            <li>Tenant candidate database schema</li>
+                            <li>Assessment execution runtime</li>
+                            <li>Schedule lifecycle management</li>
+                            <li>Results &amp; score compilation</li>
+                            <li>Local PH report exports</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <figure class="project-diagram" aria-label="Data integration architecture diagram">
+                    <pre>
+JFP – AC Local
+ │
+ │ Candidate + Assessment Context
+ │
+ ▼
+AC Local Main Database
+ │
+ ├─ User
+ ├─ Account
+ ├─ Auth Assignment
+ │
+ ▼
+Tenant Database
+ │
+ ├─ Candidate
+ ├─ Candidate Metadata
+ └─ Schedule
+                    </pre>
+                </figure>
+
+                <p>JFP – AC Local integrates directly with AC Local's database contracts and administrative session context. Schedule submission coordinates writes across main and tenant schemas so that JFP configuration becomes an executable assessment schedule within the local platform.</p>
+            </section>
+
+            <!-- 09. Architecture -->
+            <section class="project-section" id="architecture" aria-labelledby="architecture-title">
+                <h2 id="architecture-title">Mixed Legacy Application Moving Toward Explicit Layers</h2>
+                <figure class="project-diagram" aria-label="Legacy to 5-layer architecture state diagram">
+                    <pre>
+LEGACY JFP
+
+Flat PHP Scripts
+     +
+Static Model SQL
+     +
+Page Includes
+     +
+Mixed Responsibilities
+
+          ↓
+   Incremental Refactor
+
+MODERNIZED JFP AREAS
+
+Controller
+    ↓
+Service
+    ↓
+Repository
+    ↓
+Model
+    ↓
+View / Components
+
+          ↓
+
+AC Local Main &amp; Tenant DB Contracts
+                    </pre>
+                </figure>
+                <p>JFP – AC Local shares the overall ecosystem's mixed architecture, combining legacy flat PHP execution paths with refactored 5-layer schedule components. touched behavior is incrementally structured while established working routines remain intact.</p>
+            </section>
+
+
+            <!-- 11. Candidate & Account Handling -->
+            <section class="project-section" id="candidate-account-handling" aria-labelledby="candidate-account-handling-title">
+                <h2 id="candidate-account-handling-title">Candidate Preparation Before Persistence</h2>
+                <p>JFP – AC Local separates candidate staging from persistent database commit so HR teams can clean candidate inputs beforehand.</p>
+                <div class="project-note-list">
+                    <article class="project-note-item">
+                        <h3>Validation</h3>
+                        <p>Required candidate fields, valid email format, supported gender values, lengths, and import consistency are checked before scheduling.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Duplicate Handling</h3>
+                        <p>Import processing identifies invalid or repeated candidate rows before they can enter the final persistence flow.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Account Guardrails</h3>
+                        <p>Candidate-registration accounts are filtered using effective expiration rules, reducing the risk of scheduling against expired account contexts.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Account Locking</h3>
+                        <p>Once staged candidate records depend on the selected account, account changes are constrained to prevent context mismatches.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 12. Reliability -->
+            <section class="project-section" id="reliability" aria-labelledby="reliability-title">
+                <h2 id="reliability-title">Atomic Cross-System Scheduling</h2>
+                <figure class="project-diagram" aria-label="Database transaction and rollback flow diagram">
+                    <pre>
+BEGIN TRANSACTION
+       ↓
+Create User
+       ↓
+Create Tenant Candidate
+       ↓
+Create Candidate Metadata
+       ↓
+Create Schedule
+       ↓
+Create Authorization Assignment
+       ↓
+Everything successful?
+   ┌───────┴────────┐
+   NO               YES
+   ↓                 ↓
+ROLLBACK           COMMIT
+                    </pre>
+                </figure>
+                <p>Schedule submission executes transactionally across main and tenant data tables. Any failure during user, candidate, metadata, schedule, or authorization insertion triggers a complete rollback to preserve database integrity.</p>
+            </section>
+
+            <!-- 13. Technical Decisions -->
+            <section class="project-section" id="decisions" aria-labelledby="decisions-title">
+                <h2 id="decisions-title">Technical Decisions</h2>
+                <div class="decision-list">
+                    <article class="decision-item">
+                        <h3>1. Keep JFP as a Specialized Application</h3>
+                        <p><strong>Context:</strong> Job Fit configuration requires workflows different from general account and candidate management.</p>
+                        <p><strong>Decision:</strong> Preserve JFP as a focused application integrated with the AC Local platform.</p>
+                        <p><strong>Benefit:</strong> Keeps specialized assessment configuration isolated.</p>
+                        <p><strong>Tradeoff:</strong> Requires explicit integration contracts with parent databases and session context.</p>
+                    </article>
+
+                    <article class="decision-item">
+                        <h3>2. Direct Parent-Database Integration</h3>
+                        <p><strong>Context:</strong> AC Local already owns accounts, users, candidates, schedules, and assessment execution.</p>
+                        <p><strong>Decision:</strong> Integrate JFP through existing main and tenant database contracts.</p>
+                        <p><strong>Benefit:</strong> Immediate interoperability with the established local platform.</p>
+                        <p><strong>Tradeoff:</strong> Strong coupling to existing schema structures.</p>
+                    </article>
+
+                    <article class="decision-item">
+                        <h3>3. Session-Backed Candidate Staging</h3>
+                        <p><strong>Context:</strong> Schedulers may prepare multiple candidates before committing assessment records.</p>
+                        <p><strong>Decision:</strong> Stage validated candidates in session until final submission.</p>
+                        <p><strong>Benefit:</strong> Allows review/import/removal without premature persistent writes.</p>
+                        <p><strong>Tradeoff:</strong> Session state requires explicit consistency and validation controls.</p>
+                    </article>
+
+                    <article class="decision-item">
+                        <h3>4. Incremental 5-Layer Modernization</h3>
+                        <p><strong>Context:</strong> JFP is an active legacy PHP application and cannot be cleanly rewritten all at once.</p>
+                        <p><strong>Decision:</strong> Refactor touched scheduling behavior into Controller → Service → Repository → Model → View boundaries.</p>
+                        <p><strong>Benefit:</strong> Improves traceability while preserving working legacy behavior.</p>
+                        <p><strong>Tradeoff:</strong> Mixed architectural patterns remain during transition.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 14. Testing -->
+            <section class="project-section" id="testing" aria-labelledby="testing-title">
+                <h2 id="testing-title">Testing &amp; Quality Strategy</h2>
+                <div class="project-section__split">
+                    <div>
+                        <h3>Team / Application Verification</h3>
+                        <ul>
+                            <li>Existing manual workflow testing</li>
+                            <li>Candidate scheduling verification</li>
+                            <li>AC Local platform schedule confirmation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Additional Developer Verification</h3>
+                        <ul>
+                            <li>Playwright tooling where applicable</li>
+                            <li>PHP-level validation checks</li>
+                            <li>Repository &amp; service-level checks where implemented</li>
+                            <li>Runtime verification of refactored schedule flows</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 15. Technology -->
+            <section class="project-section" id="technology" aria-labelledby="technology-title">
+                <h2 id="technology-title">Technology Stack &amp; Technical Metadata</h2>
+                <dl class="project-header__meta">
+                    <div class="project-fact">
+                        <dt>Backend</dt>
+                        <dd>PHP</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Database</dt>
+                        <dd>MySQL / MariaDB</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Data Access</dt>
+                        <dd>mysqli / PDO</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>UI &amp; Libraries</dt>
+                        <dd>Bootstrap · jQuery · DataTables</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Email</dt>
+                        <dd>PHPMailer</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Documents</dt>
+                        <dd>mPDF</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Testing</dt>
+                        <dd>Playwright</dd>
+                    </div>
+                    <div class="project-fact">
+                        <dt>Architecture</dt>
+                        <dd>Mixed Legacy MVC + Incremental 5-Layer</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <!-- 16. Outcomes -->
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+                <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
+                <div class="project-note-list">
+                    <article class="project-note-item">
+                        <h3>Clearer Scheduling Architecture</h3>
+                        <p>Schedule-test behavior is increasingly separated into explicit controller, service, repository, model, and view responsibilities.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Explicit Job Fit Data Boundary</h3>
+                        <p>JFP-specific norms and assessment preset queries are centralized through a dedicated repository rather than distributed across page-level scripts.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Safer Candidate Preparation</h3>
+                        <p>Candidate validation and session-backed staging reduce premature database mutation before final scheduling.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Stronger Account Guardrails</h3>
+                        <p>Effective account-expiration rules prevent invalid candidate-registration contexts from being presented for scheduling.</p>
+                    </article>
+                    <article class="project-note-item">
+                        <h3>Atomic Schedule Creation</h3>
+                        <p>Related user, candidate, metadata, schedule, and authorization writes are treated as a single transactional operation rather than independent best-effort inserts.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 17. Retrospective -->
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+                <h2 id="retrospective-title">Key Engineering Takeaway</h2>
+                <p>Targeted modernization around sensitive candidate data ingestion and cross-system database writes significantly improves application stability, even in complex legacy ecosystems.</p>
+            </section>
+
+            <!-- 18. Related Work -->
+            <section class="project-section" id="related" aria-labelledby="related-title">
+                <h2 id="related-title">Related Work</h2>
+                <div class="related-link-list">
+                    <article class="related-link-item">
+                        <h3>JFP – GoPick</h3>
+                        <p>Specialized international Job Fit assessment application connected to the GoPick platform.</p>
+                        <a class="related-link" href="../jfp-gopick/">Read JFP – GoPick Case Study →</a>
+                    </article>
+                    <article class="related-link-item">
+                        <h3>AC Local</h3>
+                        <p>Philippine-local HR assessment platform supporting standardized candidate evaluation and reporting workflows.</p>
+                        <a class="related-link" href="../#ac-local">View AC Local Project →</a>
+                    </article>
+                    <article class="related-link-item">
+                        <h3>Related Experience</h3>
+                        <p>Full-Stack Engineer and DevOps Engineer · People Dynamics Inc.</p>
+                        <a class="related-link" href="../../experience/full-stack-developer/">View Experience →</a>
+                    </article>
+                </div>
+
+                <nav class="project-nav" aria-label="Project case study pagination">
+                    <a href="../jfp-gopick/">← Previous (JFP – GoPick)</a>
+                    <a href="../">All Projects</a>
+                    <a href="../internal-records-storage/">Next (Internal Records) →</a>
+                </nav>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Engineer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>

@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var galleryContainer = document.getElementById('project-gallery');
     var emptyStateEl = document.getElementById('empty-results');
 
+    var typeFilterButtons = document.querySelectorAll('[data-filter-group="type"]');
     var domainFilterButtons = document.querySelectorAll('[data-filter-group="domain"]');
     var focusFilterButtons = document.querySelectorAll('[data-filter-group="focus"]');
     var projectCards = Array.from(document.querySelectorAll('.project-card'));
 
+    var selectedTypes = new Set();
     var selectedDomains = new Set();
     var selectedFocuses = new Set();
     var searchQuery = '';
@@ -26,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (params.has('q')) {
             searchQuery = params.get('q').trim();
             if (searchInput) searchInput.value = searchQuery;
+        }
+        if (params.has('type')) {
+            var types = params.get('type').split(',');
+            types.forEach(function (t) {
+                if (t.trim()) selectedTypes.add(t.trim().toLowerCase());
+            });
         }
         if (params.has('domain')) {
             var domains = params.get('domain').split(',');
@@ -54,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (searchQuery) {
             params.set('q', searchQuery);
         }
+        if (selectedTypes.size > 0) {
+            params.set('type', Array.from(selectedTypes).join(','));
+        }
         if (selectedDomains.size > 0) {
             params.set('domain', Array.from(selectedDomains).join(','));
         }
@@ -69,6 +80,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateFilterButtonsUI() {
+        typeFilterButtons.forEach(function (btn) {
+            var val = (btn.getAttribute('data-value') || '').toLowerCase();
+            if (val === 'all') {
+                btn.setAttribute('aria-pressed', selectedTypes.size === 0 ? 'true' : 'false');
+            } else {
+                btn.setAttribute('aria-pressed', selectedTypes.has(val) ? 'true' : 'false');
+            }
+        });
+
         domainFilterButtons.forEach(function (btn) {
             var val = (btn.getAttribute('data-value') || '').toLowerCase();
             if (val === 'all') {
@@ -87,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        var hasActiveFilters = searchQuery !== '' || selectedDomains.size > 0 || selectedFocuses.size > 0 || sortOption !== 'relevant';
+        var hasActiveFilters = searchQuery !== '' || selectedTypes.size > 0 || selectedDomains.size > 0 || selectedFocuses.size > 0 || sortOption !== 'relevant';
         if (clearFiltersBtn) {
             clearFiltersBtn.hidden = !hasActiveFilters;
         }
@@ -99,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var totalCount = projectCards.length;
 
         var matchingCards = projectCards.filter(function (card) {
+            var typeVal = (card.getAttribute('data-type') || 'engineering').toLowerCase();
             var domainVal = (card.getAttribute('data-domain') || '').toLowerCase();
             var focusVals = (card.getAttribute('data-focus') || '').toLowerCase().split(',').map(function (s) { return s.trim(); });
             var cardTitle = (card.querySelector('.project-card__title') ? card.querySelector('.project-card__title').textContent : '').toLowerCase();
@@ -106,7 +127,10 @@ document.addEventListener('DOMContentLoaded', function () {
             var searchKeywords = (card.getAttribute('data-search-keywords') || '').toLowerCase();
 
             // Search filter
-            var matchesSearch = !queryLower || cardTitle.indexOf(queryLower) !== -1 || cardSummary.indexOf(queryLower) !== -1 || domainVal.indexOf(queryLower) !== -1 || searchKeywords.indexOf(queryLower) !== -1 || focusVals.some(function (f) { return f.indexOf(queryLower) !== -1; });
+            var matchesSearch = !queryLower || cardTitle.indexOf(queryLower) !== -1 || cardSummary.indexOf(queryLower) !== -1 || typeVal.indexOf(queryLower) !== -1 || domainVal.indexOf(queryLower) !== -1 || searchKeywords.indexOf(queryLower) !== -1 || focusVals.some(function (f) { return f.indexOf(queryLower) !== -1; });
+
+            // Type filter (OR logic within group)
+            var matchesType = selectedTypes.size === 0 || selectedTypes.has(typeVal);
 
             // Domain filter (OR logic within group)
             var matchesDomain = selectedDomains.size === 0 || selectedDomains.has(domainVal);
@@ -114,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Focus filter (OR logic within group)
             var matchesFocus = selectedFocuses.size === 0 || focusVals.some(function (f) { return selectedFocuses.has(f); });
 
-            return matchesSearch && matchesDomain && matchesFocus;
+            return matchesSearch && matchesType && matchesDomain && matchesFocus;
         });
 
         // Sorting
@@ -184,6 +208,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    typeFilterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var val = (btn.getAttribute('data-value') || '').toLowerCase();
+            if (val === 'all') {
+                selectedTypes.clear();
+            } else {
+                if (selectedTypes.has(val)) {
+                    selectedTypes.delete(val);
+                } else {
+                    selectedTypes.add(val);
+                }
+            }
+            applyFiltersAndSort();
+        });
+    });
+
     domainFilterButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
             var val = (btn.getAttribute('data-value') || '').toLowerCase();
@@ -218,6 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (clearFiltersBtn) {
         clearFiltersBtn.addEventListener('click', function () {
+            selectedTypes.clear();
             selectedDomains.clear();
             selectedFocuses.clear();
             searchQuery = '';
@@ -249,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Handle browser navigation back/forward
     window.addEventListener('popstate', function () {
+        selectedTypes.clear();
         selectedDomains.clear();
         selectedFocuses.clear();
         searchQuery = '';

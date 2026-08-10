@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Published Research Dedicated Stylesheet
+   Page: /pages/projects/digital-governance-sucs/
+   Focus: Editorial, academic, technical reading experience
+   ========================================================================== */
+
+.research-main {
+    padding-block: clamp(2rem, 3vw, 3.5rem) clamp(3rem, 4vw, 5rem);
+}
+
+.research-page-shell {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem); /* Minimum 20px safe padding */
+}
+
+/* --------------------------------------------------------------------------
+   Breadcrumb Navigation
+   -------------------------------------------------------------------------- */
+.research-breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.02em;
+}
+
+.research-breadcrumb a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.research-breadcrumb a:hover {
+    color: var(--color-accent-bright, var(--color-accent));
+}
+
+.research-breadcrumb span[aria-current="page"] {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Research Paper Header & Metadata
+   -------------------------------------------------------------------------- */
+.research-header {
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.research-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent-bright, var(--color-accent));
+    margin-bottom: 0.6rem;
+}
+
+.research-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 4vw, 2.65rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+
+.research-meta-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1rem 1.5rem;
+    padding: 1.25rem;
+    background: color-mix(in srgb, var(--color-bg-secondary) 85%, transparent);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+}
+
+.research-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+}
+
+.research-meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+}
+
+.research-meta-value {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    overflow-wrap: anywhere;
+    word-break: break-all;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Article Navigation (< 1101px)
+   -------------------------------------------------------------------------- */
+.research-top-nav {
+    position: sticky;
+    top: 4.25rem;
+    z-index: 70;
+    margin-inline: calc(clamp(1.25rem, 4vw, 3rem) * -1);
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+    background: var(--color-bg);
+    border-block: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+}
+
+.research-top-nav__scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding-block: 0.6rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.research-top-nav__scroll::-webkit-scrollbar {
+    height: 3px;
+}
+
+.research-top-nav__scroll::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+}
+
+.research-top-nav__link {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    padding: 0.3rem 0.65rem;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.research-top-nav__link:hover {
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+.research-top-nav__link.is-active,
+.research-top-nav__link[aria-current="true"] {
+    color: var(--color-accent-bright, var(--color-accent));
+    background: color-mix(in srgb, var(--color-accent-deep) 25%, transparent);
+    border-color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* Hide Mobile Top Nav on Desktop where section-navigator is visible */
+@media (min-width: 1101px) {
+    .research-top-nav {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Main Reading Measure Article Column
+   -------------------------------------------------------------------------- */
+.research-article {
+    width: 100%;
+    max-width: 62rem;
+    margin-inline: auto;
+}
+
+.research-section {
+    padding-block: clamp(2.25rem, 4vw, 3.5rem);
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 5.5rem;
+}
+
+.research-section-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 0.2rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+}
+
+/* --------------------------------------------------------------------------
+   Substantive Content Placeholders
+   -------------------------------------------------------------------------- */
+.research-placeholder-card {
+    padding: 1.5rem 1.75rem;
+    background: color-mix(in srgb, var(--color-bg-secondary) 50%, transparent);
+    border: 1px dashed color-mix(in srgb, var(--color-border) 80%, var(--color-accent) 20%);
+    border-radius: 2px;
+}
+
+.research-placeholder-text {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Citation & References Box
+   -------------------------------------------------------------------------- */
+.research-citation-box {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    padding: 1.25rem;
+    overflow-x: auto;
+}
+
+.research-citation-code {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--color-text);
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   External Links / Verification Grid
+   -------------------------------------------------------------------------- */
+.research-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+}
+
+.research-link-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+}
+
+.research-link-title {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+}
+
+.research-link-desc {
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.research-subtitle {
+    font-family: var(--font-sans);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-top: -0.75rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.45;
+}
+
+.research-venue-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent-bright, var(--color-accent));
+    background: color-mix(in srgb, var(--color-accent-deep) 30%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+    border-radius: 2px;
+    margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Diagrams & Flow Visuals
+   -------------------------------------------------------------------------- */
+.research-diagram {
+    margin-block: 1.5rem;
+    padding: 0.75rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    overflow-x: auto;
+}
+
+.research-diagram img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+}
+
+.research-diagram pre {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--color-accent-bright, var(--color-accent));
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   ISO/IEC 25010 Quality Grid & Score Callout
+   -------------------------------------------------------------------------- */
+.iso-evaluation-container {
+    display: grid;
+    grid-template-columns: 1fr 18rem;
+    gap: 1.5rem;
+    margin-block: 1.5rem;
+}
+
+@media (max-width: 860px) {
+    .iso-evaluation-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.iso-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 0.75rem;
+}
+
+.iso-card {
+    padding: 0.85rem 1rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+}
+
+.iso-card__num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    margin-bottom: 0.2rem;
+}
+
+.iso-card__title {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.iso-score-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem 1.25rem;
+    background: color-mix(in srgb, var(--color-accent-deep) 25%, var(--color-bg-secondary));
+    border: 1px solid var(--color-accent);
+    border-radius: 2px;
+    text-align: center;
+}
+
+.iso-score-val {
+    font-family: var(--font-mono);
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-accent-bright, #00e5c0);
+}
+
+.iso-score-rating {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-top: 0.4rem;
+    margin-bottom: 0.25rem;
+}
+
+.iso-score-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   Authors & Institutions
+   -------------------------------------------------------------------------- */
+.authors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.author-card {
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.author-card--self {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent-deep) 15%, var(--color-bg-secondary));
+    color: var(--color-accent-bright, var(--color-accent));
+}
+
+.institutions-list {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-left: 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   External Links / Verification Grid Buttons
+   -------------------------------------------------------------------------- */
+.research-ext-button:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright, var(--color-accent));
+    background: color-mix(in srgb, var(--color-accent-deep) 20%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout Touch-ups
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+    .research-meta-strip {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+}

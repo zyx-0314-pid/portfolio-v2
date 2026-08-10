@@ -141,11 +141,10 @@ body:has([data-case-study-shell]) {
         position: static;
         inline-size: 100%;
         max-inline-size: 100%;
-        min-block-size: 0;
-        aspect-ratio: var(--case-hero-ratio);
+        block-size: auto;
         border: 1px solid var(--color-border);
         background: var(--color-bg-secondary);
-        object-fit: cover;
+        object-fit: contain;
         overflow: visible;
     }
 
@@ -457,7 +456,9 @@ body:has([data-case-study-shell]) {
     }
 
     [data-case-study-mode="visual"] .project-header__hero {
-        max-block-size: min(68vh, 42rem);
+        block-size: auto;
+        max-block-size: none;
+        object-fit: contain;
     }
 
     [data-case-study-mode="visual"] .project-section {
@@ -555,7 +556,8 @@ body:has([data-case-study-shell]) {
         }
 
         [data-case-study-mode="visual"] .project-header__hero {
-            aspect-ratio: var(--case-visual-hero-ratio);
+            block-size: auto;
+            object-fit: contain;
         }
 
         [data-case-study-mode="visual"] .project-section__split {
