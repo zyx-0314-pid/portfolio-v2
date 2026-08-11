@@ -12,14 +12,6 @@ html[data-theme="light"] {
     --home-line: color-mix(in srgb, var(--color-border) 82%, transparent);
 }
 
-.home-main {
-    overflow: clip;
-}
-
-body {
-    overflow-x: hidden;
-}
-
 .home-zone {
     position: relative;
     padding-block: clamp(6rem, 10vw, 8.5rem);

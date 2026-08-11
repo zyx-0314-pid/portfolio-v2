@@ -482,7 +482,17 @@
                 if (targetId === id) {
                     link.classList.add('is-active');
                     link.setAttribute('aria-current', 'true');
-                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    const navBounds = stickyNav.getBoundingClientRect();
+                    const linkBounds = link.getBoundingClientRect();
+                    const centeredScrollPosition = stickyNav.scrollLeft
+                        + linkBounds.left
+                        - navBounds.left
+                        - ((navBounds.width - linkBounds.width) / 2);
+
+                    stickyNav.scrollTo({
+                        left: centeredScrollPosition,
+                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+                    });
                     return;
                 }
 
