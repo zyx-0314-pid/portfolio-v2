@@ -7,7 +7,7 @@
 .teaching-reproducibility-article .device-workflow strong { color: var(--color-accent-bright); font-family: var(--font-mono); text-transform: uppercase; }
 .teaching-reproducibility-article .device-workflow span { padding: .55rem .7rem; border: 1px solid var(--color-border); font-family: var(--font-mono); font-size: .75rem; }
 .teaching-reproducibility-article .migration-map, .teaching-reproducibility-article .configuration-boundary, .teaching-reproducibility-article .editorial-matrix, .teaching-reproducibility-article .dual-database__stores { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; max-width: var(--page-width); margin: 2.5rem 0; background: var(--color-border); border: 1px solid var(--color-border); }
-.teaching-reproducibility-article .migration-map > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .65rem; padding: clamp(1.25rem, 3vw, 2.5rem); background: var(--color-bg); text-align: center; }
+.teaching-reproducibility-article .migration-map > div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .65rem; padding: clamp(1.25rem, 3vw, 2.5rem); background: var(--color-bg); color: var(--color-text); text-align: center; }
 .teaching-reproducibility-article .migration-map span { padding: .6rem .75rem; border: 1px solid var(--color-border); font-family: var(--font-mono); font-size: .74rem; }
 .teaching-reproducibility-article .configuration-boundary > div, .teaching-reproducibility-article .editorial-matrix > div { padding: clamp(1.25rem, 3vw, 2.25rem); background: var(--color-bg); color: var(--color-text); }
 .teaching-reproducibility-article .configuration-boundary h3, .teaching-reproducibility-article .editorial-matrix h3 { margin: 0 0 1rem; font-size: 1.25rem; font-weight: 500; }
@@ -18,7 +18,7 @@
 .teaching-reproducibility-article .dual-database > div:not(.dual-database__stores) { max-width: 15rem; margin-inline: auto; padding: .7rem; border: 1px solid var(--color-border); }
 .teaching-reproducibility-article .dual-database > b { display: block; margin: .7rem 0; }
 .teaching-reproducibility-article .dual-database__stores { align-items: center; margin: 0; }
-.teaching-reproducibility-article .dual-database__stores span { padding: 1rem; background: var(--color-bg); }
+.teaching-reproducibility-article .dual-database__stores span { padding: 1rem; background: var(--color-bg); color: var(--color-text); }
 .teaching-reproducibility-article .dual-database__stores b { position: absolute; justify-self: center; color: var(--color-accent-bright); }
 .teaching-reproducibility-article .dual-database small { color: var(--color-text-muted); }
 .teaching-reproducibility-article .overhead-progression { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: var(--page-width); margin: 2.5rem 0; padding: 0; border-top: 1px solid var(--color-border); border-left: 1px solid var(--color-border); list-style: none; }
@@ -41,5 +41,5 @@
     .teaching-reproducibility-article .blog-article-hero__facts, .teaching-reproducibility-article .migration-map, .teaching-reproducibility-article .configuration-boundary, .teaching-reproducibility-article .editorial-matrix, .teaching-reproducibility-article .dual-database__stores, .teaching-reproducibility-article .overhead-progression, .teaching-reproducibility-article .project-discipline { grid-template-columns: 1fr; }
     .teaching-reproducibility-article .repro-pipeline, .teaching-reproducibility-article .database-progression { align-items: stretch; flex-direction: column; }
     .teaching-reproducibility-article .repro-pipeline b, .teaching-reproducibility-article .database-progression b { text-align: center; transform: rotate(90deg); }
-    .teaching-reproducibility-article .dual-database__stores b { position: static; padding: .5rem; background: var(--color-bg); }
+    .teaching-reproducibility-article .dual-database__stores b { position: static; padding: .5rem; background: var(--color-bg); color: var(--color-text); }
 }

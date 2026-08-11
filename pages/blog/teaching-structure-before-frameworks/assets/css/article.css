@@ -3,7 +3,7 @@
 .structure-article .structure-file-tree pre { margin: 0; overflow-x: auto; color: var(--color-text); font-family: var(--font-mono); font-size: clamp(.72rem, 1.4vw, .9rem); line-height: 1.65; white-space: pre; }
 .structure-article .structure-file-tree figcaption { text-align: left; }
 .structure-article .structure-responsibility { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; max-width: var(--page-width); margin: 2.5rem 0; background: var(--color-border); border: 1px solid var(--color-border); }
-.structure-article .structure-responsibility div { min-width: 0; padding: 1.25rem; background: var(--color-bg); }
+.structure-article .structure-responsibility div { min-width: 0; padding: 1.25rem; background: var(--color-bg); color: var(--color-text); }
 .structure-article .structure-responsibility strong { display: block; margin-bottom: .7rem; font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; }
 .structure-article .structure-responsibility span { color: var(--color-text-muted); line-height: 1.55; }
 .structure-article .structure-ownership { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: var(--page-width); margin: 2.5rem 0; border-block: 1px solid var(--color-border); }
@@ -12,7 +12,7 @@
 .structure-article .structure-ownership h3 { margin: 0 0 1rem; font-size: 1.3rem; font-weight: 500; }
 .structure-article .structure-ownership ul { margin: 0; padding-left: 1.15rem; color: var(--color-text-muted); }
 .structure-article .structure-before-after { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; max-width: var(--page-width); margin: 2.5rem 0; background: var(--color-border); border: 1px solid var(--color-border); }
-.structure-article .structure-before-after > div { padding: clamp(1.25rem, 3vw, 2.5rem); background: var(--color-bg); }
+.structure-article .structure-before-after > div { padding: clamp(1.25rem, 3vw, 2.5rem); background: var(--color-bg); color: var(--color-text); }
 .structure-article .structure-before-after h3 { margin: 0 0 1.25rem; font-family: var(--font-mono); font-size: .8rem; text-transform: uppercase; }
 .structure-article .structure-before-after pre { margin: 0; overflow-x: auto; font-family: var(--font-mono); font-size: .76rem; line-height: 1.6; }
 @media (max-width: 1040px) { .structure-article .blog-article-hero__facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .structure-article .structure-responsibility { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
