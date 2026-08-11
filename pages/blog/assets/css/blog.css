@@ -7,8 +7,7 @@
 }
 
 .notes-scope,
-.notes-policy,
-.notes-archive {
+.notes-gallery {
     padding-block: clamp(4.5rem, 9vw, 8rem);
 }
 
@@ -17,20 +16,13 @@
     padding-bottom: 0;
 }
 
-.notes-policy__layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
-    gap: clamp(3rem, 8vw, 8rem);
-    align-items: end;
-}
-
 .notes-hero__eyebrow,
 .notes-kicker,
 .notes-section-number,
 .notes-scope-list__index,
 .notes-scope-list__label,
-.notes-archive__status,
-.notes-policy__facts dt {
+.notes-card__meta,
+.notes-card__status {
     margin: 0;
     color: var(--color-accent-bright);
     font-family: var(--font-mono);
@@ -68,16 +60,11 @@
     line-height: 1.45;
 }
 
-.notes-policy__copy > p,
-.notes-archive__empty > p:last-child {
+.notes-gallery__intro p,
+.notes-card p {
     margin: 0;
     color: var(--color-text-muted);
-    font-size: clamp(1rem, 1.5vw, 1.16rem);
-    line-height: 1.75;
-}
-
-.notes-policy__copy > p + p {
-    margin-top: 1.25rem;
+    line-height: 1.7;
 }
 
 .notes-scope {
@@ -93,7 +80,7 @@
 }
 
 .notes-section-heading h2,
-.notes-policy h2 {
+.notes-gallery h2 {
     margin: 0.65rem 0 0;
     font-size: clamp(2.25rem, 5vw, 4.75rem);
     font-weight: 500;
@@ -136,57 +123,83 @@
     text-align: right;
 }
 
-.notes-policy {
-    border-block: 1px solid var(--color-border);
-}
-
-.notes-policy__layout {
-    align-items: start;
-}
-
-.notes-policy__facts {
-    margin: 2.5rem 0 0;
-    border-top: 1px solid var(--color-border);
-}
-
-.notes-policy__facts div {
-    display: grid;
-    grid-template-columns: 8.5rem minmax(0, 1fr);
-    gap: 1.25rem;
-    padding-block: 1rem;
-    border-bottom: 1px solid var(--color-border);
-}
-
-.notes-policy__facts dd {
-    margin: 0;
-    line-height: 1.5;
-}
-
-.notes-archive {
+.notes-gallery {
     background: var(--color-bg-secondary);
 }
 
-.notes-archive__empty {
-    max-width: 52rem;
+.notes-gallery__intro {
+    max-width: 48rem;
     margin-left: clamp(4rem, 11vw, 10rem);
-    padding: clamp(1.5rem, 4vw, 3rem) 0;
-    border-block: 1px solid var(--color-border);
+    margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-.notes-archive__status {
-    margin-bottom: 0.75rem;
+.notes-gallery__intro p {
+    font-size: clamp(1rem, 1.5vw, 1.16rem);
+}
+
+.notes-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+}
+
+.notes-card {
+    display: flex;
+    min-height: 22rem;
+    flex-direction: column;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--color-bg-secondary);
+}
+
+.notes-card__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.notes-card h3 {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.notes-card h3 a,
+.notes-card__status a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.notes-card--published h3 a:hover,
+.notes-card--published h3 a:focus-visible,
+.notes-card--published .notes-card__status a:hover,
+.notes-card--published .notes-card__status a:focus-visible {
+    color: var(--color-accent-bright);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+}
+
+.notes-card__status {
+    margin-top: auto;
+    padding-top: 2rem;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 1040px) {
+    .notes-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 760px) {
     .notes-scope,
-    .notes-policy,
-    .notes-archive {
+    .notes-gallery {
         padding-block: 4rem;
-    }
-
-    .notes-policy__layout {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
     }
 
     .notes-scope-list li {
@@ -198,12 +211,15 @@
         text-align: left;
     }
 
-    .notes-policy__facts div {
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
+    .notes-gallery__intro {
+        margin-left: 0;
     }
 
-    .notes-archive__empty {
-        margin-left: 0;
+    .notes-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .notes-card {
+        min-height: 17rem;
     }
 }
