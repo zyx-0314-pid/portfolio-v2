@@ -1476,6 +1476,11 @@ html[data-theme="light"] .exp-qv-backdrop {
     padding-top: clamp(1.25rem, 3vw, 2rem);
 }
 
+.experience-page .sticky-nav-wrapper {
+    top: 4.25rem;
+    z-index: 95;
+}
+
 .experience-page > .exp-section {
     grid-column: 1 / -1;
 }

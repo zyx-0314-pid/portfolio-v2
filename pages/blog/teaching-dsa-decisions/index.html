@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Teaching Data Structures as Decisions, Not Definitions | Ian Cedric Ramirez</title>
+    <meta name="description" content="A teaching retrospective on using practical systems, adversarial testing, and oral defense to teach Data Structures and Algorithms as engineering decision-making rather than memorization.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Teaching Data Structures as Decisions, Not Definitions">
+    <meta property="og:description" content="A teaching retrospective on practical systems, adversarial testing, and oral defense in Data Structures and Algorithms.">
+    <meta property="article:published_time" content="2026-08-11">
+    <meta property="article:author" content="Ian Cedric Ramirez">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Teaching Data Structures as Decisions, Not Definitions">
+    <meta name="twitter:description" content="How practical systems, adversarial testing, and oral defense moved DSA beyond memorized definitions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/blog-article.css">
+</head>
+<body class="blog-article-page">
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a><a href="../../experience/">Experience</a><a href="../../about/">About</a><a href="../../skills/">Skills</a><a href="../../credentials/">Credentials</a><a href="../" aria-current="page">Notes</a><a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme"><span class="theme-toggle__label" data-theme-toggle-label>Light</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-article">
+        <div class="page-shell"><nav class="breadcrumb blog-article__breadcrumb" aria-label="Breadcrumb"><a href="../../../">Home</a> / <a href="../">Notes</a> / <span aria-current="page">Teaching Data Structures as Decisions, Not Definitions</span></nav></div>
+        <article aria-labelledby="article-title">
+            <header class="blog-article-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
+                <div class="page-shell">
+                    <p class="blog-article-eyebrow">Teaching Retrospective · Data Structures &amp; Algorithms</p>
+                    <h1 id="article-title">Teaching Data Structures as Decisions, Not Definitions</h1>
+                    <p class="blog-article-hero__lead">How I used real system problems, adversarial testing, and oral defense to push students beyond memorizing data structures and toward choosing them for a reason.</p>
+                    <dl class="blog-article-hero__facts">
+                        <div><dt>Context</dt><dd>FEU Institute of Technology</dd></div>
+                        <div><dt>Subject</dt><dd>Data Structures &amp; Algorithms</dd></div>
+                        <div><dt>Teaching Method</dt><dd>Build · Break · Defend</dd></div>
+                        <div><dt>Source</dt><dd><a href="https://github.com/nyebe/DSA-Employee-Management-System" target="_blank" rel="noopener noreferrer">DSA-Employee-Management-System <span aria-hidden="true">↗</span></a></dd></div>
+                    </dl>
+                    <p class="site-footer__meta"><time datetime="2026-08-11">August 11, 2026</time></p>
+                </div>
+            </header>
+
+            <div class="blog-article-layout page-shell"><div class="blog-article-content">
+                <section class="blog-article-section blog-article-section--plain" id="why" aria-labelledby="why-title" data-section-navigator-label="Teaching rationale">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">01 / Why I Taught It This Way</p><h2 id="why-title">A Working System Before a Definition</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><div><p>I wanted students to see why data structures mattered inside systems they could imagine, not only through isolated exercises. Conventional DSA learning could become theoretical and memorization-heavy: students could identify a structure but still hesitate when asked when to use it.</p><p>Decision-making was the missing step. Arrays became the answer to almost every collection, and at the worst extreme, a separate variable held every value. Changing collections of data were difficult to model because the structure had been chosen before the behavior was understood.</p></div><div><p>The C++ Employee Management System sample connected OOP, linked structures, nested data, applicant-to-employee data movement, CRUD, and separation of responsibilities inside one working example.</p><p>The sample was not the lesson itself. It was supporting evidence that Data Structures and Algorithms could participate in an actual system.</p></div></div>
+                    <blockquote>Knowing the name of a data structure is not the same as knowing when to use it.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="questions" aria-labelledby="questions-title" data-section-navigator-label="Decision approach">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">02 / Before They Could Code</p><h2 id="questions-title">Ask About the Data First</h2></header>
+                    <p class="blog-article-section__standfirst">Before choosing a data structure, understand what the data is expected to do.</p>
+                    <ul class="editorial-matrix" aria-label="Questions used to reduce blind data-structure choices">
+                        <li>What are we actually dealing with?</li><li>Is this data required or optional?</li><li>Will there be more than one?</li><li>Is the amount fixed, bounded, or able to grow?</li><li>Can something leave from the middle?</li><li>Does order matter?</li><li>Should it behave like FIFO?</li><li>Should it behave like FILO?</li><li>Should it remain sorted?</li><li>Could it contain a large number of values?</li><li>Do we already know what we are searching for?</li><li>Can the values be sorted before insertion?</li><li>Are the keys numeric, character-based, or alphanumeric?</li><li>How frequently will data be inserted?</li><li>How frequently will it be removed?</li><li>How frequently will it be searched?</li>
+                    </ul>
+                    <p>These questions did not form a rigid algorithm that always produced one correct structure. They reduced blind choices and made assumptions visible.</p>
+                    <div class="decision-chain" aria-label="Decision sequence"><span>System constraints</span><b>→</b><span>Data behavior</span><b>→</b><span>Candidate structures</span><b>→</b><span>Tradeoffs</span><b>→</b><span>Decision</span></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="domains" aria-labelledby="domains-title" data-section-navigator-label="Student systems">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">03 / Their Project Was Their Problem</p><h2 id="domains-title">One Topic, One System, Their Decisions</h2></header>
+                    <div class="blog-article-prose"><p>Students did not modify the Employee Management System. Each student selected a domain and designed a solution around that system's own data and behavior. The sample could demonstrate a way of thinking, but it could not decide their constraints for them.</p></div>
+                    <div class="editorial-collection" aria-label="Example student project domains"><div><h3>RORO ticketing</h3><p>Capacity, passenger records, schedules, and movement.</p></div><div><h3>Bus ticketing</h3><p>Routes, seats, queues, and cancellations.</p></div><div><h3>Movie ticketing</h3><p>Showtimes, reservations, seats, and availability.</p></div><div><h3>Hospital queue</h3><p>Arrival, priority, service order, and discharge.</p></div><div><h3>Store</h3><p>Inventory, transactions, lookup, and removal.</p></div><div><h3>Delivery service</h3><p>Packages, assignments, status, and sequence.</p></div><div><h3>Mail service</h3><p>Intake, routing, recipients, and delivery state.</p></div><div><h3>Other systems</h3><p>Any suitable domain with defensible data behavior.</p></div></div>
+                    <blockquote>The assignment changed the question from “What data structure did Sir use?” to “What does my system need?”</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="tradeoffs" aria-labelledby="tradeoffs-title" data-section-navigator-label="Tradeoffs">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">04 / There Was Not Always One Correct Answer</p><h2 id="tradeoffs-title">Defend the Tradeoff</h2></header>
+                    <p class="blog-article-section__standfirst">Different developers could choose different structures and both solutions could remain acceptable when the reasoning survived examination.</p>
+                    <div class="editorial-comparison"><div><h3>Known ferry capacity</h3><p>If the maximum passengers or items were already known, selecting a dynamically expanding linked structure automatically was questionable. A fixed-size array or array/object model could be a credible candidate.</p></div><div><h3>Questions the choice triggered</h3><ul><li>Why a linked list?</li><li>Is dynamic growth required?</li><li>Which operation benefits?</li><li>What caveat did the choice introduce?</li><li>What alternative was considered?</li></ul></div></div>
+                    <p>I accepted caveats when the student understood the restriction and had a plan for it. Software engineering often permits several workable solutions; the goal was not to guess which one I preferred, but to present one that survived questioning.</p>
+                    <blockquote>A limitation can be acceptable. An unexplained limitation is not.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="rubric" aria-labelledby="rubric-title" data-section-navigator-label="Assessment evaluation">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">05 / The Rubric</p><h2 id="rubric-title">Working Code Was Only the First Hurdle</h2></header>
+                    <div class="rubric-table" role="table" aria-label="Data Structures and Algorithms assessment rubric">
+                        <div class="rubric-row" role="row"><div class="rubric-row__heading" role="rowheader"><h3>Functional CRUD</h3><p class="rubric-row__score">20 points</p></div><div class="rubric-row__details" role="cell"><p>The functionality students promised had to work. CRUD was the first hurdle; a clever DSA choice did not compensate for broken required behavior.</p></div></div>
+                        <div class="rubric-row" role="row"><div class="rubric-row__heading" role="rowheader"><h3>Data Structure + Algorithm</h3><p class="rubric-row__score">Maximum 20 points</p></div><div class="rubric-row__details" role="cell"><p>Required at least one Data Structure and one Algorithm.</p><ul><li>30% applied or implemented</li><li>70% defended through reasoning</li></ul><p>Additional structures or algorithms could contribute bonus scoring according to the grading approach. The important distinction was that defense carried more weight than merely containing a structure in code.</p></div></div>
+                        <div class="rubric-row" role="row"><div class="rubric-row__heading" role="rowheader"><h3>Code Base</h3><p class="rubric-row__score">30 points · Start at 30</p></div><div class="rubric-row__details" role="cell"><p>Every identified code-quality mistake deducted one point. It was deliberately a number game: small and large mistakes counted as individual deductions.</p><ul><li>Poor naming</li><li>DRY violations</li><li>GOTO usage</li><li>Misunderstanding intended behavior</li><li>Weak structure</li><li>Code the student could not explain</li><li>AI-generated implementation without understanding</li></ul></div></div>
+                        <div class="rubric-row" role="row"><div class="rubric-row__heading" role="rowheader"><h3>Error Handling / Breaking Tests</h3><p class="rubric-row__score">20 points</p></div><div class="rubric-row__details" role="cell"><p>Four errors or failure situations had to be caught gracefully. Each was worth five points. A situation could be introduced by the student or by me during evaluation.</p></div></div>
+                        <div class="rubric-row" role="row"><div class="rubric-row__heading" role="rowheader"><h3>Bonus</h3><p class="rubric-row__score">Up to 10 points</p></div><div class="rubric-row__details" role="cell"><p>Bonus scoring remained capped at ten points; I am not assigning a more detailed formula here than the grading approach supports.</p></div></div>
+                    </div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--recovery" id="break-tests" aria-labelledby="break-tests-title" data-section-navigator-label="Failure handling">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">06 / I Tried to Break Their Systems</p><h2 id="break-tests-title">If It Only Works on the Happy Path, It Does Not Work Yet</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>System-breaking was repeated classroom practice, not a final surprise. I introduced situational problems based on the system each student had built, and they were expected to handle four failure situations gracefully.</p><p>Invalid state, unexpected input, impossible operations, missing data, unusual operation order, and boundary conditions describe the kinds of failure categories involved. They were not six fixed universal tests.</p></div>
+                    <div class="vertical-flow" aria-label="Build and defense cycle"><span>Build</span><b>↓</b><span>Test</span><b>↓</b><span>Break</span><b>↓</b><span>Handle</span><b>↓</b><span>Defend</span><b>↓</b><span>Revise</span></div>
+                    <p class="blog-article-section__closing">Repeated attempts to break the program trained students to anticipate failure before submission.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="distribution" aria-labelledby="distribution-title" data-section-navigator-label="Data lifecycle">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">07 / A Student Challenged the Obvious Choice</p><h2 id="distribution-title">The Answer Wasn't the Linked List. The Reasoning Was.</h2></header>
+                    <div class="blog-article-prose"><p>A student used a linked structure in a distribution system even though the amount to distribute was initially known. At first, a fixed-size collection appeared possible, so the linked structure needed a reason beyond familiarity.</p><p>Her reasoning focused on the lifecycle of the records. Claimers would come and go, claimed entries would leave the active collection, the active set would progressively become smaller, and later searches would operate against the remaining active records. This did not make a linked list universally faster than an array, nor prove it was objectively the fastest design. The value was in modeling how the active dataset changed over time and defending the structure around that lifecycle.</p></div>
+                    <div class="decision-chain" aria-label="Distribution data lifecycle"><span>Known initial set</span><b>→</b><span>Claim</span><b>→</b><span>Remove active record</span><b>→</b><span>Smaller active set</span><b>→</b><span>Search remaining records</span></div>
+                    <p>The design also combined DSA with OOP. Characters or entities shared a common base structure while allowing individual data to expand where needed. She was no longer asking which structure had been memorized for the problem. She was asking what happened to the data while the system was running.</p>
+                    <blockquote>The answer was less important than the model she built in her head before coding.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="ai-defense" aria-labelledby="ai-defense-title" data-section-navigator-label="Reasoning ownership">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">08 / AI Made Defense More Important</p><h2 id="ai-defense-title">If You Cannot Defend It, You Do Not Own It</h2></header>
+                    <div class="editorial-comparison"><div><h3>Explanation after the code</h3><p>Some students relied heavily on AI-generated implementation and could ask AI to explain it afterward. At the surface, they could repeat that explanation.</p></div><div><h3>Reasoning under changed conditions</h3><p>Deeper situational questions exposed whether they understood why the structure was chosen, which alternative existed, what changed under new constraints, which failure appeared, and what tradeoff they had accepted.</p></div></div>
+                    <p>This is not an argument against AI use. AI made oral defense and reasoning checks more important. The issue was depending on code that the student could not reason about.</p>
+                    <blockquote>An explanation generated after the code is not the same as a decision made before the code.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--outcomes" id="outcomes" aria-labelledby="outcomes-title" data-section-navigator-label="Observed outcomes">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">09 / What Changed</p><h2 id="outcomes-title">They Started Asking Better Questions Than Mine</h2></header>
+                    <p class="observed-label">Observed outcomes, not measured KPIs</p>
+                    <ul class="outcome-list"><li>Students asked better questions before coding.</li><li>They considered situations beyond the questions I provided.</li><li>They showed stronger awareness of constraints.</li><li>They were more willing to compare multiple solutions.</li><li>They reasoned more carefully about how data changes.</li><li>They paid more attention to failure cases.</li><li>They became more able to defend compromises.</li><li>They understood that acceptable caveats still required a plan.</li></ul>
+                    <div class="blog-article-prose"><p>When I encountered some of these students again in later Database subjects, I observed stronger reasoning in how they approached data and systems. That is a personal teaching observation, not a measured longitudinal result or a claim that this method caused the later behavior.</p><p>Some of the strongest interactions happened when students challenged the expected solution and the discussion approached practical limits of the language or system. That was acceptable. The goal was not obedience to my answer; it was defensible engineering reasoning.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--closing" id="closing" aria-labelledby="closing-title" data-section-navigator-label="Closing">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">10 / Closing</p><h2 id="closing-title">DSA Is Application</h2></header>
+                    <p class="blog-article-section__standfirst">What I value most is not whether students memorized every structure or algorithm. It is the quality of their decisions when building systems and managing data.</p>
+                    <div class="decision-chain" aria-label="Data Structures and Algorithms decision chain"><span>Data structures</span><b>→</b><span>Constraints</span><b>→</b><span>System behavior</span><b>→</b><span>Algorithms</span><b>→</b><span>Tradeoffs</span><b>→</b><span>Decisions</span></div>
+                    <blockquote>The moment DSA becomes useful is when the student stops asking “What structure am I supposed to use?” and starts asking “What does this data need to do?”</blockquote>
+                    <div class="source-reference"><p class="blog-article-section__number">Supporting instructional source</p><h3>DSA-Employee-Management-System</h3><p>A C++ instructional sample used to demonstrate how Data Structures, Algorithms, OOP, CRUD, and structured code can participate in a working system. It is supporting evidence for this teaching retrospective, not production software or the subject of a project case study.</p><a href="https://github.com/nyebe/DSA-Employee-Management-System" target="_blank" rel="noopener noreferrer">Explore the instructional sample <span aria-hidden="true">↗</span></a></div>
+                </section>
+            </div></div>
+        </article>
+    </main>
+
+    <footer class="site-footer"><div class="page-shell site-footer__inner"><div><p class="site-brand">Ian Cedric Ramirez</p><p class="site-footer__meta">Full-Stack Engineer</p><p class="site-footer__meta">Manila, Philippines · Open to Remote</p></div><div><div class="site-footer__links"><a href="https://github.com/nywebe" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:ramirezian037@gmail.com">Email</a></div><p class="site-footer__meta">© Ian Cedric Ramirez</p></div></div></footer>
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>

@@ -121,8 +121,31 @@
                     <p>The gallery is ready to hold individual blog entries as cards instead of a single-column list. Each future entry should include a clear topic, category, date, short summary, and link to its own page.</p>
                 </div>
 
+                <div class="notes-gallery-tools" aria-label="Filter and sort Notes articles">
+                    <label class="notes-gallery-tools__search">
+                        <span>Search</span>
+                        <input type="search" placeholder="Search articles" autocomplete="off" data-notes-search>
+                    </label>
+                    <label>
+                        <span>Type</span>
+                        <select data-notes-filter>
+                            <option value="all">All types</option>
+                            <option value="teaching-retrospective">Teaching retrospectives</option>
+                            <option value="reflection">Reflections</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Sort</span>
+                        <select data-notes-sort>
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                            <option value="title">Title A-Z</option>
+                        </select>
+                    </label>
+                </div>
+
                 <div class="notes-card-grid" role="list" aria-label="Prepared blog card categories">
-                    <article class="notes-card notes-card--published" role="listitem">
+                    <article class="notes-card notes-card--published" role="listitem" data-notes-card data-type="teaching-retrospective" data-title="Teaching Git Before It Was in the Syllabus" data-date="">
                         <div class="notes-card__meta">
                             <span>Teaching retrospective</span>
                             <span>Published</span>
@@ -132,26 +155,27 @@
                         <p class="notes-card__status"><a href="teaching-git-github/">Read the retrospective <span aria-hidden="true">&rarr;</span></a></p>
                     </article>
 
-                    <article class="notes-card" role="listitem">
+                    <article class="notes-card notes-card--published" role="listitem" data-notes-card data-type="teaching-retrospective" data-title="Teaching Data Structures as Decisions, Not Definitions" data-date="2026-08-11">
                         <div class="notes-card__meta">
-                            <span>Build note</span>
-                            <span>Prepared</span>
+                            <span>Teaching retrospective</span>
+                            <time datetime="2026-08-11">Aug 11, 2026</time>
                         </div>
-                        <h3>Repository documentation</h3>
-                        <p>Notes that sit beside project pages and explain setup choices, architecture decisions, implementation constraints, or maintenance context.</p>
-                        <p class="notes-card__status">First entry pending</p>
+                        <h3><a href="teaching-dsa-decisions/">Teaching Data Structures as Decisions, Not Definitions</a></h3>
+                        <p>Why I graded Data Structures and Algorithms through working systems, defended tradeoffs, code quality, and deliberate failure cases instead of memorized definitions.</p>
+                        <p class="notes-card__status"><a href="teaching-dsa-decisions/">Read the retrospective <span aria-hidden="true">&rarr;</span></a></p>
                     </article>
 
-                    <article class="notes-card" role="listitem">
+                    <article class="notes-card" role="listitem" data-notes-card data-type="reflection" data-title="Work and Event Retrospectives" data-date="">
                         <div class="notes-card__meta">
                             <span>Reflection</span>
                             <span>Prepared</span>
                         </div>
                         <h3>Work and event retrospectives</h3>
                         <p>Personal reflections on technical work, talks, events, or professional lessons after there is enough distance to write clearly.</p>
-                        <p class="notes-card__status">First entry pending</p>
+                        <p class="notes-card__status"><span aria-disabled="true">Read the reflection</span> · Pending</p>
                     </article>
                 </div>
+                <p class="notes-gallery__empty" role="status" hidden data-notes-empty>No Notes articles match the current search and filter.</p>
             </div>
         </section>
     </main>
@@ -175,5 +199,6 @@
     </footer>
 
     <script src="../../shared/js/main.js"></script>
+    <script src="assets/js/blog.js"></script>
 </body>
 </html>
