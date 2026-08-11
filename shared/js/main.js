@@ -145,11 +145,12 @@
 
     const initializeActiveNavigation = () => {
         const currentPath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-        const sectionMatch = currentPath.match(/\/pages\/(projects|experience|about|skills|credentials|contact)\//);
+        const sectionMatch = currentPath.match(/\/pages\/(projects|experience|about|skills|credentials|blog|contact)\//);
         const activeSection = sectionMatch ? sectionMatch[1] : null;
 
         document.querySelectorAll('.site-nav__menu a').forEach((link) => {
-            const linkSection = link.textContent.trim().toLowerCase();
+            const linkLabel = link.textContent.trim().toLowerCase();
+            const linkSection = linkLabel === 'notes' ? 'blog' : linkLabel;
 
             if (activeSection && linkSection === activeSection) {
                 link.setAttribute('aria-current', 'page');
@@ -160,7 +161,8 @@
     };
 
     const initializeSectionNavigator = () => {
-        const sections = Array.from(document.querySelectorAll('main > header, main > article > header, main section'));
+        const sections = Array.from(document.querySelectorAll('main > header, main > article > header, main section'))
+            .filter((section) => section.dataset.sectionNavigator !== 'subsection');
         if (!sections.length) {
             return;
         }
@@ -175,6 +177,34 @@
         const getSectionIcon = (label) => {
             const normalizedLabel = label.toLowerCase();
             const iconRules = [
+                [/enterprise systems for digital governance/, 'fa-building-columns'],
+                [/how i approach engineering work/, 'fa-gears'],
+                [/how i approach systems/, 'fa-compass-drafting'],
+                [/evidence through technical work/, 'fa-folder-tree'],
+                [/validated supporting evidence/, 'fa-clipboard-check'],
+                [/working perspective/, 'fa-user'],
+                [/^notes$/, 'fa-note-sticky'],
+                [/three kinds of record/, 'fa-list-ol'],
+                [/events wait six months/, 'fa-calendar-day'],
+                [/published notes/, 'fa-book-open'],
+                [/order lifecycle management/, 'fa-boxes-stacked'],
+                [/independent payment tracking/, 'fa-money-bill-transfer'],
+                [/delivery route & driver assignment/, 'fa-truck'],
+                [/spatial frame division & path selection/, 'fa-compass'],
+                [/multimodal haptic & audio feedback/, 'fa-wave-square'],
+                [/scan-initiated workflows/, 'fa-barcode'],
+                [/item lifecycle state machine/, 'fa-right-left'],
+                [/append-oriented movement history log/, 'fa-clock-rotate-left'],
+                [/full-stack system architecture/, 'fa-cubes-stacked'],
+                [/retrospective & industry immersion experience/, 'fa-chalkboard-user'],
+                [/atomic cross-system scheduling/, 'fa-calendar-plus'],
+                [/feature controls & error handling/, 'fa-toggle-on'],
+                [/summary of contributions/, 'fa-list-check'],
+                [/skills & evidence/, 'fa-layer-group'],
+                [/existing platform context/, 'fa-building'],
+                [/messaging subsystem - direct & group chat/, 'fa-comments'],
+                [/feed services & media uploads/, 'fa-rss'],
+                [/offline video caching/, 'fa-cloud-arrow-down'],
                 [/home|full-stack engineering|introduction/, 'fa-house'],
                 [/\b(fitness|run|swim|hike|train)\b/, 'fa-person-running'],
                 [/travel|exploration/, 'fa-map-location-dot'],
@@ -269,7 +299,7 @@
                 section.id = `page-section-${index + 1}`;
             }
 
-            const sectionLabel = section.getAttribute('aria-label');
+            const sectionLabel = section.dataset.sectionNavigatorLabel || section.getAttribute('aria-label');
             const labelledBy = section.getAttribute('aria-labelledby');
             const labelledHeading = labelledBy ? document.getElementById(labelledBy) : null;
             const visibleLabel = section.querySelector('.section__eyebrow, h1, h2');
@@ -482,7 +512,17 @@
                 if (targetId === id) {
                     link.classList.add('is-active');
                     link.setAttribute('aria-current', 'true');
-                    link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    const navBounds = stickyNav.getBoundingClientRect();
+                    const linkBounds = link.getBoundingClientRect();
+                    const centeredScrollPosition = stickyNav.scrollLeft
+                        + linkBounds.left
+                        - navBounds.left
+                        - ((navBounds.width - linkBounds.width) / 2);
+
+                    stickyNav.scrollTo({
+                        left: centeredScrollPosition,
+                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+                    });
                     return;
                 }
 
@@ -528,6 +568,78 @@
         privacyLink.textContent = 'Privacy';
 
         footerLinks.append(privacyLink);
+    };
+
+    const initializePageLoadingState = () => {
+        const INTERNAL_LOADING_MINIMUM_MILLISECONDS = 850;
+        const isLandingPage = Boolean(document.querySelector('.home-main'));
+        if (isLandingPage) {
+            return;
+        }
+
+        const loadingStartedAt = window.performance.now();
+        const loadingState = document.createElement('div');
+        loadingState.className = 'page-loading-state page-loading-state--internal';
+        loadingState.setAttribute('role', 'status');
+        loadingState.setAttribute('aria-live', 'polite');
+        loadingState.innerHTML = `
+            <div class="page-loading-state__frame">
+                <span class="page-loading-state__index" aria-hidden="true">↗</span>
+                <p class="page-loading-state__label" data-loading-label>Loading page</p>
+                <div class="page-loading-state__track" aria-hidden="true"><span></span></div>
+            </div>
+        `;
+
+        const hideLoadingState = () => {
+            const elapsedTime = window.performance.now() - loadingStartedAt;
+            const remainingTime = Math.max(INTERNAL_LOADING_MINIMUM_MILLISECONDS - elapsedTime, 0);
+
+            window.setTimeout(() => {
+                loadingState.dataset.visible = 'false';
+            }, remainingTime);
+        };
+
+        const restorePageLoadingState = () => {
+            loadingState.dataset.visible = 'false';
+        };
+
+        document.body.append(loadingState);
+        loadingState.dataset.visible = 'true';
+
+        if (document.readyState === 'complete') {
+            hideLoadingState();
+        } else {
+            window.addEventListener('load', hideLoadingState, { once: true });
+        }
+
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                restorePageLoadingState();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('a[href]');
+            if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            const targetUrl = new URL(link.href, window.location.href);
+            const isSameDocument = targetUrl.pathname === window.location.pathname
+                && targetUrl.search === window.location.search;
+            const opensSeparateContext = link.target && link.target !== '_self';
+
+            if (targetUrl.origin !== window.location.origin || isSameDocument || opensSeparateContext || link.hasAttribute('download')) {
+                return;
+            }
+
+            const loadingLabel = loadingState.querySelector('[data-loading-label]');
+            if (loadingLabel) {
+                loadingLabel.textContent = `Opening ${link.textContent.trim() || 'page'}`;
+            }
+
+            loadingState.dataset.visible = 'true';
+        });
     };
 
     const loadGoogleAnalytics = (measurementId) => {
@@ -609,5 +721,6 @@
     initializeStickySectionNavigation();
     initializeSectionNavigator();
     initializePrivacyFooterLink();
+    initializePageLoadingState();
     initializeCookieConsent();
 })();

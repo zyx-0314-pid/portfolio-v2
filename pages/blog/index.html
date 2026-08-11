@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Notes | Ian Cedric Ramirez</title>
+    <meta name="description" content="Learning notes, project documentation, and delayed event retrospectives by Ian Cedric Ramirez.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Notes | Ian Cedric Ramirez">
+    <meta property="og:description" content="Learning notes, project documentation, and event retrospectives published at least six months after attendance.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Notes | Ian Cedric Ramirez">
+    <meta name="twitter:description" content="Learning notes, project documentation, and delayed event retrospectives.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../projects/">Projects</a>
+                        <a href="../experience/">Experience</a>
+                        <a href="../about/">About</a>
+                        <a href="../skills/">Skills</a>
+                        <a href="../credentials/">Credentials</a>
+                        <a href="./" aria-current="page">Notes</a>
+                        <a href="../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="notes-main">
+        <section class="notes-hero" aria-labelledby="notes-title">
+            <div class="page-shell">
+                <div class="notes-hero__header">
+                    <p class="notes-hero__eyebrow">WRITING</p>
+                    <h1 class="notes-hero__title" id="notes-title">NOTES</h1>
+                    <p class="notes-hero__lead">Learning notes, technical documentation, and older event experiences revisited after reflection.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="notes-scope" aria-labelledby="scope-title">
+            <div class="page-shell">
+                <div class="notes-section-heading">
+                    <p class="notes-section-number">01</p>
+                    <div>
+                        <p class="notes-kicker">Editorial scope</p>
+                        <h2 id="scope-title">Three kinds of record.</h2>
+                    </div>
+                </div>
+                <ol class="notes-scope-list">
+                    <li>
+                        <span class="notes-scope-list__index">01</span>
+                        <div>
+                            <h3>Learning notes</h3>
+                            <p>Concepts I am studying, questions I am working through, and explanations written to test whether I understand the subject clearly.</p>
+                        </div>
+                        <p class="notes-scope-list__label">Study / Reflection</p>
+                    </li>
+                    <li>
+                        <span class="notes-scope-list__index">02</span>
+                        <div>
+                            <h3>GitHub documentation</h3>
+                            <p>Context behind public repositories: constraints, setup decisions, architecture, and the reasoning that is difficult to capture in code alone.</p>
+                        </div>
+                        <p class="notes-scope-list__label">Build / Explain</p>
+                    </li>
+                    <li>
+                        <span class="notes-scope-list__index">03</span>
+                        <div>
+                            <h3>Event retrospectives</h3>
+                            <p>What remained useful after an event, what I applied afterward, and which ideas still held up once the immediate excitement had passed.</p>
+                        </div>
+                        <p class="notes-scope-list__label">Attend / Revisit</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="notes-policy" aria-labelledby="policy-title">
+            <div class="page-shell notes-policy__layout">
+                <div>
+                    <p class="notes-section-number">02</p>
+                    <p class="notes-kicker">Publication rule</p>
+                    <h2 id="policy-title">Events wait six months.</h2>
+                </div>
+                <div class="notes-policy__copy">
+                    <p>I do not publish an event retrospective until at least six full calendar months after the event date.</p>
+                    <p>This delay creates distance from announcements and first impressions. A retrospective should record what proved useful over time, not simply what happened in the room.</p>
+                    <dl class="notes-policy__facts">
+                        <div>
+                            <dt>Minimum delay</dt>
+                            <dd>Six full calendar months</dd>
+                        </div>
+                        <div>
+                            <dt>Date shown</dt>
+                            <dd>Event date and publication date</dd>
+                        </div>
+                        <div>
+                            <dt>Focus</dt>
+                            <dd>Application, changed thinking, and lasting value</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section class="notes-archive" aria-labelledby="archive-title">
+            <div class="page-shell notes-archive__layout">
+                <div class="notes-section-heading">
+                    <p class="notes-section-number">03</p>
+                    <div>
+                        <p class="notes-kicker">Archive</p>
+                        <h2 id="archive-title">Published notes.</h2>
+                    </div>
+                </div>
+                <div class="notes-archive__empty" role="status">
+                    <p class="notes-archive__status">No entries published</p>
+                    <p>The archive begins when the first note is ready. No draft titles, event details, or repository claims are displayed before they can be supported.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div>
+                <p class="site-brand">Ian Cedric Ramirez</p>
+                <p class="site-footer__meta">Full-Stack Engineer</p>
+                <p class="site-footer__meta">Manila, Philippines · Open to Remote</p>
+            </div>
+            <div>
+                <div class="site-footer__links">
+                    <a href="https://github.com/nywebe" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:ramirezian037@gmail.com">Email</a>
+                </div>
+                <p class="site-footer__meta">© Ian Cedric Ramirez</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../shared/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+[data-case-study-id="saankain"] .saankain-hero-visual {
+    position: relative;
+    display: grid;
+    min-block-size: clamp(18rem, 42vi, 29rem);
+    padding: clamp(1.25rem, 4vi, 2.5rem);
+    align-content: center;
+    border: 1px solid var(--color-border);
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--color-border) 38%, transparent) 1px, transparent 1px),
+        linear-gradient(color-mix(in srgb, var(--color-border) 38%, transparent) 1px, transparent 1px),
+        var(--color-bg-secondary);
+    background-size: 2rem 2rem;
+    overflow: hidden;
+}
+
+[data-case-study-id="saankain"] .saankain-query {
+    position: relative;
+    z-index: 1;
+    max-inline-size: 24rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--color-border);
+    border-inline-start: 0.3rem solid var(--color-accent);
+    background: var(--color-bg);
+    font-family: var(--font-mono);
+    font-size: clamp(1rem, 2.5vi, 1.4rem);
+}
+
+[data-case-study-id="saankain"] .saankain-route {
+    display: grid;
+    gap: 0.7rem;
+    margin-block-start: 1.5rem;
+    padding-inline-start: clamp(1rem, 6vi, 4rem);
+}
+
+[data-case-study-id="saankain"] .saankain-route span {
+    display: block;
+    inline-size: fit-content;
+    padding-block-end: 0.35rem;
+    border-block-end: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+}
+
+[data-case-study-id="saankain"] .saankain-route span::before {
+    content: "↓";
+    margin-inline-end: 0.65rem;
+    color: var(--color-accent);
+}
+
+[data-case-study-id="saankain"] .saankain-clock {
+    position: absolute;
+    inset-block-start: 1.25rem;
+    inset-inline-end: 1.25rem;
+    color: var(--color-accent-bright);
+    font-family: var(--font-mono);
+    font-size: clamp(2.5rem, 8vi, 5.5rem);
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.2;
+}
+
+[data-case-study-id="saankain"] .saankain-phase-label {
+    margin: 0;
+    color: var(--color-accent-bright);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+[data-case-study-id="saankain"] .saankain-device {
+    padding: clamp(1.25rem, 4vi, 2rem);
+    border: 1px solid var(--color-border);
+    border-block-start: 0.35rem solid var(--color-accent);
+    background: var(--color-bg-secondary);
+}
+
+[data-case-study-id="saankain"] .saankain-device pre,
+[data-case-study-id="saankain"] .saankain-comparison pre {
+    margin: 0;
+    white-space: pre-wrap;
+    color: var(--color-text);
+    font-size: clamp(0.74rem, 1.8vi, 0.92rem);
+    line-height: 1.75;
+}
+
+[data-case-study-id="saankain"] .saankain-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--color-border);
+}
+
+[data-case-study-id="saankain"] .saankain-comparison > div {
+    min-block-size: 100%;
+    padding: clamp(1.25rem, 3vi, 2rem);
+}
+
+[data-case-study-id="saankain"] .saankain-comparison > div + div {
+    border-inline-start: 1px solid var(--color-border);
+    background: var(--color-bg-secondary);
+}
+
+[data-case-study-id="saankain"] .saankain-quote {
+    margin: 0;
+    padding: clamp(1.5rem, 5vi, 3rem);
+    border-inline-start: 0.4rem solid var(--color-accent);
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    font-size: clamp(1.3rem, 3vi, 2.25rem);
+    line-height: 1.35;
+}
+
+@media (max-width: 700px) {
+    [data-case-study-id="saankain"] .saankain-comparison {
+        grid-template-columns: 1fr;
+    }
+
+    [data-case-study-id="saankain"] .saankain-comparison > div + div {
+        border-block-start: 1px solid var(--color-border);
+        border-inline-start: 0;
+    }
+
+    [data-case-study-id="saankain"] .saankain-clock {
+        font-size: 3rem;
+    }
+}

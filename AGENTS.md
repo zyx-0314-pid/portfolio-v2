@@ -440,6 +440,10 @@ Do not expand a simple task into a larger redesign.
 
 ## Validation
 
+### Automated Validation Prohibition
+
+Never run Playwright, browser automation, tests, test suites, linters, format checkers, static analyzers, or other automated validation/checking tools in this repository. Validation must remain source-only unless the user explicitly overrides this rule for a specific command.
+
 After making changes:
 
 1. Verify that affected HTML files remain valid and structurally complete.
@@ -1218,6 +1222,10 @@ Do not use emojis as generic feature icons.
 
 Use one consistent icon system.
 
+Use at most one identifying icon per section.
+
+Do not reuse the same identifying icon for another section. Functional interface icons such as navigation arrows and controls may repeat when they represent the same action.
+
 Do not introduce multiple overlapping icon libraries.
 
 ---
@@ -1338,6 +1346,12 @@ Reuse established:
 - geometric language
 
 Do not invent slightly different versions on each page.
+
+When creating a new page, identify the closest comparable existing page and reuse its established header, layout, spacing, typography, color, and interaction language.
+
+Do not give a new page a separate visual identity merely because it has a page-specific stylesheet. Page-specific CSS defines local composition only and must continue using the shared design system unless a distinct identity is explicitly requested.
+
+An existing page-specific stylesheet and its established presentation may be preserved when modifying that page. Do not copy its unique treatment into new or unrelated pages unless explicitly requested.
 
 Avoid:
 
