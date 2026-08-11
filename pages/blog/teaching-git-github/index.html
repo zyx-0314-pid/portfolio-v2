@@ -29,9 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../shared/css/global.css">
-    <link rel="stylesheet" href="assets/css/teaching-git-github.css">
+    <link rel="stylesheet" href="../assets/css/blog-article.css">
 </head>
-<body class="teaching-article-page">
+<body class="blog-article-article-page">
     <header class="site-header">
         <div class="page-shell site-header__inner">
             <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
@@ -58,21 +58,21 @@
         </div>
     </header>
 
-    <main class="teaching-note">
+    <main class="blog-article-note">
         <div class="page-shell">
-            <nav class="breadcrumb teaching-note__breadcrumb" aria-label="Breadcrumb">
+            <nav class="breadcrumb blog-article-note__breadcrumb" aria-label="Breadcrumb">
                 <a href="../../../">Home</a> / <a href="../">Notes</a> / <span aria-current="page">Teaching Git Before It Was in the Syllabus</span>
             </nav>
         </div>
 
         <article aria-labelledby="article-title">
-            <header class="teaching-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
+            <header class="blog-article-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
                 <div class="page-shell">
-                    <p class="teaching-eyebrow">GitHub documentation · Teaching retrospective</p>
+                    <p class="blog-article-eyebrow">GitHub documentation · Teaching retrospective</p>
                     <h1 id="article-title">Teaching Git Before It Was in the Syllabus</h1>
-                    <p class="teaching-hero__lead">How a Git/GitHub reference I built for my students became part of how they learned teamwork, recovery, and software-development workflow.</p>
+                    <p class="blog-article-hero__lead">How a Git/GitHub reference I built for my students became part of how they learned teamwork, recovery, and software-development workflow.</p>
 
-                    <dl class="teaching-hero__facts">
+                    <dl class="blog-article-hero__facts">
                         <div><dt>Context</dt><dd>FEU Institute of Technology</dd></div>
                         <div><dt>Used in</dt><dd>Web Design · Advanced Web Design · PHP · Android · C++ · HCI</dd></div>
                         <div><dt>Reach</dt><dd>Approximately 50 students per class</dd></div>
@@ -81,35 +81,35 @@
                 </div>
             </header>
 
-            <div class="teaching-layout page-shell">
-                <div class="teaching-content">
-                    <section class="teaching-section teaching-section--plain" id="why" aria-labelledby="why-title" data-section-navigator-label="Teaching reference">
-                        <header class="teaching-section__header"><p class="teaching-section__number">01 / Why I Built It</p><h2 id="why-title">A Reference That Did Not End With the Lecture</h2></header>
-                        <div class="teaching-prose">
+            <div class="blog-article-layout page-shell">
+                <div class="blog-article-content">
+                    <section class="blog-article-section blog-article-section--plain" id="why" aria-labelledby="why-title" data-section-navigator-label="Teaching reference">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">01 / Why I Built It</p><h2 id="why-title">A Reference That Did Not End With the Lecture</h2></header>
+                        <div class="blog-article-prose">
                             <p>Git and GitHub were not part of the formal syllabus, but I made them required in my classes because the students' projects already depended on teamwork, shared code, and repeatable setup.</p>
                             <p>A live demonstration could show the workflow once. It could not guarantee that every class received the same explanation, or help a student who needed to repeat a step later without me present. The guide became the durable part of the lesson.</p>
                             <p>It was never finished in one pass. Questions from actual classes exposed missing setup steps, unclear assumptions, and recovery cases. I revised the repository around those questions so the next student could find the answer directly.</p>
                         </div>
-                        <figure class="flow-figure flow-figure--teaching" id="teaching-flow" aria-labelledby="teaching-flow-caption">
+                        <figure class="flow-figure flow-figure--teaching" id="blog-article-flow" aria-labelledby="blog-article-flow-caption">
                             <div class="flow-line"><span>Lecture</span><b aria-hidden="true">↓</b><span>Live demo</span><b aria-hidden="true">↓</b><span>Practice</span><b aria-hidden="true">↓</b><span class="flow-line__accent">Guide</span></div>
                             <div class="flow-branches"><span>Class</span><span>Outside class</span></div>
-                            <figcaption id="teaching-flow-caption">The guide connected the scheduled lesson to independent practice.</figcaption>
+                            <figcaption id="blog-article-flow-caption">The guide connected the scheduled lesson to independent practice.</figcaption>
                         </figure>
                     </section>
 
-                    <section class="teaching-section teaching-section--ink" id="mental-model" aria-labelledby="mental-model-title" data-section-navigator-label="Git workflow">
-                        <header class="teaching-section__header"><p class="teaching-section__number">02 / Mental Model</p><h2 id="mental-model-title">GitHub Is Not Google Drive</h2></header>
-                        <p class="teaching-section__standfirst">Students often approached GitHub like Google Drive: put the project online and keep the latest copy there.</p>
+                    <section class="blog-article-section blog-article-section--ink" id="mental-model" aria-labelledby="mental-model-title" data-section-navigator-label="Git workflow">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">02 / Mental Model</p><h2 id="mental-model-title">GitHub Is Not Google Drive</h2></header>
+                        <p class="blog-article-section__standfirst">Students often approached GitHub like Google Drive: put the project online and keep the latest copy there.</p>
                         <div class="model-contrast" id="workflow-contrast">
                             <div><p class="model-contrast__label">Google Drive mindset</p><div class="compact-flow"><span>Project</span><b>→</b><span>Upload</span><b>→</b><span>Latest file</span></div></div>
                             <div><p class="model-contrast__label">Git workflow</p><div class="vertical-flow"><span>Working code</span><b>↓</b><span>Commit</span><b>↓</b><span>Version history</span><b>↓</b><span>Branch</span><b>↓</b><span>Push</span><b>↓</b><span>Pull request</span><b>↓</b><span>Review</span><b>↓</b><span>Main</span></div></div>
                         </div>
                         <blockquote>Git does not merely store the project. It records how the project changes.</blockquote>
-                        <p class="teaching-section__closing">That distinction changed the meaning of a mistake. A broken edit was no longer automatically catastrophic; with useful history, it became something the team could inspect and recover from.</p>
+                        <p class="blog-article-section__closing">That distinction changed the meaning of a mistake. A broken edit was no longer automatically catastrophic; with useful history, it became something the team could inspect and recover from.</p>
                     </section>
 
-                    <section class="teaching-section teaching-section--grid" id="collaboration" aria-labelledby="collaboration-title" data-section-navigator-label="Team collaboration">
-                        <header class="teaching-section__header"><p class="teaching-section__number">03 / Collaboration</p><h2 id="collaboration-title">A Branch Became a Boundary of Responsibility</h2></header>
+                    <section class="blog-article-section blog-article-section--grid" id="collaboration" aria-labelledby="collaboration-title" data-section-navigator-label="Team collaboration">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">03 / Collaboration</p><h2 id="collaboration-title">A Branch Became a Boundary of Responsibility</h2></header>
                         <blockquote>A branch is not just a copy of the code; it is a boundary of responsibility.</blockquote>
                         <div class="compact-flow compact-flow--wide" aria-label="Collaboration workflow"><span>Branch</span><b>→</b><span>Commit</span><b>→</b><span>Push</span><b>→</b><span>Pull request</span><b>→</b><span>Review</span><b>→</b><span>Merge</span></div>
                         <p>Once each change had a branch and a review path, roles were easier to explain as ownership of a specific kind of work rather than titles assigned to a group.</p>
@@ -123,25 +123,25 @@
                         </div>
                     </section>
 
-                    <section class="teaching-section teaching-section--plain" id="structure" aria-labelledby="structure-title" data-section-navigator-label="Branch structure">
-                        <header class="teaching-section__header"><p class="teaching-section__number">04 / Structure</p><h2 id="structure-title">Why Naming Started to Matter</h2></header>
-                        <div class="teaching-prose teaching-prose--columns">
+                    <section class="blog-article-section blog-article-section--plain" id="structure" aria-labelledby="structure-title" data-section-navigator-label="Branch structure">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">04 / Structure</p><h2 id="structure-title">Why Naming Started to Matter</h2></header>
+                        <div class="blog-article-prose blog-article-prose--columns">
                             <p>At first, students created branches and commits with random names. The cost appeared when nobody could quickly determine what a teammate was working on, pull requests mixed unrelated work, and ownership was unclear.</p>
                             <p>Those names also became part of later debugging. A history full of vague messages could not explain when behavior changed or which decision introduced it.</p>
                         </div>
                         <div class="progression" id="naming-progression" aria-label="Progression toward structured changes"><span>Feature-based work</span><b>→</b><span>Structured branches</span><b>→</b><span>Meaningful commits</span><b>→</b><span>Testing</span><b>→</b><span>Pull request</span><b>→</b><span>Merge</span></div>
-                        <p class="teaching-section__closing">The guide's branching and Conventional Commit guidance grew from that operational need: names had to communicate intent before a reviewer opened the code.</p>
+                        <p class="blog-article-section__closing">The guide's branching and Conventional Commit guidance grew from that operational need: names had to communicate intent before a reviewer opened the code.</p>
                     </section>
 
-                    <section class="teaching-section teaching-section--paper" id="documentation" aria-labelledby="documentation-title" data-section-navigator-label="Project documentation">
-                        <header class="teaching-section__header"><p class="teaching-section__number">05 / Documentation</p><h2 id="documentation-title">README Wasn't Decoration</h2></header>
-                        <p class="teaching-section__standfirst">The real test was simple: could another person reproduce this project without borrowing the developer's computer?</p>
+                    <section class="blog-article-section blog-article-section--paper" id="documentation" aria-labelledby="documentation-title" data-section-navigator-label="Project documentation">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">05 / Documentation</p><h2 id="documentation-title">README Wasn't Decoration</h2></header>
+                        <p class="blog-article-section__standfirst">The real test was simple: could another person reproduce this project without borrowing the developer's computer?</p>
                         <figure class="readme-figure" id="readme-model" aria-labelledby="readme-caption"><strong>README</strong><b>↓</b><div><span>Requirements</span><span>Setup</span><span>Configuration</span><span>Run instructions</span><span>Project context</span></div><b>↓</b><strong>Another machine can reproduce the environment</strong><figcaption id="readme-caption">Documentation turns a local result into transferable work.</figcaption></figure>
-                        <div class="teaching-prose teaching-prose--columns"><p>This mattered when students moved between computers, when another group member joined the work, and when I needed to check a repository on my own machine.</p><p>It also introduced a professional expectation: future developers should be able to understand the setup without relying on memory or private instructions.</p></div>
+                        <div class="blog-article-prose blog-article-prose--columns"><p>This mattered when students moved between computers, when another group member joined the work, and when I needed to check a repository on my own machine.</p><p>It also introduced a professional expectation: future developers should be able to understand the setup without relying on memory or private instructions.</p></div>
                     </section>
 
-                    <section class="teaching-section teaching-section--recovery" id="recovery" aria-labelledby="recovery-title" data-section-navigator-label="Recovery incidents">
-                        <header class="teaching-section__header"><p class="teaching-section__number">06 / Recovery</p><h2 id="recovery-title">Three Times Git Paid for Itself</h2></header>
+                    <section class="blog-article-section blog-article-section--recovery" id="recovery" aria-labelledby="recovery-title" data-section-navigator-label="Recovery incidents">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">06 / Recovery</p><h2 id="recovery-title">Three Times Git Paid for Itself</h2></header>
                         <div class="recovery-grid" id="recovery-stories">
                             <article class="recovery-story"><p class="recovery-story__number">01</p><h3>The Exhausted Rewrite</h3><p>A student was exhausted while revising a module and accidentally removed a large amount of code, affecting adjacent functionality. The following day, version history allowed the work to be recovered rather than reconstructed manually.</p><strong>Commits are recovery points.</strong></article>
                             <article class="recovery-story"><p class="recovery-story__number">02</p><h3>The Test State</h3><p>A student committed a test state before going to school because she wanted to preserve what she had. The team retained history showing what changed and where they could return instead of treating the change as irreversible.</p><strong>History provides options.</strong></article>
@@ -149,20 +149,20 @@
                         </div>
                     </section>
 
-                    <section class="teaching-section teaching-section--outcomes" id="outcomes" aria-labelledby="outcomes-title" data-section-navigator-label="Observed outcomes">
-                        <header class="teaching-section__header"><p class="teaching-section__number">07 / What Changed</p><h2 id="outcomes-title">The Classroom Became Easier to Operate</h2></header>
+                    <section class="blog-article-section blog-article-section--outcomes" id="outcomes" aria-labelledby="outcomes-title" data-section-navigator-label="Observed outcomes">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">07 / What Changed</p><h2 id="outcomes-title">The Classroom Became Easier to Operate</h2></header>
                         <p class="observed-label">Observed outcomes, not measured KPIs</p>
                         <ul class="outcome-list" id="observed-outcomes"><li>Better Git habits</li><li>Faster repeated environment and setup work</li><li>Fewer repeated Git questions</li><li>Easier group collaboration</li><li>More explicit responsibilities</li><li>More confidence recovering mistakes</li><li>A reusable reference beyond lectures and laboratories</li></ul>
                         <p>The repository's troubleshooting material expanded around real setup problems: missing clone actions, Git installation, pulling between devices, and unexpected VS Code behavior. Each addition reduced the need to solve the same issue privately again.</p>
                     </section>
 
-                    <section class="teaching-section teaching-section--plain" id="beyond" aria-labelledby="beyond-title" data-section-navigator-label="Student experience">
-                        <header class="teaching-section__header"><p class="teaching-section__number">08 / Beyond My Class</p><h2 id="beyond-title">What They Carried With Them</h2></header>
-                        <div class="teaching-prose" id="carried-forward"><p>Students carried the workflow into OJT, thesis and capstone work, personal projects, and eventually their jobs. Some asked permission to continue using the guide even though it was already public. Students I had never personally taught also knew the repository.</p><p>I do not know the exact origin of the name “Huling Lahi” or “Huling Lahi ni Sir Ian,” but it eventually reached me as a nickname associated with students who had gone through my classes and carried those practices with them.</p><p>The meaningful part was not that they remembered a repository. It was that the habits remained useful after the class that introduced them.</p></div>
+                    <section class="blog-article-section blog-article-section--plain" id="beyond" aria-labelledby="beyond-title" data-section-navigator-label="Student experience">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">08 / Beyond My Class</p><h2 id="beyond-title">What They Carried With Them</h2></header>
+                        <div class="blog-article-prose" id="carried-forward"><p>Students carried the workflow into OJT, thesis and capstone work, personal projects, and eventually their jobs. Some asked permission to continue using the guide even though it was already public. Students I had never personally taught also knew the repository.</p><p>I do not know the exact origin of the name “Huling Lahi” or “Huling Lahi ni Sir Ian,” but it eventually reached me as a nickname associated with students who had gone through my classes and carried those practices with them.</p><p>The meaningful part was not that they remembered a repository. It was that the habits remained useful after the class that introduced them.</p></div>
                     </section>
 
-                    <section class="teaching-section teaching-section--closing" id="closing" aria-labelledby="closing-title" data-section-navigator-label="Closing">
-                        <header class="teaching-section__header"><p class="teaching-section__number">09 / Closing</p><h2 id="closing-title">The Tool Was Never the Important Part</h2></header>
+                    <section class="blog-article-section blog-article-section--closing" id="closing" aria-labelledby="closing-title" data-section-navigator-label="Closing">
+                        <header class="blog-article-section__header"><p class="blog-article-section__number">09 / Closing</p><h2 id="closing-title">The Tool Was Never the Important Part</h2></header>
                         <p class="closing-tool">Git was the tool.</p>
                         <blockquote>Work can be divided.<br>Changes can be reviewed.<br>Mistakes can be reversed.<br>Another person should be able to understand what happened.</blockquote>
                         <a class="source-link" id="original-guide" href="https://github.com/nyebe/Github-Git-Guide" target="_blank" rel="noopener noreferrer">Explore the original Github-Git-Guide <span aria-hidden="true">↗</span></a>

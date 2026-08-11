@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Article Title | Ian Cedric Ramirez</title>
+    <meta name="description" content="Concise description of the article and its practical context.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Article Title">
+    <meta property="og:description" content="Concise description of the article and its practical context.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Article Title">
+    <meta name="twitter:description" content="Concise description of the article and its practical context.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Paths assume this template is copied to /pages/blog/<article-slug>/index.html. -->
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/blog-article.css">
+</head>
+<body class="blog-article-page">
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../../projects/">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../" aria-current="page">Notes</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-article">
+        <div class="page-shell">
+            <nav class="breadcrumb blog-article__breadcrumb" aria-label="Breadcrumb">
+                <a href="../../../">Home</a> / <a href="../">Notes</a> / <span aria-current="page">Article Title</span>
+            </nav>
+        </div>
+
+        <article aria-labelledby="article-title">
+            <header class="blog-article-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
+                <div class="page-shell">
+                    <p class="blog-article-eyebrow">Category · Article type</p>
+                    <h1 id="article-title">Article Title</h1>
+                    <p class="blog-article-hero__lead">State what this article examines, why it matters, and the practical context behind it.</p>
+                    <!-- Keep only facts that help establish provenance, scope, or source. -->
+                    <dl class="blog-article-hero__facts">
+                        <div><dt>Context</dt><dd>Relevant organization or setting</dd></div>
+                        <div><dt>Scope</dt><dd>Relevant subjects, systems, or audience</dd></div>
+                        <div><dt>Period</dt><dd>Relevant date or period</dd></div>
+                        <div><dt>Source</dt><dd><a href="#source">Primary source <span aria-hidden="true">↗</span></a></dd></div>
+                    </dl>
+                </div>
+            </header>
+
+            <div class="blog-article-layout page-shell">
+                <div class="blog-article-content">
+                    <!-- Add or remove sections freely. Keep sequential numbers, unique ids, aria-labelledby, and concise navigator labels. -->
+                    <!-- Available section moods: --plain, --ink, --grid, --paper, --recovery, --outcomes, and --closing. Use changes to mark real narrative transitions. -->
+                    <section class="blog-article-section blog-article-section--plain" id="context" aria-labelledby="context-title" data-section-navigator-label="Article context">
+                        <header class="blog-article-section__header">
+                            <p class="blog-article-section__number">01 / Context</p>
+                            <h2 id="context-title">Section Heading</h2>
+                        </header>
+                        <div class="blog-article-prose">
+                            <p>Open with the concrete situation, constraint, misconception, decision, or question that makes this section necessary.</p>
+                            <p>Develop the reasoning with verifiable context. Avoid invented measurements or generic marketing language.</p>
+                        </div>
+                    </section>
+
+                    <section class="blog-article-section blog-article-section--paper" id="explanation" aria-labelledby="explanation-title" data-section-navigator-label="Key explanation">
+                        <header class="blog-article-section__header">
+                            <p class="blog-article-section__number">02 / Explanation</p>
+                            <h2 id="explanation-title">Section Heading</h2>
+                        </header>
+                        <p class="blog-article-section__standfirst">Use a standfirst when one sentence should frame the section before its supporting detail.</p>
+                        <div class="blog-article-prose blog-article-prose--columns">
+                            <p>Use two columns only when the ideas benefit from comparison or parallel reading.</p>
+                            <p>Return to a normal prose block when the content needs a single continuous reading order.</p>
+                        </div>
+                    </section>
+
+                    <section class="blog-article-section blog-article-section--closing" id="closing" aria-labelledby="closing-title" data-section-navigator-label="Closing">
+                        <header class="blog-article-section__header">
+                            <p class="blog-article-section__number">03 / Closing</p>
+                            <h2 id="closing-title">The Concluding Idea</h2>
+                        </header>
+                        <blockquote>End with the principle or practical lesson that should remain after the specific story.</blockquote>
+                        <a class="source-link" id="source" href="#">Explore the primary source <span aria-hidden="true">↗</span></a>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div><p class="site-brand">Ian Cedric Ramirez</p><p class="site-footer__meta">Full-Stack Engineer</p><p class="site-footer__meta">Manila, Philippines · Open to Remote</p></div>
+            <div><div class="site-footer__links"><a href="https://github.com/nywebe" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:ramirezian037@gmail.com">Email</a></div><p class="site-footer__meta">© Ian Cedric Ramirez</p></div>
+        </div>
+    </footer>
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
