@@ -160,7 +160,8 @@
     };
 
     const initializeSectionNavigator = () => {
-        const sections = Array.from(document.querySelectorAll('main > header, main > article > header, main section'));
+        const sections = Array.from(document.querySelectorAll('main > header, main > article > header, main section'))
+            .filter((section) => section.dataset.sectionNavigator !== 'subsection');
         if (!sections.length) {
             return;
         }
@@ -269,7 +270,7 @@
                 section.id = `page-section-${index + 1}`;
             }
 
-            const sectionLabel = section.getAttribute('aria-label');
+            const sectionLabel = section.dataset.sectionNavigatorLabel || section.getAttribute('aria-label');
             const labelledBy = section.getAttribute('aria-labelledby');
             const labelledHeading = labelledBy ? document.getElementById(labelledBy) : null;
             const visibleLabel = section.querySelector('.section__eyebrow, h1, h2');

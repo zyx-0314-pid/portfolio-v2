@@ -15,7 +15,7 @@
         })();
     </script>
     <title>Talara - Equipment, Facility &amp; Resource Operations Platform | Ian Cedric Ramirez</title>
-    <meta name="description" content="Talara case study - equipment, facility, and resource operations platform with 3 resource categories, temporary/permanent assignments, reservation conflict prevention, maintenance tracking, package capacity limits, and custom developer observability.">
+    <meta name="description" content="Talara case study - a Nuxt 4 and Vue 3 multi-tenant resource operations platform covering organization isolation, reservations, SaaS capacity enforcement, support operations, and developer observability.">
     <meta name="google-analytics-id" content="G-KGKNCQVNHC">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,36 +69,26 @@
                     <div>
                         <p class="section__eyebrow">Case Study · Operations &amp; Resource Systems</p>
                         <h1 class="project-header__title" id="page-title">Talara</h1>
-                        <p class="project-header__summary">Talara is an equipment, facility, and resource-operations platform designed for organizations that need to manage physical resources, locations, consumables, reservations, assignments, maintenance, and operational capacity within defined organizational roles and limits.</p>
-                        <p class="project-header__summary">As System Architect and Lead Developer, I designed the resource model, organizational boundaries, application architecture, authorization flow, operational rules, and developer observability while remaining hands-on with full-stack implementation.</p>
+                        <p class="project-header__summary">Talara is a multi-tenant resource-operations platform for organizations managing equipment, locations, consumables, reservations, assignments, maintenance, and package-defined operational capacity.</p>
+                        <p class="project-header__summary">As System Architect and Lead Developer, I designed the client/server boundaries, resource domain, tenant isolation, authorization flow, SaaS control plane, operational rules, and developer tooling while remaining hands-on with implementation.</p>
 
                         <nav class="project-toc" aria-label="On-page contents">
                             <a href="#overview">Overview</a>
-                            <a href="#story">Case Study Story Flow</a>
-                            <a href="#target-env">Target Environments</a>
-                            <a href="#resource-model">Core Resource Model</a>
-                            <a href="#lifecycle">Resource Lifecycles</a>
-                            <a href="#duration">Duration Models</a>
-                            <a href="#workflows">Operational Workflows</a>
-                            <a href="#reservations">Reservation System</a>
-                            <a href="#maintenance">Maintenance Subsystem</a>
-                            <a href="#org-model">Organization &amp; Role Model</a>
-                            <a href="#capacity">Capacity &amp; Limits</a>
-                            <a href="#architecture">Feature Architecture</a>
-                            <a href="#auth">Auth &amp; Hybrid Rendering</a>
-                            <a href="#stack">Technology Stack</a>
-                            <a href="#observability">Developer Observability</a>
-                            <a href="#constraints">Constraints</a>
-                            <a href="#decisions">Technical Decisions</a>
+                            <a href="#target-env">Target Organizations</a>
+                            <a href="#resource-model">Resource Operations</a>
+                            <a href="#tenant-boundary">Security &amp; SaaS</a>
+                            <a href="#platform-operations">Platform Control</a>
+                            <a href="#architecture">Application Architecture</a>
+                            <a href="#developer-operations">Developer Operations</a>
+                            <a href="#milestones">Milestones</a>
                             <a href="#outcomes">Outcomes</a>
                             <a href="#retrospective">Retrospective</a>
-                            <a href="#related">Related Work</a>
                         </nav>
                     </div>
 
                     <div class="project-header__hero-container">
                         <!-- TODO: Replace with final Talara project artwork and update alt text to describe the actual image. -->
-                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for a custom Talara project illustration showing an equipment, facility, and resource-operations platform with 3 resource models, reservation conflict rules, maintenance tracking, and custom developer observability." width="1600" height="700">
+                        <img class="project-header__hero" src="https://placehold.co/1600x700" alt="Placeholder for Talara project artwork showing multi-tenant resource operations, reservation validation, package capacity, and operational health." width="1600" height="700">
                     </div>
                 </div>
 
@@ -121,7 +111,7 @@
                     </div>
                     <div class="project-fact">
                         <dt>Core Stack</dt>
-                        <dd>Next.js · Tailwind CSS · Clerk · NeonDB · Backblaze</dd>
+                        <dd>Nuxt 4 · Vue 3 · TypeScript · Prisma · PostgreSQL/Neon · Clerk</dd>
                     </div>
                     <div class="project-fact">
                         <dt>Live Platform</dt>
@@ -129,7 +119,7 @@
                     </div>
                     <div class="project-fact">
                         <dt>Quality &amp; Ops</dt>
-                        <dd>Docker · Jest · Playwright · Sentry · CodeScene · Vercel</dd>
+                        <dd>Vitest · GitHub Actions · Codecov · Sentry · CodeScene · Docker</dd>
                     </div>
                     <div class="project-provenance">
                         <strong>Provenance &amp; Architectural Context</strong>
@@ -138,7 +128,7 @@
                 </dl>
             </header>
 
-            <section class="project-section" id="overview" aria-labelledby="overview-title">
+            <section class="project-section" id="overview" aria-labelledby="overview-title" data-section-navigator-label="Product Overview">
                 <h2 id="overview-title">Overview &amp; Product Positioning</h2>
                 <div class="project-section__split">
                     <div>
@@ -158,39 +148,12 @@
                 </div>
             </section>
 
-            <section class="project-section" id="story" aria-labelledby="story-title">
-                <h2 id="story-title">Central Case-Study Story Flow</h2>
-                <p>The Talara architecture links physical asset categories directly with operational workflows, organizational boundaries, and system observability:</p>
-                <div class="project-diagram" aria-label="Talara central story flow diagram">
-                    <pre>Organizations
-      ↓
-Resources
-├── Equipment (Tools, Hardware, Devices)
-├── Locations (Rooms, Labs, Facilities)
-└── Consumables (Materials, Supplies)
-      ↓
-Resource Lifecycle Workflows
-├── Reservation &amp; Scheduling
-├── Assignment (Temporary vs Permanent)
-├── Return &amp; Movement/Transfer
-└── Maintenance &amp; Repair Tracking
-      ↓
-Role &amp; Organization Boundaries
-      ↓
-Capacity &amp; Subscription Package Rules
-      ↓
-Feature-Oriented Architecture (UI → Controller → Service → Repository)
-      ↓
-Developer Observability &amp; Operational Health (Sentry, PostHog, Internal Dashboards)</pre>
-                </div>
-            </section>
-
-            <section class="project-section" id="target-env" aria-labelledby="target-env-title">
-                <h2 id="target-env-title">Target Use-Case Environments</h2>
+            <section class="project-section" id="target-env" aria-labelledby="target-env-title" data-section-navigator-label="Target Organizations">
+                <h2 id="target-env-title">Target Organizations</h2>
                 <p>Talara is designed to support operational workflows in resource-intensive organizations, such as:</p>
                 <div class="project-note-list">
                     <div class="project-note-item">
-                        <strong>Universities &amp; Academic Institutions</strong>
+                        <strong>Universities &amp; Schools</strong>
                         <span>Managing specialized lab equipment, lecture rooms, IT hardware, and student project consumables.</span>
                     </div>
                     <div class="project-note-item">
@@ -198,14 +161,22 @@ Developer Observability &amp; Operational Health (Sentry, PostHog, Internal Dash
                         <span>Tracking employee hardware assignments, meeting room reservations, and office asset transfers.</span>
                     </div>
                     <div class="project-note-item">
-                        <strong>Laboratories &amp; Research Facilities</strong>
+                        <strong>Government Departments</strong>
+                        <span>Coordinating accountable equipment, shared facilities, supplies, and organization-scoped operations.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Research Laboratories</strong>
                         <span>Scheduling specialized instrumentation, monitoring maintenance states, and logging supply usage.</span>
+                    </div>
+                    <div class="project-note-item">
+                        <strong>Multi-Site Organizations</strong>
+                        <span>Separating resources and members by organization while retaining owner-level capacity and configuration controls.</span>
                     </div>
                 </div>
                 <p class="placeholder-note">Note: These represent target domain environments and use-case scenarios.</p>
             </section>
 
-            <section class="project-section" id="resource-model" aria-labelledby="resource-model-title">
+            <section class="project-section" id="resource-model" aria-labelledby="resource-model-title" data-section-navigator-label="Resource Operations">
                 <h2 id="resource-model-title">Core Resource Model</h2>
                 <div class="project-section__split">
                     <div>
@@ -217,7 +188,7 @@ Developer Observability &amp; Operational Health (Sentry, PostHog, Internal Dash
                             </div>
                             <div class="project-note-item">
                                 <strong>2. Location (Facilities)</strong>
-                                <span>Rooms, labs, desks, and physical spaces managed via time-window reservations and availability capacity rules.</span>
+                                <span>Rooms, labs, desks, and physical spaces governed by reservation, allocation, and maintenance rules.</span>
                             </div>
                             <div class="project-note-item">
                                 <strong>3. Consumable</strong>
@@ -233,29 +204,38 @@ Developer Observability &amp; Operational Health (Sentry, PostHog, Internal Dash
 Equipment       Location        Consumable
 ├── Serialized  ├── Time Window ├── Quantity Stock
 ├── Borrowable  ├── Reserved    ├── Allocated
-└── Maintained  └── Multi-User  └── Restocked</pre>
+└── Maintained  └── Maintained  └── Restocked</pre>
                     </div>
                 </div>
             </section>
 
-            <section class="project-section" id="lifecycle" aria-labelledby="lifecycle-title">
-                <h2 id="lifecycle-title">Resource Lifecycle Principle</h2>
-                <div class="project-section__split">
-                    <div>
-                        <p>Rather than enforcing a static state model across all assets, Talara models resource behavior according to the specific kind of resource being managed.</p>
-                        <p>Equipment, facilities/locations, and consumables require distinct operational states, transition rules, and availability calculations.</p>
-                        <!-- TODO: Document the exact state machine for each resource type once verified from implementation. -->
+            <section class="project-section" id="resource-state" aria-labelledby="resource-state-title" data-section-navigator="subsection">
+                <h2 id="resource-state-title">Equipment Status &amp; Condition</h2>
+                <div class="comparison-box" aria-label="Equipment operational status versus physical condition">
+                    <div class="comparison-column">
+                        <h3>OPERATIONAL STATUS</h3>
+                        <ul>
+                            <li>Available</li>
+                            <li>Allocated</li>
+                            <li>Maintenance</li>
+                            <li>Lost</li>
+                            <li>Disposed</li>
+                        </ul>
                     </div>
-                    <div class="project-note-list">
-                        <div class="project-note-item">
-                            <strong>Dynamic State Machine</strong>
-                            <span>Availability depends on current assignments, active time-window reservations, maintenance flags, and transfer states.</span>
-                        </div>
+                    <div class="comparison-column">
+                        <h3>PHYSICAL CONDITION</h3>
+                        <ul>
+                            <li>Good</li>
+                            <li>Damaged</li>
+                            <li>For Repair</li>
+                            <li>For Disposal</li>
+                        </ul>
                     </div>
                 </div>
+                <p>Talara separates where an asset is in its operational lifecycle from its physical condition, avoiding a single overloaded status field.</p>
             </section>
 
-            <section class="project-section" id="duration" aria-labelledby="duration-title">
+            <section class="project-section" id="duration" aria-labelledby="duration-title" data-section-navigator="subsection">
                 <h2 id="duration-title">Duration Assignment Models</h2>
                 <div class="comparison-box" aria-label="Temporary versus Permanent Assignment Models">
                     <div class="comparison-column">
@@ -279,7 +259,7 @@ Equipment       Location        Consumable
                 </div>
             </section>
 
-            <section class="project-section" id="workflows" aria-labelledby="workflows-title">
+            <section class="project-section" id="workflows" aria-labelledby="workflows-title" data-section-navigator="subsection">
                 <h2 id="workflows-title">Core Operational Workflows</h2>
                 <p>Talara unifies physical asset management across integrated operational modules:</p>
                 <div class="project-note-list">
@@ -298,37 +278,31 @@ Equipment       Location        Consumable
                 </div>
             </section>
 
-            <section class="project-section" id="reservations" aria-labelledby="reservations-title">
-                <h2 id="reservations-title">Reservation System &amp; Conflict Prevention</h2>
+            <section class="project-section" id="reservations" aria-labelledby="reservations-title" data-section-navigator="subsection">
+                <h2 id="reservations-title">Request &amp; Reservation Validation Engine</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>The reservation subsystem manages future scheduling for locations and shared equipment while preventing double-booking conflict errors.</p>
-                        <p>Key reservation rules:</p>
+                        <p>Availability is decided server-side after identity and organization ownership are established. Each resource type then applies its own operational rules.</p>
                         <ul>
-                            <li><strong>Time-Window Availability Verification:</strong> Checks that no overlapping reservation exists for the requested resource.</li>
-                            <li><strong>Conflict Prevention:</strong> Application-layer checks reject incompatible time-window booking requests.</li>
-                            <li><strong>Approval Workflow:</strong> Option for organization admins to review and approve pending reservation holds.</li>
+                            <li><strong>Equipment:</strong> reservation overlap, allocation, maintenance, and lost or unavailable state.</li>
+                            <li><strong>Location:</strong> reservation overlap, allocation, and maintenance.</li>
+                            <li><strong>Consumable:</strong> stock, usable quantity, expiry, and disposal conditions.</li>
                         </ul>
                     </div>
-                    <div class="project-diagram" aria-label="Reservation conflict check pipeline">
-                        <pre>Reservation Request (Resource + Time Window)
-        ↓
-Query Existing Time-Window Holds
-        ↓
-Overlapping Conflict Detected?
-  ┌─────┴────────────────┐
-  YES                    NO
-  ↓                      ↓
-Reject Request &amp;        Create Pending Reservation
-Prompt Alternate        ↓
-Time Window             Admin Approval Flow
-                         ↓
-                        Confirm Reserved Status</pre>
+                    <div class="project-diagram" aria-label="Server-side request validation pipeline">
+                        <pre>Request
+  ↓
+Authentication → Organization Scope → Resource Type
+  ├── Equipment: overlap · allocation · maintenance · lost
+  ├── Location: overlap · allocation · maintenance
+  └── Consumable: stock · expiry · disposal · usable quantity
+  ↓
+Approve / Reject / Conflict</pre>
                     </div>
                 </div>
             </section>
 
-            <section class="project-section" id="maintenance" aria-labelledby="maintenance-title">
+            <section class="project-section" id="maintenance" aria-labelledby="maintenance-title" data-section-navigator="subsection">
                 <h2 id="maintenance-title">Maintenance &amp; Repair Subsystem</h2>
                 <p>Maintenance management provides structural evidence that physical resources require ongoing service and status tracking:</p>
                 <div class="project-diagram" aria-label="Maintenance workflow diagram">
@@ -349,146 +323,253 @@ Return Resource to Operational State</pre>
                 </div>
             </section>
 
-            <section class="project-section" id="org-model" aria-labelledby="org-model-title">
-                <h2 id="org-model-title">Organization &amp; Role Model</h2>
+            <section class="project-section" id="tenant-boundary" aria-labelledby="tenant-boundary-title" data-section-navigator-label="Security &amp; SaaS Control">
+                <h2 id="tenant-boundary-title">Multi-Tenant Organization Isolation</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>Talara provides predefined organizational roles while allowing the role model to expand as organizational requirements change.</p>
-                        <p>Known organizational role family:</p>
+                        <p>The organization is Talara's primary operational tenant boundary. Members, equipment, locations, consumables, requests, and operational logs belong to an organization.</p>
                         <ul>
-                            <li><strong>Admin / Owner:</strong> Full operational and organization administrative control.</li>
-                            <li><strong>Org Head:</strong> Management oversight for department resources and staff members.</li>
-                            <li><strong>Employee 1 / Employee 2:</strong> Operational staff and end-user roles with resource borrowing capabilities.</li>
-                            <li><strong>Dev:</strong> Developer role with direct access to system health, error signals, and runtime diagnostics.</li>
+                            <li>Backend endpoints enforce organization ownership.</li>
+                            <li>Authorization combines role and organization scope.</li>
+                            <li>Frontend visibility is not trusted as the security boundary.</li>
+                            <li>Cross-organization access is blocked server-side.</li>
+                            <li>Operational deletes use soft deletion where appropriate.</li>
                         </ul>
-                        <!-- TODO: Document the exact public-safe permission boundaries for Owner, Org Head, Employee 1, and Employee 2. -->
                     </div>
-                    <div class="project-note-list">
-                        <div class="project-note-item">
-                            <strong>Role Expansion Flexibility</strong>
-                            <span>Default roles establish immediate organizational hierarchy while supporting custom role additions for specific institutional policies.</span>
+                    <div class="project-diagram" aria-label="Owner account with isolated organizations">
+                        <pre>Owner Account
+├── Organization A
+│   ├── Members · Equipment · Locations
+│   └── Consumables · Requests · Operational Logs
+└── Organization B
+    ├── Members · Equipment · Locations
+    └── Consumables · Requests · Operational Logs
+
+Organization A  ✕  Organization B
+          isolated boundary</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="roles" aria-labelledby="roles-title" data-section-navigator="subsection">
+                <h2 id="roles-title">Role &amp; Authorization Model</h2>
+                <p>Talara uses defined application roles. Admin and Owner are separate security scopes rather than equivalent labels.</p>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Admin · Platform Administration</strong><span>Accounts, packages, owners, platform controls, and global administrative scope.</span></div>
+                    <div class="project-note-item"><strong>Owner · Tenant Ownership</strong><span>Organizations, organization heads, employees, capacity, and organization configuration.</span></div>
+                    <div class="project-note-item"><strong>Org Head · Organization Operations</strong><span>Members, resources, requests, and operational oversight inside the organization.</span></div>
+                    <div class="project-note-item"><strong>Employee 2 · Operational Staff</strong><span>Requests, resource operations, and elevated operational actions.</span></div>
+                    <div class="project-note-item"><strong>Employee 1 · Requester</strong><span>Browse resources, submit requests, and manage their own requests.</span></div>
+                    <div class="project-note-item"><strong>Dev · Engineering Operations</strong><span>Error visibility, operational telemetry, security signals, and system health.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="capacity" aria-labelledby="capacity-title" data-section-navigator="subsection">
+                <h2 id="capacity-title">SaaS Package &amp; Capacity Architecture</h2>
+                <p>Capacity is derived through the SaaS control plane, then enforced at account and organization boundaries before a creation operation proceeds.</p>
+                <div class="project-diagram" aria-label="Package and organization capacity flow">
+                    <pre>Subscription Package
+        ↓
+Account Configuration
+        ↓
+Owner → Organizations → Organization Capacity
+        ↓
+Members · Resources · Storage · Features</pre>
+                </div>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Capacity Dimensions</strong><span>Maximum organizations, members, resources, storage, log visibility or retention configuration, and feature availability.</span></div>
+                    <div class="project-note-item"><strong>Enforcement</strong><span>Package, account, and organization constraints are evaluated against current usage before the operation is accepted.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="entitlements" aria-labelledby="entitlements-title" data-section-navigator="subsection">
+                <h2 id="entitlements-title">Feature Entitlement System</h2>
+                <div class="project-section__split">
+                    <p>Feature access is configurable rather than reduced to hardcoded plan checks. Runtime access can reflect package assignment, owner-level overrides, and organization-level availability, including configured promotional, trial, or manual sources.</p>
+                    <div class="project-diagram" aria-label="Feature entitlement resolution">
+                        <pre>Feature
+├── Package Entitlement
+├── Owner Override
+└── Organization Availability
+          ↓
+      Runtime Access</pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="platform-operations" aria-labelledby="platform-operations-title" data-section-navigator-label="Platform Control Plane">
+                <h2 id="platform-operations-title">Support &amp; Platform Administration</h2>
+                <div class="project-section__split">
+                    <div>
+                        <h3>Support Operations</h3>
+                        <p>Internal issue and feature-request tickets carry priority, developer assignment, updates, checklist items, lifecycle timestamps, and support-throughput snapshots.</p>
+                        <div class="project-diagram" aria-label="Support ticket lifecycle">
+                            <pre>Reported → Triage → In Progress
+→ Waiting on Reporter → Fixed
+→ Released → Closed</pre>
                         </div>
                     </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item"><strong>Platform Announcements</strong><span>Notice · Update · Maintenance · Feature</span></div>
+                        <div class="project-note-item"><strong>Target Scope</strong><span>Global · role-based · organization-wide · targeted organizations</span></div>
+                        <div class="project-note-item"><strong>Background Operations</strong><span>System health checks, support-throughput snapshots, and cron execution visibility.</span></div>
+                    </div>
                 </div>
             </section>
 
-            <section class="project-section" id="capacity" aria-labelledby="capacity-title">
-                <h2 id="capacity-title">Capacity Limits &amp; Package Enforcement</h2>
-                <p>Organizations operate under configurable resource capacity limits. When an organization reaches a configured limit, Talara enforces graceful overflow behavior:</p>
-                <div class="project-diagram" aria-label="Capacity enforcement flow">
-                    <pre>Requested Operation (Add Resource / Add Employee)
-        ↓
-Calculate Current Usage vs Configured Limit
-        ↓
-Within Package Limit?
-  ┌─────┴────────────────┐
-  YES                    NO
-  ↓                      ↓
-Proceed with Addition   Block New Additions
-                         ↓
-                        Prompt Upgrade or Admin Override
-                         ↓
-                        (Existing Data Remains Fully Accessible)</pre>
-                </div>
-            </section>
-
-            <section class="project-section" id="architecture" aria-labelledby="architecture-title">
-                <h2 id="architecture-title">Feature-Oriented Architecture &amp; Repository Boundaries</h2>
+            <section class="project-section" id="architecture" aria-labelledby="architecture-title" data-section-navigator-label="Application Architecture">
+                <h2 id="architecture-title">Client + Server Layered Architecture</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>Talara uses a feature/module-oriented architecture with clear internal boundaries within each functional feature area.</p>
-                        <p>Layered responsibilities:</p>
+                        <p>Talara is a Nuxt SSR/universal application with explicit client and server responsibilities.</p>
                         <ul>
-                            <li><strong>UI Layer:</strong> React components handling user input and layout display.</li>
-                            <li><strong>Controller / Server Boundary:</strong> Route handlers evaluating authentication sessions and parsing requests.</li>
-                            <li><strong>Service Layer:</strong> Multi-step transaction coordination (e.g., assignment + history logging).</li>
-                            <li><strong>Repository Layer:</strong> Pure database persistence queries and data retrieval.</li>
-                            <li><strong>Validation / Model Layer:</strong> Input schema verification executed before service execution.</li>
+                            <li>Vue views delegate page behavior to page controllers and <code>use*.ts</code> composables.</li>
+                            <li>Client repositories own HTTP access; client services coordinate when the use case requires them.</li>
+                            <li>Thin Nuxt/Nitro handlers authenticate, validate with Zod, and establish role plus tenant scope.</li>
+                            <li>Server services own use-case decisions; domain repositories own Prisma persistence.</li>
                         </ul>
                     </div>
-                    <div class="project-diagram" aria-label="Feature module architecture">
-                        <pre>Feature Module (e.g., Reservations)
-├── UI Components
-├── Controller / Server Route Boundary
-├── Service Layer (Transaction Ownership)
-├── Repository Layer (NeonDB Queries)
-└── Validation Schema (Pre-execution Verification)</pre>
+                    <div class="project-diagram" aria-label="Talara client and server architecture">
+                        <pre>CLIENT
+Vue View → Page Controller / use*.ts
+  ↓
+Client Service (when required)
+  ↓
+Client Repository / HTTP
+
+SERVER
+Nuxt/Nitro API Handler
+  ↓
+Authentication → Zod Validation
+  ↓
+RBAC + Tenant Boundary
+  ↓
+Server Service (when required)
+  ↓
+Domain Repository → Prisma → PostgreSQL / Neon</pre>
                     </div>
                 </div>
             </section>
 
-            <section class="project-section" id="auth" aria-labelledby="auth-title">
-                <h2 id="auth-title">Authentication &amp; Hybrid Rendering Strategy</h2>
+            <section class="project-section" id="auth" aria-labelledby="auth-title" data-section-navigator="subsection">
+                <h2 id="auth-title">Authentication &amp; Server Authorization</h2>
                 <div class="project-section__split">
                     <div>
-                        <p>Authentication is managed via <strong>Clerk</strong> integration. Route handlers evaluate Clerk session tokens before passing execution to application service boundaries.</p>
-                        <p>Talara uses Next.js rendering capabilities selectively rather than applying one rendering mode everywhere. Public/static-friendly content uses static rendering, while authenticated or data-dependent areas use server-oriented rendering where appropriate.</p>
+                        <p>Clerk establishes identity, but the API remains responsible for validation, defined-role authorization, and organization ownership enforcement.</p>
+                        <p>Nuxt SSR and universal application boundaries support server-oriented handling for authenticated and data-dependent workflows.</p>
                     </div>
                     <div class="project-diagram" aria-label="Authentication request flow">
-                        <pre>Incoming HTTP Request
-        ↓
-Clerk Middleware Session Verification
-        ↓
-Extract User Identity &amp; Organization Context
-        ↓
-Evaluate Route Authorization Boundary
-        ↓
-Execute Service Operation</pre>
+                        <pre>Clerk Identity
+   ↓
+Nuxt/Nitro API Authentication
+   ↓
+Zod Request Validation
+   ↓
+Defined RBAC Role
+   ↓
+Organization Tenant Boundary
+   ↓
+Service → Repository</pre>
                     </div>
                 </div>
             </section>
 
-            <section class="project-section" id="stack" aria-labelledby="stack-title">
+            <section class="project-section" id="stack" aria-labelledby="stack-title" data-section-navigator="subsection">
                 <h2 id="stack-title">Verified Technology Stack</h2>
                 <div class="project-note-list">
                     <div class="project-note-item">
                         <strong>Frontend / Framework</strong>
-                        <span>Next.js · Tailwind CSS</span>
+                        <span>Nuxt 4 · Vue 3 · TypeScript · Tailwind CSS</span>
                     </div>
                     <div class="project-note-item">
                         <strong>Authentication &amp; Database</strong>
-                        <span>Clerk (Authentication) · NeonDB (Database Platform)</span>
+                        <span>Clerk · Zod · Prisma · PostgreSQL/Neon</span>
                     </div>
                     <div class="project-note-item">
                         <strong>File Storage</strong>
-                        <span>Backblaze (Document and asset image storage)</span>
+                        <span>Backblaze B2 through an S3-compatible object-storage adapter</span>
                     </div>
                     <div class="project-note-item">
                         <strong>Quality &amp; Testing</strong>
-                        <span>Jest (Unit/Service tests) · Playwright (End-to-End tests) · Codecov (Coverage reporting) · CodeScene (Code health analysis)</span>
+                        <span>Vitest · Codecov · CodeScene · type checking · API and security test coverage</span>
                     </div>
                     <div class="project-note-item">
                         <strong>DevOps &amp; Infrastructure</strong>
-                        <span>Docker (Local runtime) · GitHub Actions (CI pipeline) · Vercel (Production hosting)</span>
+                        <span>Docker · GitHub Actions · Vercel · Sentry</span>
                     </div>
                 </div>
-                <!-- TODO: Verify whether Talara has an intentional cache layer or whether NeonDB was only being used as the primary database. -->
             </section>
 
-            <section class="project-section" id="observability" aria-labelledby="observability-title">
-                <h2 id="observability-title">Developer Observability &amp; System Health</h2>
-                <p>Talara provides comprehensive developer observability tools tailored for the `Dev` role to monitor operational health and system stability:</p>
+            <section class="project-section" id="developer-operations" aria-labelledby="developer-operations-title" data-section-navigator-label="Engineering Operations">
+                <h2 id="developer-operations-title">Developer Operations &amp; Observability</h2>
+                <div class="comparison-box" aria-label="Operational health and API error triage systems">
+                    <div class="comparison-column">
+                        <h3>OPERATIONAL HEALTH</h3>
+                        <ul>
+                            <li>Errors and security events in the last 24 hours</li>
+                            <li>Cron health and latest runs</li>
+                            <li>Execution duration</li>
+                            <li>Operational initialization and health posture</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>API ERROR &amp; TRIAGE</h3>
+                        <ul>
+                            <li>Endpoint and unchecked errors</li>
+                            <li>All-time and weekly errors</li>
+                            <li>Trend percentage and direction</li>
+                            <li>Last checked and triage status</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>Sentry and internal operational logging provide error context and security signals; the two internal views keep runtime health separate from endpoint-level triage work.</p>
+            </section>
+
+            <section class="project-section" id="quality" aria-labelledby="quality-title" data-section-navigator="subsection">
+                <h2 id="quality-title">Quality, Delivery &amp; Architecture Enforcement</h2>
+                <div class="project-diagram" aria-label="Engineering quality gate pipeline">
+                    <pre>Change → Lint → Type Check → Unit Tests
+→ Integration Tests → API Tests → Security Tests
+→ Coverage → Build Verification</pre>
+                </div>
                 <div class="project-note-list">
-                    <div class="project-note-item">
-                        <strong>Sentry Error Monitoring</strong>
-                        <span>Real-time error capture and stack-trace categorization across client and server environments.</span>
-                    </div>
-                    <div class="project-note-item">
-                        <strong>Developer Observability Dashboard</strong>
-                        <span>Custom internal dashboard tracking unchecked/unreviewed errors, total error counts, weekly error signals, and week-over-week error comparisons.</span>
-                    </div>
-                    <div class="project-note-item">
-                        <strong>PostHog Product Analytics</strong>
-                        <span>Application usage analytics monitoring feature adoption and operational workflow patterns.</span>
-                    </div>
-                    <div class="project-note-item">
-                        <strong>Security Event Tracking</strong>
-                        <span>Operational logging for security-relevant authorization events and system runtime status.</span>
-                    </div>
+                    <div class="project-note-item"><strong>Delivery Gates</strong><span>Vitest · GitHub Actions · Codecov · type checking · coverage targets · security testing</span></div>
+                    <div class="project-note-item"><strong>Architectural Rules</strong><span>View purity, SRP, separation of concerns, thin API handlers, Zod validation, shared typed contracts, and controlled client/server boundaries.</span></div>
+                    <div class="project-note-item"><strong>Persistence Ownership</strong><span>Domain-focused repositories own Prisma and SQL access; services own behavior; oversized god files are rejected through engineering standards and functional LOC guidance.</span></div>
                 </div>
             </section>
 
-            <section class="project-section" id="constraints" aria-labelledby="constraints-title">
+            <section class="project-section" id="operations-environment" aria-labelledby="operations-environment-title" data-section-navigator="subsection">
+                <h2 id="operations-environment-title">Engineering &amp; Operations Environment</h2>
+                <p>This environment supports development and operations; it does not imply that every service is a production runtime dependency.</p>
+                <div class="project-diagram" aria-label="Talara engineering and operations environment">
+                    <pre>Nuxt Application
+├── PostgreSQL · Redis
+├── CloudBeaver / database tooling
+├── Jenkins
+├── Prometheus · Grafana
+└── PostgreSQL exporter · Redis exporter
+
+Talara Server → S3-compatible adapter → Backblaze B2</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="milestones" aria-labelledby="milestones-title" data-section-navigator-label="Project Evolution">
+                <h2 id="milestones-title">Project Evolution</h2>
+                <div class="decision-list">
+                    <article class="decision-item"><h3>01 · Architecture Foundation</h3><p>Nuxt 4, Vue 3, TypeScript, Prisma, PostgreSQL/Neon, Clerk, typed contracts, and client/server architecture.</p></article>
+                    <article class="decision-item"><h3>02 · Multi-Tenant Security</h3><p>Organization isolation, defined RBAC, Admin/Owner separation, backend ownership enforcement, and API validation.</p></article>
+                    <article class="decision-item"><h3>03 · Resource Operations</h3><p>Equipment, locations, consumables, allocations, temporary/permanent workflows, maintenance, and stock operations.</p></article>
+                    <article class="decision-item"><h3>04 · Request &amp; Reservation Engine</h3><p>Approvals, overlap prevention, resource availability, stock validation, return/lost/damaged flows, and operational logging.</p></article>
+                    <article class="decision-item"><h3>05 · SaaS Control Plane</h3><p>Packages, account configuration, capacity limits, subscriptions, feature entitlements, and organization controls.</p></article>
+                    <article class="decision-item"><h3>06 · Platform Administration</h3><p>Accounts, packages, subscriptions, support-ticket operations, announcements, and platform controls.</p></article>
+                    <article class="decision-item"><h3>07 · Developer Observability</h3><p>Operational telemetry, API error inventory, triage workflow, weekly trends, security signals, Sentry, and internal logs.</p></article>
+                    <article class="decision-item"><h3>08 · Quality &amp; Delivery Engineering</h3><p>Vitest, API and security testing, Codecov, GitHub Actions, CodeScene, and documented engineering standards.</p></article>
+                    <article class="decision-item"><h3>09 · Operational Infrastructure</h3><p>Dockerized engineering services, scheduled jobs, health checks, B2 object storage, and environment-specific configuration.</p></article>
+                </div>
+            </section>
+
+            <section class="project-section" id="constraints" aria-labelledby="constraints-title" data-section-navigator-label="Decisions &amp; Constraints">
                 <h2 id="constraints-title">System &amp; Domain Constraints</h2>
                 <div class="project-note-list">
                     <div class="project-note-item">
@@ -505,12 +586,12 @@ Execute Service Operation</pre>
                     </div>
                     <div class="project-note-item">
                         <strong>Multi-Boundary Quality Verification</strong>
-                        <span>Combining Clerk auth, Next.js server routes, NeonDB persistence, and Sentry observability required automated CI testing.</span>
+                        <span>Combining Clerk identity, Nuxt/Nitro API boundaries, Prisma persistence, and Sentry observability requires automated CI verification.</span>
                     </div>
                 </div>
             </section>
 
-            <section class="project-section" id="decisions" aria-labelledby="decisions-title">
+            <section class="project-section" id="decisions" aria-labelledby="decisions-title" data-section-navigator="subsection">
                 <h2 id="decisions-title">Key Technical Decisions</h2>
                 <div class="decision-list">
                     <article class="decision-item">
@@ -541,7 +622,7 @@ Execute Service Operation</pre>
                 </div>
             </section>
 
-            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title" data-section-navigator-label="Outcomes">
                 <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
                 <div class="project-note-list">
                     <div class="project-note-item">
@@ -568,7 +649,7 @@ Execute Service Operation</pre>
                 <!-- TODO: Add measurable outcomes only if real analytics/evidence becomes available. -->
             </section>
 
-            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title" data-section-navigator-label="Retrospective &amp; Related Work">
                 <h2 id="retrospective-title">Lessons &amp; Retrospective</h2>
                 <div class="retrospective-item">
                     <h3>Domain Complexity Beyond Inventory</h3>
@@ -580,12 +661,12 @@ Execute Service Operation</pre>
                 </div>
             </section>
 
-            <section class="project-section" id="related" aria-labelledby="related-title">
+            <section class="project-section" id="related" aria-labelledby="related-title" data-section-navigator="subsection">
                 <h2 id="related-title">Related Professional Work</h2>
                 <div class="related-link-list">
                     <div class="related-link-item">
                         <strong>Skills Demonstrated</strong>
-                        <p>Next.js · Tailwind CSS · Clerk · NeonDB · Backblaze · Docker · Jest · Playwright · Sentry · PostHog · CodeScene · Vercel</p>
+                        <p>Nuxt 4 · Vue 3 · TypeScript · Tailwind CSS · Clerk · Zod · Prisma · PostgreSQL/Neon · Backblaze B2 · Docker · Vitest · GitHub Actions · Codecov · Sentry · CodeScene · Vercel</p>
                         <a class="related-link" href="../../skills/">Explore Skills →</a>
                     </div>
                     <div class="related-link-item">

@@ -253,6 +253,16 @@ body:has([data-case-study-shell]) {
         letter-spacing: 0;
     }
 
+    .project-section[data-section-navigator="subsection"] {
+        margin-inline-start: clamp(0rem, 2.5vi, 2rem);
+        inline-size: calc(100% - clamp(0rem, 2.5vi, 2rem));
+        padding-block-start: clamp(1.25rem, 3vi, 2rem);
+    }
+
+    .project-section[data-section-navigator="subsection"] h2 {
+        font-size: clamp(1.15rem, 2.4vi, 1.55rem);
+    }
+
     .project-section p,
     .project-section li,
     .project-note-item span,

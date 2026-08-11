@@ -163,6 +163,32 @@ window.SKILLS_DATA = [
   },
 
   {
+    id: "vue",
+    name: "Vue 3",
+    categories: ["Development"],
+    type: "Framework",
+    depth: "APPLIED",
+    lastApplied: 2026,
+    summary: "Component-based interface development for typed operational applications.",
+    evidence: [
+      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Vue views and components form the client interface of the Nuxt application." }
+    ]
+  },
+
+  {
+    id: "nuxt",
+    name: "Nuxt 4",
+    categories: ["Development", "Architecture"],
+    type: "Framework",
+    depth: "APPLIED",
+    lastApplied: 2026,
+    summary: "Vue framework used for universal rendering and typed client/server application boundaries.",
+    evidence: [
+      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Nuxt SSR and Nitro API architecture for authenticated, data-dependent operations." }
+    ]
+  },
+
+  {
     id: "nextjs",
     name: "Next.js",
     categories: ["Development", "Architecture"],
@@ -171,7 +197,6 @@ window.SKILLS_DATA = [
     lastApplied: 2026,
     summary: "Full-stack React framework with server-side rendering and API routing.",
     evidence: [
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Selective rendering strategy for authenticated and data-dependent operational workflows." },
       { kind: "experience", label: "Software Engineer Intern - Argon Software", url: "../experience/software-engineer-intern/", note: "Built web applications using Laravel, React, Next.js, and React Native." },
       { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Next.js appears in the covered technology list." }
     ]
@@ -292,15 +317,15 @@ window.SKILLS_DATA = [
   },
 
   {
-    id: "neondb",
-    name: "NeonDB",
+    id: "postgresql-neon",
+    name: "PostgreSQL / Neon",
     categories: ["Data", "Infrastructure"],
     type: "Platform",
     depth: "APPLIED",
     lastApplied: 2026,
-    summary: "Managed PostgreSQL platform used for operational application persistence and connection pooling.",
+    summary: "PostgreSQL persistence with Neon hosting and repository-owned data access.",
     evidence: [
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Primary persistence layer for resource, reservation, maintenance, and organizational data." },
+      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Domain repositories use Prisma to access PostgreSQL hosted on Neon." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Used with Postgres connection pooling in the multi-tenant feedback platform architecture." }
     ]
   },
@@ -606,7 +631,6 @@ window.SKILLS_DATA = [
     summary: "End-to-end browser automation and UI testing.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "Playwright scripts for local end-to-end verification of complex UI flows." },
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes Playwright end-to-end tests." },
       { kind: "experience", label: "Full-Time Instructor - FEU Institute of Technology", url: "../experience/full-time-instructor/", note: "Performed browser-level validation through Playwright." }
     ]
   },
@@ -621,20 +645,20 @@ window.SKILLS_DATA = [
     summary: "Testing individual functions, components, and service methods in isolation.",
     evidence: [
       { kind: "project", label: "GoPick", url: "../projects/gopick/", note: "PHPUnit unit and component tests for isolated service/repository logic." },
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified stack includes Jest unit/service tests." }
+      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Vitest-based unit and integration coverage for typed application behavior." }
     ]
   },
 
   {
-    id: "jest",
-    name: "Jest",
+    id: "vitest",
+    name: "Vitest",
     categories: ["Quality", "Development"],
     type: "Tool",
     depth: "PRACTICED",
     lastApplied: 2026,
-    summary: "Unit and service testing tool used in operational application validation.",
+    summary: "Unit and integration testing for typed Vue and Nuxt application behavior.",
     evidence: [
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Unit and service tests in the verified project stack." }
+      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Active test scripts and quality gates use Vitest." }
     ]
   },
 
@@ -739,19 +763,6 @@ window.SKILLS_DATA = [
     evidence: [
       { kind: "project", label: "Talara", url: "../projects/talara/", note: "Verified observability stack includes Sentry error monitoring." },
       { kind: "project", label: "Veyra", url: "../projects/veyra/", note: "Integrated Sentry error monitoring alongside internal scrubbed diagnostics for developer observability." }
-    ]
-  },
-
-  {
-    id: "posthog",
-    name: "PostHog",
-    categories: ["Observability", "Data"],
-    type: "Platform",
-    depth: "PRACTICED",
-    lastApplied: 2026,
-    summary: "Product analytics and operational event visibility for SaaS application workflows.",
-    evidence: [
-      { kind: "project", label: "Talara", url: "../projects/talara/", note: "Used alongside Sentry and internal dashboards for developer observability." }
     ]
   },
 

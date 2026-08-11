@@ -440,6 +440,10 @@ Do not expand a simple task into a larger redesign.
 
 ## Validation
 
+### Automated Validation Prohibition
+
+Never run Playwright, browser automation, tests, test suites, linters, format checkers, static analyzers, or other automated validation/checking tools in this repository. Validation must remain source-only unless the user explicitly overrides this rule for a specific command.
+
 After making changes:
 
 1. Verify that affected HTML files remain valid and structurally complete.
