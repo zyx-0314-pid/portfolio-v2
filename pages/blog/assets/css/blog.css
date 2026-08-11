@@ -1,0 +1,209 @@
+.notes-main {
+    width: 100%;
+    min-height: calc(100vh - 12rem);
+    padding-top: clamp(2rem, 4vh, 3.5rem);
+    background: var(--color-bg);
+    overflow: clip;
+}
+
+.notes-scope,
+.notes-policy,
+.notes-archive {
+    padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+
+.notes-hero {
+    padding-top: clamp(4.5rem, 9vh, 8rem);
+    padding-bottom: 0;
+}
+
+.notes-policy__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: end;
+}
+
+.notes-hero__eyebrow,
+.notes-kicker,
+.notes-section-number,
+.notes-scope-list__index,
+.notes-scope-list__label,
+.notes-archive__status,
+.notes-policy__facts dt {
+    margin: 0;
+    color: var(--color-accent-bright);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.notes-hero__header {
+    max-width: 44rem;
+    margin-bottom: clamp(3rem, 6vh, 5.5rem);
+}
+
+.notes-hero__eyebrow {
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.notes-hero__title {
+    margin: 0 0 1.25rem;
+    color: var(--color-text);
+    font-size: clamp(3.25rem, 7vw, 4.5rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+}
+
+.notes-hero__lead {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+    line-height: 1.45;
+}
+
+.notes-policy__copy > p,
+.notes-archive__empty > p:last-child {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: clamp(1rem, 1.5vw, 1.16rem);
+    line-height: 1.75;
+}
+
+.notes-policy__copy > p + p {
+    margin-top: 1.25rem;
+}
+
+.notes-scope {
+    background: var(--color-bg-secondary);
+}
+
+.notes-section-heading {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.notes-section-heading h2,
+.notes-policy h2 {
+    margin: 0.65rem 0 0;
+    font-size: clamp(2.25rem, 5vw, 4.75rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 1;
+}
+
+.notes-scope-list {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border);
+    list-style: none;
+}
+
+.notes-scope-list li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) minmax(9rem, 0.3fr);
+    gap: clamp(1rem, 4vw, 4rem);
+    align-items: start;
+    padding-block: clamp(2rem, 4vw, 3.5rem);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.notes-scope-list h3 {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.45rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+.notes-scope-list p:not(.notes-scope-list__label) {
+    max-width: 48rem;
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.notes-scope-list__label {
+    color: var(--color-text-muted);
+    text-align: right;
+}
+
+.notes-policy {
+    border-block: 1px solid var(--color-border);
+}
+
+.notes-policy__layout {
+    align-items: start;
+}
+
+.notes-policy__facts {
+    margin: 2.5rem 0 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.notes-policy__facts div {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.notes-policy__facts dd {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.notes-archive {
+    background: var(--color-bg-secondary);
+}
+
+.notes-archive__empty {
+    max-width: 52rem;
+    margin-left: clamp(4rem, 11vw, 10rem);
+    padding: clamp(1.5rem, 4vw, 3rem) 0;
+    border-block: 1px solid var(--color-border);
+}
+
+.notes-archive__status {
+    margin-bottom: 0.75rem;
+}
+
+@media (max-width: 760px) {
+    .notes-scope,
+    .notes-policy,
+    .notes-archive {
+        padding-block: 4rem;
+    }
+
+    .notes-policy__layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .notes-scope-list li {
+        grid-template-columns: 2.25rem minmax(0, 1fr);
+    }
+
+    .notes-scope-list__label {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .notes-policy__facts div {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+    }
+
+    .notes-archive__empty {
+        margin-left: 0;
+    }
+}

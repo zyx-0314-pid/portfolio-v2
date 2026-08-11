@@ -145,11 +145,12 @@
 
     const initializeActiveNavigation = () => {
         const currentPath = window.location.pathname.replace(/\\/g, '/').toLowerCase();
-        const sectionMatch = currentPath.match(/\/pages\/(projects|experience|about|skills|credentials|contact)\//);
+        const sectionMatch = currentPath.match(/\/pages\/(projects|experience|about|skills|credentials|blog|contact)\//);
         const activeSection = sectionMatch ? sectionMatch[1] : null;
 
         document.querySelectorAll('.site-nav__menu a').forEach((link) => {
-            const linkSection = link.textContent.trim().toLowerCase();
+            const linkLabel = link.textContent.trim().toLowerCase();
+            const linkSection = linkLabel === 'notes' ? 'blog' : linkLabel;
 
             if (activeSection && linkSection === activeSection) {
                 link.setAttribute('aria-current', 'page');
@@ -176,6 +177,34 @@
         const getSectionIcon = (label) => {
             const normalizedLabel = label.toLowerCase();
             const iconRules = [
+                [/enterprise systems for digital governance/, 'fa-building-columns'],
+                [/how i approach engineering work/, 'fa-gears'],
+                [/how i approach systems/, 'fa-compass-drafting'],
+                [/evidence through technical work/, 'fa-folder-tree'],
+                [/validated supporting evidence/, 'fa-clipboard-check'],
+                [/working perspective/, 'fa-user'],
+                [/^notes$/, 'fa-note-sticky'],
+                [/three kinds of record/, 'fa-list-ol'],
+                [/events wait six months/, 'fa-calendar-day'],
+                [/published notes/, 'fa-book-open'],
+                [/order lifecycle management/, 'fa-boxes-stacked'],
+                [/independent payment tracking/, 'fa-money-bill-transfer'],
+                [/delivery route & driver assignment/, 'fa-truck'],
+                [/spatial frame division & path selection/, 'fa-compass'],
+                [/multimodal haptic & audio feedback/, 'fa-wave-square'],
+                [/scan-initiated workflows/, 'fa-barcode'],
+                [/item lifecycle state machine/, 'fa-right-left'],
+                [/append-oriented movement history log/, 'fa-clock-rotate-left'],
+                [/full-stack system architecture/, 'fa-cubes-stacked'],
+                [/retrospective & industry immersion experience/, 'fa-chalkboard-user'],
+                [/atomic cross-system scheduling/, 'fa-calendar-plus'],
+                [/feature controls & error handling/, 'fa-toggle-on'],
+                [/summary of contributions/, 'fa-list-check'],
+                [/skills & evidence/, 'fa-layer-group'],
+                [/existing platform context/, 'fa-building'],
+                [/messaging subsystem - direct & group chat/, 'fa-comments'],
+                [/feed services & media uploads/, 'fa-rss'],
+                [/offline video caching/, 'fa-cloud-arrow-down'],
                 [/home|full-stack engineering|introduction/, 'fa-house'],
                 [/\b(fitness|run|swim|hike|train)\b/, 'fa-person-running'],
                 [/travel|exploration/, 'fa-map-location-dot'],

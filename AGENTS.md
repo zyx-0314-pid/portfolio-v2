@@ -1222,6 +1222,10 @@ Do not use emojis as generic feature icons.
 
 Use one consistent icon system.
 
+Use at most one identifying icon per section.
+
+Do not reuse the same identifying icon for another section. Functional interface icons such as navigation arrows and controls may repeat when they represent the same action.
+
 Do not introduce multiple overlapping icon libraries.
 
 ---

@@ -41,6 +41,7 @@
                         <a href="../../about/">About</a>
                         <a href="../../skills/">Skills</a>
                         <a href="../../credentials/">Credentials</a>
+                        <a href="../../blog/">Notes</a>
                         <a href="../../contact/">Contact</a>
                     </div>
                 </nav>
@@ -73,26 +74,13 @@
                         <p class="project-header__summary">GoPick is an international HR assessment platform supporting candidates, assessments, evaluations, reporting, account management, and consumable report-generation credits. My work focuses on extending the existing platform while incrementally restructuring legacy areas into a more explicit modular architecture that is easier to trace, test, maintain, and change safely.</p>
                         
                         <nav class="project-toc" aria-label="On-page contents">
-                            <a href="#overview">Overview</a>
-                            <a href="#role">My Role</a>
-                            <a href="#constraints">Constraints</a>
-                            <a href="#before-state">Before-State</a>
-                            <a href="#strategy">Strategy</a>
-                            <a href="#architecture">Architecture</a>
-                            <a href="#accounts">Accounts Reference</a>
-                            <a href="#standards">Standards</a>
-                            <a href="#meters">Meters Logic</a>
-                            <a href="#feature-controls">Feature Controls</a>
-                            <a href="#error-handling">Error Handling</a>
-                            <a href="#testing">Testing Strategy</a>
-                            <a href="#jfp-relationship">JFP Ecosystem</a>
-                            <a href="#documentation">Manual &amp; Docs</a>
-                            <a href="#infrastructure">Infrastructure</a>
-                            <a href="#decisions">Decisions</a>
-                            <a href="#tradeoffs">Tradeoffs</a>
+                            <a href="#overview">Platform Overview</a>
+                            <a href="#before-state">Legacy Modernization</a>
+                            <a href="#meters">Operational Reliability</a>
+                            <a href="#jfp-relationship">Connected Ecosystem</a>
+                            <a href="#decisions">Engineering Decisions</a>
                             <a href="#outcomes">Outcomes</a>
                             <a href="#retrospective">Retrospective</a>
-                            <a href="#related">Related Work</a>
                         </nav>
                     </div>
 
@@ -134,7 +122,7 @@
                 </dl>
             </header>
 
-            <section class="project-section" id="overview" aria-labelledby="overview-title">
+            <section class="project-section" id="overview" aria-labelledby="overview-title" data-section-navigator-label="Platform Overview">
                 <h2 id="overview-title">Platform Context &amp; Public Modules</h2>
                 <div class="project-section__split">
                     <div>
@@ -167,7 +155,7 @@
                 </div>
             </section>
 
-            <section class="project-section" id="role" aria-labelledby="role-title">
+            <section class="project-section" id="role" aria-labelledby="role-title" data-section-navigator="subsection">
                 <h2 id="role-title">My Role &amp; Ownership Boundary</h2>
                 <div class="project-section__split">
                     <p>As a <strong>Fullstack Engineer and DevOps Engineer</strong> on GoPick, my contributions encompass significant work across legacy modernization, application architecture, feature development, system reliability, engineering documentation, feature delivery controls, developer testing, deployment workflows, and ongoing maintenance.</p>
@@ -175,7 +163,7 @@
                 </div>
             </section>
 
-            <section class="project-section" id="constraints" aria-labelledby="constraints-title">
+            <section class="project-section" id="constraints" aria-labelledby="constraints-title" data-section-navigator="subsection">
                 <h2 id="constraints-title">System &amp; Delivery Constraints</h2>
                 <p>Architectural decisions on GoPick were directly shaped by realistic production constraints rather than unconstrained textbook ideals:</p>
                 <div class="project-note-list">
@@ -206,7 +194,7 @@
                 </div>
             </section>
 
-            <section class="project-section gopick-before-state" id="before-state" aria-labelledby="before-state-title">
+            <section class="project-section gopick-before-state" id="before-state" aria-labelledby="before-state-title" data-section-navigator-label="Legacy Modernization">
                 <h2 id="before-state-title">Legacy Before-State</h2>
                 <div class="project-section__split">
                     <div>
@@ -240,7 +228,7 @@
                 </div>
             </section>
 
-            <section class="project-section" id="strategy" aria-labelledby="strategy-title">
+            <section class="project-section" id="strategy" aria-labelledby="strategy-title" data-section-navigator="subsection">
                 <h2 id="strategy-title">Incremental Migration Strategy</h2>
                 <div class="project-section__split">
                     <div>
@@ -260,7 +248,7 @@
                 </div>
             </section>
 
-            <section class="project-section" id="architecture" aria-labelledby="architecture-title">
+            <section class="project-section" id="architecture" aria-labelledby="architecture-title" data-section-navigator="subsection">
                 <h2 id="architecture-title">Architecture - Modular 5-Layer Structure</h2>
                 <p>The modernization introduces explicit responsibility ownership within each module boundary while establishing clean supporting shared layers:</p>
                 <div class="project-section__split">
@@ -304,7 +292,7 @@ Shared System Infrastructure
                 </div>
             </section>
 
-            <section class="project-section" id="accounts" aria-labelledby="accounts-title">
+            <section class="project-section" id="accounts" aria-labelledby="accounts-title" data-section-navigator="subsection">
                 <h2 id="accounts-title">Accounts - Reference Modernization</h2>
                 <div class="project-section__split">
                     <div>
@@ -330,7 +318,7 @@ Shared System Infrastructure
                 </div>
             </section>
 
-            <section class="project-section" id="standards" aria-labelledby="standards-title">
+            <section class="project-section" id="standards" aria-labelledby="standards-title" data-section-navigator="subsection">
                 <h2 id="standards-title">Engineering Standards &amp; Discipline</h2>
                 <p>The modernization went beyond folder reorganization by instituting rigorous software engineering practices across refactored areas:</p>
                 <div class="project-note-list">
@@ -353,7 +341,7 @@ Shared System Infrastructure
                 </div>
             </section>
 
-            <section class="project-section" id="meters" aria-labelledby="meters-title">
+            <section class="project-section" id="meters" aria-labelledby="meters-title" data-section-navigator-label="Operational Reliability">
                 <h2 id="meters-title">Meters - Domain Logic Case Study</h2>
                 <div class="project-section__split">
                     <div>
@@ -389,7 +377,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="feature-controls" aria-labelledby="feature-controls-title">
+            <section class="project-section" id="feature-controls" aria-labelledby="feature-controls-title" data-section-navigator="subsection">
                 <h2 id="feature-controls-title">Environment &amp; Delivery Feature Controls</h2>
                 <div class="project-section__split">
                     <div>
@@ -408,7 +396,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="error-handling" aria-labelledby="error-handling-title">
+            <section class="project-section" id="error-handling" aria-labelledby="error-handling-title" data-section-navigator="subsection">
                 <h2 id="error-handling-title">Structured Exception &amp; Error Handling</h2>
                 <div class="project-section__split">
                     <div>
@@ -422,7 +410,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="testing" aria-labelledby="testing-title">
+            <section class="project-section" id="testing" aria-labelledby="testing-title" data-section-navigator="subsection">
                 <h2 id="testing-title">Testing Strategy &amp; Verification Distinction</h2>
                 <p>Quality assurance on GoPick uses a clear functional division between official team validation process and additional personal developer verification:</p>
                 <div class="project-section__split">
@@ -447,7 +435,7 @@ Reject Request Safely     Generate Report File
                 <!-- TODO: Add exact automated-test coverage only if measured. -->
             </section>
 
-            <section class="project-section" id="jfp-relationship" aria-labelledby="jfp-relationship-title">
+            <section class="project-section" id="jfp-relationship" aria-labelledby="jfp-relationship-title" data-section-navigator-label="Connected Ecosystem">
                 <h2 id="jfp-relationship-title">JFP – GoPick Connected Ecosystem</h2>
                 <div class="project-section__split">
                     <p>JFP – GoPick operates as a separate specialized assessment application connected to the broader GoPick ecosystem and sharing selected platform data.</p>
@@ -456,7 +444,7 @@ Reject Request Safely     Generate Report File
                 <!-- TODO: Confirm the exact public-safe data boundaries shared between GoPick and JFP – GoPick before documenting integration details. -->
             </section>
 
-            <section class="project-section" id="documentation" aria-labelledby="documentation-title">
+            <section class="project-section" id="documentation" aria-labelledby="documentation-title" data-section-navigator="subsection">
                 <h2 id="documentation-title">Engineering Documentation &amp; GoPick Manual</h2>
                 <div class="project-section__split">
                     <div>
@@ -483,7 +471,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="infrastructure" aria-labelledby="infrastructure-title">
+            <section class="project-section" id="infrastructure" aria-labelledby="infrastructure-title" data-section-navigator="subsection">
                 <h2 id="infrastructure-title">Infrastructure &amp; Technology Stack</h2>
                 <div class="project-section__split">
                     <dl class="project-header__meta">
@@ -516,7 +504,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="decisions" aria-labelledby="decisions-title">
+            <section class="project-section" id="decisions" aria-labelledby="decisions-title" data-section-navigator-label="Engineering Decisions">
                 <h2 id="decisions-title">Key Technical Decisions</h2>
                 <div class="decision-list">
                     <article class="decision-item">
@@ -547,7 +535,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="tradeoffs" aria-labelledby="tradeoffs-title">
+            <section class="project-section" id="tradeoffs" aria-labelledby="tradeoffs-title" data-section-navigator="subsection">
                 <h2 id="tradeoffs-title">Engineering Tradeoffs</h2>
                 <div class="tradeoff-list">
                     <article class="tradeoff-item">
@@ -568,7 +556,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title">
+            <section class="project-section" id="outcomes" aria-labelledby="outcomes-title" data-section-navigator-label="Outcomes">
                 <h2 id="outcomes-title">Verified Qualitative Outcomes</h2>
                 <div class="project-note-list">
                     <div class="project-note-item">
@@ -599,7 +587,7 @@ Reject Request Safely     Generate Report File
                 <!-- TODO: Add measurable modernization outcomes if real measurements become available. -->
             </section>
 
-            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title">
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title" data-section-navigator-label="Retrospective">
                 <h2 id="retrospective-title">Lessons &amp; Engineering Retrospective</h2>
                 <div class="retrospective-item">
                     <h3>What Worked Well?</h3>
@@ -611,7 +599,7 @@ Reject Request Safely     Generate Report File
                 </div>
             </section>
 
-            <section class="project-section" id="related" aria-labelledby="related-title">
+            <section class="project-section" id="related" aria-labelledby="related-title" data-section-navigator="subsection">
                 <h2 id="related-title">Related Professional Work</h2>
                 <div class="related-link-list">
                     <div class="related-link-item">
