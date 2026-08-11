@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Teaching Structure Before Frameworks | Ian Cedric Ramirez</title>
+    <meta name="description" content="A teaching retrospective on using a standardized HTML, CSS, and JavaScript project structure to teach separation of concerns, collaboration, maintainability, GitHub Pages deployment, and preparation for larger software architectures.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Teaching Structure Before Frameworks">
+    <meta property="og:description" content="A teaching retrospective on project structure, separation of concerns, collaboration, and preparation for larger software architectures.">
+    <meta property="article:published_time" content="2026-08-11">
+    <meta property="article:author" content="Ian Cedric Ramirez">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Teaching Structure Before Frameworks">
+    <meta name="twitter:description" content="How a shared HTML, CSS, and JavaScript standard taught responsibility before frameworks.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/blog-article.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body class="blog-article-page structure-article">
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu><a href="../../projects/">Projects</a><a href="../../experience/">Experience</a><a href="../../about/">About</a><a href="../../skills/">Skills</a><a href="../../credentials/">Credentials</a><a href="../" aria-current="page">Notes</a><a href="../../contact/">Contact</a></div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme"><span class="theme-toggle__label" data-theme-toggle-label>Light</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-article">
+        <div class="page-shell"><nav class="breadcrumb blog-article__breadcrumb" aria-label="Breadcrumb"><a href="../../../">Home</a> / <a href="../">Notes</a> / <span aria-current="page">Teaching Structure Before Frameworks</span></nav></div>
+        <article aria-labelledby="article-title">
+            <header class="blog-article-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
+                <div class="page-shell">
+                    <p class="blog-article-eyebrow">Teaching Retrospective · Web Development</p>
+                    <h1 id="article-title">Teaching Structure Before Frameworks</h1>
+                    <p class="blog-article-hero__lead">How a simple HTML, CSS, and JavaScript project template became a way to teach separation of concerns, collaboration, deployment, and the reasoning behind software structure before students encountered larger frameworks.</p>
+                    <dl class="blog-article-hero__facts">
+                        <div><dt>Context</dt><dd>FEU Institute of Technology</dd></div><div><dt>Used in</dt><dd>Web Design · Advanced Web Design</dd></div><div><dt>Later reused in</dt><dd>CodeIgniter 4 onboarding</dd></div><div><dt>Core Principle</dt><dd>Separation of Concerns</dd></div><div><dt>Source</dt><dd><a href="https://github.com/nyebe/AWD-WD-Template-Project" target="_blank" rel="noopener noreferrer">AWD-WD-Template-Project <span aria-hidden="true">↗</span></a></dd></div>
+                    </dl>
+                    <p class="site-footer__meta"><time datetime="2026-08-11">August 11, 2026</time></p>
+                </div>
+            </header>
+
+            <div class="blog-article-layout page-shell"><div class="blog-article-content">
+                <section class="blog-article-section blog-article-section--plain" id="why" aria-labelledby="why-title" data-section-navigator-label="Teaching standard">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">01 / Why I Needed a Standard</p><h2 id="why-title">Before Architecture, There Was the Root Folder</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>Students were learning HTML, CSS, and JavaScript, but many entered with weak project-organization habits. Everything could land in the root directory: long image names, giant files, presentation and behavior mixed into HTML, and no clear owner for an asset.</p><p>The consequences appeared as projects grew. Navigation and checking became harder, maintenance slowed, structures differed between students, and collaborative work produced avoidable overlap and merge conflicts. The goal had to be larger than syntax. I wanted the class to share a development standard and a language for where files belonged, which part owned a responsibility, how work could be divided, and how another developer could understand and deploy the site.</p></div>
+                    <blockquote>A working page was not enough if nobody could understand where its parts belonged.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="template" aria-labelledby="template-title" data-section-navigator-label="Template scaffold">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">02 / The Template Was Deliberately Empty</p><h2 id="template-title">The Scaffold Was the Lesson</h2></header>
+                    <p class="blog-article-section__standfirst">AWD-WD-Template-Project standardized the boundaries without supplying a finished website.</p>
+                    <figure class="structure-file-tree" aria-labelledby="tree-caption"><pre>WD-ProjectName
+├── assets
+│   ├── css
+│   │   └── style.css
+│   ├── img
+│   └── js
+│       └── script.js
+├── pages
+│   └── pageName
+│       ├── assets
+│       │   ├── css
+│       │   ├── img
+│       │   └── js
+│       └── index.html
+├── index.html
+└── readme.md</pre><figcaption id="tree-caption">A simplified view of the repository's documented root and page-specific responsibilities.</figcaption></figure>
+                    <div class="blog-article-prose"><p>The public scaffold required `WD-` project naming, `index.html`, descriptive page folders, camelCase files, external CSS, files in their respective directories, README prompts, and a GitHub-oriented workflow. The empty starter files were intentional: students still had to design and build the site. The standard gave them constraints without giving them the answer.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="separation" aria-labelledby="separation-title" data-section-navigator-label="Separation of concerns">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">03 / Separation of Concerns First</p><h2 id="separation-title">HTML Was Not Allowed to Become Everything</h2></header>
+                    <p class="blog-article-section__standfirst">As a classroom standard, I was strict: no inline CSS, no internal CSS, no inline or internal JavaScript, and files had to be placed according to purpose.</p>
+                    <div class="structure-responsibility" aria-label="Web project responsibility map"><div><strong>HTML</strong><span>Structure and content</span></div><div><strong>CSS</strong><span>Presentation</span></div><div><strong>JavaScript</strong><span>Behavior</span></div><div><strong>Assets</strong><span>Supporting resources</span></div><div><strong>Pages</strong><span>Independently understandable site areas</span></div></div>
+                    <p>Students could technically make a website work with everything inside one file. That was not the habit I wanted to normalize. External files are not universally required for every possible website; this was a teaching constraint designed to make responsibility visible early.</p>
+                    <blockquote>Separation of concerns becomes much harder to learn after bad habits already feel normal.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="conventions" aria-labelledby="conventions-title" data-section-navigator-label="Page workflow">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">04 / Why index.html Kept Appearing</p><h2 id="conventions-title">A Small Convention Preparing Them for Larger Systems</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>Each page directory kept its own `index.html`. That made the structure predictable, supported clean static-page organization and GitHub Pages deployment, and introduced route-oriented thinking without pretending to be a framework.</p><p>The larger lesson was that a file's name and location can participate in how a system works. Frameworks and platforms later bring their own conventions: directories carry meaning, routes map to files or modules, and expected filenames own specific responsibilities. They do not all use this folder tree. The scaffold simply prepared students for the idea that structure can be operational.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="responsibility" aria-labelledby="responsibility-title" data-section-navigator-label="Responsibility decisions">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">05 / The First Question Was: What Technology Owns This?</p><h2 id="responsibility-title">How I Taught Them to Decide Where Files Belong</h2></header>
+                    <div class="decision-chain" aria-label="File placement decision flow"><span>What is it?</span><b>→</b><span>Which technology owns it?</span><b>→</b><span>What concern is it?</span><b>→</b><span>Page-specific or shared?</span><b>→</b><span>Smallest sensible boundary</span></div>
+                    <div class="blog-article-prose"><p>I asked what technology was responsible for the information, which language or file type expressed it, what logic or concern it represented, whether it belonged to one page or many, and who or what consumed it. The folder came after the responsibility.</p></div>
+                    <blockquote>The important thing is not the folder name. It is understanding why the file belongs there.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="collaboration" aria-labelledby="collaboration-title" data-section-navigator-label="Collaboration">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">06 / Structure Made Team Work Possible</p><h2 id="collaboration-title">A Folder Could Also Become an Ownership Boundary</h2></header>
+                    <p>Once the class understood the same structure, students could move from individual pages into collaborative projects with clearer places to work.</p>
+                    <div class="structure-ownership"><article><h3>Developer 1</h3><ul><li>Landing page</li><li>Page CSS and JavaScript</li><li>Page-owned images</li></ul></article><article><h3>Developer 2</h3><ul><li>Another page or feature</li><li>Its local assets</li><li>Defined responsibility</li></ul></article><article><h3>Developer 3</h3><ul><li>Another page or feature</li><li>Shared changes coordinated</li><li>Known ownership boundary</li></ul></article></div>
+                    <p>Students knew where their page, CSS, JavaScript, and images belonged, and which shared files should not be changed casually. I observed fewer merge conflicts, clearer ownership, easier coordination, and easier checking. Structure did not eliminate collaboration problems; it gave the team clearer places to work.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--recovery" id="bad-habits" aria-labelledby="bad-habits-title" data-section-navigator-label="Organization problem">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">07 / When Everything Lives in One File</p><h2 id="bad-habits-title">The Cost Appeared When Projects Became Larger</h2></header>
+                    <div class="structure-before-after"><div><h3>Before · root accumulation</h3><pre>Root
+├── index.html
+├── randomImageReallyLongName.jpg
+├── anotherImage.png
+├── script.js
+├── styles.css
+├── page2.html
+├── page3.html
+└── ...</pre></div><div><h3>After · deliberate boundaries</h3><div class="vertical-flow"><span>Intentional directories</span><b>↓</b><span>Smaller responsibilities</span><b>↓</b><span>Predictable locations</span><b>↓</b><span>Easier collaboration</span><b>↓</b><span>Easier maintenance</span></div></div></div>
+                    <p>The primary cost was development and maintenance complexity: difficult navigation, slower understanding, unclear ownership, repeated code, conflict-heavy collaboration, and unwieldy files. I did not teach that folder organization by itself made a deployed site run significantly faster.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="public-code" aria-labelledby="public-code-title" data-section-navigator-label="Public deployment">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">08 / Public Code Changed the Expectation</p><h2 id="public-code-title">If It Was Deployable, It Had to Be Understandable</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>Student work was expected to live in a public GitHub repository and be deployable through GitHub Pages. Someone besides the author could encounter the code, so naming, structure, README content, maintainability, and presentation became visible responsibilities.</p><p>The question became: who might continue this project, and could they understand it? This connected to my Git/GitHub teaching, but the emphasis here was different. The Git retrospective covers collaboration, history, branching, and recovery. This lesson focused on structure and ownership.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="frameworks" aria-labelledby="frameworks-title" data-section-navigator-label="Architecture progression">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">09 / Then They Met Frameworks</p><h2 id="frameworks-title">The Folders Changed. The Principle Did Not.</h2></header>
+                    <p>The same template later served as a starter or reference for some CodeIgniter 4 students who had not taken my Web Design or Advanced Web Design classes. Students already familiar with separating files appeared less confused by larger structures and less prone to basic organization mistakes. I observed easier onboarding and project startup, not a measured causal result.</p>
+                    <div class="decision-chain" aria-label="Conceptual architecture progression"><span>Static web structure</span><b>→</b><span>Responsibilities</span><b>→</b><span>MVC</span><b>→</b><span>N-Layer</span><b>→</b><span>Feature-based and other architectures</span></div>
+                    <p>The template did not become MVC, N-Layer, or feature-based architecture. Different architectures organize boundaries differently. It introduced the underlying idea that responsibilities deserve deliberate boundaries, while students still had to learn both the current required structure and the reason it existed.</p>
+                    <blockquote>The folders changed when the technology changed. The reason for separating responsibilities stayed.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--plain" id="over-structuring" aria-labelledby="over-structuring-title" data-section-navigator-label="Structure constraint">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">10 / Following Without Understanding</p><h2 id="over-structuring-title">A Standard Can Become Another Bad Habit</h2></header>
+                    <div class="blog-article-prose"><p>Some students over-applied the pattern and created unnecessary directories or separations because they were following it mechanically. That became another teaching opportunity. The lesson was never that more folders were better.</p><p>The mature rule was to follow the structure required by the current technology and project while understanding the responsibility being separated. Blind conformity could become as unhelpful as no structure at all.</p></div>
+                    <div class="vertical-flow" aria-label="Structure decision hierarchy"><span>Technology</span><b>↓</b><span>Language or representation</span><b>↓</b><span>Logic or concern</span><b>↓</b><span>Shared or local responsibility</span><b>↓</b><span>Structure</span></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--outcomes" id="outcomes" aria-labelledby="outcomes-title" data-section-navigator-label="Observed outcomes">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">11 / What Changed</p><h2 id="outcomes-title">They Could Start Bigger Projects Faster</h2></header>
+                    <p class="observed-label">Observed outcomes, not measured KPIs</p>
+                    <ul class="outcome-list"><li>Cleaner repositories</li><li>Fewer merge conflicts</li><li>Better collaborative work</li><li>Easier checking</li><li>Faster project initialization</li><li>Better coordination</li><li>Greater familiarity with larger structures</li><li>Fewer basic structural mistakes around frameworks</li><li>Better awareness of maintainability</li><li>More consideration for whoever continued the codebase</li></ul>
+                    <div class="blog-article-prose"><p>Repeated use made the shared structure familiar enough that students appeared able to begin larger projects sooner and coordinate responsibilities earlier. I am not assigning percentages or exact time savings to that observation.</p><p>Students I later encountered in CodeIgniter 4 and more structured applications appeared less prone to basic project-organization mistakes and seemed to understand new structures faster. That is a classroom observation, not measured causation.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--closing" id="closing" aria-labelledby="closing-title" data-section-navigator-label="Closing">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">12 / Closing</p><h2 id="closing-title">The Template Was Never the Point</h2></header>
+                    <p class="blog-article-section__standfirst">What I am proudest of is the deployed work students produced using these standards. The underlying practices also stayed with me.</p>
+                    <div class="decision-chain" aria-label="Lasting structure principles"><span>Establish responsibilities</span><b>→</b><span>Separate concerns</span><b>→</b><span>Make locations predictable</span><b>→</b><span>Organize for whoever continues the work</span></div>
+                    <p>I still use those principles in my own projects, including this portfolio. That does not mean this site uses the exact AWD-WD folder tree. The connection is the practice of making responsibility and continuation deliberate.</p>
+                    <blockquote>The template was temporary. The reasoning survived it.<br><br>The important thing is not the folder name. It is understanding why the file belongs there.</blockquote>
+                    <div class="source-reference"><p class="blog-article-section__number">Supporting instructional source</p><h3>AWD-WD-Template-Project</h3><p>A standardized HTML, CSS, and JavaScript teaching scaffold used in Web Design and Advanced Web Design classes to introduce project organization, separation of concerns, documentation, collaboration, and deployable static-site conventions. It later served as a starter or reference for some CodeIgniter 4 students who had not taken those subjects. It is not a production framework, formal architecture, complete website, or universal frontend standard.</p><a href="https://github.com/nyebe/AWD-WD-Template-Project" target="_blank" rel="noopener noreferrer">Explore the instructional scaffold <span aria-hidden="true">↗</span></a></div>
+                </section>
+            </div></div>
+        </article>
+    </main>
+    <footer class="site-footer"><div class="page-shell site-footer__inner"><div><p class="site-brand">Ian Cedric Ramirez</p><p class="site-footer__meta">Full-Stack Engineer</p><p class="site-footer__meta">Manila, Philippines · Open to Remote</p></div><div><div class="site-footer__links"><a href="https://github.com/nywebe" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:ramirezian037@gmail.com">Email</a></div><p class="site-footer__meta">© Ian Cedric Ramirez</p></div></div></footer>
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
