@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                document.documentElement.setAttribute('data-theme', storedTheme === 'light' ? 'light' : 'dark');
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Why Game Balance Is Harder Than It Looks | PyGame Experiment | Ian Cedric Ramirez</title>
+    <meta name="description" content="A retrospective on a 2023 PyGame turn-based combat experiment exploring character statistics, critical hits, accuracy, potions, randomness, and the difficulty of manually balancing interconnected game systems.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Why Game Balance Is Harder Than It Looks | PyGame Experiment | Ian Cedric Ramirez">
+    <meta property="og:description" content="A retrospective on a 2023 PyGame turn-based combat experiment exploring character statistics, critical hits, accuracy, potions, randomness, and the difficulty of manually balancing interconnected game systems.">
+    <meta property="article:published_time" content="2026-08-11">
+    <meta property="article:author" content="Ian Cedric Ramirez">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Why Game Balance Is Harder Than It Looks | PyGame Experiment | Ian Cedric Ramirez">
+    <meta name="twitter:description" content="A retrospective on a 2023 PyGame turn-based combat experiment exploring character statistics, randomness, and manual game balancing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/blog-article.css">
+    <link rel="stylesheet" href="assets/css/game-balance.css">
+</head>
+<body class="blog-article-page game-balance-article">
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu><a href="../../projects/">Projects</a><a href="../../experience/">Experience</a><a href="../../about/">About</a><a href="../../skills/">Skills</a><a href="../../credentials/">Credentials</a><a href="../" aria-current="page">Notes</a><a href="../../contact/">Contact</a></div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme"><span class="theme-toggle__label" data-theme-toggle-label>Light</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-article">
+        <div class="page-shell"><nav class="breadcrumb blog-article__breadcrumb" aria-label="Breadcrumb"><a href="../../../">Home</a> / <a href="../">Notes</a> / <span aria-current="page">Why Game Balance Is Harder Than It Looks</span></nav></div>
+        <article aria-labelledby="article-title">
+            <header class="blog-article-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
+                <div class="page-shell">
+                    <p class="blog-article-eyebrow">GitHub Documentation · Game Development</p>
+                    <h1 id="article-title">Why Game Balance Is Harder Than It Looks</h1>
+                    <p class="blog-article-hero__lead">In 2023, during my fourth year in college, I built a small turn-based game in PyGame to experiment with combat math. Writing attacks, potions, critical hits, and character stats was manageable. Making all of those numbers feel fair together was the harder problem.</p>
+                    <dl class="blog-article-hero__facts">
+                        <div><dt>Year</dt><dd>2023</dd></div><div><dt>Context</dt><dd>Fourth-Year College Experiment</dd></div><div><dt>Technology</dt><dd>Python · PyGame</dd></div><div><dt>Focus</dt><dd>Combat Math · State · Game Balance</dd></div><div><dt>Assessment</dt><dd>94 / 100</dd></div><div><dt>Repository</dt><dd><a href="https://github.com/nyebe/Turn-Based-Rogue-Game" target="_blank" rel="noopener noreferrer">Turn-Based-Rogue-Game <span aria-hidden="true">↗</span></a></dd></div>
+                    </dl>
+                    <p class="site-footer__meta"><time datetime="2026-08-11">August 11, 2026</time></p>
+                </div>
+            </header>
+
+            <div class="blog-article-layout page-shell"><div class="blog-article-content">
+                <section class="blog-article-section blog-article-section--plain" id="starting-small" aria-labelledby="starting-small-title" data-section-navigator-label="Starting Small">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">01 / Starting Small</p><h2 id="starting-small-title">I Wasn't Trying to Build a Huge Game</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>I built the game in 2023, during my fourth year in college, as a class-related learning experiment. A relatively simple turn-based format gave me room to focus on rules and numbers rather than real-time movement or a large world. Character selection, combat statistics, potions, and changing state were already enough to study.</p><p>I liked the ideas of a Samurai and an Archer, so I used them as two playable configurations. That was personal preference, not a sophisticated product decision. The visual assets came from free online sources; I do not claim ownership of them. I primarily wrote the programming, combat rules, stat systems, and game logic independently, with an implementation that differed from tutorial examples I encountered at the time.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="combat-math" aria-labelledby="combat-math-title" data-section-navigator-label="Combat Math">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">02 / What Was Actually Being Calculated</p><h2 id="combat-math-title">A Battle Was Really a Set of Numbers</h2></header>
+                    <ul class="balance-stat-grid" aria-label="Combat variables"><li>HP</li><li>Strength</li><li>Accuracy</li><li>Critical Chance</li><li>Critical Damage</li><li>Healing</li><li>Temporary Stat Boosts</li><li>Effect Duration</li><li>Potion Quantity</li><li>Enemy Statistics</li></ul>
+                    <figure class="balance-flow" aria-labelledby="attack-flow-caption"><div class="balance-flow__root">Attempt Attack</div><div class="balance-flow__branch"><div><strong>Accuracy check: miss</strong><span>No damage</span></div><div><strong>Accuracy check: hit</strong><span>Continue to critical check</span><div class="balance-flow__nested"><span>Normal damage</span><span>Critical damage</span></div></div></div><figcaption id="attack-flow-caption">An attack first checks accuracy. A successful hit then checks whether critical damage applies.</figcaption></figure>
+                    <div class="balance-equations" aria-label="Approximate combat equations"><p>Normal damage ≈ Strength</p><p>Critical damage ≈ Strength × Critical Damage Multiplier</p></div>
+                    <p>The code uses probability checks for accuracy and critical hits. I selected the values manually rather than generating them from a formal balancing model.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="characters" aria-labelledby="characters-title" data-section-navigator-label="Characters">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">03 / Different Numbers, Different Characters</p><h2 id="characters-title">Changing a Few Stats Changed the Entire Fight</h2></header>
+                    <div class="balance-character-grid">
+                        <article class="balance-character-card"><header><p>Playable configuration</p><h3>Samurai</h3></header><dl><div><dt>HP</dt><dd>100</dd></div><div><dt>STR</dt><dd>10</dd></div><div><dt>ACC</dt><dd>85%</dd></div><div><dt>CRIT</dt><dd>10%</dd></div><div><dt>CRIT DMG</dt><dd>1.3×</dd></div><div><dt>Weapon</dt><dd>Sword</dd></div></dl></article>
+                        <article class="balance-character-card"><header><p>Playable configuration</p><h3>Archer</h3></header><dl><div><dt>HP</dt><dd>80</dd></div><div><dt>STR</dt><dd>15</dd></div><div><dt>ACC</dt><dd>90%</dd></div><div><dt>CRIT</dt><dd>20%</dd></div><div><dt>CRIT DMG</dt><dd>2.0×</dd></div><div><dt>Weapon</dt><dd>Bow</dd></div></dl></article>
+                    </div>
+                    <div class="blog-article-prose"><p>These were manually configured to create different combat behavior, not presented as perfectly balanced classes. Small numerical differences changed survivability, expected damage, missed attacks, critical frequency and impact, fight duration, and the usefulness of consumables.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="status-effects" aria-labelledby="status-effects-title" data-section-navigator-label="Status Effects">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">04 / Then I Added Potions</p><h2 id="status-effects-title">Every New Variable Made Balance Harder</h2></header>
+                    <p class="blog-article-section__standfirst">The experiment expanded from basic attacks into healing, strength, accuracy, critical chance, critical damage, duration, and inventory quantity.</p>
+                    <div class="balance-loop balance-loop--effects" aria-label="Temporary effect lifecycle"><span>Use item</span><b aria-hidden="true">↓</b><span>Apply effect</span><b aria-hidden="true">↓</b><span>Modify character state</span><b aria-hidden="true">↓</b><span>Remain active for N turns</span><b aria-hidden="true">↓</b><span>Expire</span><b aria-hidden="true">↓</b><span>Remove temporary change</span></div>
+                    <div class="blog-article-prose"><p>The code stores active effects, decreases their remaining turns, and removes temporary changes when they expire. Balancing one stat in isolation was easy. Balancing it while potions and skills could temporarily modify that stat was much harder.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="playtesting" aria-labelledby="playtesting-title" data-section-navigator-label="Playtesting">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">05 / The Real Development Loop</p><h2 id="playtesting-title">My Balancing Algorithm Was Basically: Play It Again</h2></header>
+                    <div class="balance-loop" aria-label="Manual balancing loop"><span>Choose numbers</span><b aria-hidden="true">↓</b><span>Play battle</span><b aria-hidden="true">↓</b><span>Something feels wrong</span><b aria-hidden="true">↓</b><span>Adjust stats</span><b aria-hidden="true">↓</b><span>Play again</span></div>
+                    <blockquote class="balance-pullquote">Writing the combat system was easier than balancing it.</blockquote>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>Too much damage ended fights quickly. Too much HP made them drag. One character could become obviously stronger, potions could dominate a battle, and critical hits could make an outcome feel excessively random.</p><p>Changing one value affected several relationships. Enemy difficulty could jump too quickly or become trivial. There was no advanced optimization model behind the process: I chose numbers, played, adjusted them, and repeated.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="randomness" aria-labelledby="randomness-title" data-section-navigator-label="Randomness">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">06 / Randomness Complicated Everything</p><h2 id="randomness-title">Randomness Made the Same Numbers Behave Differently</h2></header>
+                    <p>The implementation randomly selects an enemy and uses random checks for attack accuracy and critical hits. Identical character statistics therefore do not guarantee identical encounters.</p>
+                    <div class="balance-variable-map" aria-label="Variables contributing to battle outcome"><div><span>Player stats</span><span>Enemy stats</span><span>Potions and buffs</span><span>Random accuracy</span><span>Random critical hits</span></div><b aria-hidden="true">↓</b><strong>Actual battle outcome</strong></div>
+                    <p>I especially enjoyed this part because randomness made the game less deterministic and the balancing problem more interesting. A configuration that felt right in one playthrough could feel different in another. I responded with repeated manual playtesting, not statistical simulation.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="enemies" aria-labelledby="enemies-title" data-section-navigator-label="Enemies">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">07 / Enemy Difficulty</p><h2 id="enemies-title">Making Enemies Stronger Wasn't Just Adding More HP</h2></header>
+                    <div class="balance-enemy-grid">
+                        <article class="balance-character-card"><h3>Soldier Skeleton</h3><dl><div><dt>HP</dt><dd>200</dd></div><div><dt>STR</dt><dd>6</dd></div><div><dt>ACC</dt><dd>80%</dd></div><div><dt>CRIT</dt><dd>10%</dd></div><div><dt>CRIT DMG</dt><dd>1.3×</dd></div></dl></article>
+                        <article class="balance-character-card"><h3>Spearman Skeleton</h3><dl><div><dt>HP</dt><dd>180</dd></div><div><dt>STR</dt><dd>10</dd></div><div><dt>ACC</dt><dd>85%</dd></div><div><dt>CRIT</dt><dd>20%</dd></div><div><dt>CRIT DMG</dt><dd>2.0×</dd></div></dl></article>
+                        <article class="balance-character-card"><h3>Archer Skeleton</h3><dl><div><dt>HP</dt><dd>150</dd></div><div><dt>STR</dt><dd>15</dd></div><div><dt>ACC</dt><dd>90%</dd></div><div><dt>CRIT</dt><dd>30%</dd></div><div><dt>CRIT DMG</dt><dd>2.5×</dd></div></dl></article>
+                    </div>
+                    <div class="balance-dimensions" aria-label="Dimensions of enemy difficulty"><strong>Difficulty</strong><span>Survivability</span><span>Damage</span><span>Accuracy</span><span>Critical frequency</span><span>Critical severity</span><span>Randomness</span></div>
+                    <p>HP falls across these configurations while offensive capability, hit probability, and critical potential rise. Difficulty was already multidimensional; it could not be represented accurately by a single easy-to-hard line.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--recovery" id="scope" aria-labelledby="scope-title" data-section-navigator-label="Scope">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">08 / The Part That Consumed the Project</p><h2 id="scope-title">Game Balance Consumed More Time Than I Expected</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>The game stayed small partly because college-project time was limited and balancing the existing combat already required substantial experimentation. Maps, quests, larger progression systems, saving, and similar additions were not the priority.</p><p>This was not a carefully planned minimum viable product strategy. The existing battle system simply produced enough interacting variables to study. Even within that narrow scope, each added statistic or temporary effect created more relationships to reconsider.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--outcomes" id="looking-back" aria-labelledby="looking-back-title" data-section-navigator-label="Looking Back">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">09 / Looking at the Code Years Later</p><h2 id="looking-back-title">The Old Code Is Part of the Point</h2></header>
+                    <p class="observed-label">Retrospective observations, not a modern architecture review</p>
+                    <div class="balance-reflection"><div><h3>Visible student-era choices</h3><ul><li>Manually defined configuration values</li><li>Repeated potion definitions</li><li>String-based effect identifiers</li><li>A large procedural battle loop</li><li>UI and game state coupled in places</li></ul></div><div><h3>Ideas that still stand out</h3><ul><li>Shared character behavior</li><li>Separate Player and Enemy behavior</li><li>Reusable UI and button components</li><li>Scene separation</li><li>Temporary state handling</li><li>Interacting combat variables</li></ul></div></div>
+                    <blockquote>It does not need to look like code I would write today to remain useful evidence of what I was learning then.</blockquote>
+                    <p>I would structure several systems differently now. That does not erase the useful decisions already visible in the experiment or justify rewriting its history with modern terminology.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--plain" id="modern-reflection" aria-labelledby="modern-reflection-title" data-section-navigator-label="Modern Reflection">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">10 / Why I Understand Balance Patches Better Now</p><h2 id="modern-reflection-title">One Number Rarely Changes Only One Thing</h2></header>
+                    <p class="blog-article-section__standfirst">A +5 change is not just +5. Its effect depends on everything that interacts with it.</p>
+                    <div class="balance-equations balance-equations--relationships" aria-label="Examples of interconnected balance values"><p>Damage + cooldown + scaling</p><p>Health + item effectiveness + recovery</p><p>Critical probability + attack frequency + critical severity</p></div>
+                    <div class="blog-article-prose"><p>Games such as <em>League of Legends</em> make this relationship familiar to players. When a competitive game changes damage, cooldown, health, item effectiveness, critical probability, resources, or scaling, the impact cannot be understood by reading that number alone. I am not claiming to know the developer's exact balancing process. The college experiment simply gave me a practical reason to appreciate why apparently small patches can change many relationships.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--closing" id="lesson" aria-labelledby="lesson-title" data-section-navigator-label="Lesson">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">11 / What Stayed With Me</p><h2 id="lesson-title">Balance Is a System Problem</h2></header>
+                    <div class="blog-article-prose"><p>I started the project because I wanted to experiment with game development and numbers. The code taught me how attacks, state, probability, and temporary effects could work.</p><p>The repeated playtesting taught me something more useful: a system can be individually understandable and still become difficult to balance once its parts interact.</p></div>
+                    <blockquote>The game was small.<br>The balancing problem wasn't.</blockquote>
+                    <div class="source-reference"><p class="blog-article-section__number">Supporting source</p><h3>Turn-Based-Rogue-Game</h3><p>A public record of a 2023 fourth-year college PyGame learning experiment. It supports this reflection through its character statistics, combat probabilities, consumables, temporary effects, battle state, scenes, and reusable interface components. It is student-era experimental code, not a commercial release or production game architecture.</p><a id="source" href="https://github.com/nyebe/Turn-Based-Rogue-Game" target="_blank" rel="noopener noreferrer">Explore the original Turn-Based-Rogue-Game repository <span aria-hidden="true">↗</span></a></div>
+                </section>
+            </div></div>
+        </article>
+    </main>
+    <footer class="site-footer"><div class="page-shell site-footer__inner"><div><p class="site-brand">Ian Cedric Ramirez</p><p class="site-footer__meta">Full-Stack Engineer</p><p class="site-footer__meta">Manila, Philippines · Open to Remote</p></div><div><div class="site-footer__links"><a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:ramirezian037@gmail.com">Email</a></div><p class="site-footer__meta">© Ian Cedric Ramirez</p></div></div></footer>
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
