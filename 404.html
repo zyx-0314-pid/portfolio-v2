@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Page Not Found | Ian Cedric Ramirez</title>
+    <meta name="description" content="The requested portfolio page could not be found.">
+    <meta name="robots" content="noindex, follow">
+    <script>
+        (function () {
+            var projectRoot = window.location.pathname.includes('/portfolio-v2/') ? '/portfolio-v2/' : '/';
+            var base = document.createElement('base');
+            base.href = projectRoot;
+            document.head.append(base);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared/css/global.css">
+</head>
+<body class="not-found-page">
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="./">Ian Cedric Ramirez</a>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="not-found-main">
+        <section class="page-shell not-found" aria-labelledby="not-found-title">
+            <p class="not-found__status">HTTP / 404</p>
+            <div class="not-found__number" aria-hidden="true">404</div>
+            <div class="not-found__copy">
+                <p class="not-found__eyebrow">Route not found</p>
+                <h1 id="not-found-title">This path does not lead to a published page.</h1>
+                <p>The address may be incomplete, or the page may have moved. Return to the portfolio index or continue with the project archive.</p>
+                <div class="not-found__actions">
+                    <a class="primary-link" href="./"><span>Return home</span><span aria-hidden="true">→</span></a>
+                    <a class="secondary-link" href="pages/projects/"><span>Browse projects</span><span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="shared/js/main.js"></script>
+</body>
+</html>

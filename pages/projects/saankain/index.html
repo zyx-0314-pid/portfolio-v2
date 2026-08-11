@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>SaanKain — Natural-Language Restaurant Discovery | Ian Cedric Ramirez</title>
+    <meta name="description" content="SaanKain case study — an eight-hour solo development challenge exploring natural-language restaurant search, AI-assisted intent interpretation, location-aware discovery, and privacy-conscious local persistence.">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/case-study.css">
+    <link rel="stylesheet" href="assets/css/saankain.css">
+    <script src="../assets/js/case-study.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu>
+                        <a href="../">Projects</a>
+                        <a href="../../experience/">Experience</a>
+                        <a href="../../about/">About</a>
+                        <a href="../../skills/">Skills</a>
+                        <a href="../../credentials/">Credentials</a>
+                        <a href="../../blog/">Notes</a>
+                        <a href="../../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main page-shell case-study-shell" data-case-study-shell data-case-study-id="saankain">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../../">Home</a> / <a href="../">Projects</a> / <span aria-current="page">SaanKain</span>
+        </nav>
+
+        <div class="case-study-toolbar" aria-label="Case study view">
+            <p class="case-study-toolbar__label">Reading mode</p>
+            <div class="case-study-switch" role="group" aria-label="Choose case study layout">
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="article" aria-pressed="false">Article</button>
+                <button class="case-study-switch__button" type="button" data-case-study-mode-value="visual" aria-pressed="true">Visual</button>
+            </div>
+        </div>
+
+        <article class="project-page" aria-labelledby="page-title">
+            <header class="project-header">
+                <div class="project-header__grid">
+                    <div>
+                        <p class="section__eyebrow">Experimental Project · Consumer Discovery</p>
+                        <h1 class="project-header__title" id="page-title">SaanKain</h1>
+                        <p class="project-header__summary"><strong>Natural-Language Restaurant Discovery</strong></p>
+                        <p class="project-header__summary">A restaurant-discovery prototype originally built solo during an eight-hour AI development challenge. SaanKain converts conversational food requests into location-aware restaurant searches while emphasizing user-controlled local data, responsive interaction, and pragmatic AI integration.</p>
+
+                        <nav class="project-toc" aria-label="On-page contents">
+                            <a href="#challenge">8-Hour Challenge</a>
+                            <a href="#experience">Core Experience</a>
+                            <a href="#privacy">Privacy by Design</a>
+                            <a href="#event-architecture">Original Build</a>
+                            <a href="#evolution">Post-Event Evolution</a>
+                            <a href="#current-architecture">Current Architecture</a>
+                            <a href="#testing">Testing &amp; Maintainability</a>
+                            <a href="#retrospective">Retrospective</a>
+                        </nav>
+                    </div>
+
+                    <div class="saankain-hero-visual" role="img" aria-label="Conversational food request moving through interpretation and location-aware restaurant discovery">
+                        <span class="saankain-clock" aria-hidden="true">08h</span>
+                        <div class="saankain-query">“best ramen near me”</div>
+                        <div class="saankain-route" aria-hidden="true">
+                            <span>interpret intent</span>
+                            <span>apply location context</span>
+                            <span>find useful places</span>
+                        </div>
+                    </div>
+                </div>
+
+                <dl class="project-header__meta">
+                    <div class="project-fact"><dt>Role</dt><dd>Solo Full-Stack Developer</dd></div>
+                    <div class="project-fact"><dt>Context</dt><dd>8-Hour AI Development Challenge</dd></div>
+                    <div class="project-fact"><dt>Status</dt><dd>Competition Prototype → Post-Event Refinement</dd></div>
+                    <div class="project-fact"><dt>Outcome</dt><dd>Ranked 100th</dd></div>
+                    <div class="project-fact"><dt>Classification</dt><dd>Consumer · AI-Assisted Discovery · Experimental</dd></div>
+                    <div class="project-fact"><dt>Current Stack</dt><dd>Next.js 16 · React 19 · TypeScript · Tailwind CSS 4</dd></div>
+                    <div class="project-provenance">
+                        <strong>Historical and Current Evidence</strong>
+                        Competition context is presented separately from the current <a href="https://github.com/nyebe/SaanKain" target="_blank" rel="noopener noreferrer">SaanKain source repository ↗</a>. Current implementation claims are based on <code>master</code> source and history inspected for this case study.
+                    </div>
+                </dl>
+            </header>
+
+            <section class="project-section" id="challenge" aria-labelledby="challenge-title" data-section-navigator-label="8-Hour Challenge">
+                <p class="saankain-phase-label">Original 8-Hour Submission</p>
+                <h2 id="challenge-title">The 8-Hour Challenge</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>SaanKain began during an online development event conducted through Meet and connected with Kimi as part of a Kimi promotional event. Participants received three randomly assigned topic options; I selected <strong>Food</strong>.</p>
+                        <p>The goal was not to invent a startup or production SaaS. It was to deliver a working solo application inside the event window while using Kimi, following the provided instructions, and considering responsible handling of information.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item"><strong>Time</strong><span>Approximately eight hours from ideation to submission.</span></div>
+                        <div class="project-note-item"><strong>Team</strong><span>One developer responsible for product decisions, implementation, and delivery.</span></div>
+                        <div class="project-note-item"><strong>Topic</strong><span>Food, selected from three randomly assigned options.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="constraints" aria-labelledby="constraints-title" data-section-navigator="subsection">
+                <h2 id="constraints-title">Constraints Defined the Product</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Deadline</strong><span>Prioritize working vertical slices over infrastructure completeness.</span></div>
+                    <div class="project-note-item"><strong>Required Integrations</strong><span>Use Kimi and the event-provided API in the core experience.</span></div>
+                    <div class="project-note-item"><strong>Accessible Resources</strong><span>Work within limited or free tools without a conventional production database.</span></div>
+                    <div class="project-note-item"><strong>Engineering Discipline</strong><span>Keep the implementation readable, maintainable, responsive, and uncomplicated despite the deadline.</span></div>
+                    <div class="project-note-item"><strong>Testing</strong><span>Feature delivery took priority; comprehensive testing was deferred until after the event.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="experience" aria-labelledby="experience-title" data-section-navigator-label="Core Experience">
+                <p class="saankain-phase-label">Original 8-Hour Submission</p>
+                <h2 id="experience-title">From Food Prompt to Nearby Restaurant</h2>
+                <p>Natural language was chosen because it resembles how people decide what and where to eat. A person can say “cheap sushi near Makati,” “best ramen near me,” or “restaurants open now” instead of configuring a long sequence of filters.</p>
+                <div class="project-diagram" aria-label="Original natural-language restaurant discovery concept">
+                    <pre>User Prompt
+    ↓
+Kimi Interpretation
+    ↓
+Restaurant Intent + Location Context
+    ↓
+Event-Provided Restaurant API
+    ↓
+Relevant / Nearby / Best Results
+    ↓
+Save Useful Places on the Device</pre>
+                </div>
+                <p>The event implementation used restaurant, location, distance, open-now context, and ratings where available for “best” style results. These are historical event behaviors; the current free-tier Foursquare transformation does not expose ratings.</p>
+            </section>
+
+            <section class="project-section" id="privacy" aria-labelledby="privacy-title" data-section-navigator-label="Privacy by Design">
+                <p class="saankain-phase-label">Original Principle · Current Controls Verified Separately</p>
+                <h2 id="privacy-title">GDPR-Informed Privacy by Design</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Privacy and GDPR-related research consumed a meaningful part of the ideation window. The practical design question became: what information genuinely needs persistence, and what has a justified reason to leave the device?</p>
+                        <blockquote class="saankain-quote">Keep user data on the device unless a feature genuinely requires transmission or external storage.</blockquote>
+                    </div>
+                    <div class="saankain-device">
+                        <pre>USER DEVICE
+├── Search History
+├── Saved Restaurants
+└── Location State
+
+USER CONTROLS
+├── Delete one
+├── Clear all
+└── Disable location
+
+EXTERNAL SEARCH
+└── Only required query/location context</pre>
+                    </div>
+                </div>
+                <p>The competition history does not conclusively verify IndexedDB, so the original implementation is described conservatively as <strong>on-device browser persistence</strong>. The current repository explicitly uses <code>localStorage</code>.</p>
+            </section>
+
+            <section class="project-section" id="vertical-slices" aria-labelledby="vertical-slices-title" data-section-navigator="subsection">
+                <h2 id="vertical-slices-title">Building in Vertical Slices</h2>
+                <div class="project-diagram" aria-label="Original event execution sequence">
+                    <pre>01 Ideation + privacy questions
+02 Simple application structure + local persistence
+03 Kimi + event API integration first
+04 Prompt → interpretation → real restaurant result
+05 Bookmarks + search history
+06 Individual and bulk deletion + location control
+07 Responsive refinement + cleanup</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="event-features" aria-labelledby="event-features-title" data-section-navigator="subsection">
+                <h2 id="event-features-title">Event Feature Set</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Discovery</strong><span>Natural-language search, Kimi interpretation, restaurant API results, nearby/location context, and responsive result presentation.</span></div>
+                    <div class="project-note-item"><strong>Device Utility</strong><span>Bookmarks or favorites, previous-query history, and persistent on-device browser data without user accounts.</span></div>
+                    <div class="project-note-item"><strong>User Control</strong><span>Individual removal, clear-all behavior, and user-controlled location state.</span></div>
+                    <div class="project-note-item"><strong>Original Analytics</strong><span>No intentionally added analytics or tracking in the competition version.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="event-architecture" aria-labelledby="event-architecture-title" data-section-navigator-label="Original Build">
+                <p class="saankain-phase-label">Original 8-Hour Submission</p>
+                <h2 id="event-architecture-title">Deliberately Simple Prototype Architecture</h2>
+                <p>The event build favored a shallow monolithic or monorepo-style application, direct integration work, and browser persistence. It should be understood as deadline-driven prototype architecture rather than a production system.</p>
+                <div class="project-diagram" aria-label="Original prototype architecture">
+                    <pre>Responsive Search UI
+       ↓
+Kimi-Assisted Interpretation
+       ↓
+Event-Provided Restaurant API
+       ↓
+Restaurant Results
+
+Browser Device
+└── History · Favorites · Location Controls</pre>
+                </div>
+            </section>
+
+            <section class="project-section" id="outcome" aria-labelledby="outcome-title" data-section-navigator="subsection">
+                <h2 id="outcome-title">Competition Outcome</h2>
+                <div class="project-section__split">
+                    <div><p class="saankain-quote">Top 100 · Ranked 100th</p></div>
+                    <div><p>The submission received positive feedback for how much was completed by one developer within the limited event window and for its clean interface. The result is presented as placement, not as an award or finalist claim.</p></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="evolution" aria-labelledby="evolution-title" data-section-navigator-label="Post-Event Evolution">
+                <p class="saankain-phase-label">Post-Event / Current Implementation</p>
+                <h2 id="evolution-title">From Event Prototype to Maintained Experiment</h2>
+                <div class="saankain-comparison" aria-label="Original event build compared with current implementation">
+                    <div>
+                        <h3>8-HOUR EVENT BUILD</h3>
+                        <pre>Kimi
+Event-provided API
+Initial implementation
+Limited testing
+Initial responsive UI
+On-device browser persistence</pre>
+                    </div>
+                    <div>
+                        <h3>POST-EVENT / CURRENT</h3>
+                        <pre>Groq + deterministic parser
+Foursquare Places
+Layered functional decomposition
+Vitest + Testing Library + Playwright files
+Refined responsive UI
+Explicit localStorage hooks</pre>
+                    </div>
+                </div>
+                <p>Later work added code and UI cleanup, clearer decomposition, ranking and search refinement, broader validation, automated test coverage, and Vercel Analytics. None of those additions are attributed to the original eight-hour submission.</p>
+            </section>
+
+            <section class="project-section" id="current-architecture" aria-labelledby="current-architecture-title" data-section-navigator-label="Current Architecture">
+                <p class="saankain-phase-label">Current master · Source Verified</p>
+                <h2 id="current-architecture-title">Bounded AI Search Architecture</h2>
+                <div class="project-diagram" aria-label="Current SaanKain search pipeline">
+                    <pre>Next.js UI / Pages
+      ↓
+Hooks / Page Logic → Search Service
+      ↓
+GET /api/v1/execute
+      ↓
+Access Code + Message + Coordinate Validation
+      ↓
+Natural-Language Parser
+├── Groq JSON interpretation → Zod validation
+└── Deterministic cuisine/location/open-now rules
+      ↓
+Foursquare Places → Transform → Rank → Structured Results</pre>
+                </div>
+                <p>The LLM extracts bounded search fields; it does not directly own the result experience. Invalid or unavailable LLM output returns control to deterministic application rules. The server route validates message length and latitude/longitude ranges before parsing or place lookup.</p>
+            </section>
+
+            <section class="project-section" id="current-search" aria-labelledby="current-search-title" data-section-navigator="subsection">
+                <h2 id="current-search-title">Current Search and Ranking Behavior</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Parsing</strong><span>Groq uses a low-temperature JSON response for cuisine, location text, and open-now intent; Zod validates the response shape.</span></div>
+                    <div class="project-note-item"><strong>Fallback</strong><span>Regex and keyword rules recognize supported cuisines, open-now wording, location after “near,” vague near-me language, and a small Tagalog-to-English mapping.</span></div>
+                    <div class="project-note-item"><strong>Location</strong><span>Known Metro Manila place text is normalized for Foursquare; enabled browser coordinates drive distance-sorted near-me searches.</span></div>
+                    <div class="project-note-item"><strong>Ranking</strong><span>Current ranking scores cuisine/category and open-state matches, includes a rating boost only if rating data exists, and uses distance as a tie-breaker.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="current-stack" aria-labelledby="current-stack-title" data-section-navigator="subsection">
+                <h2 id="current-stack-title">Current Verified Stack</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Application</strong><span>Next.js 16.1.6 · React 19.2.3 · TypeScript 5 · Tailwind CSS 4</span></div>
+                    <div class="project-note-item"><strong>Interface</strong><span>shadcn-style components · Base UI · Framer Motion · Lucide React · next-themes</span></div>
+                    <div class="project-note-item"><strong>AI &amp; HTTP</strong><span>Groq SDK · Zod 4 · Axios</span></div>
+                    <div class="project-note-item"><strong>Place &amp; Location Services</strong><span>Foursquare Places · browser geolocation · OpenStreetMap Nominatim reverse geocoding</span></div>
+                    <div class="project-note-item"><strong>Current Analytics</strong><span>Vercel Analytics, added after the competition version.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="current-local-data" aria-labelledby="current-local-data-title" data-section-navigator="subsection">
+                <h2 id="current-local-data-title">Current Location &amp; Local Persistence</h2>
+                <div class="project-section__split">
+                    <div>
+                        <p>Location activates only through a user action. The hook requests browser geolocation, reverse-geocodes coordinates through OpenStreetMap Nominatim, persists location state locally, and removes stored coordinates and location details when disabled.</p>
+                    </div>
+                    <div class="project-note-list">
+                        <div class="project-note-item"><strong>Bookmarks</strong><span><code>localStorage</code>, individual removal, clear all, maximum 20 entries.</span></div>
+                        <div class="project-note-item"><strong>Search History</strong><span><code>localStorage</code>, deduplication, individual removal, clear all, maximum 50 entries.</span></div>
+                        <div class="project-note-item"><strong>Preferences</strong><span>Theme, result view mode, sort field, and direction are browser-local.</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section" id="testing" aria-labelledby="testing-title" data-section-navigator-label="Testing &amp; Maintainability">
+                <p class="saankain-phase-label">Post-Event / Current Implementation</p>
+                <h2 id="testing-title">Testing &amp; Maintainability Improvements</h2>
+                <div class="comparison-box" aria-label="Competition and current testing distinction">
+                    <div class="comparison-column">
+                        <h3>COMPETITION</h3>
+                        <ul><li>Limited testing inside the eight-hour window</li><li>Working features and submission delivery prioritized</li></ul>
+                    </div>
+                    <div class="comparison-column">
+                        <h3>CURRENT REPOSITORY</h3>
+                        <ul><li>Vitest parser tests</li><li>API query and coordinate validation tests</li><li>Playwright near-me behavior file</li><li>Testing Library dependencies</li></ul>
+                    </div>
+                </div>
+                <p>The current source also separates pages, hooks, services, parser, Foursquare integration, ranking, validation, and shared types. This architecture is a post-event refinement, not an eight-hour claim.</p>
+            </section>
+
+            <section class="project-section" id="decisions" aria-labelledby="decisions-title" data-section-navigator-label="Decisions &amp; Tradeoffs">
+                <h2 id="decisions-title">Technical Decisions</h2>
+                <div class="decision-list">
+                    <article class="decision-item"><h3>Natural Language Before Filter Complexity</h3><p><strong>Decision:</strong> Let people describe what they want conversationally, then translate that intent into bounded search parameters.</p></article>
+                    <article class="decision-item"><h3>Device-Local Utility Without Accounts</h3><p><strong>Decision:</strong> Keep history, favorites, and location state under user-controlled browser persistence for prototype scope.</p></article>
+                    <article class="decision-item"><h3>AI Inside Deterministic Boundaries</h3><p><strong>Decision:</strong> Validate structured LLM output and retain deterministic parsing so search behavior does not depend entirely on an AI response.</p></article>
+                    <article class="decision-item"><h3>Vertical Slices Under Deadline</h3><p><strong>Decision:</strong> Establish a real end-to-end restaurant result early, then add persistence, deletion controls, location, and refinement.</p></article>
+                </div>
+            </section>
+
+            <section class="project-section" id="tradeoffs" aria-labelledby="tradeoffs-title" data-section-navigator="subsection">
+                <h2 id="tradeoffs-title">Constraints &amp; Tradeoffs</h2>
+                <div class="project-note-list">
+                    <div class="project-note-item"><strong>Eight Hours</strong><span>Complete vertical slices instead of production infrastructure.</span></div>
+                    <div class="project-note-item"><strong>Solo Delivery</strong><span>Keep architecture shallow enough to understand and change quickly.</span></div>
+                    <div class="project-note-item"><strong>Privacy Questions</strong><span>Prefer local persistence and explicit user controls.</span></div>
+                    <div class="project-note-item"><strong>AI Requirement</strong><span>Use AI for intent interpretation without making AI the entire application.</span></div>
+                    <div class="project-note-item"><strong>Cost</strong><span>Transition post-event integrations toward accessible resources.</span></div>
+                </div>
+            </section>
+
+            <section class="project-section" id="retrospective" aria-labelledby="retrospective-title" data-section-navigator-label="Retrospective">
+                <h2 id="retrospective-title">Retrospective</h2>
+                <blockquote class="saankain-quote">Solve the user problem first, then decide where AI meaningfully improves the solution.</blockquote>
+                <p>During the event, a significant amount of attention went into how AI could be incorporated while understanding privacy and GDPR-related constraints. The more durable lesson was to ask what deeper user problem needed solving, what information was actually necessary, and what data had a justified reason to leave the device.</p>
+                <p>The event appeared to value innovation, broader idea potential, and more agentic AI usage. SaanKain made a different tradeoff: it optimized for a complete, privacy-conscious, usable prototype rather than maximizing agentic complexity. That distinction became an improvement in engineering judgment, not a regret about the result.</p>
+            </section>
+
+            <section class="project-section" id="related" aria-labelledby="related-title" data-section-navigator="subsection">
+                <h2 id="related-title">Related Work</h2>
+                <div class="related-link-list">
+                    <div class="related-link-item"><strong>Source Repository</strong><p>Current implementation and history used for technical verification.</p><a class="related-link" href="https://github.com/nyebe/SaanKain" target="_blank" rel="noopener noreferrer">View SaanKain on GitHub ↗</a></div>
+                    <div class="related-link-item"><strong>Skills Demonstrated</strong><p>Full-Stack · AI Integration · API Integration · Location-Aware Systems · Privacy by Design · UX · Rapid Prototyping</p><a class="related-link" href="../../skills/">Explore Skills →</a></div>
+                </div>
+            </section>
+
+            <nav class="project-nav" aria-label="Project navigation">
+                <a href="../talara/">← Previous Case Study (Talara)</a>
+                <a href="../">All Projects</a>
+                <a href="../internal-records-storage/">Next Case Study (Internal Records &amp; Storage) →</a>
+            </nav>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell site-footer__inner">
+            <div><p class="site-brand">Ian Cedric Ramirez</p><p class="site-footer__meta">Full-Stack Engineer</p><p class="site-footer__meta">Manila, Philippines · Open to Remote</p></div>
+            <div><div class="site-footer__links"><a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:ramirezian037@gmail.com">Email</a></div><p class="site-footer__meta">© Ian Cedric Ramirez</p></div>
+        </div>
+    </footer>
+
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>

@@ -1347,6 +1347,12 @@ Reuse established:
 
 Do not invent slightly different versions on each page.
 
+When creating a new page, identify the closest comparable existing page and reuse its established header, layout, spacing, typography, color, and interaction language.
+
+Do not give a new page a separate visual identity merely because it has a page-specific stylesheet. Page-specific CSS defines local composition only and must continue using the shared design system unless a distinct identity is explicitly requested.
+
+An existing page-specific stylesheet and its established presentation may be preserved when modifying that page. Do not copy its unique treatment into new or unrelated pages unless explicitly requested.
+
 Avoid:
 
 - random new teal values
