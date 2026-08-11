@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                document.documentElement.setAttribute('data-theme', storedTheme === 'light' ? 'light' : 'dark');
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Teaching Reproducibility Before Deployment | Ian Cedric Ramirez</title>
+    <meta name="description" content="A teaching retrospective on using Docker, migrations, environment configuration, SQL and NoSQL databases, and reproducible development practices to prepare students for collaborative PHP projects and deployment.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="index, follow">
+    <meta name="google-analytics-id" content="G-KGKNCQVNHC">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Teaching Reproducibility Before Deployment | Ian Cedric Ramirez">
+    <meta property="og:description" content="A teaching retrospective on using Docker, migrations, environment configuration, SQL and NoSQL databases, and reproducible development practices to prepare students for collaborative PHP projects and deployment.">
+    <meta property="article:published_time" content="2026-08-11">
+    <meta property="article:author" content="Ian Cedric Ramirez">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Teaching Reproducibility Before Deployment | Ian Cedric Ramirez">
+    <meta name="twitter:description" content="How environment and database discipline helped students build PHP projects they could reproduce, collaborate on, and prepare for deployment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../shared/css/global.css">
+    <link rel="stylesheet" href="../assets/css/blog-article.css">
+    <link rel="stylesheet" href="assets/css/article.css">
+</head>
+<body class="blog-article-page teaching-reproducibility-article">
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu" data-nav-toggle><span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span></button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu><a href="../../projects/">Projects</a><a href="../../experience/">Experience</a><a href="../../about/">About</a><a href="../../skills/">Skills</a><a href="../../credentials/">Credentials</a><a href="../" aria-current="page">Notes</a><a href="../../contact/">Contact</a></div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme"><span class="theme-toggle__label" data-theme-toggle-label>Light</span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog-article">
+        <div class="page-shell"><nav class="breadcrumb blog-article__breadcrumb" aria-label="Breadcrumb"><a href="../../../">Home</a> / <a href="../">Notes</a> / <span aria-current="page">Teaching Reproducibility Before Deployment</span></nav></div>
+        <article aria-labelledby="article-title">
+            <header class="blog-article-hero" id="article-top" aria-labelledby="article-title" data-section-navigator-label="Article overview">
+                <div class="page-shell">
+                    <p class="blog-article-eyebrow">Teaching Retrospective · Application Development</p>
+                    <h1 id="article-title">Teaching Reproducibility Before Deployment</h1>
+                    <p class="blog-article-hero__lead">How Docker, migrations, environment configuration, and database discipline helped students move from machine-dependent PHP projects to development environments they could recreate, collaborate on, and prepare for deployment.</p>
+                    <dl class="blog-article-hero__facts">
+                        <div><dt>Context</dt><dd>FEU Institute of Technology</dd></div><div><dt>Used in</dt><dd>Two application-development subjects</dd></div><div><dt>Preparation</dt><dd>Collaborative Projects · Capstone Readiness</dd></div><div><dt>Environment</dt><dd>Docker · PHP · PostgreSQL · MongoDB</dd></div><div><dt>Source</dt><dd><a href="https://github.com/nyebe/AD-CI4-Template-Project" target="_blank" rel="noopener noreferrer">AD-CI4-Template-Project <span aria-hidden="true">↗</span></a></dd></div>
+                    </dl>
+                    <p class="site-footer__meta"><time datetime="2026-08-11">August 11, 2026</time></p>
+                </div>
+            </header>
+
+            <div class="blog-article-layout page-shell"><div class="blog-article-content">
+                <section class="blog-article-section blog-article-section--plain" id="problem" aria-labelledby="problem-title" data-section-navigator-label="Why">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">01 / The Problem</p><h2 id="problem-title">The Project Worked — On One Computer</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>Students could write working PHP applications while the development setup itself remained fragile. Databases were configured manually, schema changes existed on one machine, ports and software versions differed, and moving between home and school could mean rebuilding undocumented setup.</p><p>This was bigger than PHP syntax. Collaboration became difficult when a teammate could pull the code but could not reproduce its configuration or database state. These were classroom observations, not a measured industry study.</p></div>
+                    <blockquote>If the project only works on the computer where it was built, the environment has become an undocumented dependency.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="environment" aria-labelledby="environment-title" data-section-navigator-label="Environment">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">02 / Why I Moved Away from XAMPP</p><h2 id="environment-title">I Wanted the Environment to Travel With the Project</h2></header>
+                    <p class="blog-article-section__standfirst">XAMPP can be useful. My teaching reason for preferring Docker was that students could describe a shared environment instead of configuring each local stack independently.</p>
+                    <div class="repro-flow" aria-label="Environment reconstruction flow"><span>Repository</span><b aria-hidden="true">↓</b><span>Docker configuration</span><b aria-hidden="true">↓</b><span>Application and services</span><b aria-hidden="true">↓</b><span>Consistent base environment</span></div>
+                    <p>The goal was to reduce manual database setup, operating-system and version differences, collaboration friction, environment drift, and local changes teammates could not reproduce. Windows, Linux, and macOS still have host differences and must support the required Docker environment, but the project definition no longer needed three unrelated versions.</p>
+                    <blockquote>The goal was not Docker for Docker's sake. The goal was one reproducible setup.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="setup" aria-labelledby="setup-title" data-section-navigator-label="Reproducible setup">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">03 / One Setup for the Team</p><h2 id="setup-title">Clone, Configure, Start, Continue</h2></header>
+                    <div class="repro-pipeline" aria-label="Intended development setup flow"><span>Clone or pull repository</span><b aria-hidden="true">→</b><span>Create local .env</span><b aria-hidden="true">→</b><span>Start Docker environment</span><b aria-hidden="true">→</b><span>Apply migrations</span><b aria-hidden="true">→</b><span>Seed required data</span><b aria-hidden="true">→</b><span>Continue development</span></div>
+                    <div class="blog-article-prose"><p>The public template documents <code>docker compose up --build</code> and <code>docker compose watch</code>, exposes configurable ports, includes a sample environment file, and defines shared PHP, MongoDB, and PostgreSQL services. The class workflow also treated migrations and seeders as part of reconstructing database state, although those files are not present in the current public template snapshot.</p><p>Everyone shared the same base definition while retaining local configuration. The real `.env` stayed uncommitted; the repository documented which values another developer needed to provide.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--recovery" id="different-computers" aria-labelledby="different-computers-title" data-section-navigator-label="Different computers">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">04 / I Made Them Change Computers</p><h2 id="different-computers-title">Reproducibility Was Not Theoretical</h2></header>
+                    <p>At home, students naturally used their own machines. In school, I intentionally required them to use available school computers rather than relying on personal devices. I wanted the project to prove that it could move.</p>
+                    <div class="device-workflow" aria-label="Home and school development workflow"><div><strong>Home</strong><span>Code</span><b aria-hidden="true">↓</b><span>Commit and push</span></div><b class="device-workflow__transfer" aria-hidden="true">→</b><div><strong>School</strong><span>Clone or pull</span><b aria-hidden="true">↓</b><span>Configure environment</span><b aria-hidden="true">↓</b><span>Start services</span><b aria-hidden="true">↓</b><span>Apply database state</span><b aria-hidden="true">↓</b><span>Continue coding</span></div><b class="device-workflow__transfer" aria-hidden="true">→</b><div><strong>Home again</strong><span>Pull</span><b aria-hidden="true">↓</b><span>Continue</span></div></div>
+                    <div class="blog-article-prose"><p>I observed students switching devices with much less setup-specific friction after repeated practice. Some became comfortable enough to continue from another suitable computer, including a computer shop when the machine could run the required Docker environment. That anecdote demonstrates portability of the workflow, not that every public computer is appropriate for development.</p></div>
+                    <blockquote>The machine changed. The project did not have to.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="database-evolution" aria-labelledby="database-evolution-title" data-section-navigator-label="Database evolution">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">05 / The Database Had to Travel Too</p><h2 id="database-evolution-title">Code Was Versioned. The Database Needed a History Too.</h2></header>
+                    <div class="migration-map"><div aria-label="Database schema evolution"><span>Application change</span><b aria-hidden="true">↓</b><span>Database requirement changes</span><b aria-hidden="true">↓</b><span>Migration</span><b aria-hidden="true">↓</b><span>Team applies migration</span><b aria-hidden="true">↓</b><span>Same expected schema</span></div><div aria-label="Repeatable development data"><span>Known development or test state</span><b aria-hidden="true">↓</b><span>Seeder</span><b aria-hidden="true">↓</b><span>Repeatable starting data</span></div></div>
+                    <div class="blog-article-prose"><p>A teammate should not need an instruction such as “open your database and manually add these columns.” Database design changes during development just as application code does. Migrations represented controlled schema evolution in project history, while seeders helped establish expected development or test data.</p><p>They did not eliminate every database conflict, and seeders were not a reason to commit production data. They gave the team a reproducible mechanism for expected structure and starting data.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--ink" id="configuration" aria-labelledby="configuration-title" data-section-navigator-label="Configuration">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">06 / .env Was Also Part of Architecture</p><h2 id="configuration-title">Portable Does Not Mean Hard-Coded</h2></header>
+                    <p>Students had to ask what belonged in code, what belonged in configuration, what needed to remain secret, and what changed between environments. The template's sample covers database hosts, ports, names, usernames, passwords, and a MongoDB connection URI without requiring real local values to be committed.</p>
+                    <div class="configuration-boundary"><div><h3>Repository</h3><ul><li>Application code</li><li>Configuration schema or sample</li><li>Docker definitions</li><li>Migration definitions</li><li>Seeder definitions</li></ul></div><div><h3>Local environment</h3><ul><li>Secrets</li><li>Local `.env`</li><li>Machine-specific values</li><li>Environment-specific overrides</li></ul></div></div>
+                    <p>The repository's `.gitignore` excludes `.env`, and `.dockerignore` excludes environment and development-secret files from the build context. Reproducibility required documenting configuration without publishing credentials.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="database-choice" aria-labelledby="database-choice-title" data-section-navigator-label="Database choice">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">07 / SQL First, NoSQL Second</p><h2 id="database-choice-title">Learn Both. Then Decide.</h2></header>
+                    <div class="database-progression" aria-label="Database teaching progression"><span>Relational concepts</span><b aria-hidden="true">→</b><span>Document-oriented concepts</span><b aria-hidden="true">→</b><span>Project constraints</span><b aria-hidden="true">→</b><span>Defensible choice</span></div>
+                    <div class="editorial-matrix"><div><h3>Relationships</h3><p>Does relational integrity matter, and how do entities reference one another?</p></div><div><h3>Shape</h3><p>Is the data naturally document-shaped, and can its shape vary?</p></div><div><h3>Access</h3><p>What queries and update patterns does the application actually need?</p></div><div><h3>Cost</h3><p>What complexity does another storage model introduce?</p></div></div>
+                    <p>Students first learned SQL, then NoSQL, and eventually had to choose what their system needed. PostgreSQL was not automatically superior, and MongoDB was not justified merely because it felt newer.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--plain" id="database-mistakes" aria-labelledby="database-mistakes-title" data-section-navigator-label="Database mistakes">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">08 / The Common NoSQL Mistake</p><h2 id="database-mistakes-title">NoSQL Did Not Mean Dump Everything Into MongoDB</h2></header>
+                    <div class="blog-article-prose blog-article-prose--columns"><p>After learning NoSQL, some students tried to move too much data into it because it was the newer concept they had just encountered. Others made systems more complicated by adding multiple storage models without a real requirement.</p><p>They had to explain what data belonged there, why it belonged there, how the application would access it, what relationships it carried, and what maintaining another database would cost.</p></div>
+                    <blockquote>A database choice is still an architectural decision, even in a classroom project.</blockquote>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="two-databases" aria-labelledby="two-databases-title" data-section-navigator-label="Two databases">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">09 / Some Students Used Both</p><h2 id="two-databases-title">Then Some of Them Connected Two Data Models</h2></header>
+                    <p>Students could choose one storage approach, but some successfully assigned different responsibilities to PostgreSQL and MongoDB. They maintained relationships through IDs and used an adapter conceptually to coordinate calls and related references across the boundary.</p>
+                    <figure class="dual-database" aria-labelledby="dual-database-caption"><div>Application</div><b aria-hidden="true">↓</b><div class="dual-database__adapter">Adapter</div><b aria-hidden="true">↓</b><div class="dual-database__stores"><span>PostgreSQL<br><small>ID</small></span><b aria-hidden="true">↔</b><span>MongoDB<br><small>ID reference</small></span></div><figcaption id="dual-database-caption">A conceptual teaching model, not a claim about one universal implementation pattern.</figcaption></figure>
+                    <p>Using two databases increased complexity. The work was notable because students had to manage that complexity deliberately, not because dual storage was the preferred answer for every project.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--recovery" id="setup-overhead" aria-labelledby="setup-overhead-title" data-section-navigator-label="Setup overhead">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">10 / The Overhead Was the First Lesson</p><h2 id="setup-overhead-title">At First, Setup Felt Like Extra Work</h2></header>
+                    <p class="blog-article-section__standfirst">Students had to learn Docker, environment configuration, migrations, seeders, Composer dependencies, database services, ports, and repository workflow before application features felt immediate.</p>
+                    <ol class="overhead-progression"><li><strong>First project</strong><span>Setup feels expensive</span></li><li><strong>Repeated practice</strong><span>Commands and structure become familiar</span></li><li><strong>Multiple projects</strong><span>Environment setup becomes routine</span></li><li><strong>Different computer</strong><span>Reproducibility starts paying for itself</span></li><li><strong>Group work</strong><span>The team shares one base environment</span></li></ol>
+                    <p>Compared with opening a basic PHP project and coding immediately, the initial cost was real. Its value appeared through repeated use.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--grid" id="deployment-readiness" aria-labelledby="deployment-readiness-title" data-section-navigator-label="Deployment readiness">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">11 / Preparing for CI/CD and Capstone</p><h2 id="deployment-readiness-title">Deployment Readiness Started Before Deployment</h2></header>
+                    <p>In another teaching context, these practices also prepared students for later capstone work. A deployable project needed more than source code: dependencies, configuration, database services, migrations, seeders, reproducible startup, secrets, and deployment configuration all required attention.</p>
+                    <div class="repro-pipeline" aria-label="Deployment readiness progression"><span>Repository</span><b aria-hidden="true">→</b><span>Reproducible build and environment</span><b aria-hidden="true">→</b><span>Configuration</span><b aria-hidden="true">→</b><span>Database migration</span><b aria-hidden="true">→</b><span>Application start</span><b aria-hidden="true">→</b><span>Validation</span><b aria-hidden="true">→</b><span>Deployment</span></div>
+                    <p>The public template does not implement a complete production CI/CD pipeline. It helped make CI/CD concepts easier to introduce by requiring students to think about what another environment would need.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--paper" id="engineering-discipline" aria-labelledby="engineering-discipline-title" data-section-navigator-label="Engineering discipline">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">12 / Discipline Beyond the Codebase</p><h2 id="engineering-discipline-title">The Code Was Only One Part of the Project</h2></header>
+                    <p>Once students understood that files had responsibilities, the next step was showing that application parts, databases, services, configuration, and environments had responsibilities too. This continued the reasoning described in <a href="../teaching-structure-before-frameworks/">Teaching Structure Before Frameworks</a> without repeating its file-organization lesson.</p>
+                    <div class="project-discipline" aria-label="Parts of project discipline"><strong>Project discipline</strong><span>Code</span><span>Structure</span><span>Configuration</span><span>Database</span><span>Environment</span><span>Versioning</span><span>Collaboration</span><span>Deployment considerations</span></div>
+                    <p>The application was not only its source files. Working CRUD and PHP syntax mattered, but so did separation of concerns, database design, migrations, seeding, reproducibility, collaboration, and technology selection.</p>
+                </section>
+
+                <section class="blog-article-section blog-article-section--outcomes" id="observed-outcomes" aria-labelledby="observed-outcomes-title" data-section-navigator-label="Observed outcomes">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">13 / What Changed</p><h2 id="observed-outcomes-title">They Could Change Machines and Keep Working</h2></header>
+                    <p class="observed-label">Observed outcomes, not measured KPIs</p>
+                    <ul class="outcome-list"><li>Fewer environment-specific problems</li><li>Easier switching between machines</li><li>More consistent team setups</li><li>Faster database recreation</li><li>Better database-change discipline</li><li>Better understanding of migrations</li><li>Better environment-configuration awareness</li><li>Less dependence on one student's machine</li><li>Stronger collaboration</li><li>Greater deployment awareness</li><li>More familiar reproducible setup</li><li>Faster starts after repeated practice</li><li>Better SQL and NoSQL tradeoff reasoning</li></ul>
+                    <div class="blog-article-prose"><p>I observed students moving between home machines and school computers without needing the original machine where a project began. This sometimes surprised students from other classes who were accustomed to projects being closely tied to one local setup. That comparison is a classroom observation, not measured institutional evidence.</p></div>
+                </section>
+
+                <section class="blog-article-section blog-article-section--closing" id="closing" aria-labelledby="closing-title" data-section-navigator-label="Closing">
+                    <header class="blog-article-section__header"><p class="blog-article-section__number">14 / Closing</p><h2 id="closing-title">The Project Stopped Belonging to a Laptop</h2></header>
+                    <div class="blog-article-prose"><p>The result I valued was not memorized Docker commands. It was the ability to move to another suitable machine, reconstruct the environment, restore the expected database structure, configure the project, and continue developing with a team.</p><p>A predictably reconstructable project is closer to being deployable and maintainable than one whose environment exists only in someone's memory. Docker helped, but portability came from the combination of repository discipline, environment definition, configuration, migrations, seeders, dependency management, and shared workflow.</p></div>
+                    <blockquote>The project stopped belonging to a laptop and started belonging to the repository.</blockquote>
+                    <p>The extra setup became worthwhile because students could continue on almost any suitable machine that supported the required Docker environment.</p>
+                    <div class="source-reference"><p class="blog-article-section__number">Supporting instructional source</p><h3>AD-CI4-Template-Project</h3><p>A PHP and CodeIgniter-oriented instructional template used to introduce structured application responsibilities, Docker-defined PHP, PostgreSQL and MongoDB services, documented local configuration, Composer dependencies, collaboration practices, and deployment-ready project discipline. Its current public snapshot supports the environment and database examples in this reflection; it is not production infrastructure, a complete CI/CD platform, or a universal CodeIgniter standard.</p><a id="source" href="https://github.com/nyebe/AD-CI4-Template-Project" target="_blank" rel="noopener noreferrer">Explore AD-CI4-Template-Project <span aria-hidden="true">↗</span></a></div>
+                </section>
+            </div></div>
+        </article>
+    </main>
+    <footer class="site-footer"><div class="page-shell site-footer__inner"><div><p class="site-brand">Ian Cedric Ramirez</p><p class="site-footer__meta">Full-Stack Engineer</p><p class="site-footer__meta">Manila, Philippines · Open to Remote</p></div><div><div class="site-footer__links"><a href="https://github.com/nyebe" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ian-cedric-ramirez/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:ramirezian037@gmail.com">Email</a></div><p class="site-footer__meta">© Ian Cedric Ramirez</p></div></div></footer>
+    <script src="../../../shared/js/main.js"></script>
+</body>
+</html>
