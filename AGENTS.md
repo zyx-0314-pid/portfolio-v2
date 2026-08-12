@@ -224,6 +224,29 @@ Keep markup readable and properly indented.
 
 ---
 
+## Metadata and Schema
+
+Every website page must include page-appropriate metadata and JSON-LD schema in the `<head>`.
+
+When adding or changing a page, keep the schema factual and derived from existing page content. Do not invent production URLs, metrics, dates, issuers, credentials, employers, or claims to fill schema fields.
+
+Use these JSON-LD types unless a more specific, evidence-backed type is clearly appropriate:
+
+```text
+/index.html                                    Person
+/pages/*/index.html listing pages              CollectionPage
+/pages/contact/index.html                      ContactPage
+/pages/blog/<article>/index.html               Article
+/pages/projects/<project>/index.html           CreativeWork
+/pages/credentials/<group>/<credential>/        EducationalOccupationalCredential
+```
+
+Each page should normally have exactly one `application/ld+json` block unless there is a specific reason to model multiple distinct entities.
+
+Do not add canonical URLs or `og:url` values unless the production origin is confirmed.
+
+---
+
 ## CSS Rules
 
 Prefer the simplest appropriate styling approach. Use the latest CSS features this 2026.
