@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Cover Letter & PDF Builder Styles
+   ========================================================================== */
+
+.cl-header-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a !important;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+
+.cl-header-sub {
+    font-size: 11px;
+    font-weight: 600;
+    color: #334155 !important;
+    margin-bottom: 0.3rem;
+}
+
+.cl-header-contact {
+    font-size: 10px;
+    color: #64748b !important;
+    padding-bottom: 0.6rem;
+    border-bottom: 1.5px solid #0f172a;
+    margin-bottom: 1.2rem;
+}
+
+.cl-date-line {
+    font-size: 11px;
+    font-weight: 500;
+    color: #475569 !important;
+    margin-bottom: 1.2rem;
+}
+
+.cl-recipient-block {
+    font-size: 11px;
+    line-height: 1.45;
+    color: #1e293b !important;
+    margin-bottom: 1.2rem;
+}
+
+.cl-recipient-name {
+    font-weight: 700;
+    color: #0f172a !important;
+}
+
+.cl-recipient-company {
+    font-weight: 600;
+    color: #334155 !important;
+}
+
+.cl-salutation {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a !important;
+    margin-bottom: 1rem;
+}
+
+.cl-paragraph {
+    font-size: 11px;
+    line-height: 1.55;
+    color: #334155 !important;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.cl-signoff-block {
+    margin-top: 1.8rem;
+    font-size: 11px;
+    color: #0f172a !important;
+}
+
+.cl-signature-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a !important;
+    margin-top: 2rem;
+    text-transform: uppercase;
+}

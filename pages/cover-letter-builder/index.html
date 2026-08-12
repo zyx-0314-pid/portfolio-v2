@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>Cover Letter Builder | Ian Cedric Ramirez</title>
+    <meta name="description" content="Customizable ATS Cover Letter & PDF Generator for Ian Cedric Ramirez.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Ian Cedric Ramirez">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="../resume-builder/assets/css/resume-builder.css">
+    <link rel="stylesheet" href="assets/css/cover-letter-builder.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="resume-builder-main">
+        <div class="builder-shell">
+
+            <div class="builder-header">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+                    <div>
+                        <p class="builder-header__eyebrow">CAREER TOOL</p>
+                        <h1 class="builder-header__title">COVER LETTER &amp; PDF BUILDER</h1>
+                    </div>
+                    <a href="../resume-builder/" style="display:inline-flex; align-items:center; gap:0.5rem; font-family:var(--font-mono); font-size:0.78rem; text-decoration:none; padding:0.5rem 0.9rem; background:var(--color-surface); border:1px solid var(--color-border); color:var(--color-accent-bright); border-radius:4px; font-weight:500; transition:all 0.2s ease;">
+                        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Switch to ATS Resume Builder ⇄
+                    </a>
+                </div>
+                <p class="builder-header__desc">
+                    Draft tailored professional cover letters for Developer, DevOps, or Solutions Engineer roles, preview real-time A4 document formatting, and export ATS-parsable vector PDFs.
+                </p>
+            </div>
+
+            <div class="builder-layout">
+
+                <!-- LEFT PANE: CONFIGURATION CONTROLS -->
+                <div class="builder-controls">
+
+                    <!-- Panel 1: Target Role Preset -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">
+                            1. Target Role Profile
+                            <span class="builder-panel__badge">Tailored Content</span>
+                        </div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Select a role preset to automatically pre-fill targeted technical highlights and problem-solving achievements tailored to the position.</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="role-radio-group">
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="cl-role-dev" name="cl-role-preset" value="developer" checked>
+                                    <label for="cl-role-dev" class="role-radio-label">
+                                        <strong>Developer</strong>
+                                        <span style="font-size:0.7rem; color:var(--text-muted);">Full-Stack</span>
+                                    </label>
+                                </div>
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="cl-role-devops" name="cl-role-preset" value="devops">
+                                    <label for="cl-role-devops" class="role-radio-label">
+                                        <strong>DevOps</strong>
+                                        <span style="font-size:0.7rem; color:var(--text-muted);">Infra &amp; CI/CD</span>
+                                    </label>
+                                </div>
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="cl-role-se" name="cl-role-preset" value="solutions_engineer">
+                                    <label for="cl-role-se" class="role-radio-label">
+                                        <strong>Solutions Eng.</strong>
+                                        <span style="font-size:0.7rem; color:var(--text-muted);">Architecture</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Applicant Information & Date -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">2. Applicant Details</div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-name">Full Name</label>
+                            <input type="text" id="cl-input-name" class="form-input" value="Ian Cedric Ramirez">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-contact">Contact Info Line</label>
+                            <input type="text" id="cl-input-contact" class="form-input" value="Manila, Philippines | ramirezian037@gmail.com | github.com/nyebe | linkedin.com/in/ian-cedric-ramirez">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-date">Letter Date</label>
+                            <input type="text" id="cl-input-date" class="form-input" value="August 12, 2026">
+                        </div>
+                    </div>
+
+                    <!-- Panel 3: Recipient Information -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">3. Recipient / Employer Info</div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-recipient-name">Hiring Manager / Recipient Name</label>
+                            <input type="text" id="cl-input-recipient-name" class="form-input" value="Hiring Manager">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-company-name">Company / Organization Name</label>
+                            <input type="text" id="cl-input-company-name" class="form-input" value="Technology Hiring Team">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-target-position">Target Position Applied For</label>
+                            <input type="text" id="cl-input-target-position" class="form-input" value="Full-Stack Software Developer">
+                        </div>
+                    </div>
+
+                    <!-- Panel 4: Letter Body Content -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">4. Cover Letter Content</div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Connect your concrete engineering experience (N-Layer architecture, HR SaaS platforms, Docker, AWS) directly to the company's technical goals.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-salutation">Salutation Line</label>
+                            <input type="text" id="cl-input-salutation" class="form-input" value="Dear Hiring Manager,">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-paragraph-1">Opening Paragraph (Intent &amp; Value Prop)</label>
+                            <textarea id="cl-input-paragraph-1" class="form-textarea" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-paragraph-2">Body Paragraph (Technical Experience &amp; Impact)</label>
+                            <textarea id="cl-input-paragraph-2" class="form-textarea" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-paragraph-3">Closing Paragraph (Call to Action &amp; Next Steps)</label>
+                            <textarea id="cl-input-paragraph-3" class="form-textarea" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cl-input-signoff">Sign-off Line</label>
+                            <input type="text" id="cl-input-signoff" class="form-input" value="Sincerely,">
+                        </div>
+                    </div>
+
+                    <!-- Sticky CTA Action Bar -->
+                    <div class="action-sticky-bar">
+                        <button type="button" class="btn-secondary" id="btn-cl-refresh" style="flex:1; display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--color-surface); border:1px solid var(--color-border); color:var(--color-text); padding:0.8rem 1rem; border-radius:4px; font-family:var(--font-sans); font-weight:600; font-size:0.95rem; cursor:pointer;">
+                            <i class="fa-solid fa-rotate" aria-hidden="true"></i> Apply &amp; Sync Preview
+                        </button>
+                        <button type="button" class="btn-export-pdf" id="btn-cl-export-pdf" style="flex:1;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Export Cover Letter PDF
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT PANE: LIVE COVER LETTER PREVIEW -->
+                <div class="builder-preview-wrapper">
+                    <div class="preview-toolbar">
+                        <div style="display:flex; align-items:center; gap:0.6rem;">
+                            <span>LIVE COVER LETTER DOCUMENT PREVIEW</span>
+                            <button type="button" class="btn-xs" id="btn-cl-toolbar-sync" style="display:inline-flex; align-items:center; gap:0.3rem;">
+                                <i class="fa-solid fa-rotate" aria-hidden="true"></i> Sync
+                            </button>
+                        </div>
+                        <div class="page-budget-indicator">
+                            <span class="budget-dot" id="cl-budget-dot"></span>
+                            <span id="cl-budget-text">1 Page OK</span>
+                        </div>
+                    </div>
+
+                    <!-- Simulated A4 Document Container -->
+                    <div class="preview-page-container density-comfortable" id="cl-preview-container">
+                        <!-- Rendered dynamically by cover-letter-builder.js -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- CDNJS pdfmake PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <!-- Theme & Page Controllers -->
+    <script src="../../shared/js/global.js"></script>
+    <script src="assets/js/cover-letter-builder.js"></script>
+</body>
+
+</html>
