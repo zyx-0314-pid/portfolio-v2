@@ -2,6 +2,24 @@
 
 All notable portfolio-level changes are recorded here.
 
+## Version 1.2.0 - 2026-08-12
+
+### Owner-Only Career Tools Added
+
+- **ATS Resume & PDF Export Builder (`/pages/resume-builder/`)**:
+  - Hidden, owner-only page (`noindex, nofollow`) for customizing role profiles (Developer, DevOps, Solutions Engineer).
+  - Integrates canonical education data, dynamic role-based credential star ratings (⭐ to ⭐⭐⭐), and individual experience & education item selection checkboxes.
+  - Features a live simulated A4 document preview engine with page budget tracking and 1-page density controls (Comfortable, Compact, Micro Fit).
+  - Client-side ATS vector PDF export via `pdfmake` CDNJS engine.
+
+- **Cover Letter & PDF Builder (`/pages/cover-letter-builder/`)**:
+  - Hidden, owner-only page (`noindex, nofollow`) for drafting tailored cover letters for Developer, DevOps, and Solutions Engineer positions.
+  - Pre-fills tailored content referencing GoPick HR SaaS platforms, N-Layer architecture, Docker/AWS infrastructure, and GoPick engineering documentation.
+  - Features real-time A4 document formatting, live preview sync, and client-side vector PDF export via `pdfmake`.
+
+- **Bi-Directional Tool Navigation**:
+  - Header action buttons connecting `/pages/resume-builder/` ⇄ `/pages/cover-letter-builder/` for seamless switching between career tools.
+
 ## Version 1.1.0 - 2026-08-12
 
 ### Credentials & Certifications Inventory Update
