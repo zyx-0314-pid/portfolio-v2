@@ -213,8 +213,11 @@
     link.setAttribute('data-cred-id', item.id);
 
     const visibleTags = (item.domains || []).slice(0, 3);
-    const issuerBadgeSvg = getIssuerBadgeSvg(item.issuer);
+    const issuerBadge = getIssuerBadgeMarkup(item.issuer);
     const typeLevelText = item.level ? `${item.type} · ${item.level}` : item.type;
+    const displayYear = item.earnedYear && item.earnedYear !== 'Unverified'
+      ? item.earnedYear
+      : ((item.verificationLinks || []).length ? 'Date pending' : 'Unverified');
     const rankBadge = (item.starRank || 0) > 0
       ? `<span class="cred-badge cred-badge--rank cred-badge--rank-${item.starRank}" title="${escapeHtml(item.starLabel || '')}">${escapeHtml('★'.repeat(item.starRank))}</span>`
       : '';
@@ -223,7 +226,7 @@
       <article class="cred-card" role="listitem">
         <div class="cred-card__header">
           <div class="cred-card__issuer-badge" aria-hidden="true">
-            ${issuerBadgeSvg}
+            ${issuerBadge}
           </div>
           <div class="cred-card__badges">
             ${rankBadge}
@@ -242,7 +245,7 @@
             ${visibleTags.map(tag => `<span class="cred-card__tag">${escapeHtml(tag)}</span>`).join('')}
           </div>
           <div class="cred-card__action-row">
-            <span class="cred-card__year">${escapeHtml(item.earnedYear || '')}</span>
+            <span class="cred-card__year">${escapeHtml(displayYear)}</span>
             <span class="cred-card__action">View →</span>
           </div>
         </div>
@@ -253,6 +256,35 @@
   };
 
   // ── Issuer SVG Icons ───────────────────────────────────────────────────────
+
+  const getIssuerLogoPath = (issuer) => {
+    const norm = (issuer || '').toLowerCase();
+    if (norm.includes('all tech is human')) return 'assets/img/all_tech_is_human.jpg';
+    if (norm.includes('certiport')) return 'assets/img/certiport.jpg';
+    if (norm.includes('cisco')) return 'assets/img/cisco.jpg';
+    if (norm.includes('cybrary')) return 'assets/img/cybrary.jpg';
+    if (norm.includes('datacamp')) return 'assets/img/datacamp.jpg';
+    if (norm.includes('github')) return 'assets/img/github.jpg';
+    if (norm.includes('google')) return 'assets/img/google.jpg';
+    if (norm.includes('hackerrank')) return 'assets/img/hakerrank.jpg';
+    if (norm.includes('kong')) return 'assets/img/kong.jpg';
+    if (norm.includes('linkedin')) return 'assets/img/linkedin.jpg';
+    if (norm.includes('microsoft')) return 'assets/img/microsoft.jpg';
+    if (norm.includes('mozilla')) return 'assets/img/mozilla.jpg';
+    if (norm.includes('pagerduty')) return 'assets/img/pagerduty.jpg';
+    if (norm.includes('snowflake') || norm.includes('snowpro')) return 'assets/img/snowflakes.jpg';
+    if (norm.includes('testmu')) return 'assets/img/testmu.jpg';
+    if (norm.includes('udemy')) return 'assets/img/udemy.jpg';
+    return null;
+  };
+
+  const getIssuerBadgeMarkup = (issuer) => {
+    const logoPath = getIssuerLogoPath(issuer);
+    if (logoPath) {
+      return `<img class="cred-issuer-logo" src="${escapeHtml(logoPath)}" alt="" loading="lazy" decoding="async">`;
+    }
+    return getIssuerBadgeSvg(issuer);
+  };
 
   const getIssuerBadgeSvg = (issuer) => {
     const norm = (issuer || '').toLowerCase();

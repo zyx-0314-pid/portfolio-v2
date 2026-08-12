@@ -68,8 +68,7 @@ window.CREDENTIALS_DATA = [
     "projectUrl": null,
     "todos": [
       "Confirm completion date.",
-      "Add verification link if available.",
-      "Add certificate asset if available."
+      "Add verification link if available."
     ],
     "starRank": 1,
     "starLabel": "Useful context",
@@ -180,8 +179,7 @@ window.CREDENTIALS_DATA = [
     "projectUrl": null,
     "todos": [
       "Confirm completion date.",
-      "Add verification link if available.",
-      "Add certificate asset if available."
+      "Add verification link if available."
     ],
     "starRank": 1,
     "starLabel": "Useful context",
@@ -424,10 +422,10 @@ window.CREDENTIALS_DATA = [
     "id": "google-associate-cloud-engineer",
     "slug": "google-associate-cloud-engineer",
     "detailUrl": "certifications/google-associate-cloud-engineer/",
-    "title": "Google Cloud Associate Cloud Engineer",
-    "name": "Google Cloud Associate Cloud Engineer",
-    "provider": "Google Cloud",
-    "issuer": "Google Cloud",
+    "title": "Associate Cloud Engineer Certification",
+    "name": "Associate Cloud Engineer Certification",
+    "provider": "Google",
+    "issuer": "Google",
     "type": "Vendor & Platform Certifications",
     "group": "CERTIFICATIONS",
     "category": "CERTIFICATIONS",
@@ -436,34 +434,52 @@ window.CREDENTIALS_DATA = [
       "DevOps",
       "Platform"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
-    "expirationDate": null,
-    "expiresDate": null,
+    "completionDate": "Feb 01, 2026",
+    "earnedDate": "Feb 01, 2026",
+    "earnedYear": "2026",
+    "expirationDate": "Feb 01, 2029",
+    "expiresDate": "Feb 01, 2029",
     "status": "Current",
     "credentialId": null,
-    "verificationLinks": [],
-    "certificateAsset": null,
+    "verificationLinks": [
+      {
+        "label": "Verify on Credly",
+        "url": "https://www.credly.com/badges/57536823-eb35-4e10-be3d-6b21da7f8e9d"
+      }
+    ],
+    "certificateAsset": "pages/credentials/certifications/google-associate-cloud-engineer/assets/img/ace.png",
     "issuerUrl": null,
-    "description": "Google Cloud Associate Cloud Engineer is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Google Cloud Associate Cloud Engineer is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Intermediate Google Cloud certification for deploying applications, monitoring operations, and managing enterprise solutions with Google Cloud Console and the command-line interface.",
+    "about": "Associate Cloud Engineers deploy applications, monitor operations, and manage enterprise solutions. They use Google Cloud Console and the command-line interface for common platform tasks across Google-managed and self-managed services.",
+    "skills": [
+      "Application deployment",
+      "Cloud operations monitoring",
+      "Enterprise solution management",
+      "Google Cloud Console",
+      "Command-line interface"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Credential Scope",
+        "topics": [
+          "Intermediate level",
+          "Deploy applications",
+          "Monitor operations",
+          "Manage enterprise solutions",
+          "Use Google Cloud Console and CLI"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
     "parentProgram": null,
     "includedCredentials": [],
-    "credentialKind": null,
+    "credentialKind": "Intermediate",
     "projectStatus": null,
     "repositoryUrl": null,
     "projectUrl": null,
-    "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
-      "Add certificate asset if available."
-    ],
+    "todos": [],
     "starRank": 3,
     "starLabel": "Highest value",
     "rankingNote": "Clearest credential-level signal for cloud, infrastructure, and application operations."
@@ -492,7 +508,7 @@ window.CREDENTIALS_DATA = [
     "status": "Current",
     "credentialId": null,
     "verificationLinks": [],
-    "certificateAsset": null,
+    "certificateAsset": "pages/credentials/certifications/snowpro-associate-platform/assets/img/snowflake_badge.jpg",
     "issuerUrl": null,
     "description": "Snowflake SnowPro Associate: Platform is preserved in the portfolio's canonical credential and training inventory.",
     "about": "Snowflake SnowPro Associate: Platform is preserved in the portfolio's canonical credential and training inventory.",
@@ -1011,20 +1027,43 @@ window.CREDENTIALS_DATA = [
       "Software Testing",
       "AI"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 24, 2026",
+    "earnedDate": "Apr 24, 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "e4842a51dfce7114f82bf004983828840abddfb3ddd8756099a0c1bdfda1af35",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/e4842a51dfce7114f82bf004983828840abddfb3ddd8756099a0c1bdfda1af35"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "TestMu AI Software Testing Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "TestMu AI Software Testing Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Intermediate professional certificate covering software testing foundations, tools, and techniques.",
+    "about": "Intermediate professional certificate covering software testing foundations, tools, and techniques.",
+    "skills": [
+      "Software testing foundations",
+      "Testing tools and techniques",
+      "Software testing career preparation"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "Intermediate level",
+          "Software testing foundations, tools, and techniques"
+        ]
+      }
+    ],
+    "learningNotes": [],
+    "learningTodos": [
+      "Add personal notes about what was learned.",
+      "Add practical takeaways from the certificate.",
+      "Add examples of testing concepts applied in projects."
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -1035,8 +1074,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -2172,6 +2209,58 @@ window.CREDENTIALS_DATA = [
     "todos": [
       "Confirm completion date.",
       "Add verification link if available.",
+      "Add certificate asset if available."
+    ],
+    "starRank": 1,
+    "starLabel": "Useful context",
+    "rankingNote": null
+  },
+  {
+    "id": "datacamp-github-foundations-track",
+    "slug": "datacamp-github-foundations-track",
+    "detailUrl": "training/datacamp-github-foundations-track/",
+    "title": "GitHub Foundations: Track",
+    "name": "GitHub Foundations: Track",
+    "provider": "DataCamp",
+    "issuer": "DataCamp",
+    "type": "Training & Course Certificates",
+    "group": "TRAINING & PROGRAMS",
+    "category": "TRAINING & PROGRAMS",
+    "domains": [
+      "Git & GitHub",
+      "Software Engineering"
+    ],
+    "completionDate": "Jul 2026",
+    "earnedDate": "Jul 2026",
+    "earnedYear": "2026",
+    "expirationDate": null,
+    "expiresDate": null,
+    "status": "Current",
+    "credentialId": "0cf842b2e2969964f7ee4575168e926f82046a70",
+    "verificationLinks": [
+      {
+        "label": "Verify on DataCamp",
+        "url": "https://www.datacamp.com/completed/statement-of-accomplishment/track/0cf842b2e2969964f7ee4575168e926f82046a70?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa"
+      }
+    ],
+    "certificateAsset": null,
+    "issuerUrl": null,
+    "description": "GitHub Foundations: Track is preserved in the portfolio's canonical credential and training inventory.",
+    "about": "GitHub Foundations: Track is preserved in the portfolio's canonical credential and training inventory.",
+    "skills": [],
+    "officialCoverage": [],
+    "relatedCredentials": [
+      "github-foundations"
+    ],
+    "relatedTraining": [],
+    "relatedExperience": [],
+    "parentProgram": null,
+    "includedCredentials": [],
+    "credentialKind": "DataCamp Track",
+    "projectStatus": null,
+    "repositoryUrl": null,
+    "projectUrl": null,
+    "todos": [
       "Add certificate asset if available."
     ],
     "starRank": 1,
