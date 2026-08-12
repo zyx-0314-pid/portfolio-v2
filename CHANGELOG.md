@@ -8,7 +8,7 @@ All notable portfolio-level changes are recorded here.
 
 - **ATS Resume & PDF Export Builder (`/pages/resume-builder/`)**:
   - Hidden, owner-only page (`noindex, nofollow`) for customizing role profiles (Developer, DevOps, Solutions Engineer).
-  - Integrates canonical education data, dynamic role-based credential star ratings (⭐ to ⭐⭐⭐), and individual experience & education item selection checkboxes.
+  - Integrates canonical education data, dynamic role-based credential star ratings (⭐ to ⭐⭐⭐), real-time live credential search & filtering (search by title, issuer, domain, or skills), individual experience & education item selection checkboxes, and an optional Featured Technical Projects selector.
   - Features a live simulated A4 document preview engine with page budget tracking and 1-page density controls (Comfortable, Compact, Micro Fit).
   - Client-side ATS vector PDF export via `pdfmake` CDNJS engine.
 

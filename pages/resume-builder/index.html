@@ -180,6 +180,30 @@
                             <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                             <div><strong>ATS Tip:</strong> Feature 3–5 high-impact certifications related to the role. Keep credential titles exact so ATS parsers match vendor qualifications.</div>
                         </div>
+
+                        <!-- Search & Reorder Row -->
+                        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.6rem;">
+                            <input type="text" id="input-cred-search" class="form-input" style="flex:2; min-width:180px;" placeholder="🔍 Search (Docker, AI, Java)..." aria-label="Search credentials">
+                            <select id="select-cred-sort" class="form-input" style="flex:1; min-width:140px; font-size:0.78rem;" aria-label="Reorder credentials">
+                                <option value="stars-desc" selected>Stars: High → Low</option>
+                                <option value="stars-asc">Stars: Low → High</option>
+                                <option value="title-asc">Title: A → Z</option>
+                                <option value="title-desc">Title: Z → A</option>
+                                <option value="provider-asc">Provider: A → Z</option>
+                            </select>
+                        </div>
+
+                        <!-- Provider Multi-Select Filter -->
+                        <div style="margin-bottom:0.6rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.2rem;">
+                                <label class="form-label" style="font-size:0.75rem; margin:0;">Filter by Provider / Issuer:</label>
+                                <button type="button" class="btn-xs" id="btn-provider-select-all" style="font-size:0.65rem; padding:0.1rem 0.4rem;">Select All</button>
+                            </div>
+                            <div id="cred-provider-checkboxes" style="display:flex; flex-wrap:wrap; gap:0.3rem; padding:0.4rem; background:var(--color-bg); border:1px solid var(--color-border); border-radius:4px;">
+                                <!-- Populated dynamically from credentials-data.js -->
+                            </div>
+                        </div>
+
                         <div class="cred-filter-actions">
                             <button type="button" class="btn-xs" id="btn-cred-select-top">Select Key Certs</button>
                             <button type="button" class="btn-xs" id="btn-cred-clear">Clear All</button>
@@ -189,9 +213,28 @@
                         </div>
                     </div>
 
-                    <!-- Panel 4: Experience Bullet Points Customization -->
+                    <!-- Panel 4: Featured Technical Projects (Optional) -->
                     <div class="builder-panel">
-                        <div class="builder-panel__title">4. Customize Experience Bullets</div>
+                        <div class="builder-panel__title">
+                            4. Featured Projects (Optional)
+                            <span class="builder-panel__badge">Portfolio Select</span>
+                        </div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Featuring 1–2 key technical projects demonstrates practical application of your tech stack. Uncheck all to omit the Projects section.</div>
+                        </div>
+                        <div class="cred-filter-actions">
+                            <button type="button" class="btn-xs" id="btn-proj-select-top">Select Key Projects</button>
+                            <button type="button" class="btn-xs" id="btn-proj-clear">Clear All</button>
+                        </div>
+                        <div class="cred-checkbox-list" id="proj-checkbox-container">
+                            <!-- Populated dynamically from PROJECTS_DATA -->
+                        </div>
+                    </div>
+
+                    <!-- Panel 5: Experience Bullet Points Customization -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">5. Customize Experience Bullets</div>
                         <div class="panel-tip-box">
                             <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                             <div><strong>ATS Tip:</strong> Start bullets with strong action verbs (Architected, Engineered, Implemented) and quantify results with numbers. Uncheck individual jobs to hide them.</div>
@@ -201,9 +244,9 @@
                         </div>
                     </div>
 
-                    <!-- Panel 5: Education Selection -->
+                    <!-- Panel 6: Education Selection -->
                     <div class="builder-panel">
-                        <div class="builder-panel__title">5. Select Education &amp; Training</div>
+                        <div class="builder-panel__title">6. Select Education &amp; Training</div>
                         <div class="panel-tip-box">
                             <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                             <div><strong>ATS Tip:</strong> Check or uncheck individual degrees and technical training courses to include on your single-page resume.</div>
@@ -213,9 +256,9 @@
                         </div>
                     </div>
 
-                    <!-- Panel 6: Page Density Controls & Export -->
+                    <!-- Panel 7: Page Density Controls & Export -->
                     <div class="builder-panel">
-                        <div class="builder-panel__title">6. 1-Page Layout Density</div>
+                        <div class="builder-panel__title">7. 1-Page Layout Density</div>
                         <div class="panel-tip-box">
                             <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
                             <div><strong>ATS Tip:</strong> Non-executive technical resumes should fit strictly on 1 page. Adjust layout density (Compact or Micro Fit) so text doesn't overflow.</div>

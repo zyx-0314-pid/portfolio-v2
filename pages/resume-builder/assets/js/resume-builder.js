@@ -30,6 +30,46 @@
         }
     ];
 
+    // ── CANONICAL PROJECTS DATA ──────────────────────────────────────────────
+    const PROJECTS_DATA = [
+        {
+            id: 'proj-gopick',
+            title: 'GoPick — HR SaaS Assessment Platform',
+            tech: 'PHP, Yii2, MySQL, Redis, Docker, AWS',
+            desc: 'Modernized core HR assessment platform supporting candidate evaluations, anti-cheating controls, and consumable report credits.'
+        },
+        {
+            id: 'proj-jfp-gopick',
+            title: 'JFP – GoPick — International Assessment System',
+            tech: 'PHP, MySQL, REST APIs, GDPR Controls',
+            desc: 'Specialized Job Fit assessment system connected to GoPick (International), supporting GDPR compliance and benchmark configuration.'
+        },
+        {
+            id: 'proj-veyra',
+            title: 'Veyra — Multi-Tenant Feedback SaaS Platform',
+            tech: 'TypeScript, Next.js, Node.js, PostgreSQL, Docker',
+            desc: 'Multi-tenant feedback SaaS with custom RBAC, first-party analytics, publication APIs, and platform control plane.'
+        },
+        {
+            id: 'proj-talara',
+            title: 'Talara — Resource & Operations System',
+            tech: 'Vue, Nuxt, Prisma, PostgreSQL, Docker',
+            desc: 'Facility & equipment operations management system supporting reservation workflows, maintenance tracking, and consumable inventory.'
+        },
+        {
+            id: 'proj-selebox',
+            title: 'SeLeBox — Social Media & Video Streaming App',
+            tech: 'Node.js, Express, MongoDB, WebSockets, HTML5 Video',
+            desc: 'Real-time social media platform featuring media feed streaming, follower graphs, instant messaging, and offline video caching.'
+        },
+        {
+            id: 'proj-ieee',
+            title: 'Digital Governance Research — SUCs Benchmark',
+            tech: 'System Analysis, Data Governance, Research, IEEE',
+            desc: 'Published research evaluating digital governance frameworks across State Universities and Colleges (IEEE Xplore).'
+        }
+    ];
+
     // ── ROLE PRESET DEFINITIONS ──────────────────────────────────────────────
     const ROLE_PRESETS = {
         developer: {
@@ -56,6 +96,16 @@
                     bullets: [
                         "Engineered 12+ Java Spring Boot micro-components for physical record tracking and barcode/QR verification.",
                         "Constructed transactional database schemas with 100% validation coverage and automated error handling."
+                    ]
+                },
+                {
+                    id: "exp-iltn",
+                    company: "ILTN Holdings LLC",
+                    role: "Web Developer & IT Operations",
+                    period: "May 2025 - Sep 2025",
+                    bullets: [
+                        "Managed 25+ domain DNS configurations, SSL certificates, email infrastructure, and web service security operations.",
+                        "Automated routine server maintenance tasks via custom Bash and Python scripts, reducing manual overhead by 60%."
                     ]
                 },
                 {
@@ -97,6 +147,16 @@
                     ]
                 },
                 {
+                    id: "exp-svt",
+                    company: "Spring Valley Tech",
+                    role: "Java Industry Immersion Trainee",
+                    period: "Jun 2025",
+                    bullets: [
+                        "Engineered 12+ Java Spring Boot micro-components for physical record tracking and barcode/QR verification.",
+                        "Constructed transactional database schemas with 100% validation coverage and automated error handling."
+                    ]
+                },
+                {
                     id: "exp-iltn",
                     company: "ILTN Holdings LLC",
                     role: "Web Developer & IT Operations",
@@ -104,6 +164,16 @@
                     bullets: [
                         "Managed 25+ domain DNS configurations, SSL certificates, email infrastructure, and web service security operations.",
                         "Automated routine server maintenance tasks via custom Bash and Python scripts, reducing manual overhead by 60%."
+                    ]
+                },
+                {
+                    id: "exp-yd",
+                    company: "YenkoDev - SeLeBox Platform",
+                    role: "Full-Stack Engineer",
+                    period: "May 2024 - Aug 2024",
+                    bullets: [
+                        "Developed real-time social platform features serving 5,000+ active sessions, including media feed streaming and instant messaging.",
+                        "Optimized frontend bundle size by 40% for smooth high-definition video playback and offline capability."
                     ]
                 },
                 {
@@ -135,13 +205,23 @@
                     ]
                 },
                 {
-                    id: "exp-feu",
-                    company: "FEU Institute of Technology",
-                    role: "Full-Time Instructor & Technical Lead",
-                    period: "Oct 2023 - Nov 2025",
+                    id: "exp-svt",
+                    company: "Spring Valley Tech",
+                    role: "Java Industry Immersion Trainee",
+                    period: "Jun 2025",
                     bullets: [
-                        "Led 20+ technical design reviews and capstone software architecture evaluations for senior engineering projects.",
-                        "Evaluated 50+ student software architectures against industry-standard reliability, security, and performance benchmarks."
+                        "Engineered 12+ Java Spring Boot micro-components for physical record tracking and barcode/QR verification.",
+                        "Constructed transactional database schemas with 100% validation coverage and automated error handling."
+                    ]
+                },
+                {
+                    id: "exp-iltn",
+                    company: "ILTN Holdings LLC",
+                    role: "Web Developer & IT Operations",
+                    period: "May 2025 - Sep 2025",
+                    bullets: [
+                        "Managed 25+ domain DNS configurations, SSL certificates, email infrastructure, and web service security operations.",
+                        "Automated routine server maintenance tasks via custom Bash and Python scripts, reducing manual overhead by 60%."
                     ]
                 },
                 {
@@ -152,6 +232,16 @@
                     bullets: [
                         "Engineered 8 custom platform solution modules for offline media delivery and third-party API integration.",
                         "Analyzed performance telemetry from 5,000+ active user sessions to refine integration API endpoints."
+                    ]
+                },
+                {
+                    id: "exp-feu",
+                    company: "FEU Institute of Technology",
+                    role: "Full-Time Instructor & Technical Lead",
+                    period: "Oct 2023 - Nov 2025",
+                    bullets: [
+                        "Led 20+ technical design reviews and capstone software architecture evaluations for senior engineering projects.",
+                        "Evaluated 50+ student software architectures against industry-standard reliability, security, and performance benchmarks."
                     ]
                 }
             ]
@@ -173,15 +263,20 @@
             'github-career-essentials-professional-certificate',
             'responsible-ai-foundations-professional-certificate'
         ]),
+        credSearchQuery: '',
+        credSortOrder: 'stars-desc',
+        selectedProviders: new Set(),
         density: 'compact',
-        selectedExpIndices: new Set([0, 1, 2, 3]),
-        selectedEduIndices: new Set([0, 1, 2, 3])
+        selectedExpIndices: new Set([0, 1, 2, 3, 4]),
+        selectedEduIndices: new Set([0, 1, 2, 3]),
+        selectedProjectIds: new Set(['proj-gopick', 'proj-jfp-gopick'])
     };
 
     // ── INITIALIZATION ───────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
         initRoleSelector();
         initCredentialsList();
+        initProjectsList();
         initEducationList();
         initFormBindings();
         initDensityControl();
@@ -264,8 +359,24 @@
     }
 
     // ── CREDENTIALS CHECKBOX LIST ────────────────────────────────────────────
+    // ── CREDENTIALS CHECKBOX LIST ────────────────────────────────────────────
     function initCredentialsList() {
+        renderProviderCheckboxes();
         renderCredentialsList();
+
+        // Search Input listener
+        const searchInput = document.getElementById('input-cred-search');
+        searchInput?.addEventListener('input', (e) => {
+            state.credSearchQuery = e.target.value.toLowerCase().trim();
+            renderCredentialsList();
+        });
+
+        // Reorder / Sort Dropdown listener
+        const sortSelect = document.getElementById('select-cred-sort');
+        sortSelect?.addEventListener('change', (e) => {
+            state.credSortOrder = e.target.value;
+            renderCredentialsList();
+        });
 
         // Quick select key certs for current role
         document.getElementById('btn-cred-select-top')?.addEventListener('click', () => {
@@ -286,6 +397,52 @@
         });
     }
 
+    function renderProviderCheckboxes() {
+        const container = document.getElementById('cred-provider-checkboxes');
+        if (!container) return;
+
+        let creds = window.CREDENTIALS_DATA || [];
+        const providers = Array.from(new Set(creds.map(c => c.provider || c.issuer || 'Other'))).sort();
+
+        // Populate selectedProviders with all providers if empty initially
+        if (state.selectedProviders.size === 0) {
+            providers.forEach(p => state.selectedProviders.add(p));
+        }
+
+        container.innerHTML = providers.map(p => {
+            const isChecked = state.selectedProviders.has(p) ? 'checked' : '';
+            return `
+                <label style="display:inline-flex; align-items:center; gap:0.25rem; font-size:0.7rem; color:var(--color-text); cursor:pointer; background:var(--color-surface); padding:0.15rem 0.4rem; border:1px solid var(--color-border); border-radius:3px; font-family:var(--font-mono);">
+                    <input type="checkbox" value="${escapeHtml(p)}" ${isChecked} class="provider-checkbox" style="accent-color:var(--color-accent-bright);">
+                    <span>${escapeHtml(p)}</span>
+                </label>
+            `;
+        }).join('');
+
+        container.querySelectorAll('.provider-checkbox').forEach(cb => {
+            cb.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    state.selectedProviders.add(e.target.value);
+                } else {
+                    state.selectedProviders.delete(e.target.value);
+                }
+                renderCredentialsList();
+            });
+        });
+
+        const selectAllBtn = document.getElementById('btn-provider-select-all');
+        selectAllBtn?.addEventListener('click', () => {
+            const allChecked = state.selectedProviders.size === providers.length;
+            if (allChecked) {
+                state.selectedProviders.clear();
+            } else {
+                providers.forEach(p => state.selectedProviders.add(p));
+            }
+            renderProviderCheckboxes();
+            renderCredentialsList();
+        });
+    }
+
     function renderCredentialsList() {
         const container = document.getElementById('cred-checkbox-container');
         if (!container) return;
@@ -296,11 +453,50 @@
             return;
         }
 
-        // Attach star rating for current role & sort descending by stars
-        const scoredCreds = creds.map(c => ({
+        // Apply Provider Multi-Select Filter
+        if (state.selectedProviders.size > 0) {
+            creds = creds.filter(c => state.selectedProviders.has(c.provider || c.issuer || 'Other'));
+        } else {
+            container.innerHTML = '<p class="text-muted" style="font-size:0.75rem; padding:0.5rem 0;">No providers selected.</p>';
+            return;
+        }
+
+        // Apply Search Filter if query present
+        const query = state.credSearchQuery || '';
+        if (query) {
+            creds = creds.filter(c => {
+                const title = (c.title || c.name || '').toLowerCase();
+                const provider = (c.provider || c.issuer || '').toLowerCase();
+                const domain = (c.domain || '').toLowerCase();
+                const tags = Array.isArray(c.tags) ? c.tags.join(' ').toLowerCase() : (c.tags || '').toLowerCase();
+                return title.includes(query) || provider.includes(query) || domain.includes(query) || tags.includes(query);
+            });
+        }
+
+        if (creds.length === 0) {
+            container.innerHTML = '<p class="text-muted" style="font-size:0.75rem; padding:0.5rem 0;">No matching credentials found.</p>';
+            return;
+        }
+
+        // Calculate stars for current role
+        let scoredCreds = creds.map(c => ({
             ...c,
             calculatedStars: calculateCredentialStars(c, state.roleKey)
-        })).sort((a, b) => b.calculatedStars - a.calculatedStars);
+        }));
+
+        // Apply Sorting based on credSortOrder
+        const sortOrder = state.credSortOrder || 'stars-desc';
+        if (sortOrder === 'stars-desc') {
+            scoredCreds.sort((a, b) => b.calculatedStars - a.calculatedStars || (a.title || a.name || '').localeCompare(b.title || b.name || ''));
+        } else if (sortOrder === 'stars-asc') {
+            scoredCreds.sort((a, b) => a.calculatedStars - b.calculatedStars || (a.title || a.name || '').localeCompare(b.title || b.name || ''));
+        } else if (sortOrder === 'title-asc') {
+            scoredCreds.sort((a, b) => (a.title || a.name || '').localeCompare(b.title || b.name || ''));
+        } else if (sortOrder === 'title-desc') {
+            scoredCreds.sort((a, b) => (b.title || b.name || '').localeCompare(a.title || a.name || ''));
+        } else if (sortOrder === 'provider-asc') {
+            scoredCreds.sort((a, b) => (a.provider || a.issuer || '').localeCompare(b.provider || b.issuer || ''));
+        }
 
         container.innerHTML = scoredCreds.map(c => {
             const isChecked = state.selectedCredIds.has(c.id) ? 'checked' : '';
@@ -334,6 +530,58 @@
     function updateCredCheckboxes() {
         document.querySelectorAll('.cred-checkbox').forEach(cb => {
             cb.checked = state.selectedCredIds.has(cb.value);
+        });
+    }
+
+    // ── FEATURED PROJECTS CHECKBOX LIST ──────────────────────────────────────
+    function initProjectsList() {
+        renderProjectsList();
+
+        document.getElementById('btn-proj-select-top')?.addEventListener('click', () => {
+            state.selectedProjectIds = new Set(['proj-gopick', 'proj-jfp-gopick']);
+            updateProjCheckboxes();
+            renderPreview();
+        });
+
+        document.getElementById('btn-proj-clear')?.addEventListener('click', () => {
+            state.selectedProjectIds.clear();
+            updateProjCheckboxes();
+            renderPreview();
+        });
+    }
+
+    function renderProjectsList() {
+        const container = document.getElementById('proj-checkbox-container');
+        if (!container) return;
+
+        container.innerHTML = PROJECTS_DATA.map(p => {
+            const isChecked = state.selectedProjectIds.has(p.id) ? 'checked' : '';
+            return `
+                <label class="cred-item-label">
+                    <input type="checkbox" value="${p.id}" ${isChecked} class="proj-checkbox">
+                    <div style="flex:1;">
+                        <div class="cred-item-title">${escapeHtml(p.title)}</div>
+                        <div class="cred-item-issuer">${escapeHtml(p.tech)}</div>
+                    </div>
+                </label>
+            `;
+        }).join('');
+
+        container.querySelectorAll('.proj-checkbox').forEach(cb => {
+            cb.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    state.selectedProjectIds.add(e.target.value);
+                } else {
+                    state.selectedProjectIds.delete(e.target.value);
+                }
+                renderPreview();
+            });
+        });
+    }
+
+    function updateProjCheckboxes() {
+        document.querySelectorAll('.proj-checkbox').forEach(cb => {
+            cb.checked = state.selectedProjectIds.has(cb.value);
         });
     }
 
@@ -484,9 +732,10 @@
         // Apply density class
         previewEl.className = `preview-page-container density-${state.density}`;
 
-        // Get selected credentials
+        // Get selected credentials and projects
         const credsData = window.CREDENTIALS_DATA || [];
         const selectedCreds = credsData.filter(c => state.selectedCredIds.has(c.id));
+        const selectedProjects = PROJECTS_DATA.filter(p => state.selectedProjectIds.has(p.id));
 
         previewEl.innerHTML = `
             <div class="pv-header">
@@ -526,6 +775,21 @@
                     </div>
                     `;
                 }).join('')}
+            </div>
+            ` : ''}
+
+            ${selectedProjects.length > 0 ? `
+            <div class="pv-section">
+                <div class="pv-section-title">Featured Technical Projects</div>
+                ${selectedProjects.map(p => `
+                    <div class="pv-item" style="margin-bottom:0.35rem;">
+                        <div class="pv-item-header">
+                            <div><span class="pv-item-title">${escapeHtml(p.title)}</span></div>
+                            <span class="pv-item-date">${escapeHtml(p.tech)}</span>
+                        </div>
+                        <div style="font-size:9.5px; color:#334155; margin-top:2px;">${escapeHtml(p.desc)}</div>
+                    </div>
+                `).join('')}
             </div>
             ` : ''}
 
@@ -725,6 +989,22 @@
                             } : []
                         ];
                     })
+                ] : [],
+
+                // Featured Technical Projects
+                selectedProjects.length > 0 ? [
+                    { text: 'FEATURED TECHNICAL PROJECTS', style: 'sectionHeading' },
+                    { canvas: [{ type: 'line', x1: 0, y1: 0, x2: 523, y2: 0, lineWidth: 0.5, lineColor: '#cbd5e1' }] },
+                    ...selectedProjects.map(p => ([
+                        {
+                            columns: [
+                                { text: p.title, style: 'itemRole' },
+                                { text: p.tech, style: 'itemDate' }
+                            ],
+                            margin: [0, 3, 0, 1]
+                        },
+                        { text: p.desc, fontSize: 9, color: '#334155', margin: [0, 0, 0, 4] }
+                    ]))
                 ] : [],
 
                 // Selected Certifications
