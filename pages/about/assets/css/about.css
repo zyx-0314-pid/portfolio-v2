@@ -53,6 +53,10 @@ html[data-theme="light"] {
     background: var(--surface-depth-base);
 }
 
+#education {
+    background: var(--surface-depth-raised);
+}
+
 #fitness {
     background: var(--surface-depth-raised);
     background-image: radial-gradient(color-mix(in srgb, var(--color-accent) 10%, transparent) 1px, transparent 1px);
@@ -1777,3 +1781,100 @@ html[data-theme="light"] {
     color: var(--color-accent);
     margin-right: 0.5rem;
 }
+
+/* ── Education & Technical Training Subsection ────────────────────────── */
+.education-section-block {
+    margin-top: clamp(3rem, 6vh, 4.5rem);
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
+    padding-top: clamp(2rem, 4vh, 3rem);
+}
+
+.education-section-title {
+    margin-bottom: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.education-card {
+    background: var(--surface-depth-card);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.education-card:hover {
+    border-color: var(--color-accent);
+}
+
+.education-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.education-card__date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+.education-card__badge {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--surface-depth-raised);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.education-card__badge--master {
+    color: var(--color-accent-bright);
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent-deep) 25%, transparent);
+}
+
+.education-card__title {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.35;
+}
+
+.education-card__institution {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--color-accent-bright);
+    margin: 0;
+}
+
+.education-card__field {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+

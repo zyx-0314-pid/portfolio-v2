@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('portfolio-theme');
+                var theme = storedTheme === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <title>ATS Resume Builder | Ian Cedric Ramirez</title>
+    <meta name="description"
+        content="Interactive 1-page ATS-ready PDF Resume Generator for Ian Cedric Ramirez. Select target roles, edit experiences, select credentials, and export vector text PDF.">
+    <meta name="author" content="Ian Cedric Ramirez">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ATS Resume & PDF Builder | Ian Cedric Ramirez">
+    <meta property="og:description"
+        content="Configure target roles (Developer, DevOps, Solutions Engineer), select credentials, and export 1-page ATS-ready PDF resumes.">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          "name": "ATS Resume Builder | Ian Cedric Ramirez",
+          "description": "Interactive tool for generating tailored 1-page ATS-ready PDF resumes.",
+          "author": {
+            "@type": "Person",
+            "name": "Ian Cedric Ramirez"
+          }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../shared/css/global.css">
+    <link rel="stylesheet" href="assets/css/resume-builder.css">
+
+    <!-- CDNJS pdfmake PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="page-shell site-header__inner">
+            <a class="site-brand" href="../../">Ian Cedric Ramirez</a>
+            <div class="site-header__controls">
+                <nav class="site-nav" data-site-nav>
+                    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-menu"
+                        data-nav-toggle>
+                        <span class="sr-only">Toggle navigation</span>
+                        <span aria-hidden="true">Menu</span>
+                    </button>
+                    <div class="site-nav__menu" id="site-menu" data-nav-menu hidden>
+                        <a href="../projects/">Projects</a>
+                        <a href="../experience/">Experience</a>
+                        <a href="../about/">About</a>
+                        <a href="../skills/">Skills</a>
+                        <a href="../credentials/">Credentials</a>
+                        <a href="../blog/">Notes</a>
+                        <a href="../contact/">Contact</a>
+                    </div>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"
+                    title="Switch to light theme">
+                    <span class="theme-toggle__label" data-theme-toggle-label>Light</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="resume-builder-main">
+        <div class="builder-shell">
+
+            <div class="builder-header">
+                <p class="builder-header__eyebrow">CAREER TOOL</p>
+                <h1 class="builder-header__title">ATS RESUME &amp; PDF EXPORT BUILDER</h1>
+                <p class="builder-header__desc">
+                    Customize role profiles, select earned credentials, edit experience bullet points, monitor 1-page layout boundaries, and export pure ATS-parsable vector PDFs via client-side CDNJS engine.
+                </p>
+            </div>
+
+            <div class="builder-layout">
+
+                <!-- LEFT PANE: CONFIGURATION CONTROLS -->
+                <div class="builder-controls">
+
+                    <!-- Panel 1: Target Role Preset -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">
+                            1. Select Target Role
+                            <span class="builder-panel__badge">Pre-configured Profile</span>
+                        </div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Select the role matching your target job. ATS scanners calculate relevance scores based on how closely your title aligns with the job listing.</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="role-radio-group">
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="role-dev" name="role-preset" value="developer" checked>
+                                    <label for="role-dev" class="role-radio-label">
+                                        <strong>Developer</strong>
+                                        <span style="font-size:0.7rem; color:var(--text-muted);">Full-Stack</span>
+                                    </label>
+                                </div>
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="role-devops" name="role-preset" value="devops">
+                                    <label for="role-devops" class="role-radio-label">
+                                        <strong>DevOps</strong>
+                                        <span style="font-size:0.7rem; color:var(--text-muted);">Infra &amp; CI/CD</span>
+                                    </label>
+                                </div>
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="role-se" name="role-preset" value="solutions_engineer">
+                                    <label for="role-se" class="role-radio-label">
+                                        <strong>Solutions Eng.</strong>
+                                        <span style="font-size:0.7rem; color:var(--text-muted);">Architecture &amp; Solutions</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Personal Details & Summary -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">2. Details &amp; Summary</div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Keep your summary to 2–3 concise sentences. Focus on tech stack, experience level, and core capabilities. Avoid fluff words like 'passionate' or 'hardworking'.</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="input-name">Full Name</label>
+                            <input type="text" id="input-name" class="form-input" value="Ian Cedric Ramirez">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="input-contact">Contact Line</label>
+                            <input type="text" id="input-contact" class="form-input"
+                                value="Manila, Philippines | ramirezian037@gmail.com | github.com/nyebe | linkedin.com/in/ian-cedric-ramirez">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="input-title">Target Job Title</label>
+                            <input type="text" id="input-title" class="form-input"
+                                value="Full-Stack Software Developer">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="input-summary">Professional Summary</label>
+                            <textarea id="input-summary" class="form-textarea" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="input-skills">Core Technical Skills (Comma-separated)</label>
+                            <input type="text" id="input-skills" class="form-input">
+                        </div>
+                    </div>
+
+                    <!-- Panel 3: Credentials & Certifications Selection -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">
+                            3. Select Credentials
+                            <span class="builder-panel__badge">Live Portfolio Data</span>
+                        </div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Feature 3–5 high-impact certifications related to the role. Keep credential titles exact so ATS parsers match vendor qualifications.</div>
+                        </div>
+                        <div class="cred-filter-actions">
+                            <button type="button" class="btn-xs" id="btn-cred-select-top">Select Key Certs</button>
+                            <button type="button" class="btn-xs" id="btn-cred-clear">Clear All</button>
+                        </div>
+                        <div class="cred-checkbox-list" id="cred-checkbox-container">
+                            <!-- Populated dynamically from credentials-data.js -->
+                        </div>
+                    </div>
+
+                    <!-- Panel 4: Experience Bullet Points Customization -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">4. Customize Experience Bullets</div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Start bullets with strong action verbs (Architected, Engineered, Implemented) and quantify results with numbers. Uncheck individual jobs to hide them.</div>
+                        </div>
+                        <div id="exp-editors-container">
+                            <!-- Dynamic Experience Editors with Individual Item Checkboxes -->
+                        </div>
+                    </div>
+
+                    <!-- Panel 5: Education Selection -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">5. Select Education &amp; Training</div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Check or uncheck individual degrees and technical training courses to include on your single-page resume.</div>
+                        </div>
+                        <div class="cred-checkbox-list" id="edu-checkbox-container">
+                            <!-- Dynamic Education Item Checkboxes -->
+                        </div>
+                    </div>
+
+                    <!-- Panel 6: Page Density Controls & Export -->
+                    <div class="builder-panel">
+                        <div class="builder-panel__title">6. 1-Page Layout Density</div>
+                        <div class="panel-tip-box">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <div><strong>ATS Tip:</strong> Non-executive technical resumes should fit strictly on 1 page. Adjust layout density (Compact or Micro Fit) so text doesn't overflow.</div>
+                        </div>
+                        <div class="form-group">
+                            <div class="density-options">
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="density-comfort" name="density-preset" value="comfortable">
+                                    <label for="density-comfort" class="role-radio-label">Comfortable</label>
+                                </div>
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="density-compact" name="density-preset" value="compact" checked>
+                                    <label for="density-compact" class="role-radio-label">Compact</label>
+                                </div>
+                                <div class="role-radio-btn">
+                                    <input type="radio" id="density-micro" name="density-preset" value="micro">
+                                    <label for="density-micro" class="role-radio-label">Micro Fit</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sticky CTA Action Bar -->
+                    <div class="action-sticky-bar">
+                        <button type="button" class="btn-secondary" id="btn-refresh-preview" style="flex:1; display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--color-surface); border:1px solid var(--color-border); color:var(--color-text); padding:0.8rem 1rem; border-radius:4px; font-family:var(--font-sans); font-weight:600; font-size:0.95rem; cursor:pointer; transition:all 0.2s ease;">
+                            <i class="fa-solid fa-rotate" aria-hidden="true"></i> Apply &amp; Sync Preview
+                        </button>
+                        <button type="button" class="btn-export-pdf" id="btn-export-pdf" style="flex:1;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Export ATS PDF File
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT PANE: LIVE 1-PAGE VISUAL PREVIEW -->
+                <div class="builder-preview-wrapper">
+                    <div class="preview-toolbar">
+                        <div style="display:flex; align-items:center; gap:0.6rem;">
+                            <span>LIVE 1-PAGE DOCUMENT PREVIEW</span>
+                            <button type="button" class="btn-xs" id="btn-toolbar-refresh" style="display:inline-flex; align-items:center; gap:0.3rem;">
+                                <i class="fa-solid fa-rotate" aria-hidden="true"></i> Sync
+                            </button>
+                        </div>
+                        <div class="page-budget-indicator">
+                            <span class="budget-dot" id="budget-status-dot"></span>
+                            <span id="budget-status-text">1 Page OK</span>
+                        </div>
+                    </div>
+
+                    <!-- Simulated A4 Document Container -->
+                    <div class="preview-page-container density-compact" id="resume-preview-container">
+                        <!-- Rendered by resume-builder.js -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Shared Main JS -->
+    <script src="../../shared/js/main.js"></script>
+
+    <!-- Canonical Credentials Data -->
+    <script src="../credentials/assets/js/credentials-data.js"></script>
+
+    <!-- Resume Builder Controller -->
+    <script src="assets/js/resume-builder.js"></script>
+
+</body>
+
+</html>

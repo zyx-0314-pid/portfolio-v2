@@ -34,7 +34,17 @@
           "description": "Ian Cedric Ramirez - Full-Stack Engineer with a focus on system organization, engineering history, physical endurance, and continuous tinkering.",
           "author": {
             "@type": "Person",
-            "name": "Ian Cedric Ramirez"
+            "name": "Ian Cedric Ramirez",
+            "alumniOf": [
+              {
+                "@type": "EducationalOrganization",
+                "name": "Polytechnic University of the Philippines"
+              },
+              {
+                "@type": "EducationalOrganization",
+                "name": "Isabela State University"
+              }
+            ]
           },
           "inLanguage": "en",
           "isPartOf": {
@@ -125,6 +135,23 @@
                                 </div>
                                 <h2 class="identity-card__title">WORK</h2>
                                 <p class="identity-card__desc">Full-stack development, software architecture, and system reliability.</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 02: Education -->
+                        <a href="#education" class="identity-card" data-carousel-card="education">
+                            <div class="identity-card__media">
+                                <div class="identity-card__collage-soon" aria-label="Education and academic background collage">
+                                    <span>Image</span>
+                                    <span>SOON TO ADD</span>
+                                </div>
+                            </div>
+                            <div class="identity-card__content">
+                                <div class="identity-card__meta">
+                                    <span class="identity-card__category">ACADEMICS &amp; TRAINING</span>
+                                </div>
+                                <h2 class="identity-card__title">EDUCATION</h2>
+                                <p class="identity-card__desc">Master's degree, Bachelor's degree, and technical training certifications.</p>
                             </div>
                         </a>
 
@@ -292,15 +319,16 @@
                 <nav class="sticky-nav" id="sticky-nav" aria-label="About section navigator" data-sticky-nav>
                     <ul class="sticky-nav__list">
                         <li><a href="#work" class="sticky-nav__link"><span class="nav-num">01</span> WORK</a></li>
-                        <li><a href="#fitness" class="sticky-nav__link"><span class="nav-num">02</span> FITNESS</a></li>
-                        <li><a href="#travel" class="sticky-nav__link"><span class="nav-num">03</span> TRAVEL</a></li>
-                        <li><a href="#ideas" class="sticky-nav__link"><span class="nav-num">04</span> IDEAS</a></li>
-                        <li><a href="#making" class="sticky-nav__link"><span class="nav-num">05</span> MAKING</a></li>
-                        <li><a href="#games" class="sticky-nav__link"><span class="nav-num">06</span> GAMES</a></li>
-                        <li><a href="#music" class="sticky-nav__link"><span class="nav-num">07</span> MUSIC</a></li>
-                        <li><a href="#read-anime" class="sticky-nav__link"><span class="nav-num">08</span> READING & ANIME</a></li>
-                        <li><a href="#photography" class="sticky-nav__link"><span class="nav-num">09</span> PHOTOGRAPHY</a></li>
-                        <li><a href="#reading" class="sticky-nav__link"><span class="nav-num">10</span> READING</a></li>
+                        <li><a href="#education" class="sticky-nav__link"><span class="nav-num">02</span> EDUCATION</a></li>
+                        <li><a href="#fitness" class="sticky-nav__link"><span class="nav-num">03</span> FITNESS</a></li>
+                        <li><a href="#travel" class="sticky-nav__link"><span class="nav-num">04</span> TRAVEL</a></li>
+                        <li><a href="#ideas" class="sticky-nav__link"><span class="nav-num">05</span> IDEAS</a></li>
+                        <li><a href="#making" class="sticky-nav__link"><span class="nav-num">06</span> MAKING</a></li>
+                        <li><a href="#games" class="sticky-nav__link"><span class="nav-num">07</span> GAMES</a></li>
+                        <li><a href="#music" class="sticky-nav__link"><span class="nav-num">08</span> MUSIC</a></li>
+                        <li><a href="#read-anime" class="sticky-nav__link"><span class="nav-num">09</span> READING & ANIME</a></li>
+                        <li><a href="#photography" class="sticky-nav__link"><span class="nav-num">10</span> PHOTOGRAPHY</a></li>
+                        <li><a href="#reading" class="sticky-nav__link"><span class="nav-num">11</span> READING</a></li>
                     </ul>
                 </nav>
             </div>
@@ -381,15 +409,75 @@
                             <a href="../projects/" class="about-btn-link">Projects →</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- ── 02. FITNESS - Kinetic Typography Composition ───────────────────── -->
-        <section class="identity-section" id="fitness" aria-labelledby="fitness-title">
+        <!-- ── 02. EDUCATION - Academic & Technical Training Chapter ─────────── -->
+        <section class="identity-section" id="education" aria-labelledby="education-title">
             <div class="about-page-shell">
                 <div class="identity-section__header">
                     <span class="identity-section__num">02</span>
+                    <h2 class="identity-section__title" id="education-title">EDUCATION &amp; TECHNICAL TRAINING</h2>
+                </div>
+                <p class="identity-section__lead">
+                    Academic degrees and technical training certifications across Computer Science, Information Technology, Cloud Computing, and Software Engineering.
+                </p>
+
+                <div class="education-grid">
+                    <!-- Entry 1: PUP -->
+                    <article class="education-card">
+                        <div class="education-card__header">
+                            <span class="education-card__date">Mar 2024 – Current</span>
+                            <span class="education-card__badge education-card__badge--master">Master's Degree</span>
+                        </div>
+                        <h3 class="education-card__title">Master in Information Technology</h3>
+                        <p class="education-card__institution">Polytechnic University of the Philippines</p>
+                        <p class="education-card__field">Field of Study: Information Technology</p>
+                    </article>
+
+                    <!-- Entry 2: TESDA -->
+                    <article class="education-card">
+                        <div class="education-card__header">
+                            <span class="education-card__date">Apr 2025 – May 2025</span>
+                            <span class="education-card__badge">Technical Certification</span>
+                        </div>
+                        <h3 class="education-card__title">Java Developer - Training NCIII</h3>
+                        <p class="education-card__institution">Philippine Technical Education and Skills Development Authority</p>
+                        <p class="education-card__field">Field of Study: Information Technology</p>
+                    </article>
+
+                    <!-- Entry 3: Edukasyon.ph -->
+                    <article class="education-card">
+                        <div class="education-card__header">
+                            <span class="education-card__date">Sep 2023 – Nov 2023</span>
+                            <span class="education-card__badge">Professional Training</span>
+                        </div>
+                        <h3 class="education-card__title">Training, Cloud Practitioner</h3>
+                        <p class="education-card__institution">Edukasyon.ph</p>
+                        <p class="education-card__field">Focus: Cloud Computing &amp; Infrastructure</p>
+                    </article>
+
+                    <!-- Entry 4: Isabela State University -->
+                    <article class="education-card">
+                        <div class="education-card__header">
+                            <span class="education-card__date">Aug 2019 – Sep 2023</span>
+                            <span class="education-card__badge">Bachelor's Degree</span>
+                        </div>
+                        <h3 class="education-card__title">Bachelor's degree in Computer Science</h3>
+                        <p class="education-card__institution">Isabela State University</p>
+                        <p class="education-card__field">Field of Study: Computer Science</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── 03. FITNESS - Kinetic Typography Composition ───────────────────── -->
+        <section class="identity-section" id="fitness" aria-labelledby="fitness-title">
+            <div class="about-page-shell">
+                <div class="identity-section__header">
+                    <span class="identity-section__num">03</span>
                     <h2 class="identity-section__title" id="fitness-title">FITNESS</h2>
                 </div>
                 <p class="identity-section__lead">

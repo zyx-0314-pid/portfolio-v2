@@ -1,0 +1,581 @@
+/* ==========================================================================
+   Resume & ATS PDF Builder Styles (Theme Aware: Light & Dark Mode)
+   ========================================================================== */
+
+.resume-builder-main {
+    padding-top: var(--space-4, 1.5rem);
+    padding-bottom: var(--space-6, 3rem);
+}
+
+.builder-shell {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--page-padding, 1.25rem);
+}
+
+.builder-header {
+    margin-bottom: var(--space-5, 2rem);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4, 1.5rem);
+}
+
+.builder-header__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--color-accent-bright);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.builder-header__title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.builder-header__desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+/* Split Pane Layout */
+.builder-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .builder-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form / Control Panel */
+.builder-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.builder-panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.builder-panel__title {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.builder-panel__badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent-bright);
+    border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+    border-radius: 4px;
+    text-transform: none;
+}
+
+/* ATS Tip Box */
+.panel-tip-box {
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg));
+    border-left: 3px solid var(--color-accent-bright);
+    border-radius: 4px;
+    padding: 0.65rem 0.85rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--color-text);
+}
+
+.panel-tip-box i {
+    color: var(--color-accent-bright);
+    font-size: 0.88rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
+.panel-tip-box strong {
+    color: var(--color-accent-bright);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.form-select,
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-select:focus,
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-bright);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Role Selector Radio Group */
+.role-radio-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .role-radio-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+.role-radio-btn {
+    position: relative;
+}
+
+.role-radio-btn input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.role-radio-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.role-radio-btn input:checked + .role-radio-label {
+    background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright);
+    font-weight: 600;
+}
+
+.role-radio-label:hover {
+    border-color: var(--color-accent);
+}
+
+/* Credentials List Checkboxes */
+.cred-filter-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.btn-xs {
+    padding: 0.25rem 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-xs:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-bright);
+}
+
+.cred-checkbox-list {
+    max-height: 260px;
+    overflow-y: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.5rem;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.cred-item-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.3rem 0.4rem;
+    border-radius: 3px;
+    transition: background 0.15s ease;
+}
+
+.cred-item-label:hover {
+    background: color-mix(in srgb, var(--color-border) 40%, transparent);
+}
+
+.cred-item-label input {
+    margin-top: 2px;
+    accent-color: var(--color-accent);
+}
+
+.cred-item-title {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.cred-item-issuer {
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+}
+
+/* Experience Editor Items */
+.exp-edit-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.exp-edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.exp-edit-title {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-accent-bright);
+}
+
+.bullets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.bullet-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.bullet-row input {
+    flex: 1;
+}
+
+.btn-remove-bullet {
+    background: transparent;
+    border: none;
+    color: #f87171;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9rem;
+}
+
+.btn-remove-bullet:hover {
+    color: #ef4444;
+}
+
+/* Density Controls */
+.density-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+/* Primary Action Sticky Bar */
+.action-sticky-bar {
+    position: sticky;
+    bottom: 1rem;
+    z-index: 10;
+    background: var(--color-surface);
+    border: 1px solid var(--color-accent);
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.btn-export-pdf {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-export-pdf:hover {
+    background: var(--color-accent-bright);
+}
+
+.btn-export-pdf:active {
+    transform: translateY(1px);
+}
+
+/* Live Preview Panel */
+.builder-preview-wrapper {
+    position: sticky;
+    top: calc(var(--site-header-height, 64px) + 1rem);
+}
+
+.preview-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 0.6rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+}
+
+.page-budget-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.budget-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981; /* Green OK */
+}
+
+.budget-dot.overflow {
+    background: #ef4444; /* Red Warning */
+}
+
+/* Realistic A4 Page Mockup (Simulated White Paper Sheet) */
+.preview-page-container {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border: 1px solid #cbd5e1;
+    border-radius: 0 0 6px 6px;
+    padding: 2rem 2.2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-height: 800px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.35;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Density Modifier Classes on Preview Container */
+.preview-page-container.density-comfortable {
+    padding: 2.2rem 2.5rem;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.preview-page-container.density-compact {
+    padding: 1.6rem 2rem;
+    font-size: 10.5px;
+    line-height: 1.3;
+}
+
+.preview-page-container.density-micro {
+    padding: 1.2rem 1.5rem;
+    font-size: 10px;
+    line-height: 1.25;
+}
+
+/* 1-Page Height Boundary Line */
+.page-break-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 980px; /* Simulated A4 Page Bottom */
+    border-top: 2px dashed #ef4444;
+    pointer-events: none;
+}
+
+.page-break-label {
+    position: absolute;
+    right: 1rem;
+    top: -1.2rem;
+    background: #ef4444;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+
+/* Preview Content Styling */
+.pv-header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.pv-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a !important;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.2rem 0;
+    text-transform: uppercase;
+}
+
+.pv-contact {
+    font-size: 10px;
+    color: #475569 !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.pv-section {
+    margin-bottom: 0.75rem;
+}
+
+.pv-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #0f172a !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 0.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.pv-summary {
+    color: #334155 !important;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+}
+
+.pv-item {
+    margin-bottom: 0.5rem;
+}
+
+.pv-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.pv-item-title {
+    font-weight: 700;
+    color: #0f172a !important;
+}
+
+.pv-item-company {
+    font-weight: 600;
+    color: #334155 !important;
+}
+
+.pv-item-date {
+    font-size: 9.5px;
+    color: #64748b !important;
+}
+
+.pv-bullet-list {
+    margin: 0.25rem 0 0 1.2rem;
+    padding: 0;
+}
+
+.pv-bullet-list li {
+    margin-bottom: 0.2rem;
+    color: #334155 !important;
+}
+
+.pv-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.pv-skill-tag {
+    display: inline-block;
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 9.5px;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
