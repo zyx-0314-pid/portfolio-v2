@@ -72,6 +72,7 @@
     if (norm.includes('cisco')) return 'pages/credentials/assets/img/cisco.jpg';
     if (norm.includes('cybrary')) return 'pages/credentials/assets/img/cybrary.jpg';
     if (norm.includes('datacamp')) return 'pages/credentials/assets/img/datacamp.jpg';
+    if (norm.includes('docker')) return 'pages/credentials/assets/img/docker.jpg';
     if (norm.includes('github')) return 'pages/credentials/assets/img/github.jpg';
     if (norm.includes('google')) return 'pages/credentials/assets/img/google.jpg';
     if (norm.includes('hackerrank')) return 'pages/credentials/assets/img/hakerrank.jpg';

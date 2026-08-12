@@ -313,30 +313,38 @@ window.CREDENTIALS_DATA = [
       "DevOps",
       "Platform"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Dec 2025",
+    "earnedDate": "Dec 2025",
+    "earnedYear": "2025",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "7440bed70d112810937f71587f272579e0b80e83a22f2c997c5bb833b1dc2343",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/7440bed70d112810937f71587f272579e0b80e83a22f2c997c5bb833b1dc2343"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Docker Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Docker Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
+    "description": "Container fundamentals professional certificate by Docker covering container packaging, Docker CLI, container images, multi-container applications with Docker Compose, and software delivery workflows.",
+    "about": "Containers help developers pack up their applications, ensuring they run smoothly anywhere. Software developers need to understand these technologies to deliver software as a team. Whether you are new to Docker or looking to review the fundamentals, these courses can help.",
     "skills": [
       "Docker CLI",
-      "Container images",
-      "Docker Compose"
+      "Container Images",
+      "Docker Compose",
+      "Containerization",
+      "Software Delivery"
     ],
     "officialCoverage": [
       {
-        "domain": "Covered Skills",
+        "domain": "Program Scope",
         "topics": [
-          "Docker CLI",
-          "Container images",
-          "Docker Compose"
+          "Docker CLI fundamentals",
+          "Container image creation and management",
+          "Multi-container orchestration with Docker Compose",
+          "Consistent application environments across deployments"
         ]
       }
     ],
@@ -345,13 +353,11 @@ window.CREDENTIALS_DATA = [
     "relatedExperience": [],
     "parentProgram": null,
     "includedCredentials": [],
-    "credentialKind": null,
+    "credentialKind": "Professional Certificate Program",
     "projectStatus": null,
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -500,34 +506,54 @@ window.CREDENTIALS_DATA = [
       "Cloud",
       "Platform"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
-    "expirationDate": null,
-    "expiresDate": null,
+    "completionDate": "Dec 2025",
+    "earnedDate": "Dec 2025",
+    "earnedYear": "2025",
+    "expirationDate": "Dec 2027",
+    "expiresDate": "Dec 2027",
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "313826c5-a7e6-48c4-915c-153ec8def345",
+    "verificationLinks": [
+      {
+        "label": "Verify on Snowflake",
+        "url": "https://achieve.snowflake.com/313826c5-a7e6-48c4-915c-153ec8def345#acc.WA6Q294B"
+      }
+    ],
     "certificateAsset": "pages/credentials/certifications/snowpro-associate-platform/assets/img/snowflake_badge.jpg",
     "issuerUrl": null,
-    "description": "Snowflake SnowPro Associate: Platform is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Snowflake SnowPro Associate: Platform is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Snowflake platform associate certification validating skills in Snowflake UI & Notebooks, database and compute resources management, structured/semi-structured/unstructured data loading, access control, account management, and Snowflake Cortex LLM functions.",
+    "about": "This certification validates that a candidate has the knowledge and skills to set up and navigate the Snowflake user interface and Snowflake Notebooks, create databases, stages, and compute resources, load and leverage structured, semi-structured, and unstructured data, manage Snowflake roles and data access, oversee Snowflake Account structure, and invoke Snowflake Cortex LLM functions.",
+    "skills": [
+      "Snowflake Platform",
+      "Snowflake UI & Notebooks",
+      "Data Loading & Staging",
+      "Semi-Structured & Unstructured Data",
+      "Role-Based Access Control (RBAC)",
+      "Snowflake Cortex LLM Functions"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Certification Scope",
+        "topics": [
+          "Setup and navigate Snowflake UI and Snowflake Notebooks",
+          "Create databases, stages, and manage compute resources",
+          "Load and query structured, semi-structured, and unstructured data",
+          "Snowflake roles and data access management",
+          "Snowflake account structure administration",
+          "Call Snowflake Cortex LLM functions"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
     "parentProgram": null,
     "includedCredentials": [],
-    "credentialKind": null,
+    "credentialKind": "Vendor Certification",
     "projectStatus": null,
     "repositoryUrl": null,
     "projectUrl": null,
-    "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
-      "Add certificate asset if available."
-    ],
+    "todos": [],
     "starRank": 2,
     "starLabel": "Strong supporting credential",
     "rankingNote": null
@@ -651,20 +677,47 @@ window.CREDENTIALS_DATA = [
       "Cybersecurity",
       "AI Governance"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "cbbb3ba53c3a6a316c8742c4dbb10987218aafbe21b0e156941659e368bbe119",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/cbbb3ba53c3a6a316c8742c4dbb10987218aafbe21b0e156941659e368bbe119"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Microsoft Security Essentials Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Microsoft Security Essentials Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Professional certificate program by Microsoft and LinkedIn covering modern cybersecurity concepts like zero trust and defense-in-depth across Microsoft's security ecosystem: Entra, Defender, Sentinel, Intune, Purview, Priva, and Security Copilot.",
+    "about": "Begin your cybersecurity journey with modern concepts like zero trust and defense-in-depth while exploring Microsoft's comprehensive security ecosystem: Entra, Defender, Sentinel, Intune, Purview, Priva, and Copilot for Security. By certificate completion, you'll understand the essential building blocks of Microsoft's security solutions and how they work together to protect organizations.",
+    "skills": [
+      "Zero Trust Architecture",
+      "Defense in Depth",
+      "Microsoft Entra",
+      "Microsoft Defender",
+      "Microsoft Sentinel",
+      "Microsoft Intune",
+      "Microsoft Purview",
+      "Microsoft Priva",
+      "Copilot for Security"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "Zero Trust model and defense-in-depth",
+          "Identity and access management with Microsoft Entra",
+          "Threat protection with Microsoft Defender and Sentinel",
+          "Endpoint and compliance management with Intune and Purview",
+          "Privacy protection with Priva",
+          "AI-powered security with Security Copilot"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -675,8 +728,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -697,20 +748,44 @@ window.CREDENTIALS_DATA = [
     "domains": [
       "Cybersecurity"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "7713525e9243be5375b35a0adc9eddd9d0e38b760d0ed29a7c08fd0a8c1ca3ab",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/7713525e9243be5375b35a0adc9eddd9d0e38b760d0ed29a7c08fd0a8c1ca3ab"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Cybrary Penetration Testing Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Cybrary Penetration Testing Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Penetration testing professional certificate program by Cybrary covering ethical hacking, the cyber kill chain, advanced exploit analysis, and hands-on tool usage with Kali Linux, Metasploit, and Burp Suite.",
+    "about": "Penetration testing is a key discipline in a cybersecurity career. In this learning path, master ethical hacking, from the cyber kill chain to advanced exploit analysis. Gain hands-on expertise with Kali Linux, Metasploit, and Burp Suite to excel in identifying and mitigating vulnerabilities.",
+    "skills": [
+      "Ethical Hacking",
+      "Cyber Kill Chain",
+      "Exploit Analysis",
+      "Kali Linux",
+      "Metasploit",
+      "Burp Suite",
+      "Vulnerability Assessment"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "Ethical hacking principles",
+          "Cyber kill chain framework",
+          "Advanced exploit analysis",
+          "Hands-on tools: Kali Linux, Metasploit, Burp Suite",
+          "Vulnerability identification and mitigation"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -721,8 +796,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -744,20 +817,41 @@ window.CREDENTIALS_DATA = [
       "DevOps",
       "Reliability"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "c938961abcf3cd09b3484ec34873020140ab3a59058ea57dd759a74cc938795b",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/c938961abcf3cd09b3484ec34873020140ab3a59058ea57dd759a74cc938795b"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "PagerDuty DevOps Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "PagerDuty DevOps Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "DevOps professional certificate program by PagerDuty and LinkedIn covering DevOps fundamentals, cross-functional collaboration between development and operations teams, and reliability practices.",
+    "about": "DevOps is not a framework or a workflow. DevOps ensures collaboration and communication between software engineers (Dev) and IT operations (Ops). Whether you are new to DevOps or looking to review the fundamentals, these courses can help. Offered by PagerDuty and LinkedIn.",
+    "skills": [
+      "DevOps Fundamentals",
+      "DevOps Culture & Mindset",
+      "Dev & Ops Collaboration",
+      "Incident Management",
+      "Reliability Engineering"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "DevOps principles and culture",
+          "Developer and operations collaboration",
+          "Incident response and incident management",
+          "Service reliability and operational practices"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -768,8 +862,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -791,20 +883,41 @@ window.CREDENTIALS_DATA = [
       "Microservices",
       "Architecture"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "7d0d1129ab38e828b6e40d17d9ecf7a82cee8a0ea26f27c70d62bcf0683be1ad",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/7d0d1129ab38e828b6e40d17d9ecf7a82cee8a0ea26f27c70d62bcf0683be1ad"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Kong Microservices Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Kong Microservices Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Microservices architecture professional certificate program by Kong covering beginner foundations, resilient system design, microservice patterns, API gateways, and codebase refactoring.",
+    "about": "Want to learn what microservices are all about? This architecture pattern helps developers work faster and build more resilient systems. These courses cover everything from beginner foundations to advanced patterns and refactoring codebases. Tune in, pass the final exam, and earn your professional certificate.",
+    "skills": [
+      "Microservices Architecture",
+      "Resilient System Design",
+      "Microservice Design Patterns",
+      "Codebase Refactoring",
+      "API Gateway Basics"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "Microservice architecture foundations",
+          "Building resilient distributed systems",
+          "Advanced microservice design patterns",
+          "Monolith refactoring to microservices"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -815,8 +928,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -838,20 +949,41 @@ window.CREDENTIALS_DATA = [
       "Responsible AI",
       "AI Governance"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "51f8fedd356f1a4d3b7191156bfa5d6d699e3c9f0747bee4ad7ce3cafe715182",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/51f8fedd356f1a4d3b7191156bfa5d6d699e3c9f0747bee4ad7ce3cafe715182"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "All Tech Is Human Responsible AI Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "All Tech Is Human Responsible AI Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Responsible AI professional certificate by All Tech Is Human equipping technologists with skills to identify AI risks, implement governance structures, and ensure accountability across predictive, generative, and agentic systems.",
+    "about": "AI is transforming every industry, and responsible deployment requires both technical knowledge and ethical frameworks. This learning path equips technologists, product managers, and policy professionals with skills to identify AI risks, implement governance structures, and ensure accountability across predictive, generative, and agentic systems.",
+    "skills": [
+      "Responsible AI",
+      "AI Risk Identification",
+      "AI Governance Frameworks",
+      "AI Accountability",
+      "Predictive, Generative & Agentic AI Ethics"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "Ethical frameworks for AI deployment",
+          "Identifying risks in predictive, generative, and agentic AI",
+          "Implementing AI governance structures",
+          "Ensuring accountability and transparency in AI systems"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -862,8 +994,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -885,20 +1015,41 @@ window.CREDENTIALS_DATA = [
       "Git & GitHub",
       "Software Engineering"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "7a62c8a9ab759f1f554aa640e92381a88cff63e56f2603adda985d0dc27287e2",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/7a62c8a9ab759f1f554aa640e92381a88cff63e56f2603adda985d0dc27287e2"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "GitHub Career Essentials in GitHub Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "GitHub Career Essentials in GitHub Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Career Essentials in GitHub Professional Certificate by GitHub and LinkedIn teaching essential repository management, collaboration workflows, portfolio development, and open-source contribution skills.",
+    "about": "Want to advance your developer journey? Are you a new computer science grad looking for a developer role? These courses teach the skills to enrich your GitHub portfolio and elevate your profile in today's competitive job market.",
+    "skills": [
+      "GitHub Workflows",
+      "Git Version Control",
+      "Developer Portfolio Building",
+      "Open Source Collaboration",
+      "Project Management on GitHub"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "GitHub developer workflows and repository administration",
+          "Enriching developer portfolio projects",
+          "Collaborative Git workflows and pull requests",
+          "Professional developer presence on GitHub"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -909,8 +1060,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -933,20 +1082,42 @@ window.CREDENTIALS_DATA = [
       "AI",
       "Software Engineering"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "5476a60cf80244b9138a16c522d5fc69d08def77cbb50e7c25b7005d153ead5d",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/5476a60cf80244b9138a16c522d5fc69d08def77cbb50e7c25b7005d153ead5d"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Career Essentials in GitHub Copilot Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Career Essentials in GitHub Copilot Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Career Essentials in GitHub Copilot Professional Certificate by GitHub teaching AI pair programming, code refactoring, Copilot Chat extensions, workflow optimization, and responsible AI coding practices.",
+    "about": "GitHub Copilot transforms coding with AI pair programming capabilities. This certificate program teaches you to leverage Copilot to write, refactor, and improve code while maintaining ethical standards. You'll learn to use Copilot Chat extensions, optimize your development workflow, and create reliable code responsibly.",
+    "skills": [
+      "GitHub Copilot",
+      "AI Pair Programming",
+      "Copilot Chat Extensions",
+      "AI-Assisted Refactoring",
+      "Responsible AI Coding"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "AI pair programming with GitHub Copilot",
+          "Writing, refactoring, and improving code with AI",
+          "Leveraging Copilot Chat extensions",
+          "Development workflow optimization",
+          "Ethical and responsible AI code generation"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -957,8 +1128,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 2,
@@ -980,20 +1149,41 @@ window.CREDENTIALS_DATA = [
       "JavaScript",
       "Web Development"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "ffb04a68d0112787055ce101de030975f9695c42a0564d6373136cdf434b1d12",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/ffb04a68d0112787055ce101de030975f9695c42a0564d6373136cdf434b1d12"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Mozilla JavaScript Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Mozilla JavaScript Foundations Professional Certificate is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "JavaScript Foundations Professional Certificate by Mozilla covering core front-end development, variables, functions, asynchronous tasks, DOM scripting, and hands-on web development expertise.",
+    "about": "JavaScript is the key to a career in front-end development. These courses equip you with essential skills to master the language, from fundamental concepts like variables and functions to advanced topics such as asynchronous tasks and DOM scripting. With hands-on practice and real-time feedback, you'll gain the expertise needed to excel in web development.",
+    "skills": [
+      "JavaScript (ES6+)",
+      "DOM Scripting",
+      "Asynchronous JavaScript",
+      "Front-End Web Development",
+      "JavaScript Fundamentals"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Program Scope",
+        "topics": [
+          "JavaScript syntax, variables, and functions",
+          "DOM manipulation and event handling",
+          "Asynchronous programming (Promises, Async/Await)",
+          "Front-end web engineering practices"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -1004,8 +1194,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -1042,19 +1230,23 @@ window.CREDENTIALS_DATA = [
     ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Intermediate professional certificate covering software testing foundations, tools, and techniques.",
-    "about": "Intermediate professional certificate covering software testing foundations, tools, and techniques.",
+    "description": "An intermediate professional certificate program on LinkedIn Learning endorsed by TestMu AI (formerly LambdaTest) covering core software testing foundations, agile methods, and modern quality assurance (QA) techniques.",
+    "about": "The TestMu AI Software Testing Professional Certificate is an intermediate professional certificate program on LinkedIn Learning endorsed by TestMu AI (formerly LambdaTest). It helps beginners and professionals master core software testing foundations, agile methods, and modern quality assurance (QA) techniques.",
     "skills": [
       "Software testing foundations",
-      "Testing tools and techniques",
-      "Software testing career preparation"
+      "Agile methods",
+      "Modern QA techniques",
+      "Software quality assurance"
     ],
     "officialCoverage": [
       {
         "domain": "Program Scope",
         "topics": [
           "Intermediate level",
-          "Software testing foundations, tools, and techniques"
+          "Software testing foundations",
+          "Agile testing methods",
+          "Modern quality assurance (QA) techniques",
+          "Endorsed by TestMu AI"
         ]
       }
     ],
@@ -1069,7 +1261,7 @@ window.CREDENTIALS_DATA = [
     "relatedExperience": [],
     "parentProgram": null,
     "includedCredentials": [],
-    "credentialKind": "Professional Certificate Program",
+    "credentialKind": "Intermediate Professional Certificate",
     "projectStatus": null,
     "repositoryUrl": null,
     "projectUrl": null,
@@ -2245,10 +2437,25 @@ window.CREDENTIALS_DATA = [
     ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "GitHub Foundations: Track is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "GitHub Foundations: Track is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "An interactive, four-course learning curriculum designed in partnership with GitHub to prepare users for the official GitHub Foundations Certification exam, covering Git version control, repository management, and core collaboration workflows.",
+    "about": "The DataCamp GitHub Foundations Track is an interactive, four-course learning curriculum designed in partnership with GitHub to prepare users for the official GitHub Foundations Certification exam. It provides hands-on, practical training covering Git version control, repository management, and core collaboration workflows.",
+    "skills": [
+      "Git version control",
+      "Repository management",
+      "Core collaboration workflows",
+      "GitHub Foundations preparation"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Curriculum Scope",
+        "topics": [
+          "Git version control",
+          "Repository management",
+          "Core collaboration workflows",
+          "GitHub Foundations exam preparation"
+        ]
+      }
+    ],
     "relatedCredentials": [
       "github-foundations"
     ],
@@ -2282,20 +2489,50 @@ window.CREDENTIALS_DATA = [
       "Cloud",
       "Cybersecurity"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 25, 2026",
+    "earnedDate": "Apr 25, 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "5fd89ab981caeb84d6874e7ca98d5a57bc998da105f23e7171741fe809c53773",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/5fd89ab981caeb84d6874e7ca98d5a57bc998da105f23e7171741fe809c53773"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Cloud Security Concepts: Services and Compliance is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Cloud Security Concepts: Services and Compliance is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Cloud security course by David Linthicum covering business cases, security models (infrastructure, application, data), identity & risk management, encryption, MFA, generative AI for compliance, Azure & AWS security services, and industry compliance.",
+    "about": "Understand the basics of cloud security—one of the most critical components of cloud computing. Beginning with the basics, instructor David Linthicum explains the business case for cloud security and provides an overview of the levels and models available, including infrastructure-, application-, and data-level security; identity and risk management; encryption; and multifactor authentication. The course covers the use of generative AI for cloud compliance and the fundamental security services offered by Azure and AWS. It reviews the compliance issues that affect specific industries, such as healthcare, retail, and finance.",
+    "skills": [
+      "Cloud Security",
+      "Infrastructure Security",
+      "Application Security",
+      "Data Security",
+      "Identity & Access Management",
+      "Encryption",
+      "Multifactor Authentication",
+      "Generative AI for Compliance",
+      "AWS Security Services",
+      "Azure Security Services",
+      "Industry Compliance"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Business case for cloud security",
+          "Security models (infrastructure, application, data)",
+          "Identity & risk management",
+          "Encryption & MFA",
+          "Generative AI for cloud compliance",
+          "Azure & AWS security services",
+          "Industry compliance (healthcare, retail, finance)"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2306,8 +2543,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2329,20 +2564,41 @@ window.CREDENTIALS_DATA = [
       "Cloud",
       "Architecture"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "76e38c98f896c944dfe59e834ad8f2c646cb67e1ee9952a26a0c39f25c6b4456",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/76e38c98f896c944dfe59e834ad8f2c646cb67e1ee9952a26a0c39f25c6b4456"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Cloud Architecture: Core Concepts is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Cloud Architecture: Core Concepts is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Cloud architecture course by David Linthicum covering business and technical requirements, fundamentals of cloud architecture, components, and building cloud computing solutions.",
+    "about": "Are you new to cloud computing? If so, this course can help you build your cloud computing skill set by familiarizing you with the business and tech-related basics of creating a cloud computing architecture. Join cloud-computing luminary David Linthicum as he discusses what cloud architecture is and why a strong architecture is crucial. After covering the fundamentals, he moves on to identifying the business and technical requirements of building a cloud architecture and goes over cloud parts and how to work from requirements to a solution. The course concludes by leading you through how to build your first architecture.",
+    "skills": [
+      "Cloud Architecture",
+      "Business & Technical Requirements",
+      "Cloud Solution Design",
+      "Cloud Infrastructure Basics"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Cloud architecture fundamentals",
+          "Business and technical requirement identification",
+          "Cloud components and system design",
+          "Requirements-to-solution translation",
+          "Building cloud architectures"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2353,8 +2609,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2376,20 +2630,43 @@ window.CREDENTIALS_DATA = [
       "Cloud",
       "Architecture"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "a79700d1bf74dc097c3725b4e4cca8d5264e2e56b81e943e9991830945b5df80",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/a79700d1bf74dc097c3725b4e4cca8d5264e2e56b81e943e9991830945b5df80"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Determining Your Cloud Strategy: Planning for Roadmap, Infrastructure, and Deployment is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Determining Your Cloud Strategy: Planning for Roadmap, Infrastructure, and Deployment is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Cloud strategy course by Rashim Mogha exploring hybrid/multicloud models, business impact, proof of concepts, Cloud Center of Excellence, evaluating cloud partners, and MSP selection.",
+    "about": "In this course, bestselling author and technology leader Rashim Mogha explores how to craft a comprehensive cloud strategy that supports your company in navigating digital transformation. Learn about hybrid and multicloud deployment models and how to make the business impacts of cloud migration clear to stakeholders. Discover how to select and implement proof of concept projects effectively and explore the pivotal role of a Cloud Center of Excellence. Gain insights into developing a robust team that embraces change and leverages emerging technologies. Review best practices for evaluating cloud partners and deciding on managed service providers.",
+    "skills": [
+      "Cloud Strategy",
+      "Hybrid & Multicloud Deployment",
+      "Cloud Migration",
+      "Cloud Center of Excellence (CCoE)",
+      "Proof of Concept (PoC) Selection",
+      "Vendor & MSP Evaluation"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Hybrid and multicloud deployment models",
+          "Communicating cloud migration impact to stakeholders",
+          "Selecting and implementing proof of concept (PoC) projects",
+          "Establishing a Cloud Center of Excellence (CCoE)",
+          "Evaluating cloud partners and managed service providers (MSPs)"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2400,8 +2677,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2422,20 +2697,42 @@ window.CREDENTIALS_DATA = [
     "domains": [
       "Software Testing"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "7ef8e39fd0e983f6c9457a851ba77fa82bdf011b97bc750251172554ff4930e1",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/7ef8e39fd0e983f6c9457a851ba77fa82bdf011b97bc750251172554ff4930e1"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Foundations: Software Testing / QA is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Foundations: Software Testing / QA is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Software testing and QA course by Meaghan Lewis covering testing practices in software engineering, SDLC integration, continuous monitoring, and communicating product health.",
+    "about": "Quality assurance (QA) engineering can mean many different things to different people. In this course, learn about QA practices within the context of a software engineering project. Instructor Meaghan Lewis demonstrates the different kinds of testing QA focuses on and how QA fits into the software development life cycle (SDLC). Meaghan explores the areas you'll likely want to test and continuously monitor to ensure increasing improvements to your product. Plus, she goes over some of the mechanisms used to communicate the overall health of a product.",
+    "skills": [
+      "Software Quality Assurance",
+      "SDLC Testing Integration",
+      "Test Monitoring",
+      "Product Health Metrics",
+      "Software Testing Foundations"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "QA practices in software engineering projects",
+          "Testing types and SDLC integration",
+          "Continuous testing and monitoring",
+          "Product health communication mechanisms",
+          "Meeting quality goals in software releases"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2446,8 +2743,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2468,20 +2763,40 @@ window.CREDENTIALS_DATA = [
     "domains": [
       "Software Testing"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "789b5b369f4f4d521dc6ac10b93f264de38a206fbf0f0d1af4edc56be3db3bd3",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/789b5b369f4f4d521dc6ac10b93f264de38a206fbf0f0d1af4edc56be3db3bd3"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Succeeding in Software Testing is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Succeeding in Software Testing is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Software testing career guide by Ash Coleman covering testing career trajectories, specializations, transitioning into QA, and navigating software quality roles.",
+    "about": "Testing is an integral part of creating quality software, but exactly how does one become a successful software tester? Software testing is an odd position in the development world, in that there’s not really a formal path or set of credentials that necessarily qualify you as a software tester. In this course, engineering manager Ash Coleman—who herself swapped out a career as a chef for a quality-control leadership role—details the various career paths and trajectories of software testers, from the wide variety of backgrounds they come from to the different specializations they can pursue.",
+    "skills": [
+      "Software Testing Career Paths",
+      "QA Leadership",
+      "Software Quality Control",
+      "Testing Specializations"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Career trajectories in software testing",
+          "Specializations in QA and quality engineering",
+          "Transitioning into software testing roles",
+          "Baseline guidance for software quality careers"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2492,8 +2807,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2515,20 +2828,43 @@ window.CREDENTIALS_DATA = [
       "Software Testing",
       "Agile"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "583fe8d9452bd4bd4cdf7cdcbde8ae3bd0a86964a4a151a773d54bd919ff1f34",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/583fe8d9452bd4bd4cdf7cdcbde8ae3bd0a86964a4a151a773d54bd919ff1f34"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Agile Testing is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Agile Testing is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Agile testing course by Ash Coleman covering the role of testers in agile teams, bug tracking, manual testing, test automation, and continuous integration (CI).",
+    "about": "Learn how to create higher-quality software at a faster clip by implementing agile testing in your organization. Throughout this course, instructor Ash Coleman helps you boost your understanding of the role and methods of software testers, as well as how testing can enhance your agile workflow. To kick things off, Ash goes over the role of the tester in agile teams, detailing how testers govern, monitor, and encourage quality practices. Next, she steps through the agile testing approach and pinpoints where testers can add value. She also helps to acquaint you with key testing processes and responsibilities, including bug tracking; explores both manual testing and test automation; and discusses how continuous integration can be incorporated into the mix.",
+    "skills": [
+      "Agile Testing",
+      "Tester Role in Agile",
+      "Bug Tracking",
+      "Manual Testing",
+      "Test Automation",
+      "Continuous Integration (CI)"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Role of tester in agile teams",
+          "Agile testing methods and value addition",
+          "Bug tracking processes and responsibilities",
+          "Manual testing vs. test automation",
+          "Integrating testing into Continuous Integration (CI)"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2539,8 +2875,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2561,20 +2895,42 @@ window.CREDENTIALS_DATA = [
     "domains": [
       "Software Testing"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "4e677b09f37f2989a03c5e1f4156223b3da193fbb9636cd70fd400959892f920",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/4e677b09f37f2989a03c5e1f4156223b3da193fbb9636cd70fd400959892f920"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Software Testing Tips Weekly is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Software Testing Tips Weekly is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Software testing course by Michael Smith covering developer communication, effective bug reports, testing personas, test data management, and team presence.",
+    "about": "As a software tester, it's your job to ensure that your organization ships high-quality, working software to customers. But how can you best communicate the issues you spot to developers and other members of your organization? And what's the best way to approach bug reporting in general? In this weekly series, get fresh insights to enhance both your technical and interpersonal skills as a software tester. Instructor Michael Smith shares best practices for communicating effectively with software developers, as well as how to maximize your presence on your own team. He also shares tips for better bug reports, using personas for testing, working with test data, and more.",
+    "skills": [
+      "Developer Communication",
+      "Bug Reporting",
+      "Testing Personas",
+      "Test Data Management",
+      "QA Collaboration"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Effective communication with developers",
+          "Maximizing tester presence on development teams",
+          "Writing actionable bug reports",
+          "Utilizing personas in testing",
+          "Managing test data effectively"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2585,8 +2941,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2608,20 +2962,43 @@ window.CREDENTIALS_DATA = [
       "Cybersecurity",
       "AI"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "e83b1b734352195e33f58c4b02352609f85e681026c11e224665777d24c6fb44",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/e83b1b734352195e33f58c4b02352609f85e681026c11e224665777d24c6fb44"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Microsoft Security Essentials: Concepts, Solutions, and AI-Powered Protection is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Microsoft Security Essentials: Concepts, Solutions, and AI-Powered Protection is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Microsoft security course by Bryan Li introducing Entra, Defender, Sentinel, Intune, Purview, Priva, Security Copilot, defense in depth, Zero Trust, IAM, XDR, SIEM, CNAPP, and AI security.",
+    "about": "This course is designed to introduce you to a wide range of Microsoft security solutions, including Microsoft Entra, Defender, Sentinel, Intune, Purview, Priva, and Security Copilot. Instructor Bryan Li covers key security concepts such as defense in depth; governance, risk, and compliance (GRC); the Zero Trust model; and more. Along the way, you’ll learn about leveraging Microsoft security solutions in areas like identity and access management (IAM), extended detection and response (XDR), security information and event management (SIEM), cloud infrastructure security, cloud-native application protection platform (CNAPP), endpoint security and management, risk and compliance management, data security and governance, privacy protection, and AI-powered security.",
+    "skills": [
+      "Microsoft Security Ecosystem",
+      "Defense in Depth",
+      "Zero Trust Model",
+      "IAM & XDR",
+      "SIEM & CNAPP",
+      "AI-Powered Protection (Security Copilot)"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Microsoft security ecosystem (Entra, Defender, Sentinel, Intune, Purview, Priva, Security Copilot)",
+          "Defense in depth and Zero Trust model",
+          "Governance, risk, and compliance (GRC)",
+          "Identity & Access Management (IAM), XDR, and SIEM",
+          "Cloud-native application protection (CNAPP) and AI-powered security"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2632,8 +3009,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,
@@ -2654,20 +3029,41 @@ window.CREDENTIALS_DATA = [
     "domains": [
       "Cybersecurity"
     ],
-    "completionDate": null,
-    "earnedDate": null,
-    "earnedYear": "Unverified",
+    "completionDate": "Apr 2026",
+    "earnedDate": "Apr 2026",
+    "earnedYear": "2026",
     "expirationDate": null,
     "expiresDate": null,
     "status": "Current",
-    "credentialId": null,
-    "verificationLinks": [],
+    "credentialId": "5dce3c92a2dc8cefa0b3d908cac27daaafcf96912295e0524df43cc1f832d37e",
+    "verificationLinks": [
+      {
+        "label": "Verify on LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/certificates/5dce3c92a2dc8cefa0b3d908cac27daaafcf96912295e0524df43cc1f832d37e"
+      }
+    ],
     "certificateAsset": null,
     "issuerUrl": null,
-    "description": "Offensive Penetration Testing is preserved in the portfolio's canonical credential and training inventory.",
-    "about": "Offensive Penetration Testing is preserved in the portfolio's canonical credential and training inventory.",
-    "skills": [],
-    "officialCoverage": [],
+    "description": "Offensive penetration testing course by Clint Kehr guiding learners from fundamental hacking concepts to advanced exploitation techniques and real-life attacker methodologies.",
+    "about": "As a pentester, you need to understand the methods of real-life attackers and use the tools, techniques, and resources they exploit. Join ethical hacker Clint Kehr as he guides you from basic hacking concepts to advanced exploitation techniques in this Offensive Penetration Testing Course. Develop the hacker mindset or hone your existing skills.",
+    "skills": [
+      "Offensive Security",
+      "Penetration Testing",
+      "Ethical Hacking",
+      "Advanced Exploitation",
+      "Attacker Methodologies"
+    ],
+    "officialCoverage": [
+      {
+        "domain": "Course Scope",
+        "topics": [
+          "Hacker mindset and attacker methodologies",
+          "Basic to advanced exploitation techniques",
+          "Pentesting tools and resources",
+          "Identifying and exploiting security vulnerabilities"
+        ]
+      }
+    ],
     "relatedCredentials": [],
     "relatedTraining": [],
     "relatedExperience": [],
@@ -2678,8 +3074,6 @@ window.CREDENTIALS_DATA = [
     "repositoryUrl": null,
     "projectUrl": null,
     "todos": [
-      "Confirm completion date.",
-      "Add verification link if available.",
       "Add certificate asset if available."
     ],
     "starRank": 1,

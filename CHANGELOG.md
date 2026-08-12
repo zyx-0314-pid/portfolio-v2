@@ -2,6 +2,26 @@
 
 All notable portfolio-level changes are recorded here.
 
+## Version 1.1.0 - 2026-08-12
+
+### Credentials & Certifications Inventory Update
+
+- **Complete Credential Information & Verification**:
+  - Updated completion dates (`Apr 2026` / `Dec 2025`), expiration dates (`Dec 2027` for SnowPro Associate), and unique credential verification IDs across `credentials-data.js`.
+  - Added direct verification links (LinkedIn Learning certificate URLs & Snowflake Accredible verification links) for all professional certifications and training courses.
+  - Formatted comprehensive course descriptions, about sections, skill tags, and domain-grouped official coverage topics.
+
+- **Issuer Images & Visual Assets**:
+  - Integrated and mapped issuer logos (`docker.jpg`, `all_tech_is_human.jpg`, `kong.jpg`, `mozilla.jpg`, `github.jpg`, `snowflakes.jpg`, `pagerduty.jpg`, `microsoft.jpg`, `cybrary.jpg`, `datacamp.jpg`, `testmu.jpg`, `linkedin.jpg`) in `credential-detail.js`.
+
+- **SEO & Schema Standardization**:
+  - Standardized `<meta name="description">` tags across all credential detail pages in `/pages/credentials/certifications/` and `/pages/credentials/training/`.
+  - Updated JSON-LD `@type: "EducationalOccupationalCredential"` schema definitions with factual `identifier` and `url` properties on all detail pages.
+
+- **Editorial Refinements**:
+  - Emphasized Intermediate level classification for TestMu AI Software Testing Professional Certificate (`Intermediate Professional Certificate`).
+  - Removed all course duration/hour mentions across descriptions, about text, and coverage lists per design guidelines.
+
 ## Version 1 - 2026-08-12
 
 Initial baseline for the existing static portfolio website.
